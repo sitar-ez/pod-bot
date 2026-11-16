@@ -26,10 +26,8 @@ Keep a notes file open to hold them as you go.
 ### 1. Telegram bot (5 min)
 1. In Telegram, open a chat with **@BotFather** and send `/newbot`. Pick any name.
 2. BotFather replies with a **token** (looks like `123456:ABC-xyz...`). Save it as `TELEGRAM_BOT_TOKEN`.
-3. Open a chat with your new bot and send it the message `hi`.
-4. In a browser, go to `https://api.telegram.org/bot<YOUR TOKEN>/getUpdates`
-   (paste your token where it says `<YOUR TOKEN>`). Find `"chat":{"id":` followed by a number.
-   Save that number as `TELEGRAM_CHAT_ID`.
+3. Open a chat with your new bot and send it the message `hi`. That's how the bot
+   finds you; no chat ID needed.
 
 ### 2. Claude API key (3 min)
 1. Go to **console.anthropic.com** → API Keys → Create Key. Save it as `ANTHROPIC_API_KEY`.
@@ -84,7 +82,7 @@ In **Shop Manager → Settings**:
 4. In the repo: **Settings → Secrets and variables → Actions**.
    Under **Secrets**, add each of these by clicking "New repository secret":
    `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `PRINTFUL_TOKEN`, `ETSY_KEYSTRING`,
-   `ETSY_SHARED_SECRET`, `ETSY_REFRESH_TOKEN`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `GH_PAT`
+   `ETSY_SHARED_SECRET`, `ETSY_REFRESH_TOKEN`, `TELEGRAM_BOT_TOKEN`, `GH_PAT`
 5. Under the **Variables** tab, add:
    - `DRY_RUN` = `true`
    - `SHOP_NAME` = your Etsy shop name

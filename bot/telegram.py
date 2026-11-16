@@ -1,5 +1,6 @@
 """Telegram: sends you designs with Approve / Skip buttons and reads your taps."""
 import json
+import os
 
 from .common import env, http, log
 
@@ -8,8 +9,22 @@ def _url(method):
     return f"https://api.telegram.org/bot{env('TELEGRAM_BOT_TOKEN')}/{method}"
 
 
+_found = {"id": None}
+
+
 def chat_id():
-    return env("TELEGRAM_CHAT_ID")
+    """Your chat ID. If it isn't set in GitHub, the bot learns it from the first
+    message you send your bot, and remembers it."""
+    cid = os.getenv("TELEGRAM_CHAT_ID") or _found["id"]
+    if cid:
+        return cid
+    for u in updates(0):
+        msg = u.get("message") or (u.get("callback_query") or {}).get("message")
+        if msg and msg.get("chat", {}).get("type") == "private":
+            _found["id"] = str(msg["chat"]["id"])
+            log(f"  found your Telegram chat ({_found['id']})")
+            return _found["id"]
+    raise RuntimeError("Send your Telegram bot a message (any word), then run the bot again.")
 
 
 def send(text):

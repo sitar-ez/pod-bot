@@ -19,7 +19,7 @@ def main():
         report.append(f"❌ {msg}")
 
     for name in ["ANTHROPIC_API_KEY", "OPENAI_API_KEY", "PRINTFUL_TOKEN", "ETSY_KEYSTRING",
-                 "ETSY_SHARED_SECRET", "ETSY_REFRESH_TOKEN", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID"]:
+                 "ETSY_SHARED_SECRET", "ETSY_REFRESH_TOKEN", "TELEGRAM_BOT_TOKEN"]:
         (ok if os.getenv(name) else bad)(f"secret {name} {'is set' if os.getenv(name) else 'is MISSING'}")
 
     try:
@@ -49,6 +49,11 @@ def main():
             (ok if t else bad)(f"Etsy category for {k}: {t}")
     except Exception as e:
         bad(f"Etsy: {e}")
+
+    try:
+        ok(f"Telegram chat found ({telegram.chat_id()})")
+    except Exception as e:
+        bad(f"Telegram: {e}")
 
     report.append(f"\nDry run is {'ON (safe mode)' if settings.DRY_RUN else 'OFF (live)'}")
     text = "Setup check\n\n" + "\n".join(report)

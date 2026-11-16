@@ -97,6 +97,8 @@ def in_work_window(state):
 
 def main():
     state = load_state()
+    if state.get("telegram_chat_id"):
+        telegram._found["id"] = state["telegram_chat_id"]
     if not in_work_window(state):
         return
     state["last_run"] = now_iso()
@@ -108,7 +110,14 @@ def main():
             etsy_box["e"] = Etsy()
         return etsy_box["e"]
 
-    stage("read Telegram", lambda: handle_telegram(state), state)
+    def read_telegram():
+        first_time = not state.get("telegram_chat_id") and not os.getenv("TELEGRAM_CHAT_ID")
+        state["telegram_chat_id"] = str(telegram.chat_id())
+        if first_time:
+            telegram.send("👋 Connected! I'll send designs here for you to approve. " + HELP)
+        handle_telegram(state)
+
+    stage("read Telegram", read_telegram, state)
     save_state(state)
 
     def publish_approved():
