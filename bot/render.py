@@ -56,15 +56,21 @@ def render_text(lines, style, ink_hex, accent_line=None, layout=None):
     st = settings.TEXT_STYLES.get(style) or settings.TEXT_STYLES["bold_stack"]
     ink = (*hex_rgb(ink_hex), 255)
     target_w = int(MASTER_W * 0.94)
+    items = [(i, l.strip()) for i, l in enumerate(lines) if l.strip()]
+    is_acc = lambda i: accent_line is not None and i == accent_line and len(items) > 1
+    # Size the longest lead line first; every other line is capped relative to it, so a short
+    # word or the accent line supports the lead instead of towering over it.
+    leads = [(i, t) for i, t in items if not is_acc(i)] or items
+    ref_i, ref_t = max(leads, key=lambda it: len(it[1]))
+    f = _font_for_width(FONTS_DIR / st["main"], ref_t, target_w, 1300)
+    l, t, r, b = f.getbbox(ref_t)
+    ref_h = b - t
     rendered = []
-    for i, line in enumerate(lines):
-        line = line.strip()
-        if not line:
-            continue
-        is_accent = accent_line is not None and i == accent_line
-        font_file = FONTS_DIR / (st["accent"] if is_accent else st["main"])
-        max_h = 1300 if not is_accent else 1000
-        width = target_w if len(line) > 6 or is_accent else int(target_w * 0.7)
+    for i, line in items:
+        accent = is_acc(i)
+        font_file = FONTS_DIR / (st["accent"] if accent else st["main"])
+        max_h = int(ref_h * (0.8 if accent else 1.15)) if i != ref_i else 1300
+        width = target_w if accent or len(line) > 6 else int(target_w * 0.7)
         f = _font_for_width(font_file, line, width, max_h)
         l, t, r, b = f.getbbox(line)
         img = Image.new("RGBA", (r - l + 40, b - t + 40), (0, 0, 0, 0))

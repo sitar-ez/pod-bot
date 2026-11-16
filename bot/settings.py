@@ -123,21 +123,69 @@ PRODUCTS = {
     },
 }
 
-# Text design styles the AI picks from (main font, accent font). All fonts are open-license.
+# Text design styles the AI picks from: a lead font (main) and an accent font for one line.
+# Pairings follow common designer advice: one bold lead plus one contrasting accent, same era.
+# All fonts are Google Fonts / open-license (SIL OFL); license files are in /fonts.
 TEXT_STYLES = {
-    "bold_stack":   {"main": "bebas-neue.woff",       "accent": "pacifico.woff"},
-    "heavy_block":  {"main": "archivo-black.woff",    "accent": "lobster.woff"},
-    "retro_slab":   {"main": "alfa-slab-one.woff",    "accent": "pacifico.woff"},
-    "elegant":      {"main": "abril-fatface.woff",    "accent": "lobster.woff"},
-    "hand_marker":  {"main": "permanent-marker.woff", "accent": "permanent-marker.woff"},
-    "groovy":       {"main": "righteous.woff",        "accent": "pacifico.woff"},
-    "script_pop":   {"main": "lobster.woff",          "accent": "bebas-neue.woff"},
-    # from Anthropic's canvas-design skill font set (SIL OFL)
-    "park_sign":    {"main": "NationalPark-Bold.ttf",       "accent": "pacifico.woff"},
-    "tall_poster":  {"main": "BigShoulders-Bold.ttf",       "accent": "lobster.woff"},
-    "editorial":    {"main": "Gloock-Regular.ttf",          "accent": "pacifico.woff"},
-    "modern_bold":  {"main": "BricolageGrotesque-Bold.ttf", "accent": "permanent-marker.woff"},
-    "warm_serif":   {"main": "YoungSerif-Regular.ttf",      "accent": "lobster.woff"},
+    # bold and modern
+    "streetwear":   {"main": "anton.woff",              "accent": "montserrat-extrabold.woff",
+                     "mood": "loud condensed slogans, streetwear, gym, confident statements"},
+    "bold_stack":   {"main": "bebas-neue.woff",         "accent": "pacifico.woff",
+                     "mood": "tall clean caps with a casual script accent; versatile everyday slogans"},
+    "heavy_block":  {"main": "archivo-black.woff",      "accent": "lobster.woff",
+                     "mood": "heavy, punchy, sporty; short phrases"},
+    "modern_clean": {"main": "poppins-extrabold.woff",  "accent": "dm-serif-display-italic.woff",
+                     "mood": "friendly modern minimal; wellness, self-care, gentle humor"},
+    "modern_bold":  {"main": "BricolageGrotesque-Bold.ttf", "accent": "permanent-marker.woff",
+                     "mood": "quirky contemporary; indie, creative, design-y crowd"},
+    "bold_mono":    {"main": "rubik-mono-one.woff",     "accent": "poppins-extrabold.woff",
+                     "mood": "chunky wide geometric caps; playful, techy, arcade"},
+    # sporty and signage
+    "athletic":     {"main": "oswald-bold.woff",        "accent": "pacifico.woff",
+                     "mood": "team, club, sports, varsity-feeling slogans"},
+    "signage":      {"main": "staatliches.woff",        "accent": "pacifico.woff",
+                     "mood": "compact vintage sign lettering; shops, clubs, places"},
+    "tall_poster":  {"main": "BigShoulders-Bold.ttf",   "accent": "lobster.woff",
+                     "mood": "tall industrial poster type; city, work, grit"},
+    "chunky_sign":  {"main": "bungee.woff",             "accent": "oswald-bold.woff",
+                     "mood": "chunky urban signage; bold, fun, loud"},
+    "long_phrase":  {"main": "fjalla-one.woff",         "accent": "lora-bold-italic.woff",
+                     "mood": "condensed type that fits longer lines neatly; quotes and wordier jokes"},
+    # retro and vintage
+    "seventies":    {"main": "shrikhand.woff",          "accent": "josefin-sans-bold.woff",
+                     "mood": "groovy 70s retro, warm and curvy; nostalgia, good vibes"},
+    "fifties":      {"main": "josefin-sans-bold.woff",  "accent": "lobster.woff",
+                     "mood": "50s diner and Americana; script with clean geometric caps"},
+    "retro_slab":   {"main": "alfa-slab-one.woff",      "accent": "pacifico.woff",
+                     "mood": "chunky retro slab; vintage sporting goods, Americana"},
+    "groovy":       {"main": "righteous.woff",          "accent": "pacifico.woff",
+                     "mood": "art deco 70s/80s retro; rounded and friendly"},
+    "outdoors":     {"main": "arvo-bold.woff",          "accent": "lobster.woff",
+                     "mood": "outdoorsy vintage slab; camping, hiking, cabins, national-park feel"},
+    "park_sign":    {"main": "NationalPark-Bold.ttf",   "accent": "pacifico.woff",
+                     "mood": "national park trail-sign lettering; nature, adventure"},
+    "western":      {"main": "rye.woff",                "accent": "arvo-bold.woff",
+                     "mood": "old west saloon poster; cowboy, ranch, rodeo humor"},
+    # elegant and editorial
+    "editorial_fat": {"main": "playfair-black.woff",    "accent": "raleway-extrabold.woff",
+                      "mood": "high-contrast fashion serif; chic, literary, elegant statements"},
+    "elegant":      {"main": "abril-fatface.woff",      "accent": "josefin-sans-bold.woff",
+                     "mood": "fat-face serif with a clean sans; classy, bookish, bold-elegant"},
+    "romantic_serif": {"main": "dm-serif-display.woff", "accent": "playfair-bold-italic.woff",
+                       "mood": "soft romantic serif; love, family, gratitude, gift-y sentiment"},
+    "editorial":    {"main": "Gloock-Regular.ttf",      "accent": "pacifico.woff",
+                     "mood": "sharp editorial serif; witty grown-up humor"},
+    "warm_serif":   {"main": "YoungSerif-Regular.ttf",  "accent": "lobster.woff",
+                     "mood": "warm friendly serif; cozy, home, coffee, slow living"},
+    # playful and hand-made
+    "comic":        {"main": "bangers.woff",            "accent": "poppins-extrabold.woff",
+                     "mood": "comic book energy; kids, puns, silly humor"},
+    "bubbly":       {"main": "titan-one.woff",          "accent": "pacifico.woff",
+                     "mood": "round bubbly and cheerful; kids, cute animals, sweet treats"},
+    "hand_marker":  {"main": "permanent-marker.woff",   "accent": "montserrat-extrabold.woff",
+                     "mood": "handmade marker; DIY, honest, casual quotes"},
+    "script_pop":   {"main": "lobster.woff",            "accent": "bebas-neue.woff",
+                     "mood": "bold retro script lead; sweet, nostalgic, signature-style"},
 }
 
 # News and trend feeds the scout reads.

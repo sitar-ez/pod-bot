@@ -139,7 +139,7 @@ def edit_design(did, instructions, state):
         "trend_signal": old.get("trend_signal"), "why_it_sells": old.get("why_it_sells"),
     }
     out = llm.ask_json(scout.SCOUT_SYSTEM, EDIT_PROMPT.format(
-        concept=json.dumps(concept, indent=1), instructions=instructions, styles=list(settings.TEXT_STYLES), skills=skills.prompt_block()))
+        concept=json.dumps(concept, indent=1), instructions=instructions, styles=", ".join(f"{k} ({v['mood']})" for k, v in settings.TEXT_STYLES.items()), skills=skills.prompt_block()))
     new = out.get("concept") or concept
     new["kind"] = old["kind"]
     if new.get("lines") != concept.get("lines") or out.get("regenerate_image"):

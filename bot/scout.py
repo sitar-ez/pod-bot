@@ -50,7 +50,7 @@ Return JSON only, in this shape:
     "why_it_sells": "one sentence: who buys it and why",
     "lines": ["LINE ONE", "line two"],
     "accent_line": 0,
-    "style": one of {styles},
+    "style": the best fitting style name from this list (match the mood to the message): {styles},
     "ink_dark": "#hex color that reads well on white/light fabric",
     "ink_light": "#hex color that reads well on black/navy fabric",
     "garment": "light" or "dark",
@@ -148,7 +148,7 @@ def scout(state):
             recent="\n".join(f"- {r}" for r in recent) or "- (none yet)",
             n_text=n_text,
             n_ill=n_ill,
-            styles=list(settings.TEXT_STYLES),
+            styles="\n" + "\n".join(f"      {k}: {v['mood']}" for k, v in settings.TEXT_STYLES.items()),
             brief=brief.prompt_block(state) + "\n\n" + skills.prompt_block(),
         ),
     )
