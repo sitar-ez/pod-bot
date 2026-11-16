@@ -1,0 +1,64 @@
+name: POD bot
+
+on:
+  schedule:
+    - cron: "*/20 12-22 * * *"   # wakes during US daytime; the bot itself keeps to 9-5 Eastern, every 40 min
+  workflow_dispatch: {}           # "Run workflow" button runs it right away, any time
+
+concurrency:
+  group: pod-bot
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run the bot
+        env:
+          DRY_RUN: ${{ vars.DRY_RUN || 'true' }}
+          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' }}
+          SHOP_NAME: ${{ vars.SHOP_NAME }}
+          PUBLISH_LIVE: ${{ vars.PUBLISH_LIVE || 'true' }}
+          AUTO_CONFIRM_ORDERS: ${{ vars.AUTO_CONFIRM_ORDERS || 'true' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PRINTFUL_TOKEN: ${{ secrets.PRINTFUL_TOKEN }}
+          PRINTFUL_STORE_ID: ${{ secrets.PRINTFUL_STORE_ID }}
+          ETSY_KEYSTRING: ${{ secrets.ETSY_KEYSTRING }}
+          ETSY_SHARED_SECRET: ${{ secrets.ETSY_SHARED_SECRET }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m bot.run
+
+      - name: Save new Etsy sign-in token
+        if: always() && hashFiles('.new_refresh_token') != ''
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          gh secret set ETSY_REFRESH_TOKEN < .new_refresh_token
+          rm .new_refresh_token
+
+      - name: Save designs and memory
+        if: always()
+        run: |
+          git config user.name "pod-bot"
+          git config user.email "pod-bot@users.noreply.github.com"
+          git add state designs
+          git diff --cached --quiet && exit 0
+          git commit -m "bot: update designs and state"
+          git pull --rebase
+          git push

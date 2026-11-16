@@ -1,0 +1,32 @@
+name: Check setup
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Test every connection
+        env:
+          DRY_RUN: ${{ vars.DRY_RUN || 'true' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PRINTFUL_TOKEN: ${{ secrets.PRINTFUL_TOKEN }}
+          PRINTFUL_STORE_ID: ${{ secrets.PRINTFUL_STORE_ID }}
+          ETSY_KEYSTRING: ${{ secrets.ETSY_KEYSTRING }}
+          ETSY_SHARED_SECRET: ${{ secrets.ETSY_SHARED_SECRET }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m bot.check
+      - name: Save new Etsy sign-in token
+        if: always() && hashFiles('.new_refresh_token') != ''
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: gh secret set ETSY_REFRESH_TOKEN < .new_refresh_token
