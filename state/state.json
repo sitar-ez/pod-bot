@@ -6,9 +6,25 @@
       "Full-front statement designs are 10 to 12 inches wide (layout width 0.83-1.0) and up to about 12 inches tall.",
       "Wide, short text can sit slightly lower than tall artwork; tall artwork starts higher so it doesn't sag toward the belly.",
       "Chest designs should end above the armpit line and never reach toward the shoulder seams.",
-      "Hoodies: keep front designs compact and high on the chest so they clear the front pouch pocket."
+      "Hoodies: keep front designs compact and high on the chest so they clear the front pouch pocket.",
+      "\ud83d\udcd6 Use at most two fonts per design: one bold hero font for the main line and one plain sans-serif for the support line. Never pair two condensed fonts at similar weights, because the hierarchy collapses.",
+      "\ud83d\udcd6 Make the punchline the largest and boldest element. Keep it to a short phrase or stacked lines. A shirt is usually viewed from 3 to 6 feet away.",
+      "\ud83d\udcd6 Avoid thin strokes, because they can bleed into the fabric on dark shirts. Use script only as a small accent next to a bold primary font. Keep small text above roughly 5mm tall.",
+      "\ud83d\udcd6 Aim for a text-to-shirt contrast of at least 4.5:1 and preview on the actual shirt color. Navy on black can look fine on screen and vanish in person. Contrast with the shirt is the single biggest legibility factor.",
+      "\ud83d\udcd6 Add slightly wider letter spacing on uppercase text. Check every layout at thumbnail size before sending it to Daniel. Typography is trending as the whole design, but tiny minimal chest text is also gaining. I'll offer a bold oversized layout and a small-chest version of the strongest slogans."
     ],
-    "topics": []
+    "topics": [
+      {
+        "added": "2026-11-16T23:05:06.622624+00:00",
+        "batches_left": 3,
+        "text": "Community-specific and story-driven text designs, such as family reunion or group matching tees, with original wording"
+      },
+      {
+        "added": "2026-11-16T23:05:06.622638+00:00",
+        "batches_left": 3,
+        "text": "Retro typography with bubbly or early-digital serif lettering and original phrases"
+      }
+    ]
   },
   "cache": {
     "printful_products": {
@@ -444,8 +460,8 @@
     }
   },
   "counts": {
-    "illustration": 1,
-    "text": 2
+    "illustration": 2,
+    "text": 3
   },
   "designs": {
     "d261116-01": {
@@ -731,14 +747,286 @@
       },
       "trend_signal": "Hobby-maxxing, cozy 'grandma hobbies' and the offline hobby boom",
       "why_it_sells": "Crafters, gardeners, bird-watchers and bakers buy it as a proud, funny label for their many hobbies, and friends buy it as a gift for the person who always has a new one."
+    },
+    "d261116-04": {
+      "concept": {
+        "accent_line": null,
+        "description": "A cozy retro-serif design for families who gather on the porch with coffee, binoculars and a feeder to watch. Wear it to the reunion, give it to a favorite birder, or make a matching set for the whole flock.",
+        "garment": "dark",
+        "illustration_prompt": "",
+        "ink_dark": "#4a403a",
+        "ink_light": "#f5e3bd",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 0.95,
+          "top": 0.07,
+          "width": 0.72
+        },
+        "lines": [
+          "PORCH BIRD CLUB",
+          "family chapter"
+        ],
+        "products": [
+          "tee",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "warm_serif",
+        "tags": [
+          "birdwatching shirt",
+          "bird club tee",
+          "family matching tee",
+          "porch sitting",
+          "bird lover gift",
+          "birder gift",
+          "grandma hobby",
+          "grandpa gift",
+          "retro bird shirt",
+          "family reunion tee",
+          "analog hobby",
+          "cozy hobby gift",
+          "backyard birding"
+        ],
+        "titles": {
+          "hoodie": "Porch Bird Club Hoodie, Family Birdwatching Sweatshirt, Matching Bird Lover Gift, Cozy Retro Birder Hoodie",
+          "mug": "Porch Bird Club Mug, Family Birdwatching Coffee Cup, Bird Lover Gift, Retro Birder Mug for Grandma or Grandpa",
+          "sticker": "Porch Bird Club Sticker, Birdwatching Decal, Family Bird Lover Gift, Retro Birder Sticker",
+          "tee": "Porch Bird Club Shirt, Family Birdwatching Tee, Matching Family Bird Lover Gift, Retro Birder Shirt, Grandparent Gift"
+        },
+        "trend_signal": "offline and analog hobbies, birdwatching boom",
+        "why_it_sells": "Families, grandparents and backyard bird fans buy it as a matching tee or gift for a porch-and-binoculars tradition."
+      },
+      "created": "2026-11-16T23:05:38.806803+00:00",
+      "description": "A cozy retro-serif design for families who gather on the porch with coffee, binoculars and a feeder to watch. Wear it to the reunion, give it to a favorite birder, or make a matching set for the whole flock.",
+      "files": {
+        "hoodie": {
+          "5530": "designs/d261116-04/print_hoodie_139.png",
+          "5531": "designs/d261116-04/print_hoodie_139.png",
+          "5532": "designs/d261116-04/print_hoodie_139.png",
+          "5533": "designs/d261116-04/print_hoodie_139.png",
+          "5534": "designs/d261116-04/print_hoodie_139.png",
+          "5594": "designs/d261116-04/print_hoodie_139.png",
+          "5595": "designs/d261116-04/print_hoodie_139.png",
+          "5596": "designs/d261116-04/print_hoodie_139.png",
+          "5597": "designs/d261116-04/print_hoodie_139.png",
+          "5598": "designs/d261116-04/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261116-04/print_mug_43.png",
+          "4830": "designs/d261116-04/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261116-04/print_sticker_183.png",
+          "10164": "designs/d261116-04/print_sticker_184.png",
+          "10165": "designs/d261116-04/print_sticker_185.png"
+        },
+        "tee": {
+          "4016": "designs/d261116-04/print_tee_1.png",
+          "4017": "designs/d261116-04/print_tee_1.png",
+          "4018": "designs/d261116-04/print_tee_1.png",
+          "4019": "designs/d261116-04/print_tee_1.png",
+          "4020": "designs/d261116-04/print_tee_1.png",
+          "4111": "designs/d261116-04/print_tee_1.png",
+          "4112": "designs/d261116-04/print_tee_1.png",
+          "4113": "designs/d261116-04/print_tee_1.png",
+          "4114": "designs/d261116-04/print_tee_1.png",
+          "4115": "designs/d261116-04/print_tee_1.png"
+        }
+      },
+      "garment": "dark",
+      "id": "d261116-04",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "PORCH BIRD CLUB",
+        "family chapter"
+      ],
+      "listings": {},
+      "parent": null,
+      "products": [
+        "tee",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "birdwatching shirt",
+        "bird club tee",
+        "family matching tee",
+        "porch sitting",
+        "bird lover gift",
+        "birder gift",
+        "grandma hobby",
+        "grandpa gift",
+        "retro bird shirt",
+        "family reunion tee",
+        "analog hobby",
+        "cozy hobby gift",
+        "backyard birding"
+      ],
+      "telegram_msg": 20,
+      "titles": {
+        "hoodie": "Porch Bird Club Hoodie, Family Birdwatching Sweatshirt, Matching Bird Lover Gift, Cozy Retro Birder Hoodie",
+        "mug": "Porch Bird Club Mug, Family Birdwatching Coffee Cup, Bird Lover Gift, Retro Birder Mug for Grandma or Grandpa",
+        "sticker": "Porch Bird Club Sticker, Birdwatching Decal, Family Bird Lover Gift, Retro Birder Sticker",
+        "tee": "Porch Bird Club Shirt, Family Birdwatching Tee, Matching Family Bird Lover Gift, Retro Birder Shirt, Grandparent Gift"
+      },
+      "trend_signal": "offline and analog hobbies, birdwatching boom",
+      "why_it_sells": "Families, grandparents and backyard bird fans buy it as a matching tee or gift for a porch-and-binoculars tradition."
+    },
+    "d261116-05": {
+      "concept": {
+        "accent_line": null,
+        "description": "A hand-drawn style jam jar with a gingham lid and fresh strawberries, made for people who love slow kitchen hobbies. A sweet gift for canners, bakers and anyone who likes things made in small batches.",
+        "garment": "light",
+        "illustration_prompt": "A single centered mason-style jam jar filled with deep red jam, topped with a gingham fabric lid tied with twine. A small paper label on the jar reads SMALL BATCH in bold simple capitals. Two ripe strawberries with fern-green leaves sit at the base of the jar, with one small wooden spoon leaning against it. Bold clean screen-print style with chunky dark brown outlines (#4a403a), flat color fills, and a limited palette of terracotta red #b7472a, fern green #4a7c59, marigold #f9a620, and cream. No shading gradients, no background, no extra text.",
+        "ink_dark": "#b7472a",
+        "ink_light": "#f9a620",
+        "kind": "illustration",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "top": 0.07,
+          "width": 0.68
+        },
+        "lines": [],
+        "products": [
+          "tee",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "modern_clean",
+        "tags": [
+          "jam jar shirt",
+          "cottagecore tee",
+          "canning gift",
+          "homemade jam",
+          "grandma hobby",
+          "small batch",
+          "kitchen witch",
+          "strawberry jam",
+          "baker gift",
+          "cozy hobby",
+          "gardener gift",
+          "farmers market",
+          "foodie gift"
+        ],
+        "titles": {
+          "hoodie": "Small Batch Jam Hoodie, Cottagecore Canning Sweatshirt, Homemade Jam Lover Gift, Cozy Baker Hoodie",
+          "mug": "Small Batch Jam Jar Mug, Cottagecore Kitchen Coffee Cup, Canning Lover Gift, Homemade Jam Gift for Her",
+          "sticker": "Small Batch Jam Jar Sticker, Cottagecore Canning Decal, Homemade Jam Lover Sticker, Kitchen Laptop Sticker",
+          "tee": "Small Batch Jam Jar Shirt, Homemade Jam Lover Tee, Cottagecore Canning Gift, Grandma Hobby Shirt, Kitchen Witch Gift"
+        },
+        "trend_signal": "grandma hobbies and cozy jam-making revival",
+        "why_it_sells": "Home cooks, gardeners and cottagecore fans buy it for themselves or as a gift for the person who always has homemade jam."
+      },
+      "created": "2026-11-16T23:06:14.466088+00:00",
+      "description": "A hand-drawn style jam jar with a gingham lid and fresh strawberries, made for people who love slow kitchen hobbies. A sweet gift for canners, bakers and anyone who likes things made in small batches.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261116-05/print_hoodie_139.png",
+          "5523": "designs/d261116-05/print_hoodie_139.png",
+          "5524": "designs/d261116-05/print_hoodie_139.png",
+          "5525": "designs/d261116-05/print_hoodie_139.png",
+          "5526": "designs/d261116-05/print_hoodie_139.png",
+          "5610": "designs/d261116-05/print_hoodie_139.png",
+          "5611": "designs/d261116-05/print_hoodie_139.png",
+          "5612": "designs/d261116-05/print_hoodie_139.png",
+          "5613": "designs/d261116-05/print_hoodie_139.png",
+          "5614": "designs/d261116-05/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261116-05/print_mug_43.png",
+          "4830": "designs/d261116-05/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261116-05/print_sticker_183.png",
+          "10164": "designs/d261116-05/print_sticker_184.png",
+          "10165": "designs/d261116-05/print_sticker_185.png"
+        },
+        "tee": {
+          "4011": "designs/d261116-05/print_tee_1.png",
+          "4012": "designs/d261116-05/print_tee_1.png",
+          "4013": "designs/d261116-05/print_tee_1.png",
+          "4014": "designs/d261116-05/print_tee_1.png",
+          "4015": "designs/d261116-05/print_tee_1.png",
+          "6948": "designs/d261116-05/print_tee_1.png",
+          "6949": "designs/d261116-05/print_tee_1.png",
+          "6950": "designs/d261116-05/print_tee_1.png",
+          "6951": "designs/d261116-05/print_tee_1.png",
+          "6952": "designs/d261116-05/print_tee_1.png"
+        }
+      },
+      "garment": "light",
+      "id": "d261116-05",
+      "illustration_prompt": "A single centered mason-style jam jar filled with deep red jam, topped with a gingham fabric lid tied with twine. A small paper label on the jar reads SMALL BATCH in bold simple capitals. Two ripe strawberries with fern-green leaves sit at the base of the jar, with one small wooden spoon leaning against it. Bold clean screen-print style with chunky dark brown outlines (#4a403a), flat color fills, and a limited palette of terracotta red #b7472a, fern green #4a7c59, marigold #f9a620, and cream. No shading gradients, no background, no extra text.",
+      "kind": "illustration",
+      "lines": [],
+      "listings": {},
+      "parent": null,
+      "products": [
+        "tee",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "jam jar shirt",
+        "cottagecore tee",
+        "canning gift",
+        "homemade jam",
+        "grandma hobby",
+        "small batch",
+        "kitchen witch",
+        "strawberry jam",
+        "baker gift",
+        "cozy hobby",
+        "gardener gift",
+        "farmers market",
+        "foodie gift"
+      ],
+      "telegram_msg": 21,
+      "titles": {
+        "hoodie": "Small Batch Jam Hoodie, Cottagecore Canning Sweatshirt, Homemade Jam Lover Gift, Cozy Baker Hoodie",
+        "mug": "Small Batch Jam Jar Mug, Cottagecore Kitchen Coffee Cup, Canning Lover Gift, Homemade Jam Gift for Her",
+        "sticker": "Small Batch Jam Jar Sticker, Cottagecore Canning Decal, Homemade Jam Lover Sticker, Kitchen Laptop Sticker",
+        "tee": "Small Batch Jam Jar Shirt, Homemade Jam Lover Tee, Cottagecore Canning Gift, Grandma Hobby Shirt, Kitchen Witch Gift"
+      },
+      "trend_signal": "grandma hobbies and cozy jam-making revival",
+      "why_it_sells": "Home cooks, gardeners and cottagecore fans buy it for themselves or as a gift for the person who always has homemade jam."
     }
   },
   "force_scout": false,
   "last_error_ping": "2026-11-16T02:20:56.757150+00:00",
-  "last_run": "2026-11-16T03:57:17.229138+00:00",
-  "last_scout": "2026-11-16T03:57:40.162019+00:00",
+  "last_run": "2026-11-16T23:04:49.712798+00:00",
+  "last_scout": "2026-11-16T23:05:37.294543+00:00",
+  "last_study": "2026-11-16",
   "orders": {},
   "paused": false,
+  "study_index": 1,
+  "study_log": [
+    {
+      "date": "2026-11-16T23:05:06.622663+00:00",
+      "lessons": [
+        "\ud83d\udcd6 Use at most two fonts per design: one bold hero font for the main line and one plain sans-serif for the support line. Never pair two condensed fonts at similar weights, because the hierarchy collapses.",
+        "\ud83d\udcd6 Make the punchline the largest and boldest element. Keep it to a short phrase or stacked lines. A shirt is usually viewed from 3 to 6 feet away.",
+        "\ud83d\udcd6 Avoid thin strokes, because they can bleed into the fabric on dark shirts. Use script only as a small accent next to a bold primary font. Keep small text above roughly 5mm tall.",
+        "\ud83d\udcd6 Aim for a text-to-shirt contrast of at least 4.5:1 and preview on the actual shirt color. Navy on black can look fine on screen and vanish in person. Contrast with the shirt is the single biggest legibility factor.",
+        "\ud83d\udcd6 Add slightly wider letter spacing on uppercase text. Check every layout at thumbnail size before sending it to Daniel. Typography is trending as the whole design, but tiny minimal chest text is also gaining. I'll offer a bold oversized layout and a small-chest version of the strongest slogans."
+      ],
+      "sources": [
+        "https://printify.com/blog/t-shirt-fonts-and-how-to-pick-the-right-ones/",
+        "https://www.vistaprint.com/hub/best-t-shirt-fonts",
+        "https://www.atomm.com/blog/2118-best-fonts-for-t-shirts"
+      ],
+      "topic": "Typography for t-shirt slogans: font pairing, hierarchy, readability from across a room"
+    }
+  ],
   "telegram_chat_id": "147542263",
   "telegram_offset": 333766174
 }
