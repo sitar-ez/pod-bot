@@ -54,6 +54,7 @@ Return JSON only, in this shape:
     "ink_dark": "#hex color that reads well on white/light fabric",
     "ink_light": "#hex color that reads well on black/navy fabric",
     "garment": "light" or "dark",
+    "layout": {{"width": 0.78, "top": 0.07, "line_gap": 1.0, "align": "center"}},
     "illustration_prompt": "for illustrations only: describe the image",
     "titles": {{"tee": "...", "hoodie": "...", "mug": "...", "sticker": "..."}},
     "tags": ["13 tags", "each under 20 characters", "buyer search phrases"],
@@ -66,6 +67,9 @@ Notes:
 - TEXT designs: 1 to 4 lines, each line at most 22 characters. "accent_line" is the index of
   the one line to render in a script/accent font, or null for none. Pick a style that suits
   the mood. lines can include simple punctuation but no emoji.
+- layout: width is the share of the 12 inch print width the design uses. 0.78 is a standard
+  chest print; use 0.55 to 0.65 for short phrases or small, tasteful prints; up to 0.9 only for
+  bold statement pieces. top 0.07 is standard (about 1 inch below the top of the print area).
 - ILLUSTRATION designs: "garment" must be "light". The prompt should describe a single
   centered subject in a bold, clean, screen-print style with a limited color palette.
   Do not ask for a background. You may include up to 4 words of text in the image only if

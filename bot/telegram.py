@@ -38,6 +38,7 @@ def send(text):
 def send_design(jpg_bytes, caption, design_id):
     kb = {"inline_keyboard": [[
         {"text": "✅ Approve", "callback_data": f"approve:{design_id}"},
+        {"text": "✏️ Edit", "callback_data": f"edit:{design_id}"},
         {"text": "❌ Skip", "callback_data": f"reject:{design_id}"},
     ]]}
     r = http("POST", _url("sendPhoto"),

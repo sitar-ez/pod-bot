@@ -20,6 +20,7 @@ HELP = ("Talk to me like a colleague. Send a trend to explore, an article link t
         "Commands:\n/status  what's waiting and what's live\n/more  extra batch on the next run\n"
         "/topics  trends you've asked me to explore\n/lessons  what I've learned from you\n"
         "/forget 3  drop lesson number 3\n/drop 2  drop topic number 2\n"
+        "To change a design: tap ✏️ Edit and type the change, or reply to the design.\n"
         "/pause  stop making designs\n/resume  start again\n/help  this list")
 
 
@@ -33,6 +34,14 @@ def handle_telegram(state):
             action, did = cb["data"].split(":", 1)
             d = state["designs"].get(did)
             if not d or d["status"] != "pending":
+                continue
+            if action == "edit":
+                state["editing"] = {"id": did, "at": now_iso()}
+                telegram.mark(cb["message"]["message_id"],
+                              "✏️ EDITING: tell me what to change\n\n" + cb["message"].get("caption", ""))
+                telegram.send(f"What should I change about {did}? Just type it, for example: "
+                              "\"make it smaller and lower on the chest\", \"use a bolder font\", "
+                              "\"change the words to ...\", \"make the cat look happier\".")
                 continue
             d["status"] = "approved" if action == "approve" else "rejected"
             d["decided"] = now_iso()
@@ -74,6 +83,21 @@ def handle_telegram(state):
             elif text.startswith("/help") or text.startswith("/start") or not text:
                 telegram.send(HELP)
             else:
+                replied = (msg.get("reply_to_message") or {}).get("message_id")
+                target = next((k for k, d in state["designs"].items()
+                               if replied and d.get("telegram_msg") == replied and d["status"] == "pending"), None)
+                ed = state.pop("editing", None)
+                if not target and isinstance(ed, dict) and hours_since(ed.get("at")) < 3:
+                    target = ed["id"]
+                if target and state["designs"].get(target, {}).get("status") == "pending":
+                    state.pop("editing", None)
+                    try:
+                        designer.edit_design(target, msg.get("text") or "", state)
+                    except Exception as e:
+                        log("  edit failed:", e)
+                        traceback.print_exc()
+                        telegram.send(f"Sorry, the edit to {target} failed: {str(e)[:200]}")
+                    continue
                 try:
                     brief.handle_message(msg.get("text") or "", state)
                 except Exception as e:
