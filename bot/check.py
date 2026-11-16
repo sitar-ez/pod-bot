@@ -19,7 +19,7 @@ def main():
         report.append(f"❌ {msg}")
 
     for name in ["ANTHROPIC_API_KEY", "OPENAI_API_KEY", "PRINTFUL_TOKEN", "ETSY_KEYSTRING",
-                 "ETSY_SHARED_SECRET", "ETSY_REFRESH_TOKEN", "TELEGRAM_BOT_TOKEN"]:
+                 "ETSY_SHARED_SECRET", "ETSY_REFRESH_TOKEN", "TELEGRAM_BOT_TOKEN", "GH_PAT"]:
         (ok if os.getenv(name) else bad)(f"secret {name} {'is set' if os.getenv(name) else 'is MISSING'}")
 
     try:
@@ -33,7 +33,7 @@ def main():
     try:
         for key in settings.PRODUCTS:
             info = printful.resolve_product(key, state)
-            ok(f"Printful {key}: {info['title']} with {len(info['variants'])} variants")
+            (ok if info["variants"] else bad)(f"Printful {key}: {info['title']} with {len(info['variants'])} variants")
     except Exception as e:
         bad(f"Printful: {e}")
 

@@ -45,11 +45,11 @@ def resolve_product(key, state):
         return cache[key]
     cfg = settings.PRODUCTS[key]
     pid = None
-    catalog = get("/products")
+    catalog = get("/products") if cfg["search"] else []
     for term in cfg["search"]:
         for p in catalog:
             hay = f"{p.get('title', '')} {p.get('model', '')} {p.get('brand', '')}".lower()
-            if all(w in hay for w in term.lower().split()):
+            if all(w in hay for w in term.lower().split()) and "sheet" not in hay:
                 pid = p["id"]
                 break
         if pid:
@@ -71,7 +71,8 @@ def resolve_product(key, state):
                           if (color is None or v.get("color", "").lower() == color.lower())
                           and _size_match(size, v.get("size", "")) and v.get("in_stock", True)), None)
                 if not v:
-                    log(f"    no Printful variant for {key} {color or ''} {size}")
+                    have = sorted({x.get("size", "") for x in variants})
+                    log(f"    no Printful variant for {key} {color or ''} {size} (Printful has: {have})")
                     continue
                 pf_id = vmap.get(v["id"], {}).get(cfg["placement"])
                 if not pf_id:

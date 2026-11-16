@@ -24,6 +24,7 @@ jobs:
           ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: python -m bot.check
       - name: Save new Etsy sign-in token
         if: always() && hashFiles('.new_refresh_token') != ''

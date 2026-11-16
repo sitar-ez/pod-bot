@@ -47,9 +47,14 @@ def shop_setup(etsy, state):
     c["readiness_state_id"] = int(rs)
 
     partners = etsy.production_partners()
-    pf = [p["production_partner_id"] for p in partners if "printful" in p.get("partner_name", "").lower()]
+    log(f"  Etsy production partners: {partners}")
+    pf = [p["production_partner_id"] for p in partners
+          if "printful" in " ".join(str(v) for v in p.values()).lower()]
+    if not pf and len(partners) == 1:
+        pf = [partners[0]["production_partner_id"]]   # only one partner: that's Printful
     if not pf:
-        raise RuntimeError("Add Printful as a production partner in Etsy: Shop Manager > Settings > Production partners.")
+        raise RuntimeError("Etsy shows no production partner yet. Add Printful in Shop Manager > Settings > "
+                           "Production partners, and make sure it was saved.")
     c["production_partner_ids"] = pf[:1]
 
     nodes = etsy.taxonomy()

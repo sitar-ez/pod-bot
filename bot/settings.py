@@ -107,7 +107,7 @@ PRODUCTS = {
     },
     "sticker": {
         "label": "Sticker",
-        "search": ["kiss-cut stickers", "kiss cut stickers"],
+        "search": [],            # use Printful's standard Kiss-Cut Stickers (#358), not the sticker sheet
         "fallback": 358,
         "placement": "default",
         "sizes": ["3x3", "4x4", "5.5x5.5"],
