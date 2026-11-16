@@ -3,7 +3,11 @@ name: POD bot
 on:
   schedule:
     - cron: "*/20 12-23 * * *"   # wakes during US daytime; the bot itself keeps to 9-5 Eastern, every 40 min
-  workflow_dispatch: {}           # "Run workflow" button runs it right away, any time
+  workflow_dispatch:               # "Run workflow" button runs it right away, any time
+    inputs:
+      chain:
+        description: "Started by Rory itself (leave as false)"
+        default: "false"
 
 concurrency:
   group: pod-bot
@@ -11,6 +15,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   run:
@@ -29,7 +34,7 @@ jobs:
       - name: Run the bot
         env:
           DRY_RUN: ${{ vars.DRY_RUN || 'true' }}
-          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' }}
+          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.chain != 'true' }}
           SHOP_NAME: ${{ vars.SHOP_NAME }}
           PUBLISH_LIVE: ${{ vars.PUBLISH_LIVE || 'true' }}
           AUTO_CONFIRM_ORDERS: ${{ vars.AUTO_CONFIRM_ORDERS || 'true' }}
@@ -62,3 +67,29 @@ jobs:
           git commit -m "bot: update designs and state"
           git pull --rebase
           git push
+
+  # Rory keeps its own schedule: wait until the next slot, then start the next run.
+  # (GitHub's built-in schedule above is a backup; it can be unreliable.)
+  next:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Wait for the next slot, then start the next run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          wait=$(python -m bot.next_run)
+          echo "Next run in $((wait / 60)) minutes"
+          sleep "$wait"
+          waiting=$(gh run list --workflow bot.yml --json status --jq '[.[] | select(.status=="queued" or .status=="pending" or .status=="waiting")] | length')
+          if [ "$waiting" = "0" ]; then
+            gh workflow run bot.yml -f chain=true
+          else
+            echo "A run is already queued; not starting another."
+          fi
