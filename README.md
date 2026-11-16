@@ -126,6 +126,14 @@ variable to `false`. Anything you approved during the dry run goes live on the n
 - Etsy: $0.20 per listing, so $0.80 per approved design (4 products), plus Etsy's usual sales fees
 - Printful: charged per order, out of what the customer paid you
 
+## Agent skills
+Rory reads the skills in `/skills` before every design and edit (open Agent Skills SKILL.md format):
+- **canvas-design** (Anthropic, Apache 2.0): decide a design philosophy first, crafted and original work.
+- **theme-factory** (Anthropic, Apache 2.0): 10 tested color palettes.
+Five display fonts from canvas-design's open-license set are added as text styles. To add a skill,
+drop its folder in `/skills` and add a "how to apply" note in `bot/skills.py`. Read any skill before
+adding it, since Rory follows its instructions.
+
 ## Changing things
 Everything adjustable is in `bot/settings.py`: products, prices and markups, colors,
 working hours, designs per run, the text vs. illustration mix, fonts and news feeds. Edit it on
@@ -151,4 +159,7 @@ bot/check.py        setup tester
 bot/settings.py     every adjustable setting
 scripts/etsy_connect.py   one-time Etsy sign-in
 fonts/              open-license fonts (SIL OFL), license files included
+skills/             agent skills Rory reads before designing
+bot/skills.py       loads the skills, with notes on applying them to apparel
+bot/study.py        daily design research
 ```

@@ -132,6 +132,12 @@ TEXT_STYLES = {
     "hand_marker":  {"main": "permanent-marker.woff", "accent": "permanent-marker.woff"},
     "groovy":       {"main": "righteous.woff",        "accent": "pacifico.woff"},
     "script_pop":   {"main": "lobster.woff",          "accent": "bebas-neue.woff"},
+    # from Anthropic's canvas-design skill font set (SIL OFL)
+    "park_sign":    {"main": "NationalPark-Bold.ttf",       "accent": "pacifico.woff"},
+    "tall_poster":  {"main": "BigShoulders-Bold.ttf",       "accent": "lobster.woff"},
+    "editorial":    {"main": "Gloock-Regular.ttf",          "accent": "pacifico.woff"},
+    "modern_bold":  {"main": "BricolageGrotesque-Bold.ttf", "accent": "permanent-marker.woff"},
+    "warm_serif":   {"main": "YoungSerif-Regular.ttf",      "accent": "lobster.woff"},
 }
 
 # News and trend feeds the scout reads.

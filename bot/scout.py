@@ -8,7 +8,7 @@ from datetime import date
 
 import feedparser
 
-from . import brief, llm, settings
+from . import brief, llm, settings, skills
 from .common import log
 
 SCOUT_SYSTEM = """You are the creative director of a small Etsy print-on-demand shop.
@@ -149,7 +149,7 @@ def scout(state):
             n_text=n_text,
             n_ill=n_ill,
             styles=list(settings.TEXT_STYLES),
-            brief=brief.prompt_block(state),
+            brief=brief.prompt_block(state) + "\n\n" + skills.prompt_block(),
         ),
     )
     brief.used_topics(state)

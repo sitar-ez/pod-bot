@@ -4,7 +4,7 @@ from datetime import datetime
 
 from PIL import Image
 
-from . import llm, printful, render, scout, settings, telegram
+from . import llm, printful, render, scout, settings, skills, telegram
 from .common import DESIGNS_DIR, ROOT, log, now_iso
 
 WHITE_SURFACE = {"mug", "sticker"}   # products that are always white
@@ -121,7 +121,9 @@ What you can change:
 - "illustration_prompt" for illustrations. Set "regenerate_image" true ONLY if the picture itself must change;
   for size, position or other layout changes keep it false so the same artwork is reused.
 - "products", "titles", "tags", "description" if his note affects them.
-Keep the same "kind". Keep everything he didn't mention."""
+Keep the same "kind". Keep everything he didn't mention.
+
+{skills}"""
 
 
 def edit_design(did, instructions, state):
@@ -137,7 +139,7 @@ def edit_design(did, instructions, state):
         "trend_signal": old.get("trend_signal"), "why_it_sells": old.get("why_it_sells"),
     }
     out = llm.ask_json(scout.SCOUT_SYSTEM, EDIT_PROMPT.format(
-        concept=json.dumps(concept, indent=1), instructions=instructions, styles=list(settings.TEXT_STYLES)))
+        concept=json.dumps(concept, indent=1), instructions=instructions, styles=list(settings.TEXT_STYLES), skills=skills.prompt_block()))
     new = out.get("concept") or concept
     new["kind"] = old["kind"]
     if new.get("lines") != concept.get("lines") or out.get("regenerate_image"):
