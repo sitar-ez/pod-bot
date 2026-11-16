@@ -128,13 +128,13 @@ def _fit(img, max_w, max_h):
     return img.resize((max(1, int(img.width * s)), max(1, int(img.height * s))), Image.LANCZOS)
 
 
-def compose_print_file(master, w, h, fit, layout=None):
+def compose_print_file(master, w, h, fit, layout=None, max_height=0.62):
     """Place the design inside a canvas the exact size of Printful's print area.
     layout: width = share of the print width the design may use, top = gap above it."""
     lay = layout_of(layout)
     canvas = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     if fit == "top":          # shirts: chest placement
-        d = _fit(master, w * lay["width"], h * 0.62)
+        d = _fit(master, w * lay["width"], h * max_height)
         x = {"left": int(w * 0.05), "right": int(w * 0.95 - d.width)}.get(lay["align"], (w - d.width) // 2)
         canvas.alpha_composite(d, (x, int(h * lay["top"])))
     elif fit == "mug":        # mugs: one copy on each side, as big as fits
