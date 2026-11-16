@@ -115,7 +115,9 @@ What you can change:
 - "style": one of {styles}
 - "ink_dark" / "ink_light": hex colors for light / dark fabric; "garment": "light" or "dark"
 - "layout": {{"width": 0.25-1.0 share of the 12 inch print width (0.78 is standard, 0.5 is a small chest print),
-             "top": 0.0-0.45 gap above the design as a share of the 16 inch print height (0.07 is standard; higher moves it down),
+             "top": leave it out for automatic placement (big designs about 3 in below the collar, small designs
+                    about 9 in below). Only set it when he asks to move the design: 0.0-0.45 as a share of the
+                    16 inch print area, which starts about 2.5 in below the collar (0.40 is about 9 in below the collar),
              "line_gap": 0.2-3.0 spacing between lines (1.0 normal),
              "align": "center" | "left" | "right"}}
 - "illustration_prompt" for illustrations. Set "regenerate_image" true ONLY if the picture itself must change;

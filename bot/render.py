@@ -37,14 +37,19 @@ def _font_for_width(path, text, target_w, max_h):
     return ImageFont.truetype(str(path), best)
 
 
-DEFAULT_LAYOUT = {"width": 0.78, "top": 0.07, "line_gap": 1.0, "align": "center"}
+DEFAULT_LAYOUT = {"width": 0.78, "top": None, "line_gap": 1.0, "align": "center"}
+# Printful's print area starts about 2.5 in below the collar and is 16 in tall.
+TOP_FULL = 0.03    # full-size designs: top edge about 3 in below the collar
+TOP_SMALL = 0.40   # small designs: top edge about 9 in below the collar (Daniel's rule)
+SMALL_WIDTH = 0.62 # narrower than about 7.5 in counts as small
 
 
 def layout_of(d):
     lay = dict(DEFAULT_LAYOUT)
     lay.update({k: v for k, v in (d or {}).items() if v is not None and k in DEFAULT_LAYOUT})
     lay["width"] = min(1.0, max(0.25, float(lay["width"])))
-    lay["top"] = min(0.45, max(0.0, float(lay["top"])))
+    if lay["top"] is not None:
+        lay["top"] = min(0.45, max(0.0, float(lay["top"])))
     lay["line_gap"] = min(3.0, max(0.2, float(lay["line_gap"])))
     if lay["align"] not in ("center", "left", "right"):
         lay["align"] = "center"
@@ -142,7 +147,12 @@ def compose_print_file(master, w, h, fit, layout=None, max_height=0.62):
     if fit == "top":          # shirts: chest placement
         d = _fit(master, w * lay["width"], h * max_height)
         x = {"left": int(w * 0.05), "right": int(w * 0.95 - d.width)}.get(lay["align"], (w - d.width) // 2)
-        canvas.alpha_composite(d, (x, int(h * lay["top"])))
+        top = lay["top"]
+        if top is None:   # automatic: small designs sit mid-chest, big ones start near the collar
+            small_top = TOP_SMALL if max_height > 0.55 else 0.22   # hoodies: stay above the pocket
+            top = small_top if d.width < w * SMALL_WIDTH else TOP_FULL
+            top = min(top, max(0.0, (h * 0.9 - d.height) / h))
+        canvas.alpha_composite(d, (x, int(h * top)))
     elif fit == "mug":        # mugs: one copy on each side, as big as fits
         d = _fit(master, w * 0.44, h * 0.86)
         for cx in (w * 0.25, w * 0.75):

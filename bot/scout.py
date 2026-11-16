@@ -54,7 +54,7 @@ Return JSON only, in this shape:
     "ink_dark": "#hex color that reads well on white/light fabric",
     "ink_light": "#hex color that reads well on black/navy fabric",
     "garment": "light" or "dark",
-    "layout": {{"width": 0.78, "top": 0.07, "line_gap": 1.0, "align": "center"}},
+    "layout": {{"width": 0.78, "line_gap": 1.0, "align": "center"}},
     "illustration_prompt": "for illustrations only: describe the image",
     "titles": {{"tee": "...", "hoodie": "...", "mug": "...", "sticker": "..."}},
     "tags": ["13 tags", "each under 20 characters", "buyer search phrases"],
@@ -72,7 +72,10 @@ Notes:
   the mood. lines can include simple punctuation but no emoji.
 - layout: width is the share of the 12 inch print width the design uses. 0.78 is a standard
   chest print; use 0.55 to 0.65 for short phrases or small, tasteful prints; up to 0.9 only for
-  bold statement pieces. top 0.07 is standard (about 1 inch below the top of the print area).
+  bold statement pieces. Leave "top" out: placement is automatic (big designs start about 3 in
+  below the collar; small designs sit lower, about 9 in below the collar).
+- Every phrase must make sense on its own to a stranger reading it on a shirt. Don't mash
+  together unrelated words from different headlines.
 - ILLUSTRATION designs: "garment" must be "light". The prompt should describe a single
   centered subject in a bold, clean, screen-print style with a limited color palette.
   Do not ask for a background. You may include up to 4 words of text in the image only if
