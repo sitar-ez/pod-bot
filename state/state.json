@@ -889,7 +889,7 @@
         "layout": {
           "align": "center",
           "line_gap": 1.0,
-          "top": 0.07,
+          "top": null,
           "width": 0.68
         },
         "lines": [],

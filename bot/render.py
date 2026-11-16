@@ -41,7 +41,8 @@ DEFAULT_LAYOUT = {"width": 0.78, "top": None, "line_gap": 1.0, "align": "center"
 # Printful's print area starts about 2.5 in below the collar and is 16 in tall.
 TOP_FULL = 0.03    # full-size designs: top edge about 3 in below the collar
 TOP_SMALL = 0.40   # small designs: top edge about 9 in below the collar (Daniel's rule)
-SMALL_WIDTH = 0.62 # narrower than about 7.5 in counts as small
+SMALL_WIDTH = 0.62 # narrower than about 7.5 in ...
+SMALL_HEIGHT = 0.35 # ... and shorter than about 5.5 in counts as small
 
 
 def layout_of(d):
@@ -117,7 +118,7 @@ def render_illustration(prompt):
         raise_for(r, "Image generation")
         b64 = r.json()["data"][0]["b64_json"]
         img = Image.open(io.BytesIO(base64.b64decode(b64))).convert("RGBA")
-        img = trim(img)
+        img = trim(clean_alpha(img))
         # Upscale toward print resolution
         if img.width < MASTER_W:
             scale = MASTER_W / img.width
@@ -126,8 +127,15 @@ def render_illustration(prompt):
     raise_for(last, "Image generation")
 
 
+def clean_alpha(img, floor=24):
+    """Remove near-invisible specks AI images leave in transparent areas; they'd print as haze."""
+    a = img.getchannel("A").point(lambda v: 0 if v <= floor else v)
+    img.putalpha(a)
+    return img
+
+
 def trim(img, pad=20):
-    bbox = img.getchannel("A").getbbox()
+    bbox = img.getchannel("A").point(lambda v: 255 if v > 24 else 0).getbbox()
     if not bbox:
         return img
     l, t, r, b = bbox
@@ -150,7 +158,7 @@ def compose_print_file(master, w, h, fit, layout=None, max_height=0.62):
         top = lay["top"]
         if top is None:   # automatic: small designs sit mid-chest, big ones start near the collar
             small_top = TOP_SMALL if max_height > 0.55 else 0.22   # hoodies: stay above the pocket
-            top = small_top if d.width < w * SMALL_WIDTH else TOP_FULL
+            top = small_top if (d.width < w * SMALL_WIDTH and d.height < h * SMALL_HEIGHT) else TOP_FULL
             top = min(top, max(0.0, (h * 0.9 - d.height) / h))
         canvas.alpha_composite(d, (x, int(h * top)))
     elif fit == "mug":        # mugs: one copy on each side, as big as fits
