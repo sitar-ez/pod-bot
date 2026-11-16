@@ -1,1 +1,15 @@
-{}
+{
+  "cache": {},
+  "counts": {
+    "illustration": 0,
+    "text": 0
+  },
+  "designs": {},
+  "force_scout": false,
+  "last_error_ping": "2026-11-16T02:20:56.757150+00:00",
+  "last_run": "2026-11-16T02:20:53.182247+00:00",
+  "last_scout": null,
+  "orders": {},
+  "paused": false,
+  "telegram_offset": 0
+}
