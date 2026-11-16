@@ -50,7 +50,7 @@ Return JSON only, in this shape:
     "why_it_sells": "one sentence: who buys it and why",
     "lines": ["LINE ONE", "line two"],
     "accent_line": 0,
-    "style": the best fitting style name from this list (match the mood to the message): {styles},
+    "style": a style name from the menu below,
     "ink_dark": "#hex color that reads well on white/light fabric",
     "ink_light": "#hex color that reads well on black/navy fabric",
     "garment": "light" or "dark",
@@ -62,6 +62,9 @@ Return JSON only, in this shape:
     "products": ["tee", "hoodie", "mug", "sticker"]
   }}
 ]}}
+
+Font style menu (grouped by category):
+{styles}
 
 Notes:
 - TEXT designs: 1 to 4 lines, each line at most 22 characters. "accent_line" is the index of
@@ -121,6 +124,27 @@ def fetch_headlines(limit_per_feed=25):
     return out
 
 
+def style_menu(state):
+    """Styles grouped by category, plus what was used lately, so Rory keeps a varied mix."""
+    groups = {}
+    for k, v in settings.TEXT_STYLES.items():
+        groups.setdefault(v.get("category", "other"), []).append(f"    {k}: {v['mood']}")
+    order = ["sans", "serif", "geometric", "script", "other"]
+    menu = "\n".join(f"  {c.upper()}\n" + "\n".join(groups[c]) for c in order if c in groups)
+    recent = [((d.get("concept") or {}).get("style")) for d in list(state["designs"].values())[-12:]
+              if d.get("kind") == "text"]
+    recent = [r for r in recent if r]
+    cats = [settings.TEXT_STYLES.get(r, {}).get("category", "?") for r in recent]
+    counts = {c: cats.count(c) for c in order}
+    menu += ("\n\nKeep the look varied, like a real shop with range:\n"
+             "- Choose the style that best fits each message's mood first.\n"
+             f"- Don't reuse these recently used styles: {', '.join(recent[-6:]) or 'none yet'}.\n"
+             f"- Recent category counts: {counts}. Favor the categories used least, so over a day the shop "
+             "shows a real mix of sans, serif, geometric, script/handwriting and other.\n"
+             "- Within one batch, give each text design a different category.")
+    return menu
+
+
 def plan_mix(state, n):
     """Keep the running mix close to 70% text / 30% illustration."""
     c = state["counts"]
@@ -148,7 +172,7 @@ def scout(state):
             recent="\n".join(f"- {r}" for r in recent) or "- (none yet)",
             n_text=n_text,
             n_ill=n_ill,
-            styles="\n" + "\n".join(f"      {k}: {v['mood']}" for k, v in settings.TEXT_STYLES.items()),
+            styles=style_menu(state),
             brief=brief.prompt_block(state) + "\n\n" + skills.prompt_block(),
         ),
     )
