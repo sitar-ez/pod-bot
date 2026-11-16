@@ -2,7 +2,7 @@ name: POD bot
 
 on:
   schedule:
-    - cron: "*/20 12-22 * * *"   # wakes during US daytime; the bot itself keeps to 9-5 Eastern, every 40 min
+    - cron: "*/20 12-23 * * *"   # wakes during US daytime; the bot itself keeps to 9-5 Eastern, every 40 min
   workflow_dispatch: {}           # "Run workflow" button runs it right away, any time
 
 concurrency:
