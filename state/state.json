@@ -1,15 +1,604 @@
 {
-  "cache": {},
-  "counts": {
-    "illustration": 0,
-    "text": 0
+  "cache": {
+    "printful_products": {
+      "hoodie": {
+        "product_id": 146,
+        "title": "Unisex Heavy Blend Hoodie | Gildan 18500",
+        "variants": {
+          "5522": {
+            "color": "White",
+            "cost": 22.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "S",
+            "w": 2100
+          },
+          "5523": {
+            "color": "White",
+            "cost": 22.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "M",
+            "w": 2100
+          },
+          "5524": {
+            "color": "White",
+            "cost": 22.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "L",
+            "w": 2100
+          },
+          "5525": {
+            "color": "White",
+            "cost": 22.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "XL",
+            "w": 2100
+          },
+          "5526": {
+            "color": "White",
+            "cost": 24.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "2XL",
+            "w": 2100
+          },
+          "5530": {
+            "color": "Black",
+            "cost": 22.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "S",
+            "w": 2100
+          },
+          "5531": {
+            "color": "Black",
+            "cost": 22.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "M",
+            "w": 2100
+          },
+          "5532": {
+            "color": "Black",
+            "cost": 22.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "L",
+            "w": 2100
+          },
+          "5533": {
+            "color": "Black",
+            "cost": 22.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "XL",
+            "w": 2100
+          },
+          "5534": {
+            "color": "Black",
+            "cost": 24.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "2XL",
+            "w": 2100
+          },
+          "5594": {
+            "color": "Navy",
+            "cost": 22.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "S",
+            "w": 2100
+          },
+          "5595": {
+            "color": "Navy",
+            "cost": 22.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "M",
+            "w": 2100
+          },
+          "5596": {
+            "color": "Navy",
+            "cost": 22.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "L",
+            "w": 2100
+          },
+          "5597": {
+            "color": "Navy",
+            "cost": 22.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "XL",
+            "w": 2100
+          },
+          "5598": {
+            "color": "Navy",
+            "cost": 24.63,
+            "group": "dark",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "2XL",
+            "w": 2100
+          },
+          "5610": {
+            "color": "Sport Grey",
+            "cost": 22.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "S",
+            "w": 2100
+          },
+          "5611": {
+            "color": "Sport Grey",
+            "cost": 22.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "M",
+            "w": 2100
+          },
+          "5612": {
+            "color": "Sport Grey",
+            "cost": 22.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "L",
+            "w": 2100
+          },
+          "5613": {
+            "color": "Sport Grey",
+            "cost": 22.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "XL",
+            "w": 2100
+          },
+          "5614": {
+            "color": "Sport Grey",
+            "cost": 24.63,
+            "group": "light",
+            "h": 2100,
+            "printfile_id": 139,
+            "size": "2XL",
+            "w": 2100
+          }
+        }
+      },
+      "mug": {
+        "product_id": 19,
+        "title": "White Glossy Mug",
+        "variants": {
+          "1320": {
+            "color": null,
+            "cost": 6.07,
+            "group": "white",
+            "h": 1050,
+            "printfile_id": 43,
+            "size": "11 oz",
+            "w": 2700
+          },
+          "4830": {
+            "color": null,
+            "cost": 8.11,
+            "group": "white",
+            "h": 1140,
+            "printfile_id": 44,
+            "size": "15 oz",
+            "w": 2700
+          }
+        }
+      },
+      "sticker": {
+        "product_id": 358,
+        "title": "Kiss-Cut Stickers",
+        "variants": {
+          "10163": {
+            "color": null,
+            "cost": 2.34,
+            "group": "white",
+            "h": 900,
+            "printfile_id": 183,
+            "size": "3x3",
+            "w": 900
+          },
+          "10164": {
+            "color": null,
+            "cost": 2.54,
+            "group": "white",
+            "h": 1200,
+            "printfile_id": 184,
+            "size": "4x4",
+            "w": 1200
+          },
+          "10165": {
+            "color": null,
+            "cost": 2.74,
+            "group": "white",
+            "h": 1650,
+            "printfile_id": 185,
+            "size": "5.5x5.5",
+            "w": 1650
+          }
+        }
+      },
+      "tee": {
+        "product_id": 71,
+        "title": "Unisex Staple T-Shirt | Bella + Canvas 3001",
+        "variants": {
+          "4011": {
+            "color": "White",
+            "cost": 11.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "S",
+            "w": 1800
+          },
+          "4012": {
+            "color": "White",
+            "cost": 11.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "M",
+            "w": 1800
+          },
+          "4013": {
+            "color": "White",
+            "cost": 11.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "L",
+            "w": 1800
+          },
+          "4014": {
+            "color": "White",
+            "cost": 11.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "XL",
+            "w": 1800
+          },
+          "4015": {
+            "color": "White",
+            "cost": 13.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "2XL",
+            "w": 1800
+          },
+          "4016": {
+            "color": "Black",
+            "cost": 11.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "S",
+            "w": 1800
+          },
+          "4017": {
+            "color": "Black",
+            "cost": 11.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "M",
+            "w": 1800
+          },
+          "4018": {
+            "color": "Black",
+            "cost": 11.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "L",
+            "w": 1800
+          },
+          "4019": {
+            "color": "Black",
+            "cost": 11.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "XL",
+            "w": 1800
+          },
+          "4020": {
+            "color": "Black",
+            "cost": 13.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "2XL",
+            "w": 1800
+          },
+          "4111": {
+            "color": "Navy",
+            "cost": 11.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "S",
+            "w": 1800
+          },
+          "4112": {
+            "color": "Navy",
+            "cost": 11.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "M",
+            "w": 1800
+          },
+          "4113": {
+            "color": "Navy",
+            "cost": 11.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "L",
+            "w": 1800
+          },
+          "4114": {
+            "color": "Navy",
+            "cost": 11.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "XL",
+            "w": 1800
+          },
+          "4115": {
+            "color": "Navy",
+            "cost": 13.92,
+            "group": "dark",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "2XL",
+            "w": 1800
+          },
+          "6948": {
+            "color": "Athletic Heather",
+            "cost": 11.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "S",
+            "w": 1800
+          },
+          "6949": {
+            "color": "Athletic Heather",
+            "cost": 11.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "M",
+            "w": 1800
+          },
+          "6950": {
+            "color": "Athletic Heather",
+            "cost": 11.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "L",
+            "w": 1800
+          },
+          "6951": {
+            "color": "Athletic Heather",
+            "cost": 11.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "XL",
+            "w": 1800
+          },
+          "6952": {
+            "color": "Athletic Heather",
+            "cost": 13.92,
+            "group": "light",
+            "h": 2400,
+            "printfile_id": 1,
+            "size": "2XL",
+            "w": 1800
+          }
+        }
+      }
+    }
   },
-  "designs": {},
+  "counts": {
+    "illustration": 1,
+    "text": 1
+  },
+  "designs": {
+    "d261116-01": {
+      "created": "2026-11-16T03:48:52.102459+00:00",
+      "description": "A simple reminder to put the phone down and pick up the thing you love, whether that's knitting, baking, gardening or birdwatching. A thoughtful gift for anyone who is happiest with busy hands. Available on shirts, hoodies, mugs and stickers.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261116-01/print_hoodie_139.png",
+          "5523": "designs/d261116-01/print_hoodie_139.png",
+          "5524": "designs/d261116-01/print_hoodie_139.png",
+          "5525": "designs/d261116-01/print_hoodie_139.png",
+          "5526": "designs/d261116-01/print_hoodie_139.png",
+          "5610": "designs/d261116-01/print_hoodie_139.png",
+          "5611": "designs/d261116-01/print_hoodie_139.png",
+          "5612": "designs/d261116-01/print_hoodie_139.png",
+          "5613": "designs/d261116-01/print_hoodie_139.png",
+          "5614": "designs/d261116-01/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261116-01/print_mug_43.png",
+          "4830": "designs/d261116-01/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261116-01/print_sticker_183.png",
+          "10164": "designs/d261116-01/print_sticker_184.png",
+          "10165": "designs/d261116-01/print_sticker_185.png"
+        },
+        "tee": {
+          "4011": "designs/d261116-01/print_tee_1.png",
+          "4012": "designs/d261116-01/print_tee_1.png",
+          "4013": "designs/d261116-01/print_tee_1.png",
+          "4014": "designs/d261116-01/print_tee_1.png",
+          "4015": "designs/d261116-01/print_tee_1.png",
+          "6948": "designs/d261116-01/print_tee_1.png",
+          "6949": "designs/d261116-01/print_tee_1.png",
+          "6950": "designs/d261116-01/print_tee_1.png",
+          "6951": "designs/d261116-01/print_tee_1.png",
+          "6952": "designs/d261116-01/print_tee_1.png"
+        }
+      },
+      "garment": "light",
+      "id": "d261116-01",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "PHONE DOWN",
+        "hobby on"
+      ],
+      "listings": {},
+      "products": [
+        "tee",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "hobby lover gift",
+        "phone down",
+        "screen free",
+        "offline hobbies",
+        "cozy hobby shirt",
+        "crafter gift",
+        "gift for hobbyist",
+        "digital detox",
+        "analog hobbies",
+        "hobby shirt",
+        "self care gift",
+        "unplug shirt",
+        "cozy hobbies"
+      ],
+      "telegram_msg": 14,
+      "titles": {
+        "hoodie": "Phone Down Hobby On Hoodie, Cozy Hobby Sweatshirt, Screen Free Life Gift, Crafter Gardener Baker Hoodie",
+        "mug": "Phone Down Hobby On Mug, Cozy Hobby Lover Coffee Cup, Screen Free Gift, Crafter Gift Mug 11oz 15oz",
+        "sticker": "Phone Down Hobby On Sticker, Cozy Hobby Decal, Laptop Water Bottle Sticker, Offline Life Gift",
+        "tee": "Phone Down Hobby On Shirt, Cozy Hobby Lover Tee, Screen Free Gift, Offline Hobbies Crafter Gift, Unisex T-Shirt"
+      },
+      "trend_signal": "Offline hobbies and screen-free self-care trend",
+      "why_it_sells": "Crafters, gardeners, bakers and anyone trying to cut screen time buy it as a gentle badge of their offline life, and it works as a gift for the hobby-obsessed friend."
+    },
+    "d261116-02": {
+      "created": "2026-11-16T03:49:26.357059+00:00",
+      "description": "A sleepy tabby cat curled up in a giant ball of yarn, drawn in warm mustard and rust tones. A cozy pick for knitters, crocheters and cat people. Available on shirts, hoodies, mugs and stickers.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261116-02/print_hoodie_139.png",
+          "5523": "designs/d261116-02/print_hoodie_139.png",
+          "5524": "designs/d261116-02/print_hoodie_139.png",
+          "5525": "designs/d261116-02/print_hoodie_139.png",
+          "5526": "designs/d261116-02/print_hoodie_139.png",
+          "5610": "designs/d261116-02/print_hoodie_139.png",
+          "5611": "designs/d261116-02/print_hoodie_139.png",
+          "5612": "designs/d261116-02/print_hoodie_139.png",
+          "5613": "designs/d261116-02/print_hoodie_139.png",
+          "5614": "designs/d261116-02/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261116-02/print_mug_43.png",
+          "4830": "designs/d261116-02/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261116-02/print_sticker_183.png",
+          "10164": "designs/d261116-02/print_sticker_184.png",
+          "10165": "designs/d261116-02/print_sticker_185.png"
+        },
+        "tee": {
+          "4011": "designs/d261116-02/print_tee_1.png",
+          "4012": "designs/d261116-02/print_tee_1.png",
+          "4013": "designs/d261116-02/print_tee_1.png",
+          "4014": "designs/d261116-02/print_tee_1.png",
+          "4015": "designs/d261116-02/print_tee_1.png",
+          "6948": "designs/d261116-02/print_tee_1.png",
+          "6949": "designs/d261116-02/print_tee_1.png",
+          "6950": "designs/d261116-02/print_tee_1.png",
+          "6951": "designs/d261116-02/print_tee_1.png",
+          "6952": "designs/d261116-02/print_tee_1.png"
+        }
+      },
+      "garment": "light",
+      "id": "d261116-02",
+      "illustration_prompt": "A sleepy round tabby cat curled up and napping inside a giant ball of yarn, with two knitting needles crossed through the yarn and a loose strand of yarn curling beneath. Bold clean screen-print style with thick outlines and flat shapes. Limited palette of mustard yellow, rust orange, deep brown and cream. Single centered subject, no background, no text.",
+      "kind": "illustration",
+      "lines": [],
+      "listings": {},
+      "products": [
+        "tee",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "knitting cat",
+        "cat lover gift",
+        "crochet gift",
+        "yarn lover",
+        "cat mom shirt",
+        "knitter gift",
+        "cozy cat design",
+        "cute cat tee",
+        "cat and yarn",
+        "grandma hobby",
+        "crafty cat",
+        "sleepy cat",
+        "cat mom gift"
+      ],
+      "telegram_msg": 15,
+      "titles": {
+        "hoodie": "Cat in Yarn Ball Hoodie, Knitting Cat Sweatshirt, Crochet Lover Gift, Cozy Cat Mom Hoodie",
+        "mug": "Cat in Yarn Ball Mug, Knitting Cat Lover Coffee Cup, Crochet Gift, Cozy Cat Mom Mug 11oz 15oz",
+        "sticker": "Cat in Yarn Ball Sticker, Knitting Cat Decal, Crochet Lover Gift, Cute Cat Laptop Sticker",
+        "tee": "Cat in Yarn Ball Shirt, Knitting Cat Lover Tee, Crochet Gift, Cozy Cat Mom Gift, Cute Cat Knitter T-Shirt"
+      },
+      "trend_signal": "Cozy grandma hobbies and pets-as-family trends",
+      "why_it_sells": "Cat owners and knitting or crochet fans buy it for themselves or as a gift because it combines two much-loved comforts."
+    }
+  },
   "force_scout": false,
   "last_error_ping": "2026-11-16T02:20:56.757150+00:00",
-  "last_run": "2026-11-16T02:20:53.182247+00:00",
-  "last_scout": null,
+  "last_run": "2026-11-16T03:48:17.644811+00:00",
+  "last_scout": "2026-11-16T03:48:41.398048+00:00",
   "orders": {},
   "paused": false,
-  "telegram_offset": 0
+  "telegram_chat_id": "147542263",
+  "telegram_offset": 333766174
 }
