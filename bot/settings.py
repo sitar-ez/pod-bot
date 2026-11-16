@@ -38,7 +38,7 @@ MAX_PENDING_APPROVALS = 15         # stop making new designs if this many are wa
 # ---------------------------------------------------------------------------
 CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-5-5")
 IMAGE_MODEL = os.getenv("IMAGE_MODEL", "gpt-image-2.5-flare")
-IMAGE_SIZE = os.getenv("IMAGE_SIZE", "2560x3840")   # falls back to 1024x1536 if refused
+IMAGE_SIZE = os.getenv("IMAGE_SIZE", "2048x3072")   # largest size within OpenAI's pixel budget; falls back smaller if refused
 
 # ---------------------------------------------------------------------------
 # Shop voice. Used in every listing description.
