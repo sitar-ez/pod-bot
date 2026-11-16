@@ -102,7 +102,12 @@ In **Shop Manager → Settings**:
 - Before approving, take 10 seconds to ask yourself whether the phrase or image could
   belong to someone. If you're not sure, search it on Etsy. The AI checks too, but you're
   the last line of defense against a trademark strike.
-- Telegram commands: `/status`, `/more` (new batch now), `/pause`, `/resume`.
+- **Talk to it.** Send a trend to explore ("look into cold plunge culture"), a link to an
+  article about design, or feedback ("less snark, more warmth"). It reads, remembers, and
+  uses it in every batch from then on. It also learns from what you approve and skip.
+  Replies come on its next run, so within 40 minutes during 9 to 5.
+- Telegram commands: `/status`, `/more`, `/topics`, `/lessons`, `/forget 3`, `/drop 2`,
+  `/pause`, `/resume`, `/help`.
 
 ### Dry run → live
 While `DRY_RUN` is `true`, the bot makes designs and Printful mockups but **doesn't post

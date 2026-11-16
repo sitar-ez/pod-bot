@@ -8,7 +8,7 @@ from datetime import date
 
 import feedparser
 
-from . import llm, settings
+from . import brief, llm, settings
 from .common import log
 
 SCOUT_SYSTEM = """You are the creative director of a small Etsy print-on-demand shop.
@@ -37,6 +37,8 @@ Here are today's headlines and trending searches:
 
 Designs we already made (do not repeat these ideas or wording):
 {recent}
+
+{brief}
 
 Create exactly {n_text} TEXT designs and {n_ill} ILLUSTRATION designs.
 
@@ -143,8 +145,10 @@ def scout(state):
             n_text=n_text,
             n_ill=n_ill,
             styles=list(settings.TEXT_STYLES),
+            brief=brief.prompt_block(state),
         ),
     )
+    brief.used_topics(state)
     concepts = data.get("concepts", [])
     return compliance(concepts)
 

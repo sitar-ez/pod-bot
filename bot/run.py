@@ -9,14 +9,18 @@ The main loop. GitHub wakes this every 20 minutes; it works 9am-5pm Eastern, eve
 import os
 import traceback
 
-from . import designer, publisher, settings, scout, telegram, fulfillment
+from . import brief, designer, publisher, settings, scout, telegram, fulfillment
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 from .common import hours_since, http, load_state, log, now_iso, public_url, save_state
 
-HELP = ("Commands:\n/status  what's waiting and what's live\n/more  make a new batch on the next run\n"
-        "/pause  stop making designs\n/resume  start again")
+HELP = ("Talk to me like a colleague. Send a trend to explore, an article link to learn from, "
+        "or feedback on my designs, and I'll use it from now on.\n\n"
+        "Commands:\n/status  what's waiting and what's live\n/more  extra batch on the next run\n"
+        "/topics  trends you've asked me to explore\n/lessons  what I've learned from you\n"
+        "/forget 3  drop lesson number 3\n/drop 2  drop topic number 2\n"
+        "/pause  stop making designs\n/resume  start again\n/help  this list")
 
 
 def handle_telegram(state):
@@ -59,8 +63,22 @@ def handle_telegram(state):
                     f"Live: {count('published')}\nSkipped: {count('rejected')}\n"
                     f"Orders handled: {sum(1 for o in state['orders'].values() if o.get('status') in ('sent', 'shipped'))}\n"
                     f"Dry run: {'ON' if settings.DRY_RUN else 'off'} · Designs paused: {'yes' if state['paused'] else 'no'}")
-            else:
+            elif text.startswith("/topics"):
+                telegram.send(brief.list_topics(state))
+            elif text.startswith("/lessons"):
+                telegram.send(brief.list_lessons(state))
+            elif text.startswith("/forget") or text.startswith("/drop"):
+                num = "".join(ch for ch in text if ch.isdigit())
+                telegram.send(brief.forget(state, "lesson" if text.startswith("/forget") else "topic",
+                                           int(num) if num else 0))
+            elif text.startswith("/help") or text.startswith("/start") or not text:
                 telegram.send(HELP)
+            else:
+                try:
+                    brief.handle_message(msg.get("text") or "", state)
+                except Exception as e:
+                    log("  message handling failed:", e)
+                    telegram.send("Sorry, I hit a snag reading that. Try again in a bit.")
 
 
 def files_are_public(d):

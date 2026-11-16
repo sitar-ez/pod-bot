@@ -74,7 +74,7 @@ def render_illustration(prompt):
         "limited color palette, strong silhouette, no drop shadows that fade into nothing, no "
         "photographic detail, no border or frame. Single centered subject."
     )
-    sizes = [settings.IMAGE_SIZE, "1024x1536"]
+    sizes = [settings.IMAGE_SIZE, "2048x3072", "1536x2304", "1024x1536"]
     last = None
     for size in sizes:
         r = http(
@@ -85,7 +85,7 @@ def render_illustration(prompt):
             timeout=300,
         )
         if r.status_code == 400 and size != sizes[-1]:
-            log(f"  image size {size} refused, trying smaller")
+            log(f"  image size {size} refused ({r.text[:200]}), trying smaller")
             last = r
             continue
         raise_for(r, "Image generation")
