@@ -106,7 +106,12 @@ In **Shop Manager → Settings**:
   article about design, or feedback ("less snark, more warmth"). It reads, remembers, and
   uses it in every batch from then on. It also learns from what you approve and skip.
   Replies come on its next run, so within 40 minutes during 9 to 5.
-- Telegram commands: `/status`, `/more`, `/topics`, `/lessons`, `/forget 3`, `/drop 2`,
+- **Daily study.** On the first run each workday, Rory researches one design skill on the web
+  (typography, color, Etsy SEO, niches, illustration, seasonal gifting, and more, rotating
+  through 14 topics), keeps 3 to 5 lessons marked 📖, and sends you what it learned with sources.
+  Your own lessons win if they disagree. `/study` runs an extra session; `/study color theory`
+  studies a topic you pick.
+- Telegram commands: `/status`, `/more`, `/study`, `/topics`, `/lessons`, `/forget 3`, `/drop 2`,
   `/pause`, `/resume`, `/help`.
 
 ### Dry run → live

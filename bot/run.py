@@ -9,7 +9,7 @@ The main loop. GitHub wakes this every 20 minutes; it works 9am-5pm Eastern, eve
 import os
 import traceback
 
-from . import brief, designer, publisher, settings, scout, telegram, fulfillment
+from . import brief, designer, study, publisher, settings, scout, telegram, fulfillment
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -21,6 +21,7 @@ HELP = ("Talk to me like a colleague. Send a trend to explore, an article link t
         "/topics  trends you've asked me to explore\n/lessons  what I've learned from you\n"
         "/forget 3  drop lesson number 3\n/drop 2  drop topic number 2\n"
         "To change a design: tap ✏️ Edit and type the change, or reply to the design.\n"
+        "/study  extra study session (or /study color theory for a topic you choose)\n"
         "/pause  stop making designs\n/resume  start again\n/help  this list")
 
 
@@ -72,6 +73,10 @@ def handle_telegram(state):
                     f"Live: {count('published')}\nSkipped: {count('rejected')}\n"
                     f"Orders handled: {sum(1 for o in state['orders'].values() if o.get('status') in ('sent', 'shipped'))}\n"
                     f"Dry run: {'ON' if settings.DRY_RUN else 'off'} · Designs paused: {'yes' if state['paused'] else 'no'}")
+            elif text.startswith("/study"):
+                topic = (msg.get("text") or "")[6:].strip()
+                state["study_force"] = topic or True
+                telegram.send(f"I'll study {'that' if topic else 'my next curriculum topic'} on my next run.")
             elif text.startswith("/topics"):
                 telegram.send(brief.list_topics(state))
             elif text.startswith("/lessons"):
@@ -180,6 +185,10 @@ def main():
         stage("send new orders to Printful", lambda: fulfillment.send_new_orders(etsy(), state), state)
         save_state(state)
         stage("sync tracking to Etsy", lambda: fulfillment.sync_tracking(etsy(), state), state)
+        save_state(state)
+
+    if study.due(state):
+        stage("study design", lambda: study.study(state), state)
         save_state(state)
 
     pending = sum(1 for d in state["designs"].values() if d["status"] == "pending")

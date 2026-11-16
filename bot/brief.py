@@ -120,7 +120,8 @@ def prompt_block(state):
         parts.append("Daniel asked you to explore these topics. Base at least one design in this batch on "
                      "one of them (rotate between them):\n" + "\n".join(f"- {t['text']}" for t in live))
     if b["lessons"]:
-        parts.append("Daniel's standing design lessons. Follow them:\n" + "\n".join(f"- {x}" for x in b["lessons"]))
+        parts.append("Standing design lessons. Follow them. Lessons starting with 📖 come from your own "
+                     "research; the others come from Daniel and win whenever they disagree:\n" + "\n".join(f"- {x}" for x in b["lessons"]))
     designs = list(state["designs"].values())[-60:]
     yes = [" / ".join(d.get("lines") or [(d.get("illustration_prompt") or "")[:70]])
            for d in designs if d["status"] in ("approved", "approved_dry", "published")][-12:]
