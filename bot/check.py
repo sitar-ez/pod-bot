@@ -51,6 +51,16 @@ def main():
         bad(f"Etsy: {e}")
 
     try:
+        from .common import http as _http
+        from .telegram import _url
+        me = _http("GET", _url("getMe")).json()
+        hook = _http("GET", _url("getWebhookInfo")).json().get("result", {})
+        log(f"Telegram token belongs to: @{me.get('result', {}).get('username')} "
+            f"(pending messages: {hook.get('pending_update_count')}, webhook: {hook.get('url') or 'none'})")
+        report.append(f"ℹ️ Telegram token is for @{me.get('result', {}).get('username')}")
+    except Exception as e:
+        bad(f"Telegram token check: {e}")
+    try:
         ok(f"Telegram chat found ({telegram.chat_id()})")
     except Exception as e:
         bad(f"Telegram: {e}")
