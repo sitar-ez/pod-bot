@@ -1,5 +1,6 @@
 """Designer: turns checked concepts into files and sends them to Telegram."""
 import json
+import re
 from datetime import datetime
 
 from PIL import Image
@@ -89,7 +90,8 @@ def make_design(concept, state, parent=None, reuse_master=None):
     head = f"✏️ {did} · revised version of {parent}" if parent else f"🆕 {did} · {kind}"
     caption = (
         f"{head}\n\n{what}\n\n"
-        f"📈 Trend: {record['trend_signal']}\n"
+        + (f"🔎 Insider detail: {concept['insider_fact']}\n" if concept.get("insider_fact") else "")
+        + f"📈 Trend: {record['trend_signal']}\n"
         f"🛍 {record['why_it_sells']}\n"
         f"Products: {', '.join(record['products'])} · {garment} garments\n"
         + (f"✍️ Personalized: buyers can swap \"{record['personalize']['sample']}\" for their own name "
@@ -145,6 +147,9 @@ Keep the same "kind". Keep everything he didn't mention.
 {skills}"""
 
 
+GENERIC_NOTE = re.compile(r"generic|dig deeper|go deeper|more specific|research|boring|not compelling", re.I)
+
+
 def edit_design(did, instructions, state, via="Telegram"):
     from . import brief
     old = state["designs"].get(did)
@@ -158,6 +163,19 @@ def edit_design(did, instructions, state, via="Telegram"):
         "description": old["description"], "products": old["products"],
         "trend_signal": old.get("trend_signal"), "why_it_sells": old.get("why_it_sells"),
     }
+    if GENERIC_NOTE.search(instructions or ""):   # "too generic, dig deeper": research a better idea
+        from .deepen import deepen
+        new = deepen([dict(concept)], note=instructions)[0]
+        if not new.get("deepened") or not scout.compliance([new]):
+            telegram.send(f"I looked for a more specific angle on {did} but didn't find one that passed the "
+                          "checks. Try telling me a direction, like a variety, a saying or a chore.")
+            return
+        new["kind"] = old["kind"]
+        telegram.send(f"🔎 Dug deeper on {did}: {new.get('insider_fact', '')}\nNew version below.")
+        rec = make_design(new, state, parent=did)
+        old["status"] = "replaced"
+        audit.record(state, did, "replaced", via="automatic", note=f"replaced by {(rec or {}).get('id', 'a revision')}")
+        return
     out = llm.ask_json(scout.SCOUT_SYSTEM, EDIT_PROMPT.format(
         concept=json.dumps(concept, indent=1), instructions=instructions, styles=", ".join(f"{k} ({v['mood']})" for k, v in settings.TEXT_STYLES.items()), skills=skills.prompt_block()))
     new = out.get("concept") or concept

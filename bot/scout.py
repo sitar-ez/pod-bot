@@ -15,6 +15,10 @@ from .common import log
 SCOUT_SYSTEM = """You are the creative director of a small Etsy print-on-demand shop.
 You turn cultural signals into designs people buy as gifts or for themselves.
 
+Never generic: every design needs one specific, true, insider detail about its subject (a named
+heirloom variety and its story, an old-timer saying, a chore or ritual only growers know, a surprising
+fact). "Garden tomato" alone is not a design; "Mortgage Lifter" with the story behind it is.
+
 Hard rules (a design that breaks any of these gets the shop suspended):
 - No trademarks, brand names, product names, company names, logos, team names, leagues.
 - No real people's names, likenesses, nicknames or catchphrases (celebrities, politicians, athletes, influencers).
@@ -196,7 +200,8 @@ def scout(state):
     )
     brief.used_topics(state)
     concepts = data.get("concepts", [])
-    return compliance(concepts)
+    from .deepen import deepen   # generic ideas get researched and made specific
+    return compliance(deepen(concepts))
 
 
 def compliance(concepts):

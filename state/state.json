@@ -1,6 +1,7 @@
 {
   "brief": {
     "lessons": [
+      "Never generic (Daniel, Nov 17): 'garden tomato' isn't compelling. Whenever an idea just names its subject, dig deeper and research something specific and true that the niche would love: an heirloom variety and its story, an old-timer saying, a chore only growers know, a surprising fact.",
       "Daniel (Nov 17) on 'Nana's Small Batch': no black shirts (light garments only); lettering should be folksy and soft, not bold all caps; the name/headline shouldn't be oversized and the tagline shouldn't be tiny; designs sit lower on the shirt (big ones about 7 in below the collar); mugs print smaller with breathing room.",
       "Shop direction (Daniel, Nov 17): homemade, food and craft, feel-good homestead designs for moms and grandmas; listings written for the daughters and grandkids buying the gift.",
       "Warm, gentle humor. Proud, never mocking. No jokes about age, weight or being 'old'. No faith or religious designs. No politics.",
@@ -3427,7 +3428,12 @@
       "status": "sent"
     }
   },
-  "queued_edits": [],
+  "queued_edits": [
+    {
+      "id": "d261117-12",
+      "text": "Too generic, dig deeper. Daniel's direction: research tomatoes and find something insiders love. A strong lead: the Mortgage Lifter heirloom, a 1930s West Virginia beefsteak whose breeder sold the seedlings and paid off his $6,000 house mortgage in six years (WVU Extension). Keep the vintage seed-packet illustration, but make it a Mortgage Lifter packet, with short packet text such as 'Mortgage Lifter \u00b7 heirloom beefsteak \u00b7 pays off the house'. Do not name the breeder (real person). Other good angles if this fails checks: tomato hornworms glow under a UV light at night; heirloom seeds passed gardener to gardener for generations."
+    }
+  ],
   "refresh_listings": {},
   "replace_pending": false,
   "study_index": 2,
