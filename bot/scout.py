@@ -72,7 +72,7 @@ Notes:
   the mood. lines can include simple punctuation but no emoji.
 - layout: width is the share of the 12 inch print width the design uses. 0.78 is a standard
   chest print; use 0.55 to 0.65 for short phrases or small, tasteful prints; up to 0.9 only for
-  bold statement pieces. Leave "top" out: placement is automatic (big designs start about 3 in
+  bold statement pieces. Leave "top" out: placement is automatic (big designs start about 5 in
   below the collar; small designs sit lower, about 9 in below the collar).
 - Every phrase must make sense on its own to a stranger reading it on a shirt. Don't mash
   together unrelated words from different headlines.

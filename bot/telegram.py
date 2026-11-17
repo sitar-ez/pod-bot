@@ -51,11 +51,22 @@ def send_design(jpg_bytes, caption, design_id):
 
 
 def updates(offset):
-    r = http("GET", _url("getUpdates"), params={"offset": offset, "timeout": 0})
+    r = http("GET", _url("getUpdates"), params={"offset": offset, "timeout": 0,
+                                                "allowed_updates": json.dumps(["message", "callback_query"])})
     if r.status_code >= 400:
         log("  telegram getUpdates failed:", r.text[:300])
         return []
-    return r.json().get("result", [])
+    res = r.json().get("result", [])
+    kinds = [("tap" if "callback_query" in u else "message" if "message" in u else "other") for u in res]
+    log(f"  telegram: {len(res)} new update(s) {kinds}")
+    if not res:
+        try:
+            info = http("GET", _url("getWebhookInfo"), retries=0).json().get("result", {})
+            log(f"  telegram check: pending={info.get('pending_update_count')} webhook={info.get('url') or 'none'} "
+                f"last_error={info.get('last_error_message')}")
+        except Exception as e:
+            log("  telegram check failed:", e)
+    return res
 
 
 def answer(callback_id, text):

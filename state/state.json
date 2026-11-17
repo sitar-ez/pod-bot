@@ -2,7 +2,7 @@
   "brief": {
     "lessons": [
       "Every phrase must make sense on its own to a stranger. No mashups of unrelated words or headlines (Daniel skipped 'PORCH BIRD CLUB / family chapter' because it made no sense).",
-      "Daniel's placement rule: big, full-width designs start about 3 inches below the collar; SMALL designs (narrower than about 7 inches) sit lower, with the top edge about 9 inches below the collar, so they land mid-chest instead of up by the neckline. Leave layout top out and placement is automatic.",
+      "Daniel's placement rule: big, full-width designs start about 5 inches below the collar (never up by the neckline); SMALL designs (narrower than about 7 inches) sit lower, with the top edge about 9 inches below the collar, so they land mid-chest instead of up by the neckline. Leave layout top out and placement is automatic.",
       "Center-chest slogans and small graphics are 6 to 10 inches wide (layout width 0.5-0.8). Short phrases go toward the small end.",
       "Full-front statement designs are 10 to 12 inches wide (layout width 0.83-1.0) and up to about 12 inches tall.",
       "Chest designs should end above the armpit line and never reach toward the shoulder seams.",
@@ -814,6 +814,7 @@
         "why_it_sells": "Families, grandparents and backyard bird fans buy it as a matching tee or gift for a porch-and-binoculars tradition."
       },
       "created": "2026-11-16T23:05:38.806803+00:00",
+      "decided": "2026-11-16T23:08:00+00:00",
       "description": "A cozy retro-serif design for families who gather on the porch with coffee, binoculars and a feeder to watch. Wear it to the reunion, give it to a favorite birder, or make a matching set for the whole flock.",
       "files": {
         "hoodie": {
@@ -866,7 +867,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "rejected",
       "tags": [
         "birdwatching shirt",
         "bird club tee",
@@ -940,6 +941,7 @@
         "why_it_sells": "Home cooks, gardeners and cottagecore fans buy it for themselves or as a gift for the person who always has homemade jam."
       },
       "created": "2026-11-16T23:06:14.466088+00:00",
+      "decided": "2026-11-16T23:08:00+00:00",
       "description": "A hand-drawn style jam jar with a gingham lid and fresh strawberries, made for people who love slow kitchen hobbies. A sweet gift for canners, bakers and anyone who likes things made in small batches.",
       "files": {
         "hoodie": {
@@ -989,7 +991,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "approved",
       "tags": [
         "jam jar shirt",
         "cottagecore tee",
@@ -1281,6 +1283,7 @@
   "last_study": "2026-11-17",
   "orders": {},
   "paused": false,
+  "replace_pending": true,
   "study_index": 2,
   "study_log": [
     {

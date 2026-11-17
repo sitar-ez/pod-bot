@@ -187,6 +187,27 @@ def main():
         stage("sync tracking to Etsy", lambda: fulfillment.sync_tracking(etsy(), state), state)
         save_state(state)
 
+    if state.get("replace_pending"):
+        def replace_pending():
+            from .common import DESIGNS_DIR
+            for did, d in list(state["designs"].items()):
+                c = d.get("concept")
+                if d["status"] != "pending" or not c:
+                    continue
+                c = dict(c)
+                c["layout"] = {**(c.get("layout") or {}), "top": None}
+                master = DESIGNS_DIR / did / "master.png"
+                reuse = str(master) if d["kind"] == "illustration" and master.exists() else None
+                designer.make_design(c, state, parent=did, reuse_master=reuse)
+                d["status"] = "replaced"
+                save_state(state)
+            state["replace_pending"] = False
+            telegram.send("📐 I re-placed the designs that were waiting on you using your new placement rule "
+                          "(big designs about 5 inches below the collar, small ones about 9). The updated "
+                          "versions are above; the old ones are retired.")
+        stage("re-place pending designs", replace_pending, state)
+        save_state(state)
+
     if study.due(state):
         stage("study design", lambda: study.study(state), state)
         save_state(state)

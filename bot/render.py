@@ -39,7 +39,7 @@ def _font_for_width(path, text, target_w, max_h):
 
 DEFAULT_LAYOUT = {"width": 0.78, "top": None, "line_gap": 1.0, "align": "center"}
 # Printful's print area starts about 2.5 in below the collar and is 16 in tall.
-TOP_FULL = 0.03    # full-size designs: top edge about 3 in below the collar
+TOP_FULL = 0.16    # full-size designs: top edge about 5 in below the collar (Daniel's rule)
 TOP_SMALL = 0.40   # small designs: top edge about 9 in below the collar (Daniel's rule)
 SMALL_WIDTH = 0.62 # narrower than about 7.5 in ...
 SMALL_HEIGHT = 0.35 # ... and shorter than about 5.5 in counts as small
