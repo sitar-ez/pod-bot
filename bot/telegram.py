@@ -92,3 +92,11 @@ def send_buttons(text, buttons):
     kb = {"inline_keyboard": [[{"text": t, "callback_data": d} for t, d in buttons]]}
     http("POST", _url("sendMessage"), data={"chat_id": chat_id(), "text": text[:4000],
                                             "reply_markup": json.dumps(kb)})
+
+
+def send_photo_bytes(jpg, caption=""):
+    try:
+        http("POST", _url("sendPhoto"), data={"chat_id": chat_id(), "caption": caption[:1000]},
+             files={"photo": ("proof.jpg", jpg, "image/jpeg")})
+    except Exception as e:
+        log("  telegram photo failed:", e)

@@ -9,7 +9,7 @@ The main loop. GitHub wakes this every 20 minutes; it works 9am-5pm Eastern, eve
 import os
 import traceback
 
-from . import brief, designer, products, study, publisher, settings, scout, telegram, fulfillment
+from . import brief, designer, personalize, products, study, publisher, settings, scout, telegram, fulfillment
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -33,6 +33,13 @@ def handle_telegram(state, ups=None):
         msg = u.get("message")
         if cb and str(cb["message"]["chat"]["id"]) == me:
             action, did = cb["data"].split(":", 1)
+            if action in ("order_ok", "order_hold"):
+                ans = personalize.handle_callback(action, did, state)
+                try:
+                    telegram.answer(cb["id"], ans or "Got it")
+                except Exception:
+                    pass
+                continue
             if action in ("product_ok", "product_adjust"):
                 ans = products.handle_callback(action, did, state)
                 try:

@@ -1,7 +1,7 @@
 """Fulfillment: paid Etsy orders -> Printful, and Printful tracking -> Etsy."""
 import re
 
-from . import printful, settings, telegram
+from . import personalize, printful, settings, telegram
 from .common import log, now_iso, public_url
 
 SKU = re.compile(r"^PB-(d\d{6}-\d{2})-(\d+)$")
@@ -17,9 +17,10 @@ def money(m):
 def send_new_orders(etsy, state):
     for r in etsy.unshipped_receipts():
         rid = str(r["receipt_id"])
-        if rid in state["orders"]:
-            continue
-        items = []
+        o = state["orders"].get(rid)
+        if o and o.get("status") != "approved":
+            continue   # already sent, not ours, waiting for Daniel's OK, or held
+        items, personal = [], []
         for t in r.get("transactions", []):
             m = SKU.match(t.get("sku") or "")
             if not m:
@@ -31,15 +32,34 @@ def send_new_orders(etsy, state):
             key = next((k for k, files in d["files"].items() if vid in files), None)
             if not key:
                 continue
+            placement = printful.resolve_product(key, state).get("placement", settings.PRODUCTS[key]["placement"])
+            file_url = public_url(d["files"][key][vid])
+            if d.get("personalize"):
+                tid = str(t.get("transaction_id"))
+                done = (o or {}).get("files", {}).get(tid)
+                if done:                      # approved earlier: use the proofed file
+                    file_url = public_url(done)
+                else:
+                    name, warn = personalize.clean(personalize.buyer_name(t))
+                    name = name or d["personalize"]["sample"]
+                    img, rel, v = personalize.render_print(d, key, vid, name, state, f"{rid}_{tid}")
+                    personal.append({"tid": tid, "file": rel, "name": name, "warnings": warn,
+                                     "product": settings.PRODUCTS[key]["label"],
+                                     "proof": personalize.proof_jpg(img, v, key)})
             items.append({
                 "variant_id": int(vid), "quantity": t["quantity"],
-                "files": [{"type": printful.resolve_product(key, state).get("placement", settings.PRODUCTS[key]["placement"]),
-                           "url": public_url(d["files"][key][vid])}],
+                "files": [{"type": placement, "url": file_url}],
                 "retail_price": money(t.get("price", {})),
                 "name": t.get("title", "")[:100],
             })
         if not items:
             state["orders"][rid] = {"status": "not_ours", "seen": now_iso()}
+            continue
+        if personal:   # new personalized order: wait for Daniel's OK (files are saved to GitHub meanwhile)
+            state["orders"][rid] = {"status": "awaiting_ok", "seen": now_iso(),
+                                    "files": {p["tid"]: p["file"] for p in personal}}
+            personalize.request_ok(rid, personal, state)
+            log(f"  order {rid}: personalized, waiting for Daniel's OK")
             continue
         recipient = {
             "name": r.get("name"), "address1": r.get("first_line"), "address2": r.get("second_line") or "",
@@ -52,7 +72,7 @@ def send_new_orders(etsy, state):
         order = printful.create_order(f"etsy-{rid}", recipient, items, settings.AUTO_CONFIRM_ORDERS)
         state["orders"][rid] = {"status": "sent", "printful_id": order["id"], "created": now_iso()}
         how = "sent to production" if settings.AUTO_CONFIRM_ORDERS else "saved as a Printful draft for you to confirm"
-        telegram.send(f"💰 New Etsy order #{rid}: {sum(i['quantity'] for i in items)} item(s), {how}.")
+        telegram.send(f"💰 Etsy order #{rid}: {sum(i['quantity'] for i in items)} item(s), {how}.")
         log(f"  order {rid} -> Printful #{order['id']}")
 
 

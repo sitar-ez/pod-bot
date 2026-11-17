@@ -4,7 +4,7 @@ from datetime import datetime
 
 from PIL import Image
 
-from . import llm, printful, products as prods, render, scout, settings, skills, telegram
+from . import llm, personalize, printful, products as prods, render, scout, settings, skills, telegram
 from .common import DESIGNS_DIR, ROOT, log, now_iso
 
 WHITE_SURFACE = {"mug", "sticker"}   # products that are always white
@@ -75,6 +75,7 @@ def make_design(concept, state, parent=None, reuse_master=None):
         "titles": concept.get("titles", {}), "tags": concept.get("tags", []),
         "description": concept.get("description", ""), "trend_signal": concept.get("trend_signal", ""),
         "why_it_sells": concept.get("why_it_sells", ""), "listings": {}, "concept": concept,
+        "personalize": personalize.make_slot(concept),
     }
 
     tee_key = next((k for k in ("tee", "tee_bc") if k in firsts), "tee_bc")
@@ -90,7 +91,9 @@ def make_design(concept, state, parent=None, reuse_master=None):
         f"{head}\n\n{what}\n\n"
         f"📈 Trend: {record['trend_signal']}\n"
         f"🛍 {record['why_it_sells']}\n"
-        f"Products: {', '.join(record['products'])} · {garment} garments\n\n"
+        f"Products: {', '.join(record['products'])} · {garment} garments\n"
+        + (f"✍️ Personalized: buyers can swap \"{record['personalize']['sample']}\" for their own name "
+           "(you approve each proof)\n" if record["personalize"] else "") + "\n"
         "Want changes? Tap ✏️ Edit and type what to change, or just reply to this message."
     )
     record["telegram_msg"] = telegram.send_design(jpg, caption, did)

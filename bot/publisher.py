@@ -3,7 +3,7 @@ import math
 import os
 import re
 
-from . import printful, render, settings, telegram
+from . import personalize, printful, render, settings, telegram
 from .common import http, log, now_iso, public_url
 from .etsy import find_category
 
@@ -31,6 +31,7 @@ def listing_description(design, key):
     cfg = settings.PRODUCTS[key]
     return (design["description"].strip() + "\n\n" + cfg["details"] +
             (" See the size chart in the photos." if key in APPAREL else "") +
+            (personalize.DESCRIPTION if design.get("personalize") else "") +
             settings.RETURNS + settings.DISCLOSURE.format(shop=settings.SHOP_NAME))
 
 
@@ -211,6 +212,13 @@ def publish(design, etsy, state):
             for rank, img in enumerate(photos, start=1):
                 etsy.upload_image(lid, img, rank)
         etsy.set_inventory(lid, inventory)
+        if design.get("personalize"):
+            try:
+                etsy.set_personalization(lid, personalize.QUESTION)
+            except Exception as e:
+                log("  name box failed:", e)
+                telegram.send(f"⚠️ Couldn't add the name box to {did} {key} (it's listed with "
+                              f"\"{design['personalize']['sample']}\" as shown): {str(e)[:200]}")
         if settings.PUBLISH_LIVE:
             etsy.activate(lid)
         design["listings"][key] = lid

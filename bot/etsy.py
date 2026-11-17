@@ -78,6 +78,10 @@ class Etsy:
     def delete_image(self, listing_id, image_id):
         return self.req("DELETE", f"/shops/{self.shop_id}/listings/{listing_id}/images/{image_id}", "remove photo")
 
+    def set_personalization(self, listing_id, question):
+        return self.req("POST", f"/shops/{self.shop_id}/listings/{listing_id}/personalization",
+                        "add name box", json={"personalization_questions": [question]})
+
     def set_inventory(self, listing_id, body):
         return self.req("PUT", f"/listings/{listing_id}/inventory", "set variations", json=body)
 
