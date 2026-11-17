@@ -3579,7 +3579,12 @@
       "status": "sent"
     }
   },
-  "queued_edits": [],
+  "queued_edits": [
+    {
+      "id": "d261117-12",
+      "text": "Change the words on the seed packet to exactly 'Tomato Season' (replace 'Garden Tomatoes'). Keep everything else about the vintage seed-packet illustration the same: the tomato, vine, blossom, colors and scalloped packet. Regenerate the image so the new words are printed on it, spelled exactly 'Tomato Season'. Update the titles, tags and description to match 'Tomato Season'."
+    }
+  ],
   "refresh_listings": {},
   "replace_pending": false,
   "study_index": 2,
