@@ -90,8 +90,21 @@ def send_photo_url(url, caption=""):
 
 def send_buttons(text, buttons):
     kb = {"inline_keyboard": [[{"text": t, "callback_data": d} for t, d in buttons]]}
-    http("POST", _url("sendMessage"), data={"chat_id": chat_id(), "text": text[:4000],
-                                            "reply_markup": json.dumps(kb)})
+    r = http("POST", _url("sendMessage"), data={"chat_id": chat_id(), "text": text[:4000],
+                                                "reply_markup": json.dumps(kb)})
+    try:
+        return r.json()["result"]["message_id"]
+    except Exception:
+        return None
+
+
+def mark_text(message_id, new_text):
+    """Rewrite a text message (used on idea cards, which have no photo caption)."""
+    try:
+        http("POST", _url("editMessageText"),
+             data={"chat_id": chat_id(), "message_id": message_id, "text": new_text[:4000]})
+    except Exception as e:
+        log("  telegram edit failed:", e)
 
 
 def send_photo_bytes(jpg, caption=""):

@@ -19,6 +19,8 @@ LABELS = {
     "proposed": "💡 Rory proposed",
     "edit_requested": "✏️ Daniel asked for changes",
     "revised": "🔁 Revised version made",
+    "draw_requested": "🎨 Daniel asked Rory to draw the idea",
+    "drawn": "🖼️ Rory drew it",
     "approved": "✅ Daniel approved",
     "skipped": "❌ Daniel skipped",
     "published": "🛍️ Listed on Etsy",
@@ -38,7 +40,7 @@ def record(state, did, event, note=None, via="Telegram", at=None, **extra):
 
 
 def _who(event):
-    return "Rory (bot)" if event in ("proposed", "revised", "published", "replaced") else "Daniel"
+    return "Rory (bot)" if event in ("proposed", "revised", "published", "replaced", "drawn") else "Daniel"
 
 
 def backfill(state):

@@ -23,25 +23,34 @@ AUTO_CONFIRM_ORDERS = os.getenv("AUTO_CONFIRM_ORDERS", "true").lower() != "false
 # ---------------------------------------------------------------------------
 # How much the bot makes
 # ---------------------------------------------------------------------------
-# The bot works from 9am to 5pm Eastern, once every 40 minutes (12 runs a day),
-# and makes 2 new designs each run (about 24 a day).
+# Cost plan (Daniel, Nov 17): Rory runs every 2 hours, 9am to 5pm Eastern (9, 11, 1, 3).
+# New designs are made on weekdays only (4 runs, about 8 ideas a day). Weekend runs only
+# handle orders, tracking and Telegram, which cost nothing.
 WORK_TIMEZONE = "America/New_York"
 WORK_START_HOUR = 9     # 9am
 WORK_END_HOUR = 17      # 5pm
-RUN_EVERY_MINUTES = 40
+RUN_EVERY_MINUTES = 120
+DESIGN_DAYS = {0, 1, 2, 3, 4}   # Monday to Friday
 DESIGNS_PER_BATCH = int(os.getenv("DESIGNS_PER_BATCH", "2"))
 ILLUSTRATION_SHARE = 0.30
 LIGHT_GARMENTS_ONLY = True   # Daniel: no black shirts for the homestead shop
 # Personalized name listings are off (Daniel, Nov 17): Etsy's photo rules are unclear for
 # personalized print-on-demand, and per-order proofs add work. Every listing is a fixed design.
 PERSONALIZATION = False
-MAX_PENDING_APPROVALS = 15         # stop making new designs if this many are waiting on you
+MAX_PENDING_APPROVALS = 6          # stop making new designs if this many are waiting on you
 
 # ---------------------------------------------------------------------------
 # AI models
 # ---------------------------------------------------------------------------
 CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-5-5")
 IMAGE_MODEL = os.getenv("IMAGE_MODEL", "gpt-image-2.5-flare")
+# Prices for the cost tracker (USD). Claude Sonnet: per million tokens. Web search: per search.
+# OpenAI gpt-image-2.5-flare: per million tokens (text in, image out).
+PRICE_CLAUDE_IN = 2.00
+PRICE_CLAUDE_OUT = 10.00
+PRICE_WEB_SEARCH = 0.01
+PRICE_IMAGE_TEXT_IN = 5.00
+PRICE_IMAGE_OUT = 30.00
 IMAGE_SIZE = os.getenv("IMAGE_SIZE", "2048x3072")   # largest size within OpenAI's pixel budget; falls back smaller if refused
 
 # ---------------------------------------------------------------------------

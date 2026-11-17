@@ -43,14 +43,16 @@ Rules: never suggest trademarks, brands, real people or politics. Lessons must b
 can actually apply to text layouts, fonts, colors, illustration prompts, titles or tags."""
 
 
-def search_json(prompt, max_searches=5):
+def search_json(prompt, max_searches=5, max_tokens=4000):
     """Ask Claude with web search on, following pause_turn continuations."""
     client = llm.client()
     tools = [{"type": "web_search_20250305", "name": "web_search", "max_uses": max_searches}]
     messages = [{"role": "user", "content": prompt}]
     for _ in range(4):
-        msg = client.messages.create(model=settings.CLAUDE_MODEL, max_tokens=4000,
+        msg = client.messages.create(model=settings.CLAUDE_MODEL, max_tokens=max_tokens,
                                      system=brief.SYSTEM, messages=messages, tools=tools)
+        from . import costs
+        costs.claude(msg)
         if msg.stop_reason != "pause_turn":
             break
         messages = [messages[0], {"role": "assistant", "content": msg.content}]

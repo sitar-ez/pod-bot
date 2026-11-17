@@ -144,6 +144,13 @@ def shop_setup(etsy, state):
 def publish(design, etsy, state):
     shop = shop_setup(etsy, state)
     did = design["id"]
+    if not design.get("tags") or not design.get("description"):
+        from . import copywriter, telegram
+        if not copywriter.write(design, state):
+            design["status"] = "pending"
+            telegram.send(f"⚠️ I couldn't write safe Etsy titles and tags for {did}, so it's back in your "
+                          "queue. Tap ✏️ Edit on it with a note, or Skip it.")
+            return
     for key in design["products"]:
         if key in design["listings"]:
             continue

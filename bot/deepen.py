@@ -5,8 +5,8 @@ subject and find something specific and true (an heirloom variety with a story, 
 old-timer saying, a technique only growers know, a surprising fact) that the homestead
 buyer would recognize and smile at.
 
-Every new concept goes through here before the safety check. Claude judges each one and
-rewrites only the generic ones, using web search.
+Used only when Daniel asks for it on a design ("too generic", "dig deeper"). New ideas get
+their specific details from the weekly fact bank instead (bot/facts.py), which is far cheaper.
 """
 import json
 
@@ -63,6 +63,8 @@ def _search_json(prompt, max_searches):
     for _ in range(4):
         msg = client.messages.create(model=settings.CLAUDE_MODEL, max_tokens=8000,
                                      messages=messages, tools=tools)
+        from . import costs
+        costs.claude(msg)
         if msg.stop_reason != "pause_turn":
             break
         messages = [messages[0], {"role": "assistant", "content": msg.content}]

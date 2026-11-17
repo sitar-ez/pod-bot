@@ -17,11 +17,52 @@ def new_id(state):
     return f"d{stamp}-{n:02d}"
 
 
-def make_design(concept, state, parent=None, reuse_master=None):
+def send_idea(concept, state, parent=None):
+    """Illustrations start as a one-line idea. The image (the costly part) is only drawn
+    after Daniel taps 🎨 Make it (Daniel, Nov 17: keep API costs low)."""
     did = new_id(state)
+    record = {
+        "id": did, "kind": "illustration", "status": "idea", "created": now_iso(), "parent": parent,
+        "garment": "light", "products": [], "files": {}, "lines": [],
+        "illustration_prompt": concept.get("illustration_prompt"),
+        "titles": {}, "tags": [], "description": "",
+        "trend_signal": concept.get("trend_signal", ""), "why_it_sells": concept.get("why_it_sells", ""),
+        "listings": {}, "concept": concept, "personalize": None,
+    }
+    head = f"💡 {did} · illustration idea" + (f" (revised from {parent})" if parent else "")
+    text = (f"{head}\n\n{concept.get('idea_summary') or (concept.get('illustration_prompt') or '')[:300]}\n\n"
+            + (f"🔎 Insider detail: {concept['insider_fact']}\n" if concept.get("insider_fact") else "")
+            + f"📈 Trend: {record['trend_signal']}\n🛍 {record['why_it_sells']}\n\n"
+            "Like it? Tap 🎨 Make it and I'll draw it now (images are the costly part, so I only draw "
+            "the ones you want). ✏️ Edit to change the idea first.")
+    record["telegram_msg"] = telegram.send_buttons(text, [
+        ("🎨 Make it", f"draw:{did}"), ("✏️ Edit", f"edit:{did}"), ("❌ Skip", f"reject:{did}")])
+    state["designs"][did] = record
+    audit.record(state, did, "revised" if parent else "proposed", via="automatic",
+                 note=f"revision of {parent} (idea only, not drawn yet)" if parent
+                 else (record["trend_signal"] or "illustration idea, not drawn yet"))
+    if not parent:
+        state["counts"]["illustration"] = state["counts"].get("illustration", 0) + 1
+    log(f"  idea {did}: {(concept.get('illustration_prompt') or '')[:70]}")
+    return record
+
+
+def draw_idea(did, state):
+    """Daniel tapped 🎨 Make it: draw the image and send the normal preview for approval."""
+    d = state["designs"][did]
+    audit.record(state, did, "draw_requested")
+    concept = dict(d["concept"])
+    concept["go"] = True
+    return make_design(concept, state, parent=d.get("parent"), existing=did)
+
+
+def make_design(concept, state, parent=None, reuse_master=None, existing=None):
+    kind = concept.get("kind", "text")
+    if kind == "illustration" and not reuse_master and not concept.get("go") and not existing:
+        return send_idea(concept, state, parent)
+    did = existing or new_id(state)
     folder = DESIGNS_DIR / did
     folder.mkdir(parents=True, exist_ok=True)
-    kind = concept.get("kind", "text")
     active = prods.active_products(state)
     products = []
     for p in concept.get("products") or active:
@@ -87,7 +128,8 @@ def make_design(concept, state, parent=None, reuse_master=None):
     jpg = render.preview(tee_img, firsts.get("mug"), first_color, record["products"])
     (folder / "preview.jpg").write_bytes(jpg)
     what = " / ".join(record["lines"]) if kind == "text" else (record["illustration_prompt"] or "")[:160]
-    head = f"✏️ {did} · revised version of {parent}" if parent else f"🆕 {did} · {kind}"
+    head = (f"🎨 {did} · drawn from your idea" if existing
+            else f"✏️ {did} · revised version of {parent}" if parent else f"🆕 {did} · {kind}")
     caption = (
         f"{head}\n\n{what}\n\n"
         + (f"🔎 Insider detail: {concept['insider_fact']}\n" if concept.get("insider_fact") else "")
@@ -99,6 +141,13 @@ def make_design(concept, state, parent=None, reuse_master=None):
         "Want changes? Tap ✏️ Edit and type what to change, or just reply to this message."
     )
     record["telegram_msg"] = telegram.send_design(jpg, caption, did)
+    if existing:
+        record["created"] = state["designs"][did].get("created", record["created"])
+        record["history"] = state["designs"][did].get("history", [])
+        state["designs"][did] = record
+        audit.record(state, did, "drawn", via="automatic")
+        log(f"  drew {did}")
+        return record
     state["designs"][did] = record
     if parent:
         audit.record(state, did, "revised", via="automatic", note=f"revision of {parent}")
@@ -186,8 +235,13 @@ def edit_design(did, instructions, state, via="Telegram"):
                           "image as possibly owned by someone. Try a different direction.")
             return
     reuse = None
-    if old["kind"] == "illustration" and not out.get("regenerate_image"):
-        reuse = str(DESIGNS_DIR / did / "master.png")
+    if old["kind"] == "illustration" and old["status"] != "idea":
+        if out.get("regenerate_image"):
+            new["go"] = True   # he's already looked at the drawing; redraw it right away
+        else:
+            reuse = str(DESIGNS_DIR / did / "master.png")
+    elif old["kind"] == "illustration":
+        new.pop("go", None)    # still just an idea: send the revised idea, draw on 🎨 Make it
     if out.get("lesson"):
         brief._add(brief._brief(state), lessons=[out["lesson"]])
     telegram.send(f"✏️ {out.get('reply', 'Revised.')} New version below.")

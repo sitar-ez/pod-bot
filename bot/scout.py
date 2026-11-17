@@ -9,7 +9,7 @@ from datetime import date
 
 import feedparser
 
-from . import brief, direction, llm, settings, skills
+from . import brief, direction, facts, llm, settings, skills
 from .common import log
 
 SCOUT_SYSTEM = """You are the creative director of a small Etsy print-on-demand shop.
@@ -63,9 +63,9 @@ Return JSON only, in this shape:
     "garment": "light",
     "layout": {{"width": 0.78, "line_gap": 1.0, "align": "center"}},
     "illustration_prompt": "for illustrations only: describe the image",
-    "titles": {{{title_keys}}},
-    "tags": ["13 tags", "each under 20 characters", "buyer search phrases"],
-    "description": "2 to 3 warm, plain sentences for the listing. No hype words.",
+    "idea_summary": "for illustrations only: one plain sentence telling Daniel what the picture shows",
+    "insider_fact": "the specific true detail the design is built on (from the fact bank if used)",
+    "fact_id": "id of the fact bank entry you used, or null",
     "products": {product_keys}
   }}
 ]}}
@@ -90,9 +90,7 @@ Notes:
   centered subject in a bold, clean, screen-print style with a limited color palette.
   Do not ask for a background. You may include up to 4 words of text in the image only if
   it really helps; otherwise none. "lines" should be [].
-- Titles: up to 140 characters, front-load what a buyer would type into Etsy search,
-  and who it's a gift for, e.g. "Nana's Small Batch Jam Shirt, Canning Gift for Grandma, ...".
-  Each title must fit its product.
+- Don't write Etsy titles, tags or descriptions: those are written after Daniel approves.
 - products: drop any product the design would not suit (e.g. long text on a sticker is fine,
   a very tall design on a mug is not).
 """
@@ -192,16 +190,16 @@ def scout(state):
             n_text=n_text,
             n_ill=n_ill,
             styles=style_menu(state),
-            brief=brief.prompt_block(state) + "\n\n" + skills.prompt_block(),
+            brief=brief.prompt_block(state) + "\n\n" + facts.prompt_block(state) + "\n\n" + skills.prompt_block(),
             direction=direction.prompt_block(state, n_text, n_ill, "tee" in active and settings.PRODUCTS["tee"].get("comfort_colors")),
-            title_keys=", ".join(f'"{k}": "..."' for k in active),
             product_keys=json.dumps(active),
         ),
     )
     brief.used_topics(state)
     concepts = data.get("concepts", [])
-    from .deepen import deepen   # generic ideas get researched and made specific
-    return compliance(deepen(concepts))
+    passed = compliance(concepts)
+    facts.mark_used(state, passed)   # specific details come from the weekly fact bank
+    return passed
 
 
 def compliance(concepts):

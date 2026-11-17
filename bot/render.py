@@ -126,6 +126,8 @@ def render_illustration(prompt):
             last = r
             continue
         raise_for(r, "Image generation")
+        from . import costs
+        costs.image(r.json())
         b64 = r.json()["data"][0]["b64_json"]
         img = Image.open(io.BytesIO(base64.b64decode(b64))).convert("RGBA")
         img = trim(clean_alpha(img))

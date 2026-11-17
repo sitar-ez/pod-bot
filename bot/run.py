@@ -9,7 +9,7 @@ The main loop. GitHub wakes this every 20 minutes; it works 9am-5pm Eastern, eve
 import os
 import traceback
 
-from . import audit, brief, designer, personalize, products, study, publisher, settings, scout, telegram, fulfillment
+from . import audit, brief, designer, facts, personalize, products, study, publisher, settings, scout, telegram, fulfillment
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -17,7 +17,7 @@ from .common import hours_since, http, load_state, log, now_iso, public_url, sav
 
 HELP = ("Talk to me like a colleague. Send a trend to explore, an article link to learn from, "
         "or feedback on my designs, and I'll use it from now on.\n\n"
-        "Commands:\n/status  what's waiting and what's live\n/more  extra batch on the next run\n"
+        "Commands:\n/status  what's waiting and what's live\n/cost  what the AI has cost today, this week, this month\n/facts  the insider details I build designs on\n/more  extra batch on the next run\n"
         "/topics  trends you've asked me to explore\n/lessons  what I've learned from you\n"
         "/forget 3  drop lesson number 3\n/drop 2  drop topic number 2\n"
         "To change a design: tap ✏️ Edit and type the change, or reply to the design.\n"
@@ -48,12 +48,32 @@ def handle_telegram(state, ups=None):
                     pass
                 continue
             d = state["designs"].get(did)
-            if not d or d["status"] != "pending":
+            if not d or d["status"] not in ("pending", "idea"):
+                continue
+            is_idea = d["status"] == "idea"
+            body = cb["message"].get("caption") or cb["message"].get("text") or ""
+            mark = (lambda t: telegram.mark_text(cb["message"]["message_id"], t)) if is_idea else \
+                (lambda t: telegram.mark(cb["message"]["message_id"], t))
+            if action == "draw" and is_idea:
+                d["status"] = "drawing"
+                try:
+                    telegram.answer(cb["id"], "🎨 Drawing it now")
+                except Exception:
+                    pass
+                mark(f"🎨 DRAWING: the preview arrives in a minute or two\n\n{body}")
+                try:
+                    designer.draw_idea(did, state)
+                except Exception as e:
+                    log("  drawing failed:", e)
+                    traceback.print_exc()
+                    d["status"] = "idea"
+                    telegram.send(f"Sorry, drawing {did} failed: {str(e)[:200]}. Tap 🎨 Make it again later.")
+                continue
+            if action == "approve" and is_idea:
                 continue
             if action == "edit":
                 state["editing"] = {"id": did, "at": now_iso()}
-                telegram.mark(cb["message"]["message_id"],
-                              "✏️ EDITING: tell me what to change\n\n" + cb["message"].get("caption", ""))
+                mark("✏️ EDITING: tell me what to change\n\n" + body)
                 telegram.send(f"What should I change about {did}? Just type it, for example: "
                               "\"make it smaller and lower on the chest\", \"use a bolder font\", "
                               "\"change the words to ...\", \"make the cat look happier\".")
@@ -65,9 +85,8 @@ def handle_telegram(state, ups=None):
                 telegram.answer(cb["id"], "✅ Approved" if action == "approve" else "❌ Skipped")
             except Exception:
                 pass
-            old = cb["message"].get("caption", "")
             tag = "✅ APPROVED, it goes to Etsy on the next run" if action == "approve" else "❌ Skipped"
-            telegram.mark(cb["message"]["message_id"], f"{tag}\n\n{old}")
+            mark(f"{tag}\n\n{body}")
             log(f"  {did}: {d['status']}")
         elif msg and str(msg["chat"]["id"]) == me:
             text = (msg.get("text") or "").strip().lower()
@@ -84,10 +103,19 @@ def handle_telegram(state, ups=None):
                 ds = state["designs"].values()
                 count = lambda s: sum(1 for d in ds if d["status"] == s)
                 telegram.send(
-                    f"Waiting on you: {count('pending')}\nApproved, publishing: {count('approved')}\n"
+                    f"Waiting on you: {count('pending')} designs, {count('idea')} illustration ideas\nApproved, publishing: {count('approved')}\n"
                     f"Live: {count('published')}\nSkipped: {count('rejected')}\n"
                     f"Orders handled: {sum(1 for o in state['orders'].values() if o.get('status') in ('sent', 'shipped'))}\n"
                     f"Dry run: {'ON' if settings.DRY_RUN else 'off'} · Designs paused: {'yes' if state['paused'] else 'no'}")
+            elif text.startswith("/facts"):
+                if "new" in text:
+                    state.setdefault("facts", {})["rebuild"] = True
+                    telegram.send("I'll research a fresh insider facts bank on my next weekday run.")
+                else:
+                    telegram.send(facts.listing(state))
+            elif text.startswith("/cost"):
+                from . import costs
+                telegram.send(costs.report())
             elif text.startswith("/study"):
                 topic = (msg.get("text") or "")[6:].strip()
                 state["study_force"] = topic or True
@@ -113,11 +141,11 @@ def handle_telegram(state, ups=None):
             else:
                 replied = (msg.get("reply_to_message") or {}).get("message_id")
                 target = next((k for k, d in state["designs"].items()
-                               if replied and d.get("telegram_msg") == replied and d["status"] == "pending"), None)
+                               if replied and d.get("telegram_msg") == replied and d["status"] in ("pending", "idea")), None)
                 ed = state.pop("editing", None)
                 if not target and isinstance(ed, dict) and hours_since(ed.get("at")) < 3:
                     target = ed["id"]
-                if target and state["designs"].get(target, {}).get("status") == "pending":
+                if target and state["designs"].get(target, {}).get("status") in ("pending", "idea"):
                     state.pop("editing", None)
                     try:
                         designer.edit_design(target, msg.get("text") or "", state)
@@ -139,6 +167,8 @@ def files_are_public(d):
 
 
 def stage(name, fn, state):
+    from . import costs
+    costs.STAGE["name"] = name
     try:
         log(f"== {name}")
         fn()
@@ -159,8 +189,8 @@ def in_work_window(state):
     if not (settings.WORK_START_HOUR <= local.hour < settings.WORK_END_HOUR):
         log(f"  outside working hours ({local:%H:%M} {settings.WORK_TIMEZONE}), sleeping")
         return False
-    if hours_since(state.get("last_run")) * 60 < settings.RUN_EVERY_MINUTES - 3:
-        log("  ran less than 40 minutes ago, sleeping")
+    if hours_since(state.get("last_run")) * 60 < settings.RUN_EVERY_MINUTES - 10:
+        log(f"  ran less than {settings.RUN_EVERY_MINUTES} minutes ago, sleeping")
         return False
     return True
 
@@ -193,7 +223,7 @@ def main():
     def queued_edits():   # edits Daniel asked for in the Claude chat
         for q in list(state.get("queued_edits", [])):
             d = state["designs"].get(q["id"])
-            if d and d["status"] == "pending":
+            if d and d["status"] in ("pending", "idea"):
                 designer.edit_design(q["id"], q["text"], state, via="Claude chat")
             state["queued_edits"].remove(q)
             save_state(state)
@@ -265,12 +295,19 @@ def main():
     stage("check new products", lambda: products.run_checks(state), state)
     save_state(state)
 
-    if study.due(state):
+    design_day = datetime.now(ZoneInfo(settings.WORK_TIMEZONE)).weekday() in settings.DESIGN_DAYS
+    if study.due(state) and design_day:
         stage("study design", lambda: study.study(state), state)
         save_state(state)
 
-    pending = sum(1 for d in state["designs"].values() if d["status"] == "pending")
-    if not state["paused"] and pending < settings.MAX_PENDING_APPROVALS:
+    pending = sum(1 for d in state["designs"].values() if d["status"] in ("pending", "idea", "drawing"))
+    if design_day and not state["paused"] and facts.due(state):
+        stage("research insider facts (weekly)", lambda: facts.build(state), state)
+        save_state(state)
+
+    if not design_day:
+        log("  weekend: orders and messages only, no new designs")
+    elif not state["paused"] and pending < settings.MAX_PENDING_APPROVALS:
         def batch():
             concepts = scout.scout(state)
             state["last_scout"] = now_iso()
@@ -285,10 +322,14 @@ def main():
                     log(f"  design failed: {e}")
                     traceback.print_exc()
             if made:
-                telegram.send(f"🎨 {made} new design(s) above. Tap Approve or Skip on each. "
-                              "Taps are picked up on the next run (every 40 minutes, 9am to 5pm).")
+                telegram.send(f"🎨 {made} new idea(s) above. Tap Approve or Skip on each "
+                              "(illustrations: 🎨 Make it first, then I draw it).")
         stage("make new designs", batch, state)
     elif pending >= settings.MAX_PENDING_APPROVALS:
+        if hours_since(state.get("last_full_ping")) > 20:
+            telegram.send(f"⏸ {pending} designs are waiting on you, so I'm not making more until you "
+                          "approve or skip some. (This keeps costs down.)")
+            state["last_full_ping"] = now_iso()
         log("  too many designs waiting for approval; not making more")
 
     save_state(state)

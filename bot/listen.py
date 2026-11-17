@@ -33,6 +33,8 @@ def main(seconds):
     state = load_state()
     if state.get("telegram_chat_id"):
         telegram._found["id"] = state["telegram_chat_id"]
+    from . import costs
+    costs.STAGE["name"] = "Telegram replies"
     log(f"listening to Telegram for {int(seconds / 60)} minutes")
     while True:
         left = deadline - time.time()

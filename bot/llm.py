@@ -24,6 +24,8 @@ def ask_json(system, prompt, max_tokens=8000):
         system=system,
         messages=[{"role": "user", "content": prompt}],
     )
+    from . import costs
+    costs.claude(msg)
     text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
     return parse_json(text)
 

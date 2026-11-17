@@ -82,7 +82,5 @@ def batch_plan(state, n_text, n_ill):
 
 
 def prompt_block(state, n_text, n_ill, comfort_colors=False):
-    tags = (f"TITLE AND TAG PHRASES to draw from: {BUYER_TAGS}, plus the specific name on the design.")
-    if comfort_colors:
-        tags += " For tees, include \"Comfort Colors\" in the title and tags."
-    return "\n\n".join([AVATARS, VOICE, batch_plan(state, n_text, n_ill), tags])
+    # Titles and tags are written after approval now (bot/copywriter.py), so they're not asked for here.
+    return "\n\n".join([AVATARS, VOICE, batch_plan(state, n_text, n_ill)])

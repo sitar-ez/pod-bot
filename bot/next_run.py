@@ -1,4 +1,4 @@
-"""How long to wait before Rory's next run: 40 minutes during work hours, otherwise until
+"""How long to wait before Rory's next run: every 2 hours during work hours (9, 11, 1, 3), otherwise until
 9am Eastern. GitHub jobs can last at most 6 hours, so long waits are split into hops."""
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
