@@ -73,7 +73,7 @@ Notes:
 - TEXT designs: 1 to 4 lines, each line at most 22 characters. Use mixed case (Nana's Small Batch),
   not ALL CAPS; keep it folksy, soft and homemade, not bold and blocky. Keep hierarchy gentle: no line
   should dwarf the others, and a tagline stays at least about 60% of the main line's size. You can set
-  layout "line_scale" (one number per line, 0.25-1.0) to control it, e.g. [0.75, 0.75, 0.55]. "accent_line" is the index of
+  layout "line_scale" (one number per line, 0.25-1.0) to control it, e.g. [1.0, 0.8, 0.6]. "accent_line" is the index of
   the one line to render in a script/accent font, or null for none. Pick a style that suits
   the mood. lines can include simple punctuation but no emoji.
 - layout: width is the share of the 12 inch print width the design uses. 0.78 is a standard
