@@ -4,7 +4,7 @@ from datetime import datetime
 
 from PIL import Image
 
-from . import llm, printful, render, scout, settings, skills, telegram
+from . import llm, printful, products as prods, render, scout, settings, skills, telegram
 from .common import DESIGNS_DIR, ROOT, log, now_iso
 
 WHITE_SURFACE = {"mug", "sticker"}   # products that are always white
@@ -21,7 +21,12 @@ def make_design(concept, state, parent=None, reuse_master=None):
     folder = DESIGNS_DIR / did
     folder.mkdir(parents=True, exist_ok=True)
     kind = concept.get("kind", "text")
-    products = [p for p in concept.get("products", list(settings.PRODUCTS)) if p in settings.PRODUCTS]
+    active = prods.active_products(state)
+    products = []
+    for p in concept.get("products") or active:
+        p = prods.map_key(p, state)
+        if p in active and p not in products:
+            products.append(p)
     garment = "light" if kind == "illustration" else concept.get("garment", "light")
     concept["garment"] = garment
     layout = render.layout_of(concept.get("layout"))
@@ -48,8 +53,8 @@ def make_design(concept, state, parent=None, reuse_master=None):
     for key in products:
         cfg = settings.PRODUCTS[key]
         info = printful.resolve_product(key, state)
-        src = white if key in WHITE_SURFACE else apparel
-        group = "white" if not cfg["colors"] else garment
+        src = white if key in prods.WHITE_SURFACE else apparel
+        group = prods.group_for(key, garment)
         done = {}
         for vid, v in info["variants"].items():
             if v["group"] != group:
@@ -57,8 +62,7 @@ def make_design(concept, state, parent=None, reuse_master=None):
             pfid = v["printfile_id"]
             if pfid not in done:
                 name = f"print_{key}_{pfid}.png"
-                img = render.compose_print_file(src, v["w"], v["h"], cfg["fit"], layout, cfg.get("max_height", 0.62),
-                                                 cfg.get("scale", 1.0))
+                img = prods.compose(key, src, v, layout, state)
                 img.save(folder / name, optimize=True)
                 firsts.setdefault(key, img)
                 done[pfid] = str((folder / name).relative_to(ROOT))
@@ -73,8 +77,11 @@ def make_design(concept, state, parent=None, reuse_master=None):
         "why_it_sells": concept.get("why_it_sells", ""), "listings": {}, "concept": concept,
     }
 
-    first_color = (settings.PRODUCTS["tee"]["colors"] or {}).get(garment, ["White"])[0]
-    tee_img = firsts.get("tee") or firsts.get("hoodie") or render.compose_print_file(apparel, 1800, 2400, "top", layout)
+    tee_key = next((k for k in ("tee", "tee_bc") if k in firsts), "tee_bc")
+    tee_info = printful.resolve_product(tee_key, state) if tee_key in firsts else None
+    first_color = next((v["color"] for v in (tee_info or {}).get("variants", {}).values() if v["group"] == garment),
+                       "White")
+    tee_img = firsts.get(tee_key) or firsts.get("crewneck") or firsts.get("hoodie") or render.compose_print_file(apparel, 1800, 2400, "top", layout)
     jpg = render.preview(tee_img, firsts.get("mug"), first_color, record["products"])
     (folder / "preview.jpg").write_bytes(jpg)
     what = " / ".join(record["lines"]) if kind == "text" else (record["illustration_prompt"] or "")[:160]

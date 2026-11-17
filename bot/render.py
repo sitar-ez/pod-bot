@@ -147,7 +147,7 @@ def _fit(img, max_w, max_h):
     return img.resize((max(1, int(img.width * s)), max(1, int(img.height * s))), Image.LANCZOS)
 
 
-def compose_print_file(master, w, h, fit, layout=None, max_height=0.62, scale=1.0):
+def compose_print_file(master, w, h, fit, layout=None, max_height=0.62, scale=1.0, shift=0.0):
     """Place the design inside a canvas the exact size of Printful's print area.
     layout: width = share of the print width the design may use, top = gap above it."""
     lay = layout_of(layout)
@@ -162,11 +162,16 @@ def compose_print_file(master, w, h, fit, layout=None, max_height=0.62, scale=1.
             small_top = TOP_SMALL if max_height > 0.55 else 0.22   # hoodies: stay above the pocket
             top = small_top if (d.width < w * SMALL_WIDTH and d.height < h * SMALL_HEIGHT) else TOP_FULL
             top = min(top, max(0.0, (h * 0.9 - d.height) / h))
+        top = min(max(0.0, top + shift), max(0.0, (h - d.height) / h))   # shift: Daniel's per-product move
         canvas.alpha_composite(d, (x, int(h * top)))
     elif fit == "mug":        # mugs: one copy on each side, as big as fits
         d = _fit(master, w * 0.44, h * 0.86)
         for cx in (w * 0.25, w * 0.75):
             canvas.alpha_composite(d, (int(cx - d.width / 2), (h - d.height) // 2))
+    elif fit == "tote":       # totes: centered, a little above middle, generous margins
+        d = _fit(master, w * 0.72 * scale, h * 0.72 * scale)
+        y = int((h - d.height) * 0.42 + h * shift)
+        canvas.alpha_composite(d, ((w - d.width) // 2, max(0, min(h - d.height, y))))
     else:                     # stickers: centered, filling the sticker
         d = _fit(master, w * 0.92, h * 0.92)
         canvas.alpha_composite(d, ((w - d.width) // 2, (h - d.height) // 2))
@@ -176,7 +181,9 @@ def compose_print_file(master, w, h, fit, layout=None, max_height=0.62, scale=1.
 # ---------------------------------------------------------------------------
 # Preview image for Telegram: the design on a shirt and a mug
 # ---------------------------------------------------------------------------
-GARMENT_RGB = {"White": (245, 245, 243), "Athletic Heather": (196, 196, 198), "Sport Grey": (180, 182, 184),
+GARMENT_RGB = {"Ivory": (240, 234, 218), "Butter": (238, 214, 140), "Sage": (160, 170, 140),
+               "Pepper": (74, 71, 68), "Berry": (122, 46, 66), "Sand": (222, 206, 176), "Maroon": (100, 30, 40),
+               "White": (245, 245, 243), "Athletic Heather": (196, 196, 198), "Sport Grey": (180, 182, 184),
                "Black": (24, 24, 26), "Navy": (30, 38, 62)}
 
 

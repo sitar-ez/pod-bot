@@ -54,35 +54,73 @@ def resolve_product(key, state):
                 break
         if pid:
             break
-    pid = pid or cfg["fallback"]
+    pid = pid or cfg.get("fallback")
+    if not pid:
+        raise RuntimeError(f"Couldn't find {cfg['label']} ({cfg['search']}) in Printful's catalog")
     info = get(f"/products/{pid}")
-    variants = info["variants"]
+    variants = [v for v in info["variants"] if v.get("in_stock", True)]
     log(f"  Printful product for {key}: #{pid} {info['product'].get('title')}")
     pf = get(f"/mockup-generator/printfiles/{pid}")
     printfiles = {p["printfile_id"]: p for p in pf["printfiles"]}
     vmap = {v["variant_id"]: v["placements"] for v in pf["variant_printfiles"]}
+    avail = list((pf.get("available_placements") or {}).keys()) or \
+        sorted({pl for v in vmap.values() for pl in v})
+    placement = cfg["placement"] if cfg["placement"] in avail else \
+        next((x for x in ("front", "default") if x in avail), avail[0] if avail else cfg["placement"])
+    if placement != cfg["placement"]:
+        log(f"    using placement '{placement}' (Printful offers {avail})")
+
+    all_colors = []
+    for v in variants:
+        if v.get("color") and v["color"] not in [c for c, _ in all_colors]:
+            all_colors.append((v["color"], v.get("color_code") or "#888888"))
+    log(f"    Printful colors for {key}: {[c for c, _ in all_colors][:40]}")
+
+    def lum(hx):
+        hx = (hx or "#888888").lstrip("#")[:6].ljust(6, "8")
+        r, g, b = (int(hx[i:i + 2], 16) for i in (0, 2, 4))
+        return 0.299 * r + 0.587 * g + 0.114 * b
+
+    sizes = cfg["sizes"] or []
+    if not sizes:
+        for v in variants:
+            if v.get("size") not in sizes:
+                sizes.append(v.get("size"))
+        sizes = sizes[:4]
+
+    color_groups = {}
+    if cfg["colors"]:
+        for group, wanted in cfg["colors"].items():
+            have = [c for c, _ in all_colors if any(c.lower() == w.lower() for w in wanted)]
+            if not have:   # none of our color names exist: pick by brightness instead
+                ranked = sorted(all_colors, key=lambda c: lum(c[1]), reverse=(group in ("light", "white")))
+                have = [c for c, _ in ranked[:2]]
+                log(f"    {key} {group} colors not found by name; using {have}")
+            color_groups[group] = have
+    else:
+        color_groups = {"white": [None]}
 
     chosen = {}
-    color_groups = cfg["colors"] or {"white": [None]}
     for group, colors in color_groups.items():
         for color in colors:
-            for size in cfg["sizes"]:
+            for size in sizes:
                 v = next((v for v in variants
                           if (color is None or v.get("color", "").lower() == color.lower())
-                          and _size_match(size, v.get("size", "")) and v.get("in_stock", True)), None)
+                          and _size_match(size, v.get("size", ""))), None)
                 if not v:
                     have = sorted({x.get("size", "") for x in variants})
                     log(f"    no Printful variant for {key} {color or ''} {size} (Printful has: {have})")
                     continue
-                pf_id = vmap.get(v["id"], {}).get(cfg["placement"])
+                pf_id = vmap.get(v["id"], {}).get(placement)
                 if not pf_id:
                     continue
                 p = printfiles[pf_id]
                 chosen[str(v["id"])] = {
-                    "group": group, "color": color, "size": size, "cost": float(v["price"]),
-                    "printfile_id": pf_id, "w": p["width"], "h": p["height"],
+                    "group": group, "color": color or v.get("color"), "size": size, "cost": float(v["price"]),
+                    "printfile_id": pf_id, "w": p["width"], "h": p["height"], "dpi": p.get("dpi") or 150,
                 }
-    result = {"product_id": pid, "title": info["product"].get("title"), "variants": chosen}
+    result = {"product_id": pid, "title": info["product"].get("title"), "variants": chosen,
+              "placement": placement}
     cache[key] = result
     return result
 

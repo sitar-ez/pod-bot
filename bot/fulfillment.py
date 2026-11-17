@@ -33,7 +33,8 @@ def send_new_orders(etsy, state):
                 continue
             items.append({
                 "variant_id": int(vid), "quantity": t["quantity"],
-                "files": [{"type": settings.PRODUCTS[key]["placement"], "url": public_url(d["files"][key][vid])}],
+                "files": [{"type": printful.resolve_product(key, state).get("placement", settings.PRODUCTS[key]["placement"]),
+                           "url": public_url(d["files"][key][vid])}],
                 "retail_price": money(t.get("price", {})),
                 "name": t.get("title", "")[:100],
             })

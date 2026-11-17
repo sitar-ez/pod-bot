@@ -73,7 +73,30 @@ DISCLOSURE = (
 # fit        how the design sits in the print area
 # ---------------------------------------------------------------------------
 PRODUCTS = {
+    # Comfort Colors 1717: the shop's tee from Nov 17 (approved in the customer-avatar brief).
+    # "trial": held back until Daniel approves a true-to-scale Printful preview on Telegram.
     "tee": {
+        "label": "T-Shirt",
+        "search": ["comfort colors 1717", "garment-dyed heavyweight t-shirt"],
+        "fallback": None,
+        "placement": "front",
+        "sizes": ["S", "M", "L", "XL", "2XL"],
+        "colors": {"light": ["Ivory", "Butter", "Sage"], "dark": ["Pepper", "Berry"]},
+        "markup": 2.0,
+        "min_price": 29.99,      # about $3 above the Bella+Canvas minimum
+        "fit": "top",
+        "max_height": 0.62,
+        "scale": 0.90,           # Daniel: tee designs 10% smaller
+        "comfort_colors": True,
+        "trial": True,
+        "replaces": "tee_bc",
+        "etsy_category": ["t-shirts", "t shirts"],
+        "details": "Comfort Colors 1717 heavyweight tee: 100% ring-spun cotton, garment-dyed for a soft, "
+                   "lived-in feel and muted vintage colors. Relaxed unisex fit.",
+    },
+    # Bella+Canvas 3001: the original tee. Live listings keep it; new designs use it only
+    # until the Comfort Colors tee is approved.
+    "tee_bc": {
         "label": "T-Shirt",
         "search": ["bella + canvas 3001", "unisex staple t-shirt"],
         "fallback": 71,
@@ -85,9 +108,41 @@ PRODUCTS = {
         "fit": "top",
         "max_height": 0.62,      # share of the 16 in print height (about 10 in)
         "scale": 0.90,           # Daniel: tee designs 10% smaller
+        "legacy": True,
         "etsy_category": ["t-shirts", "t shirts"],
         "details": "Soft, lightweight unisex tee (Bella+Canvas 3001). 100% combed and "
                    "ring-spun cotton (heather colors are a cotton/poly blend). Runs true to size.",
+    },
+    "crewneck": {
+        "label": "Crewneck Sweatshirt",
+        "search": ["gildan 18000", "unisex crew neck sweatshirt"],
+        "fallback": 145,
+        "placement": "front",
+        "sizes": ["S", "M", "L", "XL", "2XL"],
+        "colors": {"light": ["Sand", "Sport Grey", "White"], "dark": ["Black", "Navy", "Maroon"]},
+        "markup": 1.9,
+        "min_price": 36.99,      # between the tee and the hoodie
+        "fit": "top",
+        "max_height": 0.62,
+        "scale": 1.0,
+        "trial": True,
+        "etsy_category": ["sweatshirts"],
+        "details": "Cozy unisex crewneck sweatshirt (Gildan 18000). 50% cotton, 50% polyester, "
+                   "soft inside, classic relaxed fit. A favorite gift.",
+    },
+    "tote": {
+        "label": "Tote Bag",
+        "search": ["eco tote bag", "organic tote bag", "tote bag"],
+        "fallback": None,
+        "placement": "front",
+        "sizes": None,           # whatever sizes Printful offers (usually one)
+        "colors": {"white": ["Oyster", "Natural", "Beige", "White"]},
+        "markup": 2.2,
+        "min_price": 22.99,
+        "fit": "tote",
+        "trial": True,
+        "etsy_category": ["tote bags", "totes"],
+        "details": "Sturdy cotton tote, roomy enough for a farmers market haul. Printed on one side.",
     },
     "hoodie": {
         "label": "Hoodie",

@@ -24,7 +24,7 @@ def clean_tags(tags):
     return out[:13]
 
 
-APPAREL = {"tee", "hoodie"}
+APPAREL = {"tee", "tee_bc", "hoodie", "crewneck"}
 
 
 def listing_description(design, key):
@@ -56,13 +56,13 @@ def build_photos(design, key, info, cfg, variants):
     for i, (color, vid) in enumerate(by_color.items()):
         v = variants[vid]
         try:
-            urls += printful.mockups(info["product_id"], [int(vid)], cfg["placement"],
+            urls += printful.mockups(info["product_id"], [int(vid)], info.get("placement", cfg["placement"]),
                                      public_url(design["files"][key][vid]), v["w"], v["h"],
                                      styles=styles if i == 0 else None)
         except Exception as e:
             if i == 0 and styles:      # if a style is refused, fall back to the default mockup
                 log("  styled mockups failed, using default:", e)
-                urls += printful.mockups(info["product_id"], [int(vid)], cfg["placement"],
+                urls += printful.mockups(info["product_id"], [int(vid)], info.get("placement", cfg["placement"]),
                                          public_url(design["files"][key][vid]), v["w"], v["h"])
             else:
                 raise
@@ -148,8 +148,7 @@ def publish(design, etsy, state):
             continue
         cfg = settings.PRODUCTS[key]
         info = printful.resolve_product(key, state)
-        group = "white" if not cfg["colors"] else design["garment"]
-        variants = {vid: v for vid, v in info["variants"].items() if v["group"] == group and vid in design["files"][key]}
+        variants = {vid: v for vid, v in info["variants"].items() if vid in design["files"][key]}
         if not variants:
             log(f"  {did}: no variants for {key}, skipping")
             continue
@@ -162,7 +161,8 @@ def publish(design, etsy, state):
             size_price[v["size"]] = max(size_price.get(v["size"], 0), price_for(v["cost"], cfg))
         base_price = min(size_price.values())
 
-        title = (design["titles"].get(key) or f"{' '.join(design['lines'])} {cfg['label']}")[:140]
+        title = (design["titles"].get(key) or (design["titles"].get("tee") if key == "tee_bc" else None)
+                 or f"{' '.join(design['lines'])} {cfg['label']}")[:140]
         desc = listing_description(design, key)
         body = {
             "quantity": 999, "title": title, "description": desc, "price": base_price,

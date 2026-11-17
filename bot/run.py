@@ -9,7 +9,7 @@ The main loop. GitHub wakes this every 20 minutes; it works 9am-5pm Eastern, eve
 import os
 import traceback
 
-from . import brief, designer, study, publisher, settings, scout, telegram, fulfillment
+from . import brief, designer, products, study, publisher, settings, scout, telegram, fulfillment
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -33,6 +33,13 @@ def handle_telegram(state, ups=None):
         msg = u.get("message")
         if cb and str(cb["message"]["chat"]["id"]) == me:
             action, did = cb["data"].split(":", 1)
+            if action in ("product_ok", "product_adjust"):
+                ans = products.handle_callback(action, did, state)
+                try:
+                    telegram.answer(cb["id"], ans or "Got it")
+                except Exception:
+                    pass
+                continue
             d = state["designs"].get(did)
             if not d or d["status"] != "pending":
                 continue
@@ -87,6 +94,14 @@ def handle_telegram(state, ups=None):
                                            int(num) if num else 0))
             elif text.startswith("/help") or text.startswith("/start") or not text:
                 telegram.send(HELP)
+            elif state.get("editing_product") and hours_since(state["editing_product"].get("at")) < 3 \
+                    and not text.startswith("/"):
+                ep = state.pop("editing_product")
+                try:
+                    products.handle_adjust(ep["key"], msg.get("text") or "", state)
+                except Exception as e:
+                    log("  product adjust failed:", e)
+                    telegram.send(f"Sorry, I couldn't apply that: {str(e)[:200]}")
             else:
                 replied = (msg.get("reply_to_message") or {}).get("message_id")
                 target = next((k for k, d in state["designs"].items()
@@ -226,6 +241,9 @@ def main():
                           "versions are above; the old ones are retired.")
         stage("re-place pending designs", replace_pending, state)
         save_state(state)
+
+    stage("check new products", lambda: products.run_checks(state), state)
+    save_state(state)
 
     if study.due(state):
         stage("study design", lambda: study.study(state), state)

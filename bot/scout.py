@@ -3,12 +3,13 @@ Trend Scout + Compliance Checker.
 Reads news and trend feeds, asks Claude for product concepts, then has a
 second, stricter Claude pass throw out anything risky.
 """
+import json
 import re
 from datetime import date
 
 import feedparser
 
-from . import brief, llm, settings, skills
+from . import brief, direction, llm, settings, skills
 from .common import log
 
 SCOUT_SYSTEM = """You are the creative director of a small Etsy print-on-demand shop.
@@ -23,16 +24,18 @@ Hard rules (a design that breaks any of these gets the shop suspended):
 - No sexual content, slurs, insults about groups, drugs, or anything a buyer might find hurtful.
 - Nothing that copies a phrase already famous as someone else's slogan.
 
-What sells:
-- Feelings, identities, hobbies, pets, jobs, life stages, inside jokes of a large community,
-  seasonal moments, wholesome humor, gentle sarcasm, self-care, nature.
-- Use the news as a SIGNAL of what people care about right now, then make something that
-  will still feel right in 6 months. Never make a design that only works this week.
-- Text must be short and instantly readable on a shirt across a room."""
+- No faith or religious content of any kind (no Jesus, blessed, scripture, prayer, church).
+
+The shop's niche: homemade, food and craft, feel-good homestead designs (canning and jam,
+backyard hens, garden harvest, sourdough and baking, grandma's kitchen), for moms and grandmas
+and the people who buy them gifts. Designs should still feel right in a year.
+Text must be short and instantly readable on a shirt across a room."""
 
 SCOUT_PROMPT = """Today is {today}.
 
-Here are today's headlines and trending searches:
+{direction}
+
+Today's headlines and trending searches (use only angles that fit the themes above):
 {headlines}
 
 Designs we already made (do not repeat these ideas or wording):
@@ -56,10 +59,10 @@ Return JSON only, in this shape:
     "garment": "light" or "dark",
     "layout": {{"width": 0.78, "line_gap": 1.0, "align": "center"}},
     "illustration_prompt": "for illustrations only: describe the image",
-    "titles": {{"tee": "...", "hoodie": "...", "mug": "...", "sticker": "..."}},
+    "titles": {{{title_keys}}},
     "tags": ["13 tags", "each under 20 characters", "buyer search phrases"],
     "description": "2 to 3 warm, plain sentences for the listing. No hype words.",
-    "products": ["tee", "hoodie", "mug", "sticker"]
+    "products": {product_keys}
   }}
 ]}}
 
@@ -81,7 +84,8 @@ Notes:
   Do not ask for a background. You may include up to 4 words of text in the image only if
   it really helps; otherwise none. "lines" should be [].
 - Titles: up to 140 characters, front-load what a buyer would type into Etsy search,
-  e.g. "Funny Gardening Shirt, Plant Lover Gift, ...". Each title must fit its product.
+  and who it's a gift for, e.g. "Nana's Small Batch Jam Shirt, Canning Gift for Grandma, ...".
+  Each title must fit its product.
 - products: drop any product the design would not suit (e.g. long text on a sticker is fine,
   a very tall design on a mug is not).
 """
@@ -96,6 +100,8 @@ CHECK_PROMPT = """Review each design concept below. Reject it if ANY of these ap
 - political, tragic, sexual, hateful, medical claims, or likely to offend
 - the exact phrase is famous as someone else's slogan or is a known best-selling Etsy design
 - the text is confusing, misspelled or unlikely to make sense to a buyer
+- it has faith or religious content, or jokes about age, weight or being "old"
+- it reuses "Homesteading Is My Jam" (an existing listing)
 
 Concepts:
 {concepts}
@@ -142,8 +148,9 @@ def style_menu(state):
     menu += ("\n\nKeep the look varied, like a real shop with range:\n"
              "- Choose the style that best fits each message's mood first.\n"
              f"- Don't reuse these recently used styles: {', '.join(recent[-6:]) or 'none yet'}.\n"
-             f"- Recent category counts: {counts}. Favor the categories used least, so over a day the shop "
-             "shows a real mix of sans, serif, geometric, script/handwriting and other.\n"
+             f"- Recent category counts: {counts}. This shop's look favors SERIF and SCRIPT/HANDWRITING "
+             "pairings (aim for about 70% of text designs across those two), with geometric and other for "
+             "variety and stark sans-serifs only occasionally. Favor whichever of serif/script is behind.\n"
              "- Within one batch, give each text design a different category.")
     return menu
 
@@ -166,6 +173,8 @@ def scout(state):
         for d in list(state["designs"].values())[-80:]
     ]
     n_text, n_ill = plan_mix(state, settings.DESIGNS_PER_BATCH)
+    from .products import active_products
+    active = active_products(state)
     log(f"  asking for {n_text} text + {n_ill} illustration concepts")
     data = llm.ask_json(
         SCOUT_SYSTEM,
@@ -177,6 +186,9 @@ def scout(state):
             n_ill=n_ill,
             styles=style_menu(state),
             brief=brief.prompt_block(state) + "\n\n" + skills.prompt_block(),
+            direction=direction.prompt_block(state, n_text, n_ill, "tee" in active and settings.PRODUCTS["tee"].get("comfort_colors")),
+            title_keys=", ".join(f'"{k}": "..."' for k in active),
+            product_keys=json.dumps(active),
         ),
     )
     brief.used_topics(state)
@@ -204,7 +216,7 @@ def compliance(concepts):
         if i not in ok_idx:
             reason = next((v.get("reason") for v in verdicts.get("verdicts", []) if v.get("index") == i), "")
             log(f"  rejected by checker: {c.get('lines') or c.get('illustration_prompt', '')[:50]} ({reason})")
-        elif BLOCKLIST.search(blob):
+        elif BLOCKLIST.search(blob) or direction.RELIGIOUS.search(blob) or "homesteading is my jam" in blob.lower():
             log(f"  rejected by blocklist: {c.get('lines')}")
         else:
             passed.append(c)

@@ -13,20 +13,20 @@ from . import brief, llm, settings, telegram
 from .common import log, now_iso
 
 CURRICULUM = [
-    "Typography for t-shirt slogans: font pairing, hierarchy, readability from across a room",
-    "Choosing ink colors for apparel: light vs dark garments, heather fabrics, contrast",
-    "What t-shirt and hoodie niches are selling well on Etsy right now",
-    "Writing funny or heartfelt shirt slogans that sell: wordplay, specificity, identity",
-    "Screen-print style illustration: limited palettes, line weight, simple bold shapes",
-    "Composition and placement for chest prints and full-front prints",
-    "Etsy SEO for print-on-demand: titles, tags and first photos that get clicks",
-    "Mug design that sells: wrap vs both sides, sizing, gift angles",
-    "Sticker design that sells: shapes, borders, small-size readability",
-    "Upcoming seasonal and holiday gifting moments in the next 6 to 8 weeks and how designers approach them",
-    "Retro and vintage design trends on apparel: badges, distressed type, 70s palettes",
-    "Minimalist line art and small tasteful prints that sell",
+    "What homestead, canning, baking and backyard-chicken shirts and mugs are selling on Etsy right now",
+    "Vintage seed packet, recipe card and canning label design: layout, type and color",
+    "Gifts for grandma and mom on Etsy: what buyers search for and what gets them to buy",
+    "Cottagecore and farmhouse color palettes that print well on apparel and mugs",
+    "Writing warm, funny homestead slogans: what the community jokes about (chickens, zucchini, sourdough)",
+    "Typography for t-shirt slogans: serif and script pairings that read from across a room",
+    "Screen-print style food and garden illustration: limited palettes, line weight, simple bold shapes",
+    "Etsy SEO for gift listings: titles, tags and first photos that win gift searches",
+    "Comfort Colors and garment-dyed tees: which ink colors look best on muted fabrics",
+    "Upcoming gifting moments in the next 6 to 8 weeks for moms, grandmas and homesteaders",
+    "Tote bag and mug design that sells: farmers market and kitchen gifts",
     "Common print-on-demand design mistakes: resolution, thin lines, transparency, colors that print badly",
-    "How top Etsy apparel shops build a cohesive brand look across many designs",
+    "How top Etsy homestead and kitchen-gift shops build a cohesive brand look",
+    "Backyard chicken, garden and sourdough community trends and in-jokes this season",
 ]
 
 STUDY_PROMPT = """Today's study topic for our Etsy print-on-demand shop:

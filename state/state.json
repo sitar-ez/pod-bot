@@ -1,6 +1,10 @@
 {
   "brief": {
     "lessons": [
+      "Shop direction (Daniel, Nov 17): homemade, food and craft, feel-good homestead designs for moms and grandmas; listings written for the daughters and grandkids buying the gift.",
+      "Warm, gentle humor. Proud, never mocking. No jokes about age, weight or being 'old'. No faith or religious designs. No politics.",
+      "Look: vintage label, seed packet and recipe card styles; muted natural palette (tomato red, butter yellow, sage, cream, berry); favor serif and script/handwriting pairings; simple and readable at arm's length.",
+      "Family names (Nana, Mimi, Mamaw...) at most about 1 in 5 designs, always paired with a homestead theme, never name-only.",
       "Every phrase must make sense on its own to a stranger. No mashups of unrelated words or headlines (Daniel skipped 'PORCH BIRD CLUB / family chapter' because it made no sense).",
       "Daniel's placement rule: big, full-width designs start about 5 inches below the collar (never up by the neckline); SMALL designs (narrower than about 7 inches) sit lower, with the top edge about 9 inches below the collar, so they land mid-chest instead of up by the neckline. Leave layout top out and placement is automatic.",
       "Daniel's sizing rule: tee designs print 10% smaller and hoodie designs 10% bigger than the standard fit (applied automatically per product). Big designs start about 5 inches below the collar.",
@@ -302,7 +306,7 @@
           }
         }
       },
-      "tee": {
+      "tee_bc": {
         "product_id": 71,
         "title": "Unisex Staple T-Shirt | Bella + Canvas 3001",
         "variants": {
@@ -520,7 +524,7 @@
           "10164": "designs/d261116-01/print_sticker_184.png",
           "10165": "designs/d261116-01/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261116-01/print_tee_1.png",
           "4012": "designs/d261116-01/print_tee_1.png",
           "4013": "designs/d261116-01/print_tee_1.png",
@@ -543,7 +547,7 @@
       ],
       "listings": {},
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -569,7 +573,8 @@
         "hoodie": "Phone Down Hobby On Hoodie, Cozy Hobby Sweatshirt, Screen Free Life Gift, Crafter Gardener Baker Hoodie",
         "mug": "Phone Down Hobby On Mug, Cozy Hobby Lover Coffee Cup, Screen Free Gift, Crafter Gift Mug 11oz 15oz",
         "sticker": "Phone Down Hobby On Sticker, Cozy Hobby Decal, Laptop Water Bottle Sticker, Offline Life Gift",
-        "tee": "Phone Down Hobby On Shirt, Cozy Hobby Lover Tee, Screen Free Gift, Offline Hobbies Crafter Gift, Unisex T-Shirt"
+        "tee": "Phone Down Hobby On Shirt, Cozy Hobby Lover Tee, Screen Free Gift, Offline Hobbies Crafter Gift, Unisex T-Shirt",
+        "tee_bc": "Phone Down Hobby On Shirt, Cozy Hobby Lover Tee, Screen Free Gift, Offline Hobbies Crafter Gift, Unisex T-Shirt"
       },
       "trend_signal": "Offline hobbies and screen-free self-care trend",
       "why_it_sells": "Crafters, gardeners, bakers and anyone trying to cut screen time buy it as a gentle badge of their offline life, and it works as a gift for the hobby-obsessed friend."
@@ -599,7 +604,7 @@
           "10164": "designs/d261116-02/print_sticker_184.png",
           "10165": "designs/d261116-02/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261116-02/print_tee_1.png",
           "4012": "designs/d261116-02/print_tee_1.png",
           "4013": "designs/d261116-02/print_tee_1.png",
@@ -619,7 +624,7 @@
       "lines": [],
       "listings": {},
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -645,7 +650,8 @@
         "hoodie": "Cat in Yarn Ball Hoodie, Knitting Cat Sweatshirt, Crochet Lover Gift, Cozy Cat Mom Hoodie",
         "mug": "Cat in Yarn Ball Mug, Knitting Cat Lover Coffee Cup, Crochet Gift, Cozy Cat Mom Mug 11oz 15oz",
         "sticker": "Cat in Yarn Ball Sticker, Knitting Cat Decal, Crochet Lover Gift, Cute Cat Laptop Sticker",
-        "tee": "Cat in Yarn Ball Shirt, Knitting Cat Lover Tee, Crochet Gift, Cozy Cat Mom Gift, Cute Cat Knitter T-Shirt"
+        "tee": "Cat in Yarn Ball Shirt, Knitting Cat Lover Tee, Crochet Gift, Cozy Cat Mom Gift, Cute Cat Knitter T-Shirt",
+        "tee_bc": "Cat in Yarn Ball Shirt, Knitting Cat Lover Tee, Crochet Gift, Cozy Cat Mom Gift, Cute Cat Knitter T-Shirt"
       },
       "trend_signal": "Cozy grandma hobbies and pets-as-family trends",
       "why_it_sells": "Cat owners and knitting or crochet fans buy it for themselves or as a gift because it combines two much-loved comforts."
@@ -724,7 +730,7 @@
           "10164": "designs/d261116-03/print_sticker_184.png",
           "10165": "designs/d261116-03/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261116-03/print_tee_1.png",
           "4012": "designs/d261116-03/print_tee_1.png",
           "4013": "designs/d261116-03/print_tee_1.png",
@@ -748,7 +754,7 @@
       "listings": {},
       "parent": null,
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -774,7 +780,8 @@
         "hoodie": "Professional Hobbyist Hoodie, Cozy Hobby Lover Sweatshirt, Gift for Crafters and Makers",
         "mug": "Professional Hobbyist Mug, Funny Hobby Lover Coffee Cup, Crafter Gift, Cozy Hobbies",
         "sticker": "Professional Hobbyist Sticker, Hobby Lover Gift, Laptop Water Bottle Decal",
-        "tee": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker"
+        "tee": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker",
+        "tee_bc": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker"
       },
       "trend_signal": "Hobby-maxxing, cozy 'grandma hobbies' and the offline hobby boom",
       "why_it_sells": "Crafters, gardeners, bird-watchers and bakers buy it as a proud, funny label for their many hobbies, and friends buy it as a gift for the person who always has a new one."
@@ -854,7 +861,7 @@
           "10164": "designs/d261116-04/print_sticker_184.png",
           "10165": "designs/d261116-04/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4016": "designs/d261116-04/print_tee_1.png",
           "4017": "designs/d261116-04/print_tee_1.png",
           "4018": "designs/d261116-04/print_tee_1.png",
@@ -878,7 +885,7 @@
       "listings": {},
       "parent": null,
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -904,7 +911,8 @@
         "hoodie": "Porch Bird Club Hoodie, Family Birdwatching Sweatshirt, Matching Bird Lover Gift, Cozy Retro Birder Hoodie",
         "mug": "Porch Bird Club Mug, Family Birdwatching Coffee Cup, Bird Lover Gift, Retro Birder Mug for Grandma or Grandpa",
         "sticker": "Porch Bird Club Sticker, Birdwatching Decal, Family Bird Lover Gift, Retro Birder Sticker",
-        "tee": "Porch Bird Club Shirt, Family Birdwatching Tee, Matching Family Bird Lover Gift, Retro Birder Shirt, Grandparent Gift"
+        "tee": "Porch Bird Club Shirt, Family Birdwatching Tee, Matching Family Bird Lover Gift, Retro Birder Shirt, Grandparent Gift",
+        "tee_bc": "Porch Bird Club Shirt, Family Birdwatching Tee, Matching Family Bird Lover Gift, Retro Birder Shirt, Grandparent Gift"
       },
       "trend_signal": "offline and analog hobbies, birdwatching boom",
       "why_it_sells": "Families, grandparents and backyard bird fans buy it as a matching tee or gift for a porch-and-binoculars tradition."
@@ -981,7 +989,7 @@
           "10164": "designs/d261116-05/print_sticker_184.png",
           "10165": "designs/d261116-05/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261116-05/print_tee_1_v2.png",
           "4012": "designs/d261116-05/print_tee_1_v2.png",
           "4013": "designs/d261116-05/print_tee_1_v2.png",
@@ -1003,17 +1011,17 @@
         "hoodie": 4619416089,
         "mug": 4619416695,
         "sticker": 4619416815,
-        "tee": 4619394914
+        "tee_bc": 4619394914
       },
       "parent": null,
       "partial": {
         "hoodie": 4619416089,
         "mug": 4619416695,
         "sticker": 4619416815,
-        "tee": 4619394914
+        "tee_bc": 4619394914
       },
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -1040,7 +1048,8 @@
         "hoodie": "Small Batch Jam Hoodie, Cottagecore Canning Sweatshirt, Homemade Jam Lover Gift, Cozy Baker Hoodie",
         "mug": "Small Batch Jam Jar Mug, Cottagecore Kitchen Coffee Cup, Canning Lover Gift, Homemade Jam Gift for Her",
         "sticker": "Small Batch Jam Jar Sticker, Cottagecore Canning Decal, Homemade Jam Lover Sticker, Kitchen Laptop Sticker",
-        "tee": "Small Batch Jam Jar Shirt, Homemade Jam Lover Tee, Cottagecore Canning Gift, Grandma Hobby Shirt, Kitchen Witch Gift"
+        "tee": "Small Batch Jam Jar Shirt, Homemade Jam Lover Tee, Cottagecore Canning Gift, Grandma Hobby Shirt, Kitchen Witch Gift",
+        "tee_bc": "Small Batch Jam Jar Shirt, Homemade Jam Lover Tee, Cottagecore Canning Gift, Grandma Hobby Shirt, Kitchen Witch Gift"
       },
       "trend_signal": "grandma hobbies and cozy jam-making revival",
       "why_it_sells": "Home cooks, gardeners and cottagecore fans buy it for themselves or as a gift for the person who always has homemade jam."
@@ -1119,7 +1128,7 @@
           "10164": "designs/d261117-01/print_sticker_184.png",
           "10165": "designs/d261117-01/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261117-01/print_tee_1.png",
           "4012": "designs/d261117-01/print_tee_1.png",
           "4013": "designs/d261117-01/print_tee_1.png",
@@ -1143,7 +1152,7 @@
       "listings": {},
       "parent": null,
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -1169,7 +1178,8 @@
         "hoodie": "Small Plans Are The Best Plans Hoodie, Introvert Hoodie, Homebody Gift, Cozy Hangout Sweatshirt",
         "mug": "Small Plans Are The Best Plans Mug, Introvert Coffee Cup, Homebody Gift, Funny Cozy Mug",
         "sticker": "Small Plans Are The Best Plans Sticker, Introvert Sticker, Homebody Laptop Decal",
-        "tee": "Introvert Shirt, Small Plans Are The Best Plans, Homebody Gift, Funny Cozy Tee, Navy Print on Heather Grey Tee"
+        "tee": "Introvert Shirt, Small Plans Are The Best Plans, Homebody Gift, Funny Cozy Tee, Navy Print on Heather Grey Tee",
+        "tee_bc": "Introvert Shirt, Small Plans Are The Best Plans, Homebody Gift, Funny Cozy Tee, Navy Print on Heather Grey Tee"
       },
       "trend_signal": "Soft socializing and low-pressure hangouts trend",
       "why_it_sells": "Introverts and homebodies of every age buy it as a gentle, funny statement about the kind of get-togethers they actually enjoy."
@@ -1248,7 +1258,7 @@
           "10164": "designs/d261117-02/print_sticker_184.png",
           "10165": "designs/d261117-02/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4016": "designs/d261117-02/print_tee_1.png",
           "4017": "designs/d261117-02/print_tee_1.png",
           "4018": "designs/d261117-02/print_tee_1.png",
@@ -1272,7 +1282,7 @@
       "listings": {},
       "parent": null,
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -1298,7 +1308,8 @@
         "hoodie": "Family Beach Trip Hoodie, Matching Family Vacation Sweatshirt, Coastal Reunion Hoodie",
         "mug": "Family Beach Trip Mug, Same Spot Every Year, Coastal Family Gift, Vacation Memory Cup",
         "sticker": "Family Beach Trip Sticker, Coastal Family Vacation Decal, Same Spot Every Year",
-        "tee": "Family Beach Trip Shirt, Matching Family Vacation Tee, Beach Reunion Shirt, Cream Print on Navy Tee"
+        "tee": "Family Beach Trip Shirt, Matching Family Vacation Tee, Beach Reunion Shirt, Cream Print on Navy Tee",
+        "tee_bc": "Family Beach Trip Shirt, Matching Family Vacation Tee, Beach Reunion Shirt, Cream Print on Navy Tee"
       },
       "trend_signal": "Family travel and group trips, nostalgia for retro type",
       "why_it_sells": "Families and friend groups buy matching tees for their yearly beach trip, and the retro rounded lettering makes it feel like a keepsake."
@@ -1377,7 +1388,7 @@
           "10164": "designs/d261117-03/print_sticker_184.png",
           "10165": "designs/d261117-03/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261117-03/print_tee_1.png",
           "4012": "designs/d261117-03/print_tee_1.png",
           "4013": "designs/d261117-03/print_tee_1.png",
@@ -1401,7 +1412,7 @@
       "listings": {},
       "parent": "d261116-03",
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -1427,7 +1438,8 @@
         "hoodie": "Professional Hobbyist Hoodie, Cozy Hobby Lover Sweatshirt, Gift for Crafters and Makers",
         "mug": "Professional Hobbyist Mug, Funny Hobby Lover Coffee Cup, Crafter Gift, Cozy Hobbies",
         "sticker": "Professional Hobbyist Sticker, Hobby Lover Gift, Laptop Water Bottle Decal",
-        "tee": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker"
+        "tee": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker",
+        "tee_bc": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker"
       },
       "trend_signal": "Hobby-maxxing, cozy 'grandma hobbies' and the offline hobby boom",
       "why_it_sells": "Crafters, gardeners, bird-watchers and bakers buy it as a proud, funny label for their many hobbies, and friends buy it as a gift for the person who always has a new one."
@@ -1506,7 +1518,7 @@
           "10164": "designs/d261117-04/print_sticker_184.png",
           "10165": "designs/d261117-04/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261117-04/print_tee_1.png",
           "4012": "designs/d261117-04/print_tee_1.png",
           "4013": "designs/d261117-04/print_tee_1.png",
@@ -1530,7 +1542,7 @@
       "listings": {},
       "parent": "d261117-01",
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -1556,7 +1568,8 @@
         "hoodie": "Small Plans Are The Best Plans Hoodie, Introvert Hoodie, Homebody Gift, Cozy Hangout Sweatshirt",
         "mug": "Small Plans Are The Best Plans Mug, Introvert Coffee Cup, Homebody Gift, Funny Cozy Mug",
         "sticker": "Small Plans Are The Best Plans Sticker, Introvert Sticker, Homebody Laptop Decal",
-        "tee": "Introvert Shirt, Small Plans Are The Best Plans, Homebody Gift, Funny Cozy Tee, Navy Print on Heather Grey Tee"
+        "tee": "Introvert Shirt, Small Plans Are The Best Plans, Homebody Gift, Funny Cozy Tee, Navy Print on Heather Grey Tee",
+        "tee_bc": "Introvert Shirt, Small Plans Are The Best Plans, Homebody Gift, Funny Cozy Tee, Navy Print on Heather Grey Tee"
       },
       "trend_signal": "Soft socializing and low-pressure hangouts trend",
       "why_it_sells": "Introverts and homebodies of every age buy it as a gentle, funny statement about the kind of get-togethers they actually enjoy."
@@ -1635,7 +1648,7 @@
           "10164": "designs/d261117-05/print_sticker_184.png",
           "10165": "designs/d261117-05/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4016": "designs/d261117-05/print_tee_1.png",
           "4017": "designs/d261117-05/print_tee_1.png",
           "4018": "designs/d261117-05/print_tee_1.png",
@@ -1659,7 +1672,7 @@
       "listings": {},
       "parent": "d261117-02",
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -1685,7 +1698,8 @@
         "hoodie": "Family Beach Trip Hoodie, Matching Family Vacation Sweatshirt, Coastal Reunion Hoodie",
         "mug": "Family Beach Trip Mug, Same Spot Every Year, Coastal Family Gift, Vacation Memory Cup",
         "sticker": "Family Beach Trip Sticker, Coastal Family Vacation Decal, Same Spot Every Year",
-        "tee": "Family Beach Trip Shirt, Matching Family Vacation Tee, Beach Reunion Shirt, Cream Print on Navy Tee"
+        "tee": "Family Beach Trip Shirt, Matching Family Vacation Tee, Beach Reunion Shirt, Cream Print on Navy Tee",
+        "tee_bc": "Family Beach Trip Shirt, Matching Family Vacation Tee, Beach Reunion Shirt, Cream Print on Navy Tee"
       },
       "trend_signal": "Family travel and group trips, nostalgia for retro type",
       "why_it_sells": "Families and friend groups buy matching tees for their yearly beach trip, and the retro rounded lettering makes it feel like a keepsake."
@@ -1761,7 +1775,7 @@
           "10164": "designs/d261117-06/print_sticker_184.png",
           "10165": "designs/d261117-06/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261117-06/print_tee_1.png",
           "4012": "designs/d261117-06/print_tee_1.png",
           "4013": "designs/d261117-06/print_tee_1.png",
@@ -1782,7 +1796,7 @@
       "listings": {},
       "parent": null,
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -1808,7 +1822,8 @@
         "hoodie": "Beekeeper Hoodie, Bee Hive Sweatshirt, Honey Bee Lover Gift, Backyard Gardener Gift, Cottagecore Hoodie",
         "mug": "Beekeeper Mug, Honey Bee Hive Coffee Cup, Bee Lover Gift, Gardener Gift, Cottagecore Mug",
         "sticker": "Beehive Sticker, Honey Bee Decal, Beekeeper Gift, Garden Lover Sticker, Cottagecore Laptop Sticker",
-        "tee": "Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyard Garden Shirt, Cottagecore Nature T-Shirt"
+        "tee": "Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyard Garden Shirt, Cottagecore Nature T-Shirt",
+        "tee_bc": "Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyard Garden Shirt, Cottagecore Nature T-Shirt"
       },
       "trend_signal": "backyard botany and beekeeping as the new offline hobby",
       "why_it_sells": "Gardeners, beekeepers and honey lovers buy it as a gift or for themselves, and its warm, simple look suits any season."
@@ -1887,7 +1902,7 @@
           "10164": "designs/d261117-07/print_sticker_184.png",
           "10165": "designs/d261117-07/print_sticker_185.png"
         },
-        "tee": {
+        "tee_bc": {
           "4011": "designs/d261117-07/print_tee_1.png",
           "4012": "designs/d261117-07/print_tee_1.png",
           "4013": "designs/d261117-07/print_tee_1.png",
@@ -1911,7 +1926,7 @@
       "listings": {},
       "parent": null,
       "products": [
-        "tee",
+        "tee_bc",
         "hoodie",
         "mug",
         "sticker"
@@ -1937,7 +1952,8 @@
         "hoodie": "Gone Outside Hoodie, Back By Dinner Sweatshirt, Nature Lover Gift, Hiker Hoodie, Minimalist Outdoors Pullover",
         "mug": "Gone Outside Mug, Back By Dinner Coffee Cup, Nature Lover Gift, Hiker Mug, Outdoorsy Gift",
         "sticker": "Gone Outside Sticker, Back By Dinner Decal, Nature Lover Sticker, Hiking Water Bottle Sticker, Outdoors Laptop Sticker",
-        "tee": "Gone Outside Shirt, Back By Dinner Tee, Nature Lover Gift, Hiking Shirt, Minimalist Outdoors Tee, Screen Free Gift, Navy on Heather Grey"
+        "tee": "Gone Outside Shirt, Back By Dinner Tee, Nature Lover Gift, Hiking Shirt, Minimalist Outdoors Tee, Screen Free Gift, Navy on Heather Grey",
+        "tee_bc": "Gone Outside Shirt, Back By Dinner Tee, Nature Lover Gift, Hiking Shirt, Minimalist Outdoors Tee, Screen Free Gift, Navy on Heather Grey"
       },
       "trend_signal": "analog hobbies, going offline, screen-free time",
       "why_it_sells": "Hikers, gardeners and anyone trying to spend less time on their phone buy it as a quiet, minimal statement shirt."
@@ -1952,7 +1968,7 @@
   "paused": false,
   "refresh_listings": {
     "d261116-05": [
-      "tee",
+      "tee_bc",
       "hoodie",
       "mug",
       "sticker"
