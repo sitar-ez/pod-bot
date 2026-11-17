@@ -11,18 +11,33 @@
       "\ud83d\udcd6 Make the punchline the largest and boldest element. Keep it to a short phrase or stacked lines. A shirt is usually viewed from 3 to 6 feet away.",
       "\ud83d\udcd6 Avoid thin strokes, because they can bleed into the fabric on dark shirts. Use script only as a small accent next to a bold primary font. Keep small text above roughly 5mm tall.",
       "\ud83d\udcd6 Aim for a text-to-shirt contrast of at least 4.5:1 and preview on the actual shirt color. Navy on black can look fine on screen and vanish in person. Contrast with the shirt is the single biggest legibility factor.",
-      "\ud83d\udcd6 Add slightly wider letter spacing on uppercase text. Check every layout at thumbnail size before sending it to Daniel. Typography is trending as the whole design, but tiny minimal chest text is also gaining. I'll offer a bold oversized layout and a small-chest version of the strongest slogans."
+      "\ud83d\udcd6 Add slightly wider letter spacing on uppercase text. Check every layout at thumbnail size before sending it to Daniel. Typography is trending as the whole design, but tiny minimal chest text is also gaining. I'll offer a bold oversized layout and a small-chest version of the strongest slogans.",
+      "\ud83d\udcd6 For every design, build separate light-shirt and dark-shirt color versions of the artwork. Don't just recolor the mockup. A design that works on white often fails on black, heather grey or navy.",
+      "\ud83d\udcd6 Keep ink and shirt far apart in value, and never use an ink close to the shirt color. That means no navy on black, no mid-gray or silver on heather grey, and no dark green on charcoal. Use black or deep navy on heather grey. Use white, cream or bright yellow on dark heathers, navy and maroon.",
+      "\ud83d\udcd6 On heather fabric, use bold, solid shapes and thick type strokes. Skip hairlines, faint gradients and soft blends, because the flecks muddy fine detail. For white type on dark heather, add a thin dark keyline.",
+      "\ud83d\udcd6 Limit each design to 2 or 3 ink colors, and 4 at most. Use light inks on dark shirts and saturated dark inks on light shirts. Keep light-ink art on dark shirts bold and simple, since a white underbase softens colors slightly.",
+      "\ud83d\udcd6 Check each design at thumbnail size on every shirt color before Daniel sees it. Only offer the colors where it reads clearly, because six good colors beat sixteen where a few look broken. In titles and tags, name the shirt color the design was made for, such as 'white print on black tee'."
     ],
     "topics": [
       {
         "added": "2026-11-16T23:05:06.622624+00:00",
-        "batches_left": 3,
+        "batches_left": 2,
         "text": "Community-specific and story-driven text designs, such as family reunion or group matching tees, with original wording"
       },
       {
         "added": "2026-11-16T23:05:06.622638+00:00",
-        "batches_left": 3,
+        "batches_left": 2,
         "text": "Retro typography with bubbly or early-digital serif lettering and original phrases"
+      },
+      {
+        "added": "2026-11-17T14:01:39.689525+00:00",
+        "batches_left": 3,
+        "text": "Minimal text-only designs in black or navy on heather grey, such as short phrases in bold type"
+      },
+      {
+        "added": "2026-11-17T14:01:39.689539+00:00",
+        "batches_left": 3,
+        "text": "Nature and coastal themes in white or cream ink on dark heather greens and navy"
       }
     ]
   },
@@ -461,7 +476,7 @@
   },
   "counts": {
     "illustration": 2,
-    "text": 3
+    "text": 5
   },
   "designs": {
     "d261116-01": {
@@ -999,16 +1014,274 @@
       },
       "trend_signal": "grandma hobbies and cozy jam-making revival",
       "why_it_sells": "Home cooks, gardeners and cottagecore fans buy it for themselves or as a gift for the person who always has homemade jam."
+    },
+    "d261117-01": {
+      "concept": {
+        "accent_line": null,
+        "description": "For anyone who would rather have a quiet dinner with two friends than a crowded party. Bold navy lettering on a soft heather grey tee. A little gift for the homebody in your life, or for yourself.",
+        "garment": "light",
+        "illustration_prompt": "",
+        "ink_dark": "#1b2a41",
+        "ink_light": "#f5f3ed",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "top": null,
+          "width": 0.72
+        },
+        "lines": [
+          "SMALL PLANS",
+          "ARE THE BEST PLANS"
+        ],
+        "products": [
+          "tee",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "heavy_block",
+        "tags": [
+          "introvert shirt",
+          "homebody gift",
+          "small plans tee",
+          "funny introvert",
+          "cozy night in",
+          "low key hangout",
+          "quiet life shirt",
+          "stay home tee",
+          "gift for friend",
+          "minimal text tee",
+          "heather grey tee",
+          "gentle humor",
+          "self care gift"
+        ],
+        "titles": {
+          "hoodie": "Small Plans Are The Best Plans Hoodie, Introvert Hoodie, Homebody Gift, Cozy Hangout Sweatshirt",
+          "mug": "Small Plans Are The Best Plans Mug, Introvert Coffee Cup, Homebody Gift, Funny Cozy Mug",
+          "sticker": "Small Plans Are The Best Plans Sticker, Introvert Sticker, Homebody Laptop Decal",
+          "tee": "Introvert Shirt, Small Plans Are The Best Plans, Homebody Gift, Funny Cozy Tee, Navy Print on Heather Grey Tee"
+        },
+        "trend_signal": "Soft socializing and low-pressure hangouts trend",
+        "why_it_sells": "Introverts and homebodies of every age buy it as a gentle, funny statement about the kind of get-togethers they actually enjoy."
+      },
+      "created": "2026-11-17T14:02:06.391566+00:00",
+      "description": "For anyone who would rather have a quiet dinner with two friends than a crowded party. Bold navy lettering on a soft heather grey tee. A little gift for the homebody in your life, or for yourself.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-01/print_hoodie_139.png",
+          "5523": "designs/d261117-01/print_hoodie_139.png",
+          "5524": "designs/d261117-01/print_hoodie_139.png",
+          "5525": "designs/d261117-01/print_hoodie_139.png",
+          "5526": "designs/d261117-01/print_hoodie_139.png",
+          "5610": "designs/d261117-01/print_hoodie_139.png",
+          "5611": "designs/d261117-01/print_hoodie_139.png",
+          "5612": "designs/d261117-01/print_hoodie_139.png",
+          "5613": "designs/d261117-01/print_hoodie_139.png",
+          "5614": "designs/d261117-01/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-01/print_mug_43.png",
+          "4830": "designs/d261117-01/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-01/print_sticker_183.png",
+          "10164": "designs/d261117-01/print_sticker_184.png",
+          "10165": "designs/d261117-01/print_sticker_185.png"
+        },
+        "tee": {
+          "4011": "designs/d261117-01/print_tee_1.png",
+          "4012": "designs/d261117-01/print_tee_1.png",
+          "4013": "designs/d261117-01/print_tee_1.png",
+          "4014": "designs/d261117-01/print_tee_1.png",
+          "4015": "designs/d261117-01/print_tee_1.png",
+          "6948": "designs/d261117-01/print_tee_1.png",
+          "6949": "designs/d261117-01/print_tee_1.png",
+          "6950": "designs/d261117-01/print_tee_1.png",
+          "6951": "designs/d261117-01/print_tee_1.png",
+          "6952": "designs/d261117-01/print_tee_1.png"
+        }
+      },
+      "garment": "light",
+      "id": "d261117-01",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "SMALL PLANS",
+        "ARE THE BEST PLANS"
+      ],
+      "listings": {},
+      "parent": null,
+      "products": [
+        "tee",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "introvert shirt",
+        "homebody gift",
+        "small plans tee",
+        "funny introvert",
+        "cozy night in",
+        "low key hangout",
+        "quiet life shirt",
+        "stay home tee",
+        "gift for friend",
+        "minimal text tee",
+        "heather grey tee",
+        "gentle humor",
+        "self care gift"
+      ],
+      "telegram_msg": 24,
+      "titles": {
+        "hoodie": "Small Plans Are The Best Plans Hoodie, Introvert Hoodie, Homebody Gift, Cozy Hangout Sweatshirt",
+        "mug": "Small Plans Are The Best Plans Mug, Introvert Coffee Cup, Homebody Gift, Funny Cozy Mug",
+        "sticker": "Small Plans Are The Best Plans Sticker, Introvert Sticker, Homebody Laptop Decal",
+        "tee": "Introvert Shirt, Small Plans Are The Best Plans, Homebody Gift, Funny Cozy Tee, Navy Print on Heather Grey Tee"
+      },
+      "trend_signal": "Soft socializing and low-pressure hangouts trend",
+      "why_it_sells": "Introverts and homebodies of every age buy it as a gentle, funny statement about the kind of get-togethers they actually enjoy."
+    },
+    "d261117-02": {
+      "concept": {
+        "accent_line": null,
+        "description": "A matching tee for the family that goes back to the same beach every year. Warm cream retro lettering on deep navy. Wear it on the sand or at home, whenever the trip comes to mind.",
+        "garment": "dark",
+        "illustration_prompt": "",
+        "ink_dark": "#1f3a4d",
+        "ink_light": "#f5f3ed",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.05,
+          "top": null,
+          "width": 0.8
+        },
+        "lines": [
+          "FAMILY BEACH TRIP",
+          "SAME SPOT EVERY YEAR"
+        ],
+        "products": [
+          "tee",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "groovy",
+        "tags": [
+          "family beach trip",
+          "matching family tee",
+          "beach reunion shirt",
+          "family vacation",
+          "group trip shirt",
+          "coastal family gift",
+          "beach week tee",
+          "retro beach shirt",
+          "family reunion",
+          "vacation memories",
+          "summer trip tee",
+          "navy beach shirt",
+          "tradition gift"
+        ],
+        "titles": {
+          "hoodie": "Family Beach Trip Hoodie, Matching Family Vacation Sweatshirt, Coastal Reunion Hoodie",
+          "mug": "Family Beach Trip Mug, Same Spot Every Year, Coastal Family Gift, Vacation Memory Cup",
+          "sticker": "Family Beach Trip Sticker, Coastal Family Vacation Decal, Same Spot Every Year",
+          "tee": "Family Beach Trip Shirt, Matching Family Vacation Tee, Beach Reunion Shirt, Cream Print on Navy Tee"
+        },
+        "trend_signal": "Family travel and group trips, nostalgia for retro type",
+        "why_it_sells": "Families and friend groups buy matching tees for their yearly beach trip, and the retro rounded lettering makes it feel like a keepsake."
+      },
+      "created": "2026-11-17T14:02:09.735937+00:00",
+      "description": "A matching tee for the family that goes back to the same beach every year. Warm cream retro lettering on deep navy. Wear it on the sand or at home, whenever the trip comes to mind.",
+      "files": {
+        "hoodie": {
+          "5530": "designs/d261117-02/print_hoodie_139.png",
+          "5531": "designs/d261117-02/print_hoodie_139.png",
+          "5532": "designs/d261117-02/print_hoodie_139.png",
+          "5533": "designs/d261117-02/print_hoodie_139.png",
+          "5534": "designs/d261117-02/print_hoodie_139.png",
+          "5594": "designs/d261117-02/print_hoodie_139.png",
+          "5595": "designs/d261117-02/print_hoodie_139.png",
+          "5596": "designs/d261117-02/print_hoodie_139.png",
+          "5597": "designs/d261117-02/print_hoodie_139.png",
+          "5598": "designs/d261117-02/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-02/print_mug_43.png",
+          "4830": "designs/d261117-02/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-02/print_sticker_183.png",
+          "10164": "designs/d261117-02/print_sticker_184.png",
+          "10165": "designs/d261117-02/print_sticker_185.png"
+        },
+        "tee": {
+          "4016": "designs/d261117-02/print_tee_1.png",
+          "4017": "designs/d261117-02/print_tee_1.png",
+          "4018": "designs/d261117-02/print_tee_1.png",
+          "4019": "designs/d261117-02/print_tee_1.png",
+          "4020": "designs/d261117-02/print_tee_1.png",
+          "4111": "designs/d261117-02/print_tee_1.png",
+          "4112": "designs/d261117-02/print_tee_1.png",
+          "4113": "designs/d261117-02/print_tee_1.png",
+          "4114": "designs/d261117-02/print_tee_1.png",
+          "4115": "designs/d261117-02/print_tee_1.png"
+        }
+      },
+      "garment": "dark",
+      "id": "d261117-02",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "FAMILY BEACH TRIP",
+        "SAME SPOT EVERY YEAR"
+      ],
+      "listings": {},
+      "parent": null,
+      "products": [
+        "tee",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "family beach trip",
+        "matching family tee",
+        "beach reunion shirt",
+        "family vacation",
+        "group trip shirt",
+        "coastal family gift",
+        "beach week tee",
+        "retro beach shirt",
+        "family reunion",
+        "vacation memories",
+        "summer trip tee",
+        "navy beach shirt",
+        "tradition gift"
+      ],
+      "telegram_msg": 25,
+      "titles": {
+        "hoodie": "Family Beach Trip Hoodie, Matching Family Vacation Sweatshirt, Coastal Reunion Hoodie",
+        "mug": "Family Beach Trip Mug, Same Spot Every Year, Coastal Family Gift, Vacation Memory Cup",
+        "sticker": "Family Beach Trip Sticker, Coastal Family Vacation Decal, Same Spot Every Year",
+        "tee": "Family Beach Trip Shirt, Matching Family Vacation Tee, Beach Reunion Shirt, Cream Print on Navy Tee"
+      },
+      "trend_signal": "Family travel and group trips, nostalgia for retro type",
+      "why_it_sells": "Families and friend groups buy matching tees for their yearly beach trip, and the retro rounded lettering makes it feel like a keepsake."
     }
   },
   "force_scout": false,
   "last_error_ping": "2026-11-16T02:20:56.757150+00:00",
-  "last_run": "2026-11-16T23:04:49.712798+00:00",
-  "last_scout": "2026-11-16T23:05:37.294543+00:00",
-  "last_study": "2026-11-16",
+  "last_run": "2026-11-17T14:01:28.142614+00:00",
+  "last_scout": "2026-11-17T14:02:04.937428+00:00",
+  "last_study": "2026-11-17",
   "orders": {},
   "paused": false,
-  "study_index": 1,
+  "study_index": 2,
   "study_log": [
     {
       "date": "2026-11-16T23:05:06.622663+00:00",
@@ -1025,6 +1298,23 @@
         "https://www.atomm.com/blog/2118-best-fonts-for-t-shirts"
       ],
       "topic": "Typography for t-shirt slogans: font pairing, hierarchy, readability from across a room"
+    },
+    {
+      "date": "2026-11-17T14:01:39.689564+00:00",
+      "lessons": [
+        "\ud83d\udcd6 For every design, build separate light-shirt and dark-shirt color versions of the artwork. Don't just recolor the mockup. A design that works on white often fails on black, heather grey or navy.",
+        "\ud83d\udcd6 Keep ink and shirt far apart in value, and never use an ink close to the shirt color. That means no navy on black, no mid-gray or silver on heather grey, and no dark green on charcoal. Use black or deep navy on heather grey. Use white, cream or bright yellow on dark heathers, navy and maroon.",
+        "\ud83d\udcd6 On heather fabric, use bold, solid shapes and thick type strokes. Skip hairlines, faint gradients and soft blends, because the flecks muddy fine detail. For white type on dark heather, add a thin dark keyline.",
+        "\ud83d\udcd6 Limit each design to 2 or 3 ink colors, and 4 at most. Use light inks on dark shirts and saturated dark inks on light shirts. Keep light-ink art on dark shirts bold and simple, since a white underbase softens colors slightly.",
+        "\ud83d\udcd6 Check each design at thumbnail size on every shirt color before Daniel sees it. Only offer the colors where it reads clearly, because six good colors beat sixteen where a few look broken. In titles and tags, name the shirt color the design was made for, such as 'white print on black tee'."
+      ],
+      "sources": [
+        "https://printify.com/blog/t-shirt-and-ink-color-combinations/",
+        "https://beedtf.com/blogs/news/what-is-heather-fabric",
+        "https://www.printful.com/blog/t-shirt-design-tips",
+        "https://psdmate.com/blog/tshirt-mockup-guide"
+      ],
+      "topic": "Choosing ink colors for apparel: light vs dark garments, heather fabrics, contrast"
     }
   ],
   "telegram_chat_id": "147542263",
