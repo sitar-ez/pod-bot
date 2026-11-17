@@ -127,7 +127,8 @@ def publish(design, etsy, state):
         size_prop = 514 if cfg["colors"] else 513
         inventory = {
             "products": products,
-            "price_on_property": [size_prop] if len(set(size_price.values())) > 1 else [],
+            # Etsy requires price to follow either none or all of the variation properties
+            "price_on_property": ([513, 514] if cfg["colors"] else [513]) if len(set(size_price.values())) > 1 else [],
             "quantity_on_property": [],
             "sku_on_property": [513, 514] if cfg["colors"] else [513],
             "readiness_state_on_property": [],
