@@ -75,7 +75,7 @@ def make_design(concept, state, parent=None, reuse_master=None):
         "titles": concept.get("titles", {}), "tags": concept.get("tags", []),
         "description": concept.get("description", ""), "trend_signal": concept.get("trend_signal", ""),
         "why_it_sells": concept.get("why_it_sells", ""), "listings": {}, "concept": concept,
-        "personalize": personalize.make_slot(concept),
+        "personalize": personalize.make_slot(concept) if settings.PERSONALIZATION else None,
     }
 
     tee_key = next((k for k in ("tee", "tee_bc") if k in firsts), "tee_bc")

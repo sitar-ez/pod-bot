@@ -31,7 +31,10 @@ WORK_END_HOUR = 17      # 5pm
 RUN_EVERY_MINUTES = 40
 DESIGNS_PER_BATCH = int(os.getenv("DESIGNS_PER_BATCH", "2"))
 ILLUSTRATION_SHARE = 0.30
-LIGHT_GARMENTS_ONLY = True        # Daniel: no black shirts for the homestead shop          # 70% text designs, 30% illustrations
+LIGHT_GARMENTS_ONLY = True   # Daniel: no black shirts for the homestead shop
+# Personalized name listings are off (Daniel, Nov 17): Etsy's photo rules are unclear for
+# personalized print-on-demand, and per-order proofs add work. Every listing is a fixed design.
+PERSONALIZATION = False
 MAX_PENDING_APPROVALS = 15         # stop making new designs if this many are waiting on you
 
 # ---------------------------------------------------------------------------

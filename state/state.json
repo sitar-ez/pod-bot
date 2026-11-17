@@ -2910,16 +2910,7 @@
       ],
       "listings": {},
       "parent": "d261117-08",
-      "personalize": {
-        "line": 0,
-        "sample": "Nana",
-        "template": [
-          "{NAME}'s",
-          "Small Batch",
-          "jams & preserves"
-        ],
-        "upper": false
-      },
+      "personalize": null,
       "products": [
         "tee_bc",
         "hoodie",
