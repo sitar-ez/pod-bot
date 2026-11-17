@@ -1125,6 +1125,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-16T03:48:52.102459+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "Offline hobbies and screen-free self-care trend",
+          "via": "automatic"
+        }
+      ],
       "id": "d261116-01",
       "illustration_prompt": "",
       "kind": "text",
@@ -1205,6 +1214,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-16T03:49:26.357059+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "Cozy grandma hobbies and pets-as-family trends",
+          "via": "automatic"
+        }
+      ],
       "id": "d261116-02",
       "illustration_prompt": "A sleepy round tabby cat curled up and napping inside a giant ball of yarn, with two knitting needles crossed through the yarn and a loose strand of yarn curling beneath. Bold clean screen-print style with thick outlines and flat shapes. Limited palette of mustard yellow, rust orange, deep brown and cream. Single centered subject, no background, no text.",
       "kind": "illustration",
@@ -1331,6 +1349,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-16T03:57:42.425424+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "Hobby-maxxing, cozy 'grandma hobbies' and the offline hobby boom",
+          "via": "automatic"
+        }
+      ],
       "id": "d261116-03",
       "illustration_prompt": "",
       "kind": "text",
@@ -1462,6 +1489,22 @@
         }
       },
       "garment": "dark",
+      "history": [
+        {
+          "at": "2026-11-16T23:05:38.806803+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "offline and analog hobbies, birdwatching boom",
+          "via": "automatic"
+        },
+        {
+          "at": "2026-11-16T23:08:00+00:00",
+          "by": "Daniel",
+          "event": "skipped",
+          "note": "(from earlier records)",
+          "via": "Telegram"
+        }
+      ],
       "id": "d261116-04",
       "illustration_prompt": "",
       "kind": "text",
@@ -1590,6 +1633,35 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-16T23:06:14.466088+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "grandma hobbies and cozy jam-making revival",
+          "via": "automatic"
+        },
+        {
+          "at": "2026-11-16T23:08:00+00:00",
+          "by": "Daniel",
+          "event": "approved",
+          "note": "(from earlier records)",
+          "via": "Telegram"
+        },
+        {
+          "at": "2026-11-17T15:28:04.566804+00:00",
+          "by": "Rory (bot)",
+          "event": "published",
+          "listings": {
+            "hoodie": 4619416089,
+            "mug": 4619416695,
+            "sticker": 4619416815,
+            "tee_bc": 4619394914
+          },
+          "photos": "Printful mockups of Daniel's original design on a standard base product (Etsy's production-partner stock-mockup exception)",
+          "via": "automatic"
+        }
+      ],
       "id": "d261116-05",
       "illustration_prompt": "A single centered mason-style jam jar filled with deep red jam, topped with a gingham fabric lid tied with twine. A small paper label on the jar reads SMALL BATCH in bold simple capitals. Two ripe strawberries with fern-green leaves sit at the base of the jar, with one small wooden spoon leaning against it. Bold clean screen-print style with chunky dark brown outlines (#4a403a), flat color fills, and a limited palette of terracotta red #b7472a, fern green #4a7c59, marigold #f9a620, and cream. No shading gradients, no background, no extra text.",
       "kind": "illustration",
@@ -1730,6 +1802,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T14:02:06.391566+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "Soft socializing and low-pressure hangouts trend",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-01",
       "illustration_prompt": "",
       "kind": "text",
@@ -1860,6 +1941,15 @@
         }
       },
       "garment": "dark",
+      "history": [
+        {
+          "at": "2026-11-17T14:02:09.735937+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "Family travel and group trips, nostalgia for retro type",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-02",
       "illustration_prompt": "",
       "kind": "text",
@@ -1990,6 +2080,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T14:43:28.231922+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "revision of d261116-03",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-03",
       "illustration_prompt": "",
       "kind": "text",
@@ -2120,6 +2219,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T14:43:30.863819+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "revision of d261117-01",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-04",
       "illustration_prompt": "",
       "kind": "text",
@@ -2250,6 +2358,15 @@
         }
       },
       "garment": "dark",
+      "history": [
+        {
+          "at": "2026-11-17T14:43:33.809383+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "revision of d261117-02",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-05",
       "illustration_prompt": "",
       "kind": "text",
@@ -2377,6 +2494,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T14:44:43.594489+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "backyard botany and beekeeping as the new offline hobby",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-06",
       "illustration_prompt": "A single centered traditional straw beehive skep drawn in bold, clean screen-print style, with thick even outlines and flat solid color shapes. Three small round bees hover around it and a sprig of lavender leans against its base. Limited palette: marigold yellow #f9a620, chocolate brown #4a403a, fern green #4a7c59 and a touch of terracotta #b7472a. Simple stacked-coil texture on the skep made from thick bold lines, no thin hairlines, no gradients, no background, no text. Warm, handcrafted, friendly feeling with generous empty space around the subject.",
       "kind": "illustration",
@@ -2504,6 +2630,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T15:28:35.739370+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "analog hobbies, going offline, screen-free time",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-07",
       "illustration_prompt": "",
       "kind": "text",
@@ -2635,6 +2770,15 @@
         }
       },
       "garment": "dark",
+      "history": [
+        {
+          "at": "2026-11-17T16:13:10.172100+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "Grandma hobbies and jam-making revival, canning season",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-08",
       "illustration_prompt": "",
       "kind": "text",
@@ -2765,6 +2909,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T16:13:14.087892+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "Egg money and backyard chicken keeping; minimal bold text on heather grey",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-09",
       "illustration_prompt": "",
       "kind": "text",
@@ -2900,6 +3053,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T16:54:31.113140+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "revision of d261117-08",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-10",
       "illustration_prompt": "",
       "kind": "text",
@@ -3035,6 +3197,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T16:57:33.521213+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "backyard hens, Pinterest backyard hobby trend, egg prices",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-11",
       "illustration_prompt": "",
       "kind": "text",
@@ -3163,6 +3334,15 @@
         }
       },
       "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T16:58:16.880074+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "backyard botanist hobby trend, garden harvest season",
+          "via": "automatic"
+        }
+      ],
       "id": "d261117-12",
       "illustration_prompt": "A single centered vintage seed packet in bold, clean screen-print style. A big ripe tomato in tomato red #B5432F with a sage #8A9A78 leafy vine and a small butter yellow #E8C766 blossom fills the center of the packet. A cream #F3EBD8 border frames the packet with a simple scalloped top edge. Deep brown #3B2A20 outlines and hand-lettered serif text 'Garden Tomatoes' across the lower band. Thick confident strokes, flat solid color shapes, no gradients, no hairlines, no background. Warm, handmade, nostalgic mood.",
       "kind": "illustration",

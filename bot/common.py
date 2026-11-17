@@ -63,6 +63,11 @@ def load_state():
 def save_state(state):
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True))
+    try:   # readable approval log (Etsy human-involvement record)
+        from . import audit
+        audit.write_markdown(state)
+    except Exception as e:
+        print("  approval log not written:", e)
 
 
 # ---------------------------------------------------------------------------

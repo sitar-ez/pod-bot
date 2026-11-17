@@ -4,7 +4,7 @@ from datetime import datetime
 
 from PIL import Image
 
-from . import llm, personalize, printful, products as prods, render, scout, settings, skills, telegram
+from . import audit, llm, personalize, printful, products as prods, render, scout, settings, skills, telegram
 from .common import DESIGNS_DIR, ROOT, log, now_iso
 
 WHITE_SURFACE = {"mug", "sticker"}   # products that are always white
@@ -98,6 +98,10 @@ def make_design(concept, state, parent=None, reuse_master=None):
     )
     record["telegram_msg"] = telegram.send_design(jpg, caption, did)
     state["designs"][did] = record
+    if parent:
+        audit.record(state, did, "revised", via="automatic", note=f"revision of {parent}")
+    else:
+        audit.record(state, did, "proposed", via="automatic", note=record["trend_signal"] or None)
     if not parent:
         state["counts"][kind] = state["counts"].get(kind, 0) + 1
     log(f"  made {did}: {what[:70]}")
@@ -141,12 +145,13 @@ Keep the same "kind". Keep everything he didn't mention.
 {skills}"""
 
 
-def edit_design(did, instructions, state):
+def edit_design(did, instructions, state, via="Telegram"):
     from . import brief
     old = state["designs"].get(did)
     if not old:
         telegram.send(f"I can't find design {did} anymore.")
         return
+    audit.record(state, did, "edit_requested", note=instructions, via=via)
     concept = old.get("concept") or {
         "kind": old["kind"], "lines": old["lines"], "illustration_prompt": old.get("illustration_prompt"),
         "garment": old["garment"], "titles": old["titles"], "tags": old["tags"],
@@ -168,5 +173,6 @@ def edit_design(did, instructions, state):
     if out.get("lesson"):
         brief._add(brief._brief(state), lessons=[out["lesson"]])
     telegram.send(f"✏️ {out.get('reply', 'Revised.')} New version below.")
-    make_design(new, state, parent=did, reuse_master=reuse)
+    rec = make_design(new, state, parent=did, reuse_master=reuse)
     old["status"] = "replaced"
+    audit.record(state, did, "replaced", via="automatic", note=f"replaced by {(rec or {}).get('id', 'a revision')}")

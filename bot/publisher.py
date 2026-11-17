@@ -3,7 +3,7 @@ import math
 import os
 import re
 
-from . import personalize, printful, render, settings, telegram
+from . import audit, personalize, printful, render, settings, telegram
 from .common import http, log, now_iso, public_url
 from .etsy import find_category
 
@@ -231,6 +231,8 @@ def publish(design, etsy, state):
         return
     design["status"] = "published"
     design["published"] = now_iso()
+    audit.record(state, did, "published", via="automatic", listings=dict(design["listings"]),
+                 photos=audit.PHOTO_BASIS)
     links = "\n".join(f"{k}: https://www.etsy.com/listing/{v}" for k, v in design["listings"].items())
     telegram.send(f"✅ {did} is live on Etsy.\n{links}")
 

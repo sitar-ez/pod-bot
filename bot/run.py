@@ -9,7 +9,7 @@ The main loop. GitHub wakes this every 20 minutes; it works 9am-5pm Eastern, eve
 import os
 import traceback
 
-from . import brief, designer, personalize, products, study, publisher, settings, scout, telegram, fulfillment
+from . import audit, brief, designer, personalize, products, study, publisher, settings, scout, telegram, fulfillment
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -60,6 +60,7 @@ def handle_telegram(state, ups=None):
                 continue
             d["status"] = "approved" if action == "approve" else "rejected"
             d["decided"] = now_iso()
+            audit.record(state, did, "approved" if action == "approve" else "skipped")
             try:
                 telegram.answer(cb["id"], "✅ Approved" if action == "approve" else "❌ Skipped")
             except Exception:
@@ -171,6 +172,7 @@ def main():
     if not in_work_window(state):
         return
     state["last_run"] = now_iso()
+    audit.backfill(state)
     etsy_box = {}
 
     def etsy():
@@ -192,7 +194,7 @@ def main():
         for q in list(state.get("queued_edits", [])):
             d = state["designs"].get(q["id"])
             if d and d["status"] == "pending":
-                designer.edit_design(q["id"], q["text"], state)
+                designer.edit_design(q["id"], q["text"], state, via="Claude chat")
             state["queued_edits"].remove(q)
             save_state(state)
     if state.get("queued_edits"):
@@ -251,6 +253,7 @@ def main():
                 reuse = str(master) if d["kind"] == "illustration" and master.exists() else None
                 designer.make_design(c, state, parent=did, reuse_master=reuse)
                 d["status"] = "replaced"
+                audit.record(state, did, "replaced", via="automatic", note="re-placed under a new placement rule")
                 save_state(state)
             state["replace_pending"] = False
             telegram.send("📐 I re-placed the designs that were waiting on you using your new placement rule "
