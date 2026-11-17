@@ -4,8 +4,12 @@ Every design Rory proposes waits for Daniel's decision on Telegram. Nothing is l
 
 Photo basis for every listing: Printful mockups of Daniel's original design on a standard base product (Etsy's production-partner stock-mockup exception).
 
+## d261117-13 · pending · Float test passed / time to bake bread
+- 2026-11-17 17:40 UTC · 💡 Rory proposed (Rory (bot), automatic): analog and cozy hobbies trend, sourdough and baking from scratch
+
 ## d261117-12 · pending · 
 - 2026-11-17 16:58 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard botanist hobby trend, garden harvest season
+- 2026-11-17 17:39 UTC · ✏️ Daniel asked for changes (Daniel, Claude chat): Too generic, dig deeper. Daniel's direction: research tomatoes and find something insiders love. A strong lead: the Mortgage Lifter heirloom, a 1930s West Virginia beefsteak whose breeder sold the seedlings and paid off his $6,000 house mortgage in six years (WVU Extension). Keep the vintage seed-packet illustration, but make it a Mortgage Lifter packet, with short packet text such as 'Mortgage Lifter · heirloom beefsteak · pays off the house'. Do not name the breeder (real person). Other good a
 
 ## d261117-11 · pending · Every hen has a name, / and an opinion
 - 2026-11-17 16:57 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard hens, Pinterest backyard hobby trend, egg prices

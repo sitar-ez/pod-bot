@@ -1084,7 +1084,7 @@
   },
   "counts": {
     "illustration": 4,
-    "text": 9
+    "text": 10
   },
   "designs": {
     "d261116-01": {
@@ -3342,6 +3342,13 @@
           "event": "proposed",
           "note": "backyard botanist hobby trend, garden harvest season",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-17T17:39:13.956174+00:00",
+          "by": "Daniel",
+          "event": "edit_requested",
+          "note": "Too generic, dig deeper. Daniel's direction: research tomatoes and find something insiders love. A strong lead: the Mortgage Lifter heirloom, a 1930s West Virginia beefsteak whose breeder sold the seedlings and paid off his $6,000 house mortgage in six years (WVU Extension). Keep the vintage seed-packet illustration, but make it a Mortgage Lifter packet, with short packet text such as 'Mortgage Lifter \u00b7 heirloom beefsteak \u00b7 pays off the house'. Do not name the breeder (real person). Other good a",
+          "via": "Claude chat"
         }
       ],
       "id": "d261117-12",
@@ -3382,12 +3389,156 @@
       },
       "trend_signal": "backyard botanist hobby trend, garden harvest season",
       "why_it_sells": "Gardeners and the daughters who buy for them love a vintage seed packet with a big ripe tomato that feels like a keepsake from grandma's garden shed."
+    },
+    "d261117-13": {
+      "concept": {
+        "accent_line": 1,
+        "deepened": false,
+        "description": "Every sourdough baker knows the float test: a spoonful of bubbly starter that floats in a glass of water is ready to bake. A warm, funny gift for the one who feeds her starter like a family pet and bakes from scratch. Printed in deep berry ink for light garments.",
+        "garment": "light",
+        "illustration_prompt": "",
+        "ink_dark": "#7A2E3E",
+        "ink_light": "#E8C766",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": [
+            1.0,
+            0.85
+          ],
+          "top": null,
+          "width": 0.7
+        },
+        "lines": [
+          "Float test passed",
+          "time to bake bread"
+        ],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "kitchen_note",
+        "tags": [
+          "sourdough shirt",
+          "sourdough gift",
+          "float test",
+          "bread baker gift",
+          "baking gift",
+          "gift for grandma",
+          "grandma gift",
+          "nana gift",
+          "homestead mama",
+          "gift for mom",
+          "cottagecore",
+          "homesteading",
+          "farmhouse kitchen"
+        ],
+        "titles": {
+          "hoodie": "Sourdough Float Test Hoodie, Baker Gift for Mom, Nana Gift, Homestead Mama Baking Sweatshirt, Cottagecore Homesteading",
+          "mug": "Sourdough Float Test Mug, Bread Baker Gift for Grandma, Gift for Mom, Farmhouse Kitchen Coffee Cup, Baking Gift",
+          "sticker": "Sourdough Float Test Sticker, Bread Baker Gift, Homemade Baking Decal, Cottagecore Farmhouse Kitchen",
+          "tee_bc": "Sourdough Float Test Shirt, Bread Baker Gift for Grandma, Gift for Mom, Homemade Baking Tee, Cottagecore Farmhouse Kitchen"
+        },
+        "trend_signal": "analog and cozy hobbies trend, sourdough and baking from scratch",
+        "why_it_sells": "Jenny has kept a starter going since 2020 and loves the float test ritual, and Katie buys it for the mom or grandma whose kitchen always smells like fresh bread."
+      },
+      "created": "2026-11-17T17:40:30.203710+00:00",
+      "description": "Every sourdough baker knows the float test: a spoonful of bubbly starter that floats in a glass of water is ready to bake. A warm, funny gift for the one who feeds her starter like a family pet and bakes from scratch. Printed in deep berry ink for light garments.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-13/print_hoodie_139.png",
+          "5523": "designs/d261117-13/print_hoodie_139.png",
+          "5524": "designs/d261117-13/print_hoodie_139.png",
+          "5525": "designs/d261117-13/print_hoodie_139.png",
+          "5526": "designs/d261117-13/print_hoodie_139.png",
+          "5610": "designs/d261117-13/print_hoodie_139.png",
+          "5611": "designs/d261117-13/print_hoodie_139.png",
+          "5612": "designs/d261117-13/print_hoodie_139.png",
+          "5613": "designs/d261117-13/print_hoodie_139.png",
+          "5614": "designs/d261117-13/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-13/print_mug_43.png",
+          "4830": "designs/d261117-13/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-13/print_sticker_183.png",
+          "10164": "designs/d261117-13/print_sticker_184.png",
+          "10165": "designs/d261117-13/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261117-13/print_tee_bc_1.png",
+          "4012": "designs/d261117-13/print_tee_bc_1.png",
+          "4013": "designs/d261117-13/print_tee_bc_1.png",
+          "4014": "designs/d261117-13/print_tee_bc_1.png",
+          "4015": "designs/d261117-13/print_tee_bc_1.png",
+          "6948": "designs/d261117-13/print_tee_bc_1.png",
+          "6949": "designs/d261117-13/print_tee_bc_1.png",
+          "6950": "designs/d261117-13/print_tee_bc_1.png",
+          "6951": "designs/d261117-13/print_tee_bc_1.png",
+          "6952": "designs/d261117-13/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T17:40:31.655755+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "analog and cozy hobbies trend, sourdough and baking from scratch",
+          "via": "automatic"
+        }
+      ],
+      "id": "d261117-13",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "Float test passed",
+        "time to bake bread"
+      ],
+      "listings": {},
+      "parent": null,
+      "personalize": null,
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "sourdough shirt",
+        "sourdough gift",
+        "float test",
+        "bread baker gift",
+        "baking gift",
+        "gift for grandma",
+        "grandma gift",
+        "nana gift",
+        "homestead mama",
+        "gift for mom",
+        "cottagecore",
+        "homesteading",
+        "farmhouse kitchen"
+      ],
+      "telegram_msg": 58,
+      "titles": {
+        "hoodie": "Sourdough Float Test Hoodie, Baker Gift for Mom, Nana Gift, Homestead Mama Baking Sweatshirt, Cottagecore Homesteading",
+        "mug": "Sourdough Float Test Mug, Bread Baker Gift for Grandma, Gift for Mom, Farmhouse Kitchen Coffee Cup, Baking Gift",
+        "sticker": "Sourdough Float Test Sticker, Bread Baker Gift, Homemade Baking Decal, Cottagecore Farmhouse Kitchen",
+        "tee_bc": "Sourdough Float Test Shirt, Bread Baker Gift for Grandma, Gift for Mom, Homemade Baking Tee, Cottagecore Farmhouse Kitchen"
+      },
+      "trend_signal": "analog and cozy hobbies trend, sourdough and baking from scratch",
+      "why_it_sells": "Jenny has kept a starter going since 2020 and loves the float test ritual, and Katie buys it for the mom or grandma whose kitchen always smells like fresh bread."
     }
   },
   "force_scout": false,
   "last_error_ping": "2026-11-17T14:43:25.737702+00:00",
-  "last_run": "2026-11-17T16:54:11.737603+00:00",
-  "last_scout": "2026-11-17T16:57:31.998947+00:00",
+  "last_run": "2026-11-17T17:39:13.137917+00:00",
+  "last_scout": "2026-11-17T17:40:28.221986+00:00",
   "last_study": "2026-11-17",
   "name_index": 1,
   "orders": {},
@@ -3428,12 +3579,7 @@
       "status": "sent"
     }
   },
-  "queued_edits": [
-    {
-      "id": "d261117-12",
-      "text": "Too generic, dig deeper. Daniel's direction: research tomatoes and find something insiders love. A strong lead: the Mortgage Lifter heirloom, a 1930s West Virginia beefsteak whose breeder sold the seedlings and paid off his $6,000 house mortgage in six years (WVU Extension). Keep the vintage seed-packet illustration, but make it a Mortgage Lifter packet, with short packet text such as 'Mortgage Lifter \u00b7 heirloom beefsteak \u00b7 pays off the house'. Do not name the breeder (real person). Other good angles if this fails checks: tomato hornworms glow under a UV light at night; heirloom seeds passed gardener to gardener for generations."
-    }
-  ],
+  "queued_edits": [],
   "refresh_listings": {},
   "replace_pending": false,
   "study_index": 2,
@@ -3474,5 +3620,5 @@
   ],
   "telegram_chat_id": "147542263",
   "telegram_offset": 333766193,
-  "theme_index": 2
+  "theme_index": 3
 }
