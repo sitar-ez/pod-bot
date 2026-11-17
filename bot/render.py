@@ -37,9 +37,9 @@ def _font_for_width(path, text, target_w, max_h):
     return ImageFont.truetype(str(path), best)
 
 
-DEFAULT_LAYOUT = {"width": 0.78, "top": None, "line_gap": 1.0, "align": "center"}
+DEFAULT_LAYOUT = {"width": 0.78, "top": None, "line_gap": 1.0, "align": "center", "line_scale": None}
 # Printful's print area starts about 2.5 in below the collar and is 16 in tall.
-TOP_FULL = 0.16    # full-size designs: top edge about 5 in below the collar (Daniel's rule)
+TOP_FULL = 0.28    # full-size designs: top edge about 7 in below the collar (Daniel, Nov 17: lower)
 TOP_SMALL = 0.40   # small designs: top edge about 9 in below the collar (Daniel's rule)
 SMALL_WIDTH = 0.62 # narrower than about 7.5 in ...
 SMALL_HEIGHT = 0.35 # ... and shorter than about 5.5 in counts as small
@@ -52,6 +52,8 @@ def layout_of(d):
     if lay["top"] is not None:
         lay["top"] = min(0.45, max(0.0, float(lay["top"])))
     lay["line_gap"] = min(3.0, max(0.2, float(lay["line_gap"])))
+    ls = lay.get("line_scale")
+    lay["line_scale"] = [min(1.0, max(0.25, float(x))) for x in ls] if isinstance(ls, list) and ls else None
     if lay["align"] not in ("center", "left", "right"):
         lay["align"] = "center"
     return lay
@@ -72,11 +74,19 @@ def render_text(lines, style, ink_hex, accent_line=None, layout=None):
     l, t, r, b = f.getbbox(ref_t)
     ref_h = b - t
     rendered = []
+    scales = lay.get("line_scale")
     for i, line in items:
         accent = is_acc(i)
         font_file = FONTS_DIR / (st["accent"] if accent else st["main"])
-        max_h = int(ref_h * (0.8 if accent else 1.15)) if i != ref_i else 1300
-        width = target_w if accent or len(line) > 6 else int(target_w * 0.7)
+        if scales:   # explicit hierarchy: each line's letter height relative to the lead line
+            sc = scales[i] if i < len(scales) else scales[-1]
+            max_h, width = max(60, int(ref_h * sc)), target_w
+        else:
+            max_h = int(ref_h * (0.8 if accent else 1.15)) if i != ref_i else 1300
+            # a tagline should stay readable: at least about 60% of the main line's height
+            if accent:
+                max_h = max(max_h, int(ref_h * 0.6))
+            width = target_w if accent or len(line) > 6 else int(target_w * 0.7)
         f = _font_for_width(font_file, line, width, max_h)
         l, t, r, b = f.getbbox(line)
         img = Image.new("RGBA", (r - l + 40, b - t + 40), (0, 0, 0, 0))
@@ -164,8 +174,8 @@ def compose_print_file(master, w, h, fit, layout=None, max_height=0.62, scale=1.
             top = min(top, max(0.0, (h * 0.9 - d.height) / h))
         top = min(max(0.0, top + shift), max(0.0, (h - d.height) / h))   # shift: Daniel's per-product move
         canvas.alpha_composite(d, (x, int(h * top)))
-    elif fit == "mug":        # mugs: one copy on each side, as big as fits
-        d = _fit(master, w * 0.44, h * 0.86)
+    elif fit == "mug":        # mugs: one copy on each side (Daniel: smaller, more breathing room)
+        d = _fit(master, w * 0.34, h * 0.66)
         for cx in (w * 0.25, w * 0.75):
             canvas.alpha_composite(d, (int(cx - d.width / 2), (h - d.height) // 2))
     elif fit == "tote":       # totes: centered, a little above middle, generous margins

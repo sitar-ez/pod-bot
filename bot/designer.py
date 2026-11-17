@@ -27,7 +27,7 @@ def make_design(concept, state, parent=None, reuse_master=None):
         p = prods.map_key(p, state)
         if p in active and p not in products:
             products.append(p)
-    garment = "light" if kind == "illustration" else concept.get("garment", "light")
+    garment = "light" if (kind == "illustration" or settings.LIGHT_GARMENTS_ONLY) else concept.get("garment", "light")
     concept["garment"] = garment
     layout = render.layout_of(concept.get("layout"))
     concept["layout"] = layout
@@ -130,6 +130,8 @@ What you can change:
                     about 9 in below). Only set it when he asks to move the design: 0.0-0.45 as a share of the
                     16 inch print area, which starts about 2.5 in below the collar (0.40 is about 9 in below the collar),
              "line_gap": 0.2-3.0 spacing between lines (1.0 normal),
+             "line_scale": optional list, one number per line (0.25-1.0), each line's size relative to the
+                           biggest; use it to fix hierarchy, e.g. [1.0, 0.8, 0.6] so a tagline isn't tiny,
              "align": "center" | "left" | "right"}}
 - "illustration_prompt" for illustrations. Set "regenerate_image" true ONLY if the picture itself must change;
   for size, position or other layout changes keep it false so the same artwork is reused.

@@ -187,6 +187,16 @@ def main():
         handle_telegram(state)
 
     stage("read Telegram", read_telegram, state)
+
+    def queued_edits():   # edits Daniel asked for in the Claude chat
+        for q in list(state.get("queued_edits", [])):
+            d = state["designs"].get(q["id"])
+            if d and d["status"] == "pending":
+                designer.edit_design(q["id"], q["text"], state)
+            state["queued_edits"].remove(q)
+            save_state(state)
+    if state.get("queued_edits"):
+        stage("apply edits from Claude", queued_edits, state)
     save_state(state)
 
     def publish_approved():

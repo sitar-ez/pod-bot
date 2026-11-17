@@ -1,6 +1,7 @@
 {
   "brief": {
     "lessons": [
+      "Daniel (Nov 17) on 'Nana's Small Batch': no black shirts (light garments only); lettering should be folksy and soft, not bold all caps; the name/headline shouldn't be oversized and the tagline shouldn't be tiny; designs sit lower on the shirt (big ones about 7 in below the collar); mugs print smaller with breathing room.",
       "Shop direction (Daniel, Nov 17): homemade, food and craft, feel-good homestead designs for moms and grandmas; listings written for the daughters and grandkids buying the gift.",
       "Warm, gentle humor. Proud, never mocking. No jokes about age, weight or being 'old'. No faith or religious designs. No politics.",
       "Look: vintage label, seed packet and recipe card styles; muted natural palette (tomato red, butter yellow, sage, cream, berry); favor serif and script/handwriting pairings; simple and readable at arm's length.",
@@ -2849,6 +2850,12 @@
       "status": "files_ready"
     }
   },
+  "queued_edits": [
+    {
+      "id": "d261117-08",
+      "text": "Light shirt, not black. Mixed case, not all caps. Use a folksy, softer font pairing (try folksy_serif or recipe_card). Make 'Nana's Small Batch' smaller and 'jams & preserves' bigger, so the tagline is about 60% of the headline (line_scale around [1.0, 0.8, 0.6]). Leave top out so placement is automatic and lower on the shirt."
+    }
+  ],
   "refresh_listings": {},
   "replace_pending": false,
   "study_index": 2,

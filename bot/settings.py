@@ -30,7 +30,8 @@ WORK_START_HOUR = 9     # 9am
 WORK_END_HOUR = 17      # 5pm
 RUN_EVERY_MINUTES = 40
 DESIGNS_PER_BATCH = int(os.getenv("DESIGNS_PER_BATCH", "2"))
-ILLUSTRATION_SHARE = 0.30          # 70% text designs, 30% illustrations
+ILLUSTRATION_SHARE = 0.30
+LIGHT_GARMENTS_ONLY = True        # Daniel: no black shirts for the homestead shop          # 70% text designs, 30% illustrations
 MAX_PENDING_APPROVALS = 15         # stop making new designs if this many are waiting on you
 
 # ---------------------------------------------------------------------------
@@ -253,6 +254,13 @@ TEXT_STYLES = {
                      "mood": "handmade marker; DIY, honest, casual quotes"},
     "script_pop":   {"category": "script", "main": "lobster.woff",            "accent": "bebas-neue.woff",
                      "mood": "bold retro script lead; sweet, nostalgic, signature-style"},
+    # ---- folksy, softer looks for the homestead shop (Daniel, Nov 17) ----
+    "folksy_serif":   {"category": "serif", "main": "fraunces-semibold.woff", "accent": "kalam-bold.woff",
+                       "mood": "soft old-fashioned serif with a handwritten line; jam labels, pantry, grandma's kitchen"},
+    "recipe_card":    {"category": "script", "main": "kalam-bold.woff", "accent": "fraunces-italic.woff",
+                       "mood": "handwritten like a recipe card, with a gentle serif italic; warm, homemade, folksy"},
+    "kitchen_note":   {"category": "script", "main": "patrick-hand.woff", "accent": "fraunces-semibold.woff",
+                       "mood": "friendly hand lettering like a note on the fridge; casual, sweet, family"},
     # ---- added for a fuller mix ----
     # script and handwriting leads
     "brush_script":   {"category": "script", "main": "kaushan-script.woff", "accent": "oswald-bold.woff",
