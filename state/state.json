@@ -23,7 +23,8 @@
       "\ud83d\udcd6 On heather fabric, use bold, solid shapes and thick type strokes. Skip hairlines, faint gradients and soft blends, because the flecks muddy fine detail. For white type on dark heather, add a thin dark keyline.",
       "\ud83d\udcd6 Limit each design to 2 or 3 ink colors, and 4 at most. Use light inks on dark shirts and saturated dark inks on light shirts. Keep light-ink art on dark shirts bold and simple, since a white underbase softens colors slightly.",
       "\ud83d\udcd6 Check each design at thumbnail size on every shirt color before Daniel sees it. Only offer the colors where it reads clearly, because six good colors beat sixteen where a few look broken. In titles and tags, name the shirt color the design was made for, such as 'white print on black tee'.",
-      "Before sending any design narrower than about 7 inches, such as short slogans like 'Small plans are the best plans', check that its top edge sits about 9 inches below the collar so it lands mid-chest, and leave layout top unset so placement is automatic."
+      "Before sending any design narrower than about 7 inches, such as short slogans like 'Small plans are the best plans', check that its top edge sits about 9 inches below the collar so it lands mid-chest, and leave layout top unset so placement is automatic.",
+      "For homestead, kitchen and canning designs, default to a light garment, mixed case and a folksy font (folksy_serif or recipe_card), and size taglines at about 60% of the headline so they never read as tiny."
     ],
     "topics": [
       {
@@ -1081,8 +1082,8 @@
     }
   },
   "counts": {
-    "illustration": 3,
-    "text": 8
+    "illustration": 4,
+    "text": 9
   },
   "designs": {
     "d261116-01": {
@@ -2650,7 +2651,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "replaced",
       "tags": [
         "nana gift",
         "nana canning shirt",
@@ -2804,12 +2805,417 @@
       },
       "trend_signal": "Egg money and backyard chicken keeping; minimal bold text on heather grey",
       "why_it_sells": "Jenny buys it for herself and Katie buys it for mom, the hen keeper who happily spends every egg dollar on her flock."
+    },
+    "d261117-10": {
+      "concept": {
+        "accent_line": 2,
+        "description": "A warm, folksy jam-label design for the Nana who fills the pantry shelf every summer. Soft burgundy lettering in gentle mixed case on a light tee, with a handwritten 'jams & preserves' tagline that reads clearly across the room. A thoughtful gift for the jam maker in your family.",
+        "garment": "light",
+        "illustration_prompt": "",
+        "ink_dark": "#7A2E3E",
+        "ink_light": "#F3EBD8",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": [
+            1.0,
+            0.8,
+            0.6
+          ],
+          "top": null,
+          "width": 0.74
+        },
+        "lines": [
+          "Nana's",
+          "Small Batch",
+          "jams & preserves"
+        ],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "folksy_serif",
+        "tags": [
+          "nana gift",
+          "nana canning shirt",
+          "gift for grandma",
+          "grandma gift",
+          "canning gift",
+          "jam maker gift",
+          "small batch jam",
+          "homesteading",
+          "farmhouse kitchen",
+          "cottagecore",
+          "homestead mama",
+          "grandma hobby",
+          "preserves shirt"
+        ],
+        "titles": {
+          "hoodie": "Nana's Small Batch Hoodie, Nana Gift, Grandma Gift for Jam Maker, Canning Gift, Cottagecore Farmhouse Kitchen Sweatshirt",
+          "mug": "Nana's Small Batch Mug, Nana Gift, Gift for Grandma Who Cans, Jam and Preserves Coffee Cup, Farmhouse Kitchen",
+          "sticker": "Nana's Small Batch Sticker, Nana Gift, Canning Jar Label Style, Grandma Gift, Jam Maker Homesteading Decal",
+          "tee_bc": "Nana's Small Batch Shirt, Nana Gift, Canning Gift for Grandma, Jam Maker Tee, Farmhouse Kitchen, Burgundy Print on Light Tee"
+        },
+        "trend_signal": "Grandma hobbies and jam-making revival, canning season",
+        "why_it_sells": "Katie buys it for Nana, the family jam maker, as a Christmas or birthday gift that shows she noticed what Nana is proud of."
+      },
+      "created": "2026-11-17T16:54:31.113140+00:00",
+      "description": "A warm, folksy jam-label design for the Nana who fills the pantry shelf every summer. Soft burgundy lettering in gentle mixed case on a light tee, with a handwritten 'jams & preserves' tagline that reads clearly across the room. A thoughtful gift for the jam maker in your family.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-10/print_hoodie_139.png",
+          "5523": "designs/d261117-10/print_hoodie_139.png",
+          "5524": "designs/d261117-10/print_hoodie_139.png",
+          "5525": "designs/d261117-10/print_hoodie_139.png",
+          "5526": "designs/d261117-10/print_hoodie_139.png",
+          "5610": "designs/d261117-10/print_hoodie_139.png",
+          "5611": "designs/d261117-10/print_hoodie_139.png",
+          "5612": "designs/d261117-10/print_hoodie_139.png",
+          "5613": "designs/d261117-10/print_hoodie_139.png",
+          "5614": "designs/d261117-10/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-10/print_mug_43.png",
+          "4830": "designs/d261117-10/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-10/print_sticker_183.png",
+          "10164": "designs/d261117-10/print_sticker_184.png",
+          "10165": "designs/d261117-10/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261117-10/print_tee_bc_1.png",
+          "4012": "designs/d261117-10/print_tee_bc_1.png",
+          "4013": "designs/d261117-10/print_tee_bc_1.png",
+          "4014": "designs/d261117-10/print_tee_bc_1.png",
+          "4015": "designs/d261117-10/print_tee_bc_1.png",
+          "6948": "designs/d261117-10/print_tee_bc_1.png",
+          "6949": "designs/d261117-10/print_tee_bc_1.png",
+          "6950": "designs/d261117-10/print_tee_bc_1.png",
+          "6951": "designs/d261117-10/print_tee_bc_1.png",
+          "6952": "designs/d261117-10/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "id": "d261117-10",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "Nana's",
+        "Small Batch",
+        "jams & preserves"
+      ],
+      "listings": {},
+      "parent": "d261117-08",
+      "personalize": {
+        "line": 0,
+        "sample": "Nana",
+        "template": [
+          "{NAME}'s",
+          "Small Batch",
+          "jams & preserves"
+        ],
+        "upper": false
+      },
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "nana gift",
+        "nana canning shirt",
+        "gift for grandma",
+        "grandma gift",
+        "canning gift",
+        "jam maker gift",
+        "small batch jam",
+        "homesteading",
+        "farmhouse kitchen",
+        "cottagecore",
+        "homestead mama",
+        "grandma hobby",
+        "preserves shirt"
+      ],
+      "telegram_msg": 44,
+      "titles": {
+        "hoodie": "Nana's Small Batch Hoodie, Nana Gift, Grandma Gift for Jam Maker, Canning Gift, Cottagecore Farmhouse Kitchen Sweatshirt",
+        "mug": "Nana's Small Batch Mug, Nana Gift, Gift for Grandma Who Cans, Jam and Preserves Coffee Cup, Farmhouse Kitchen",
+        "sticker": "Nana's Small Batch Sticker, Nana Gift, Canning Jar Label Style, Grandma Gift, Jam Maker Homesteading Decal",
+        "tee_bc": "Nana's Small Batch Shirt, Nana Gift, Canning Gift for Grandma, Jam Maker Tee, Farmhouse Kitchen, Burgundy Print on Light Tee"
+      },
+      "trend_signal": "Grandma hobbies and jam-making revival, canning season",
+      "why_it_sells": "Katie buys it for Nana, the family jam maker, as a Christmas or birthday gift that shows she noticed what Nana is proud of."
+    },
+    "d261117-11": {
+      "concept": {
+        "accent_line": 1,
+        "description": "For the one who knows every hen by name and has a story about each of them. A soft, handwritten-style line in deep brown on a light shirt. A thoughtful gift for the family's chicken keeper.",
+        "garment": "light",
+        "illustration_prompt": "",
+        "ink_dark": "#3B2A20",
+        "ink_light": "#F3EBD8",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": [
+            1.0,
+            0.8
+          ],
+          "top": null,
+          "width": 0.7
+        },
+        "lines": [
+          "Every hen has a name,",
+          "and an opinion"
+        ],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "recipe_card",
+        "tags": [
+          "chicken lover gift",
+          "backyard hens",
+          "gift for mom",
+          "homestead mama",
+          "chicken mom shirt",
+          "hen keeper",
+          "gift for grandma",
+          "homesteading",
+          "cottagecore",
+          "farmhouse kitchen",
+          "coop life",
+          "grandma gift",
+          "chicken mama"
+        ],
+        "titles": {
+          "hoodie": "Backyard Hens Hoodie, Chicken Lover Gift for Mom, Homestead Mama Sweatshirt, Cottagecore Coop Life, Gift for Grandma",
+          "mug": "Chicken Lover Mug, Every Hen Has a Name, Gift for Grandma, Homestead Mama Coffee Cup, Farmhouse Kitchen, Backyard Hens",
+          "sticker": "Backyard Hens Sticker, Chicken Lover Gift, Every Hen Has a Name, Homesteading Decal, Cottagecore Coop Sticker",
+          "tee_bc": "Backyard Chicken Shirt, Chicken Lover Gift, Gift for Mom, Homestead Mama Tee, Hen Keeper, Farmhouse Kitchen Gift, Cottagecore"
+        },
+        "trend_signal": "backyard hens, Pinterest backyard hobby trend, egg prices",
+        "why_it_sells": "Jenny and the daughters who shop for the family's hen keeper see their own coop in a gentle, true-to-life joke about named chickens."
+      },
+      "created": "2026-11-17T16:57:33.521213+00:00",
+      "description": "For the one who knows every hen by name and has a story about each of them. A soft, handwritten-style line in deep brown on a light shirt. A thoughtful gift for the family's chicken keeper.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-11/print_hoodie_139.png",
+          "5523": "designs/d261117-11/print_hoodie_139.png",
+          "5524": "designs/d261117-11/print_hoodie_139.png",
+          "5525": "designs/d261117-11/print_hoodie_139.png",
+          "5526": "designs/d261117-11/print_hoodie_139.png",
+          "5610": "designs/d261117-11/print_hoodie_139.png",
+          "5611": "designs/d261117-11/print_hoodie_139.png",
+          "5612": "designs/d261117-11/print_hoodie_139.png",
+          "5613": "designs/d261117-11/print_hoodie_139.png",
+          "5614": "designs/d261117-11/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-11/print_mug_43.png",
+          "4830": "designs/d261117-11/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-11/print_sticker_183.png",
+          "10164": "designs/d261117-11/print_sticker_184.png",
+          "10165": "designs/d261117-11/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261117-11/print_tee_bc_1.png",
+          "4012": "designs/d261117-11/print_tee_bc_1.png",
+          "4013": "designs/d261117-11/print_tee_bc_1.png",
+          "4014": "designs/d261117-11/print_tee_bc_1.png",
+          "4015": "designs/d261117-11/print_tee_bc_1.png",
+          "6948": "designs/d261117-11/print_tee_bc_1.png",
+          "6949": "designs/d261117-11/print_tee_bc_1.png",
+          "6950": "designs/d261117-11/print_tee_bc_1.png",
+          "6951": "designs/d261117-11/print_tee_bc_1.png",
+          "6952": "designs/d261117-11/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "id": "d261117-11",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "Every hen has a name,",
+        "and an opinion"
+      ],
+      "listings": {},
+      "parent": null,
+      "personalize": null,
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "chicken lover gift",
+        "backyard hens",
+        "gift for mom",
+        "homestead mama",
+        "chicken mom shirt",
+        "hen keeper",
+        "gift for grandma",
+        "homesteading",
+        "cottagecore",
+        "farmhouse kitchen",
+        "coop life",
+        "grandma gift",
+        "chicken mama"
+      ],
+      "telegram_msg": 52,
+      "titles": {
+        "hoodie": "Backyard Hens Hoodie, Chicken Lover Gift for Mom, Homestead Mama Sweatshirt, Cottagecore Coop Life, Gift for Grandma",
+        "mug": "Chicken Lover Mug, Every Hen Has a Name, Gift for Grandma, Homestead Mama Coffee Cup, Farmhouse Kitchen, Backyard Hens",
+        "sticker": "Backyard Hens Sticker, Chicken Lover Gift, Every Hen Has a Name, Homesteading Decal, Cottagecore Coop Sticker",
+        "tee_bc": "Backyard Chicken Shirt, Chicken Lover Gift, Gift for Mom, Homestead Mama Tee, Hen Keeper, Farmhouse Kitchen Gift, Cottagecore"
+      },
+      "trend_signal": "backyard hens, Pinterest backyard hobby trend, egg prices",
+      "why_it_sells": "Jenny and the daughters who shop for the family's hen keeper see their own coop in a gentle, true-to-life joke about named chickens."
+    },
+    "d261117-12": {
+      "concept": {
+        "accent_line": null,
+        "description": "A ripe tomato on a vintage-style seed packet, printed in tomato red, sage and butter yellow on a light shirt. A gift for the gardener who puts up tomatoes every August and is proud of every jar.",
+        "garment": "light",
+        "illustration_prompt": "A single centered vintage seed packet in bold, clean screen-print style. A big ripe tomato in tomato red #B5432F with a sage #8A9A78 leafy vine and a small butter yellow #E8C766 blossom fills the center of the packet. A cream #F3EBD8 border frames the packet with a simple scalloped top edge. Deep brown #3B2A20 outlines and hand-lettered serif text 'Garden Tomatoes' across the lower band. Thick confident strokes, flat solid color shapes, no gradients, no hairlines, no background. Warm, handmade, nostalgic mood.",
+        "ink_dark": "#B5432F",
+        "ink_light": "#F3EBD8",
+        "kind": "illustration",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": null,
+          "top": null,
+          "width": 0.68
+        },
+        "lines": [],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "romantic_serif",
+        "tags": [
+          "gardener gift",
+          "tomato shirt",
+          "seed packet shirt",
+          "gift for mom",
+          "gift for grandma",
+          "nana gift",
+          "homestead mama",
+          "homesteading",
+          "cottagecore",
+          "farmhouse kitchen",
+          "canning gift",
+          "vintage garden",
+          "garden harvest"
+        ],
+        "titles": {
+          "hoodie": "Vintage Tomato Seed Packet Hoodie, Gardener Gift for Grandma, Homesteading Sweatshirt, Cottagecore Garden, Gift for Mom",
+          "mug": "Garden Tomatoes Seed Packet Mug, Gardener Gift for Mom, Nana Gift, Farmhouse Kitchen Coffee Cup, Homesteading, Cottagecore",
+          "sticker": "Tomato Seed Packet Sticker, Gardener Gift, Vintage Garden Decal, Homesteading Sticker, Cottagecore, Canning Gift",
+          "tee_bc": "Garden Tomatoes Seed Packet Shirt, Gift for Mom, Gardener Gift, Homestead Mama Tee, Vintage Garden Shirt, Cottagecore, Grandma Gift"
+        },
+        "trend_signal": "backyard botanist hobby trend, garden harvest season",
+        "why_it_sells": "Gardeners and the daughters who buy for them love a vintage seed packet with a big ripe tomato that feels like a keepsake from grandma's garden shed."
+      },
+      "created": "2026-11-17T16:58:16.880074+00:00",
+      "description": "A ripe tomato on a vintage-style seed packet, printed in tomato red, sage and butter yellow on a light shirt. A gift for the gardener who puts up tomatoes every August and is proud of every jar.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-12/print_hoodie_139.png",
+          "5523": "designs/d261117-12/print_hoodie_139.png",
+          "5524": "designs/d261117-12/print_hoodie_139.png",
+          "5525": "designs/d261117-12/print_hoodie_139.png",
+          "5526": "designs/d261117-12/print_hoodie_139.png",
+          "5610": "designs/d261117-12/print_hoodie_139.png",
+          "5611": "designs/d261117-12/print_hoodie_139.png",
+          "5612": "designs/d261117-12/print_hoodie_139.png",
+          "5613": "designs/d261117-12/print_hoodie_139.png",
+          "5614": "designs/d261117-12/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-12/print_mug_43.png",
+          "4830": "designs/d261117-12/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-12/print_sticker_183.png",
+          "10164": "designs/d261117-12/print_sticker_184.png",
+          "10165": "designs/d261117-12/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261117-12/print_tee_bc_1.png",
+          "4012": "designs/d261117-12/print_tee_bc_1.png",
+          "4013": "designs/d261117-12/print_tee_bc_1.png",
+          "4014": "designs/d261117-12/print_tee_bc_1.png",
+          "4015": "designs/d261117-12/print_tee_bc_1.png",
+          "6948": "designs/d261117-12/print_tee_bc_1.png",
+          "6949": "designs/d261117-12/print_tee_bc_1.png",
+          "6950": "designs/d261117-12/print_tee_bc_1.png",
+          "6951": "designs/d261117-12/print_tee_bc_1.png",
+          "6952": "designs/d261117-12/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "id": "d261117-12",
+      "illustration_prompt": "A single centered vintage seed packet in bold, clean screen-print style. A big ripe tomato in tomato red #B5432F with a sage #8A9A78 leafy vine and a small butter yellow #E8C766 blossom fills the center of the packet. A cream #F3EBD8 border frames the packet with a simple scalloped top edge. Deep brown #3B2A20 outlines and hand-lettered serif text 'Garden Tomatoes' across the lower band. Thick confident strokes, flat solid color shapes, no gradients, no hairlines, no background. Warm, handmade, nostalgic mood.",
+      "kind": "illustration",
+      "lines": [],
+      "listings": {},
+      "parent": null,
+      "personalize": null,
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "gardener gift",
+        "tomato shirt",
+        "seed packet shirt",
+        "gift for mom",
+        "gift for grandma",
+        "nana gift",
+        "homestead mama",
+        "homesteading",
+        "cottagecore",
+        "farmhouse kitchen",
+        "canning gift",
+        "vintage garden",
+        "garden harvest"
+      ],
+      "telegram_msg": 53,
+      "titles": {
+        "hoodie": "Vintage Tomato Seed Packet Hoodie, Gardener Gift for Grandma, Homesteading Sweatshirt, Cottagecore Garden, Gift for Mom",
+        "mug": "Garden Tomatoes Seed Packet Mug, Gardener Gift for Mom, Nana Gift, Farmhouse Kitchen Coffee Cup, Homesteading, Cottagecore",
+        "sticker": "Tomato Seed Packet Sticker, Gardener Gift, Vintage Garden Decal, Homesteading Sticker, Cottagecore, Canning Gift",
+        "tee_bc": "Garden Tomatoes Seed Packet Shirt, Gift for Mom, Gardener Gift, Homestead Mama Tee, Vintage Garden Shirt, Cottagecore, Grandma Gift"
+      },
+      "trend_signal": "backyard botanist hobby trend, garden harvest season",
+      "why_it_sells": "Gardeners and the daughters who buy for them love a vintage seed packet with a big ripe tomato that feels like a keepsake from grandma's garden shed."
     }
   },
   "force_scout": false,
   "last_error_ping": "2026-11-17T14:43:25.737702+00:00",
-  "last_run": "2026-11-17T16:09:18.942500+00:00",
-  "last_scout": "2026-11-17T16:13:06.851957+00:00",
+  "last_run": "2026-11-17T16:54:11.737603+00:00",
+  "last_scout": "2026-11-17T16:57:31.998947+00:00",
   "last_study": "2026-11-17",
   "name_index": 1,
   "orders": {},
@@ -2825,7 +3231,7 @@
         "16876": "Design about 8.1 \u00d7 9.8 in, 2.6 in below the top of the print area.",
         "5514": "Design about 8.1 \u00d7 9.8 in, 2.6 in below the top of the print area."
       },
-      "status": "files_ready"
+      "status": "sent"
     },
     "tee": {
       "at": "2026-11-17T16:12:23.510218+00:00",
@@ -2837,7 +3243,7 @@
         "15166": "Design about 7.3 \u00d7 8.8 in, 2.6 in below the top of the print area.",
         "16523": "Design about 7.3 \u00d7 8.8 in, 2.6 in below the top of the print area."
       },
-      "status": "files_ready"
+      "status": "sent"
     },
     "tote": {
       "at": "2026-11-17T16:12:36.892544+00:00",
@@ -2847,15 +3253,10 @@
       "notes": {
         "10458": "Design about 5.9 \u00d7 7.2 in, 1.2 in below the top of the print area."
       },
-      "status": "files_ready"
+      "status": "sent"
     }
   },
-  "queued_edits": [
-    {
-      "id": "d261117-08",
-      "text": "Light shirt, not black. Mixed case, not all caps. Use a folksy, softer font pairing (try folksy_serif or recipe_card). Make 'Nana's Small Batch' smaller and 'jams & preserves' bigger, so the tagline is about 60% of the headline (line_scale around [1.0, 0.8, 0.6]). Leave top out so placement is automatic and lower on the shirt."
-    }
-  ],
+  "queued_edits": [],
   "refresh_listings": {},
   "replace_pending": false,
   "study_index": 2,
@@ -2896,5 +3297,5 @@
   ],
   "telegram_chat_id": "147542263",
   "telegram_offset": 333766193,
-  "theme_index": 1
+  "theme_index": 2
 }
