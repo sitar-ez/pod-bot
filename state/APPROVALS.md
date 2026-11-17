@@ -8,8 +8,9 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 - 2026-11-17 19:05 UTC · 💡 Rory proposed (Rory (bot), automatic): Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early
 - 2026-11-17 22:07 UTC · ❌ Daniel skipped (Daniel, Telegram)
 
-## d261117-16 · pending · 
+## d261117-16 · rejected · 
 - 2026-11-17 18:24 UTC · 💡 Rory proposed (Rory (bot), automatic): canning season revival and handed-down pickle recipe cards
+- 2026-11-17 22:07 UTC · ❌ Daniel skipped (Daniel, Telegram)
 
 ## d261117-15 · pending · A rubber band / on the jar / means bread tomorrow
 - 2026-11-17 18:23 UTC · 💡 Rory proposed (Rory (bot), automatic): analog hobbies and kitchen-witch baking revival
