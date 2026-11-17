@@ -68,8 +68,8 @@ jobs:
           git pull --rebase
           git push
 
-  # Rory keeps its own schedule: wait until the next slot, then start the next run.
-  # (GitHub's built-in schedule above is a backup; it can be unreliable.)
+  # Between runs Rory listens to Telegram (answers taps and messages within seconds),
+  # then starts the next run itself. GitHub's built-in schedule above is only a backup.
   next:
     needs: run
     if: always()
@@ -80,13 +80,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Wait for the next slot, then start the next run
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Listen to Telegram until the next slot
+        env:
+          DRY_RUN: "false"
+          SHOP_NAME: ${{ vars.SHOP_NAME }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PRINTFUL_TOKEN: ${{ secrets.PRINTFUL_TOKEN }}
+          PRINTFUL_STORE_ID: ${{ secrets.PRINTFUL_STORE_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          git config user.name "pod-bot"
+          git config user.email "pod-bot@users.noreply.github.com"
+          wait=$(python -m bot.next_run)
+          echo "Next run in $((wait / 60)) minutes; listening until then"
+          python -m bot.listen "$wait" || sleep 30
+      - name: Start the next run
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          wait=$(python -m bot.next_run)
-          echo "Next run in $((wait / 60)) minutes"
-          sleep "$wait"
           waiting=$(gh run list --workflow bot.yml --json status --jq '[.[] | select(.status=="queued" or .status=="pending" or .status=="waiting")] | length')
           if [ "$waiting" = "0" ]; then
             gh workflow run bot.yml -f chain=true

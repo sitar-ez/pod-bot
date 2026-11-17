@@ -25,9 +25,9 @@ HELP = ("Talk to me like a colleague. Send a trend to explore, an article link t
         "/pause  stop making designs\n/resume  start again\n/help  this list")
 
 
-def handle_telegram(state):
+def handle_telegram(state, ups=None):
     me = str(telegram.chat_id())
-    for u in telegram.updates(state["telegram_offset"]):
+    for u in (ups if ups is not None else telegram.updates(state["telegram_offset"])):
         state["telegram_offset"] = u["update_id"] + 1
         cb = u.get("callback_query")
         msg = u.get("message")
@@ -47,11 +47,11 @@ def handle_telegram(state):
             d["status"] = "approved" if action == "approve" else "rejected"
             d["decided"] = now_iso()
             try:
-                telegram.answer(cb["id"], "Got it")
+                telegram.answer(cb["id"], "✅ Approved" if action == "approve" else "❌ Skipped")
             except Exception:
                 pass
             old = cb["message"].get("caption", "")
-            tag = "✅ APPROVED, publishing next" if action == "approve" else "❌ Skipped"
+            tag = "✅ APPROVED, it goes to Etsy on the next run" if action == "approve" else "❌ Skipped"
             telegram.mark(cb["message"]["message_id"], f"{tag}\n\n{old}")
             log(f"  {did}: {d['status']}")
         elif msg and str(msg["chat"]["id"]) == me:

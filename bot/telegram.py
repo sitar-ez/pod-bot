@@ -50,16 +50,19 @@ def send_design(jpg_bytes, caption, design_id):
     return r.json()["result"]["message_id"]
 
 
-def updates(offset):
-    r = http("GET", _url("getUpdates"), params={"offset": offset, "timeout": 0,
-                                                "allowed_updates": json.dumps(["message", "callback_query"])})
+def updates(offset, wait=0):
+    """wait > 0 long-polls: Telegram holds the request open until something arrives."""
+    r = http("GET", _url("getUpdates"), params={"offset": offset, "timeout": wait,
+                                                "allowed_updates": json.dumps(["message", "callback_query"])},
+             timeout=wait + 30)
     if r.status_code >= 400:
         log("  telegram getUpdates failed:", r.text[:300])
         return []
     res = r.json().get("result", [])
     kinds = [("tap" if "callback_query" in u else "message" if "message" in u else "other") for u in res]
-    log(f"  telegram: {len(res)} new update(s) {kinds}")
-    if not res:
+    if res or not wait:
+        log(f"  telegram: {len(res)} new update(s) {kinds}")
+    if not res and not wait:
         try:
             info = http("GET", _url("getWebhookInfo"), retries=0).json().get("result", {})
             log(f"  telegram check: pending={info.get('pending_update_count')} webhook={info.get('url') or 'none'} "
