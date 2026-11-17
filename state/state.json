@@ -4022,6 +4022,7 @@
         "why_it_sells": "Every seasoned cookie baker has learned to take the pan out while the middles still look raw, because the hot pan finishes the job. Daughters buy it for a mom or grandma who never overbakes, and Jenny buys it for herself in cookie season."
       },
       "created": "2026-11-17T19:05:45.479083+00:00",
+      "decided": "2026-11-17T22:07:13.301419+00:00",
       "description": "Anyone who bakes a lot of cookies knows the secret: take them out when the edges are set and the middles still look a little underdone, and the hot pan finishes the job. A cheerful, cozy shirt in a friendly script for the baker who never serves a dry cookie. A sweet Christmas gift for the mom or grandma who keeps the whole family fed.",
       "files": {
         "hoodie": {
@@ -4066,6 +4067,12 @@
           "event": "proposed",
           "note": "Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-17T22:07:13.301435+00:00",
+          "by": "Daniel",
+          "event": "skipped",
+          "via": "Telegram"
         }
       ],
       "id": "d261117-17",
@@ -4085,7 +4092,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "rejected",
       "tags": [
         "christmas baking",
         "cookie baker gift",
@@ -4196,6 +4203,6 @@
     }
   ],
   "telegram_chat_id": "147542263",
-  "telegram_offset": 333766193,
+  "telegram_offset": 333766205,
   "theme_index": 5
 }
