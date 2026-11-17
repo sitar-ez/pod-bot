@@ -16,27 +16,28 @@
       "\ud83d\udcd6 Keep ink and shirt far apart in value, and never use an ink close to the shirt color. That means no navy on black, no mid-gray or silver on heather grey, and no dark green on charcoal. Use black or deep navy on heather grey. Use white, cream or bright yellow on dark heathers, navy and maroon.",
       "\ud83d\udcd6 On heather fabric, use bold, solid shapes and thick type strokes. Skip hairlines, faint gradients and soft blends, because the flecks muddy fine detail. For white type on dark heather, add a thin dark keyline.",
       "\ud83d\udcd6 Limit each design to 2 or 3 ink colors, and 4 at most. Use light inks on dark shirts and saturated dark inks on light shirts. Keep light-ink art on dark shirts bold and simple, since a white underbase softens colors slightly.",
-      "\ud83d\udcd6 Check each design at thumbnail size on every shirt color before Daniel sees it. Only offer the colors where it reads clearly, because six good colors beat sixteen where a few look broken. In titles and tags, name the shirt color the design was made for, such as 'white print on black tee'."
+      "\ud83d\udcd6 Check each design at thumbnail size on every shirt color before Daniel sees it. Only offer the colors where it reads clearly, because six good colors beat sixteen where a few look broken. In titles and tags, name the shirt color the design was made for, such as 'white print on black tee'.",
+      "Before sending any design narrower than about 7 inches, such as short slogans like 'Small plans are the best plans', check that its top edge sits about 9 inches below the collar so it lands mid-chest, and leave layout top unset so placement is automatic."
     ],
     "topics": [
       {
         "added": "2026-11-16T23:05:06.622624+00:00",
-        "batches_left": 1,
+        "batches_left": 0,
         "text": "Community-specific and story-driven text designs, such as family reunion or group matching tees, with original wording"
       },
       {
         "added": "2026-11-16T23:05:06.622638+00:00",
-        "batches_left": 1,
+        "batches_left": 0,
         "text": "Retro typography with bubbly or early-digital serif lettering and original phrases"
       },
       {
         "added": "2026-11-17T14:01:39.689525+00:00",
-        "batches_left": 2,
+        "batches_left": 1,
         "text": "Minimal text-only designs in black or navy on heather grey, such as short phrases in bold type"
       },
       {
         "added": "2026-11-17T14:01:39.689539+00:00",
-        "batches_left": 2,
+        "batches_left": 1,
         "text": "Nature and coastal themes in white or cream ink on dark heather greens and navy"
       }
     ]
@@ -490,7 +491,7 @@
   },
   "counts": {
     "illustration": 3,
-    "text": 5
+    "text": 6
   },
   "designs": {
     "d261116-01": {
@@ -997,9 +998,17 @@
       "illustration_prompt": "A single centered mason-style jam jar filled with deep red jam, topped with a gingham fabric lid tied with twine. A small paper label on the jar reads SMALL BATCH in bold simple capitals. Two ripe strawberries with fern-green leaves sit at the base of the jar, with one small wooden spoon leaning against it. Bold clean screen-print style with chunky dark brown outlines (#4a403a), flat color fills, and a limited palette of terracotta red #b7472a, fern green #4a7c59, marigold #f9a620, and cream. No shading gradients, no background, no extra text.",
       "kind": "illustration",
       "lines": [],
-      "listings": {},
+      "listings": {
+        "hoodie": 4619416089,
+        "mug": 4619416695,
+        "sticker": 4619416815,
+        "tee": 4619394914
+      },
       "parent": null,
       "partial": {
+        "hoodie": 4619416089,
+        "mug": 4619416695,
+        "sticker": 4619416815,
         "tee": 4619394914
       },
       "products": [
@@ -1008,7 +1017,8 @@
         "mug",
         "sticker"
       ],
-      "status": "approved",
+      "published": "2026-11-17T15:28:04.566804+00:00",
+      "status": "published",
       "tags": [
         "jam jar shirt",
         "cottagecore tee",
@@ -1801,12 +1811,141 @@
       },
       "trend_signal": "backyard botany and beekeeping as the new offline hobby",
       "why_it_sells": "Gardeners, beekeepers and honey lovers buy it as a gift or for themselves, and its warm, simple look suits any season."
+    },
+    "d261117-07": {
+      "concept": {
+        "accent_line": null,
+        "description": "A simple, calm shirt for people who would rather be out in the fresh air. Deep navy serif lettering is made to read clearly on heather grey. Good for hikers, gardeners and anyone who is taking a break from screens.",
+        "garment": "light",
+        "illustration_prompt": "",
+        "ink_dark": "#1a2744",
+        "ink_light": "#f5f3ed",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "top": null,
+          "width": 0.62
+        },
+        "lines": [
+          "GONE OUTSIDE",
+          "back by dinner"
+        ],
+        "products": [
+          "tee",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "editorial",
+        "tags": [
+          "gone outside",
+          "nature lover gift",
+          "hiking shirt",
+          "outdoorsy tee",
+          "back by dinner",
+          "screen free",
+          "minimalist tee",
+          "gift for hiker",
+          "walk in the woods",
+          "outdoor lover",
+          "gardener gift",
+          "fresh air shirt",
+          "navy on grey tee"
+        ],
+        "titles": {
+          "hoodie": "Gone Outside Hoodie, Back By Dinner Sweatshirt, Nature Lover Gift, Hiker Hoodie, Minimalist Outdoors Pullover",
+          "mug": "Gone Outside Mug, Back By Dinner Coffee Cup, Nature Lover Gift, Hiker Mug, Outdoorsy Gift",
+          "sticker": "Gone Outside Sticker, Back By Dinner Decal, Nature Lover Sticker, Hiking Water Bottle Sticker, Outdoors Laptop Sticker",
+          "tee": "Gone Outside Shirt, Back By Dinner Tee, Nature Lover Gift, Hiking Shirt, Minimalist Outdoors Tee, Screen Free Gift, Navy on Heather Grey"
+        },
+        "trend_signal": "analog hobbies, going offline, screen-free time",
+        "why_it_sells": "Hikers, gardeners and anyone trying to spend less time on their phone buy it as a quiet, minimal statement shirt."
+      },
+      "created": "2026-11-17T15:28:35.739370+00:00",
+      "description": "A simple, calm shirt for people who would rather be out in the fresh air. Deep navy serif lettering is made to read clearly on heather grey. Good for hikers, gardeners and anyone who is taking a break from screens.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-07/print_hoodie_139.png",
+          "5523": "designs/d261117-07/print_hoodie_139.png",
+          "5524": "designs/d261117-07/print_hoodie_139.png",
+          "5525": "designs/d261117-07/print_hoodie_139.png",
+          "5526": "designs/d261117-07/print_hoodie_139.png",
+          "5610": "designs/d261117-07/print_hoodie_139.png",
+          "5611": "designs/d261117-07/print_hoodie_139.png",
+          "5612": "designs/d261117-07/print_hoodie_139.png",
+          "5613": "designs/d261117-07/print_hoodie_139.png",
+          "5614": "designs/d261117-07/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-07/print_mug_43.png",
+          "4830": "designs/d261117-07/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-07/print_sticker_183.png",
+          "10164": "designs/d261117-07/print_sticker_184.png",
+          "10165": "designs/d261117-07/print_sticker_185.png"
+        },
+        "tee": {
+          "4011": "designs/d261117-07/print_tee_1.png",
+          "4012": "designs/d261117-07/print_tee_1.png",
+          "4013": "designs/d261117-07/print_tee_1.png",
+          "4014": "designs/d261117-07/print_tee_1.png",
+          "4015": "designs/d261117-07/print_tee_1.png",
+          "6948": "designs/d261117-07/print_tee_1.png",
+          "6949": "designs/d261117-07/print_tee_1.png",
+          "6950": "designs/d261117-07/print_tee_1.png",
+          "6951": "designs/d261117-07/print_tee_1.png",
+          "6952": "designs/d261117-07/print_tee_1.png"
+        }
+      },
+      "garment": "light",
+      "id": "d261117-07",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "GONE OUTSIDE",
+        "back by dinner"
+      ],
+      "listings": {},
+      "parent": null,
+      "products": [
+        "tee",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "gone outside",
+        "nature lover gift",
+        "hiking shirt",
+        "outdoorsy tee",
+        "back by dinner",
+        "screen free",
+        "minimalist tee",
+        "gift for hiker",
+        "walk in the woods",
+        "outdoor lover",
+        "gardener gift",
+        "fresh air shirt",
+        "navy on grey tee"
+      ],
+      "telegram_msg": 37,
+      "titles": {
+        "hoodie": "Gone Outside Hoodie, Back By Dinner Sweatshirt, Nature Lover Gift, Hiker Hoodie, Minimalist Outdoors Pullover",
+        "mug": "Gone Outside Mug, Back By Dinner Coffee Cup, Nature Lover Gift, Hiker Mug, Outdoorsy Gift",
+        "sticker": "Gone Outside Sticker, Back By Dinner Decal, Nature Lover Sticker, Hiking Water Bottle Sticker, Outdoors Laptop Sticker",
+        "tee": "Gone Outside Shirt, Back By Dinner Tee, Nature Lover Gift, Hiking Shirt, Minimalist Outdoors Tee, Screen Free Gift, Navy on Heather Grey"
+      },
+      "trend_signal": "analog hobbies, going offline, screen-free time",
+      "why_it_sells": "Hikers, gardeners and anyone trying to spend less time on their phone buy it as a quiet, minimal statement shirt."
     }
   },
   "force_scout": false,
   "last_error_ping": "2026-11-17T14:43:25.737702+00:00",
-  "last_run": "2026-11-17T14:42:59.363520+00:00",
-  "last_scout": "2026-11-17T14:44:03.261628+00:00",
+  "last_run": "2026-11-17T15:25:25.841506+00:00",
+  "last_scout": "2026-11-17T15:28:33.440860+00:00",
   "last_study": "2026-11-17",
   "orders": {},
   "paused": false,
@@ -1848,5 +1987,5 @@
     }
   ],
   "telegram_chat_id": "147542263",
-  "telegram_offset": 333766174
+  "telegram_offset": 333766193
 }
