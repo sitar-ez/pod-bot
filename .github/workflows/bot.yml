@@ -33,7 +33,7 @@ jobs:
 
       - name: Run the bot
         env:
-          DRY_RUN: ${{ vars.DRY_RUN || 'true' }}
+          DRY_RUN: "false"   # LIVE: approved designs go to Etsy. Set to "true" to go back to safe mode.
           FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.chain != 'true' }}
           SHOP_NAME: ${{ vars.SHOP_NAME }}
           PUBLISH_LIVE: ${{ vars.PUBLISH_LIVE || 'true' }}
