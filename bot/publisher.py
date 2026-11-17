@@ -162,3 +162,37 @@ def publish(design, etsy, state):
     design["published"] = now_iso()
     links = "\n".join(f"{k}: https://www.etsy.com/listing/{v}" for k, v in design["listings"].items())
     telegram.send(f"✅ {did} is live on Etsy.\n{links}")
+
+
+def refresh_photos(design, keys, etsy, state):
+    """After a design's print files change, make new Printful mockups and swap the photos
+    on its live Etsy listings. Orders already use the new files (they're read at order time)."""
+    did = design["id"]
+    done = []
+    for key in keys:
+        lid = design["listings"].get(key)
+        if not lid:
+            continue
+        cfg = settings.PRODUCTS[key]
+        info = printful.resolve_product(key, state)
+        variants = {vid: info["variants"][vid] for vid in design["files"][key] if vid in info["variants"]}
+        by_color = {}
+        for vid, v in variants.items():
+            by_color.setdefault(v["color"], vid)
+        photos = []
+        for color, vid in by_color.items():
+            v = variants[vid]
+            photos += printful.mockups(info["product_id"], [int(vid)], cfg["placement"],
+                                       public_url(design["files"][key][vid]), v["w"], v["h"])
+        photos = photos[:10]
+        if not photos:
+            continue
+        old = etsy.listing_images(lid)
+        for rank, ph in enumerate(photos, start=1):      # add new photos first so the listing is never empty
+            etsy.upload_image(lid, http("GET", ph).content, rank)
+        for img in old:
+            etsy.delete_image(lid, img["listing_image_id"])
+        done.append(f"{key}: https://www.etsy.com/listing/{lid}")
+        log(f"  refreshed photos for {did} {key}")
+    if done:
+        telegram.send(f"📐 Updated {did} with the new placement. New photos are up:\n" + "\n".join(done))

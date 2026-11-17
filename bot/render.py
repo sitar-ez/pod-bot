@@ -147,13 +147,15 @@ def _fit(img, max_w, max_h):
     return img.resize((max(1, int(img.width * s)), max(1, int(img.height * s))), Image.LANCZOS)
 
 
-def compose_print_file(master, w, h, fit, layout=None, max_height=0.62):
+def compose_print_file(master, w, h, fit, layout=None, max_height=0.62, scale=1.0):
     """Place the design inside a canvas the exact size of Printful's print area.
     layout: width = share of the print width the design may use, top = gap above it."""
     lay = layout_of(layout)
     canvas = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     if fit == "top":          # shirts: chest placement
         d = _fit(master, w * lay["width"], h * max_height)
+        if scale != 1.0:   # per-product size adjustment (tees smaller, hoodies bigger)
+            d = _fit(master, min(w * 0.98, d.width * scale), min(h * 0.9, d.height * scale))
         x = {"left": int(w * 0.05), "right": int(w * 0.95 - d.width)}.get(lay["align"], (w - d.width) // 2)
         top = lay["top"]
         if top is None:   # automatic: small designs sit mid-chest, big ones start near the collar

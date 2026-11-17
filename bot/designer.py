@@ -57,7 +57,8 @@ def make_design(concept, state, parent=None, reuse_master=None):
             pfid = v["printfile_id"]
             if pfid not in done:
                 name = f"print_{key}_{pfid}.png"
-                img = render.compose_print_file(src, v["w"], v["h"], cfg["fit"], layout, cfg.get("max_height", 0.62))
+                img = render.compose_print_file(src, v["w"], v["h"], cfg["fit"], layout, cfg.get("max_height", 0.62),
+                                                 cfg.get("scale", 1.0))
                 img.save(folder / name, optimize=True)
                 firsts.setdefault(key, img)
                 done[pfid] = str((folder / name).relative_to(ROOT))

@@ -63,6 +63,12 @@ class Etsy:
                         files={"image": (f"photo{rank}.jpg", jpg_bytes, "image/jpeg")},
                         data={"rank": rank})
 
+    def listing_images(self, listing_id):
+        return self.req("GET", f"/listings/{listing_id}/images", "list photos")["results"]
+
+    def delete_image(self, listing_id, image_id):
+        return self.req("DELETE", f"/shops/{self.shop_id}/listings/{listing_id}/images/{image_id}", "remove photo")
+
     def set_inventory(self, listing_id, body):
         return self.req("PUT", f"/listings/{listing_id}/inventory", "set variations", json=body)
 

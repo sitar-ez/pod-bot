@@ -3,6 +3,7 @@
     "lessons": [
       "Every phrase must make sense on its own to a stranger. No mashups of unrelated words or headlines (Daniel skipped 'PORCH BIRD CLUB / family chapter' because it made no sense).",
       "Daniel's placement rule: big, full-width designs start about 5 inches below the collar (never up by the neckline); SMALL designs (narrower than about 7 inches) sit lower, with the top edge about 9 inches below the collar, so they land mid-chest instead of up by the neckline. Leave layout top out and placement is automatic.",
+      "Daniel's sizing rule: tee designs print 10% smaller and hoodie designs 10% bigger than the standard fit (applied automatically per product). Big designs start about 5 inches below the collar.",
       "Center-chest slogans and small graphics are 6 to 10 inches wide (layout width 0.5-0.8). Short phrases go toward the small end.",
       "Full-front statement designs are 10 to 12 inches wide (layout width 0.83-1.0) and up to about 12 inches tall.",
       "Chest designs should end above the armpit line and never reach toward the shoulder seams.",
@@ -960,16 +961,16 @@
       "description": "A hand-drawn style jam jar with a gingham lid and fresh strawberries, made for people who love slow kitchen hobbies. A sweet gift for canners, bakers and anyone who likes things made in small batches.",
       "files": {
         "hoodie": {
-          "5522": "designs/d261116-05/print_hoodie_139.png",
-          "5523": "designs/d261116-05/print_hoodie_139.png",
-          "5524": "designs/d261116-05/print_hoodie_139.png",
-          "5525": "designs/d261116-05/print_hoodie_139.png",
-          "5526": "designs/d261116-05/print_hoodie_139.png",
-          "5610": "designs/d261116-05/print_hoodie_139.png",
-          "5611": "designs/d261116-05/print_hoodie_139.png",
-          "5612": "designs/d261116-05/print_hoodie_139.png",
-          "5613": "designs/d261116-05/print_hoodie_139.png",
-          "5614": "designs/d261116-05/print_hoodie_139.png"
+          "5522": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5523": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5524": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5525": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5526": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5610": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5611": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5612": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5613": "designs/d261116-05/print_hoodie_139_v2.png",
+          "5614": "designs/d261116-05/print_hoodie_139_v2.png"
         },
         "mug": {
           "1320": "designs/d261116-05/print_mug_43.png",
@@ -981,16 +982,16 @@
           "10165": "designs/d261116-05/print_sticker_185.png"
         },
         "tee": {
-          "4011": "designs/d261116-05/print_tee_1.png",
-          "4012": "designs/d261116-05/print_tee_1.png",
-          "4013": "designs/d261116-05/print_tee_1.png",
-          "4014": "designs/d261116-05/print_tee_1.png",
-          "4015": "designs/d261116-05/print_tee_1.png",
-          "6948": "designs/d261116-05/print_tee_1.png",
-          "6949": "designs/d261116-05/print_tee_1.png",
-          "6950": "designs/d261116-05/print_tee_1.png",
-          "6951": "designs/d261116-05/print_tee_1.png",
-          "6952": "designs/d261116-05/print_tee_1.png"
+          "4011": "designs/d261116-05/print_tee_1_v2.png",
+          "4012": "designs/d261116-05/print_tee_1_v2.png",
+          "4013": "designs/d261116-05/print_tee_1_v2.png",
+          "4014": "designs/d261116-05/print_tee_1_v2.png",
+          "4015": "designs/d261116-05/print_tee_1_v2.png",
+          "6948": "designs/d261116-05/print_tee_1_v2.png",
+          "6949": "designs/d261116-05/print_tee_1_v2.png",
+          "6950": "designs/d261116-05/print_tee_1_v2.png",
+          "6951": "designs/d261116-05/print_tee_1_v2.png",
+          "6952": "designs/d261116-05/print_tee_1_v2.png"
         }
       },
       "garment": "light",
@@ -1949,6 +1950,12 @@
   "last_study": "2026-11-17",
   "orders": {},
   "paused": false,
+  "refresh_listings": {
+    "d261116-05": [
+      "tee",
+      "hoodie"
+    ]
+  },
   "replace_pending": false,
   "study_index": 2,
   "study_log": [

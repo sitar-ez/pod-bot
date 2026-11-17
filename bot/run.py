@@ -180,6 +180,16 @@ def main():
 
     stage("publish approved designs", publish_approved, state)
 
+    def refresh_live():
+        for did, keys in list(state.get("refresh_listings", {}).items()):
+            d = state["designs"].get(did)
+            if d and files_are_public(d):
+                publisher.refresh_photos(d, keys, etsy(), state)
+                state["refresh_listings"].pop(did, None)
+                save_state(state)
+    if state.get("refresh_listings") and not settings.DRY_RUN:
+        stage("update live listing photos", refresh_live, state)
+
     has_etsy = bool(os.getenv("ETSY_REFRESH_TOKEN"))
     if has_etsy:
         stage("send new orders to Printful", lambda: fulfillment.send_new_orders(etsy(), state), state)

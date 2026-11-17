@@ -75,6 +75,7 @@ PRODUCTS = {
         "min_price": 26.99,
         "fit": "top",
         "max_height": 0.62,      # share of the 16 in print height (about 10 in)
+        "scale": 0.90,           # Daniel: tee designs 10% smaller
         "etsy_category": ["t-shirts", "t shirts"],
         "details": "Soft, lightweight unisex tee (Bella+Canvas 3001). 100% combed and "
                    "ring-spun cotton (heather colors are a cotton/poly blend). Runs true to size.",
@@ -90,6 +91,7 @@ PRODUCTS = {
         "min_price": 44.99,
         "fit": "top",
         "max_height": 0.50,      # stay above the front pouch pocket
+        "scale": 1.10,           # Daniel: hoodie designs 10% bigger
         "etsy_category": ["hoodies", "sweatshirts"],
         "details": "Cozy unisex hoodie (Gildan 18500). 50% cotton, 50% polyester, "
                    "double-lined hood, front pouch pocket.",
