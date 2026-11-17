@@ -3,7 +3,7 @@ import math
 import os
 import re
 
-from . import printful, settings, telegram
+from . import printful, render, settings, telegram
 from .common import http, log, now_iso, public_url
 from .etsy import find_category
 
@@ -22,6 +22,49 @@ def clean_tags(tags):
         if t and t.lower() not in [o.lower() for o in out]:
             out.append(t)
     return out[:13]
+
+
+APPAREL = {"tee", "hoodie"}
+
+
+def build_photos(design, key, info, cfg, variants):
+    """Listing photos: Printful mockups in several styles for the first color, a plain shot of
+    each other color, then a size chart for apparel. Returns a list of JPEG bytes (max 10)."""
+    by_color = {}
+    for vid, v in variants.items():
+        by_color.setdefault(v["color"], vid)
+    styles = printful.mockup_styles(info["product_id"])
+    urls = []
+    for i, (color, vid) in enumerate(by_color.items()):
+        v = variants[vid]
+        try:
+            urls += printful.mockups(info["product_id"], [int(vid)], cfg["placement"],
+                                     public_url(design["files"][key][vid]), v["w"], v["h"],
+                                     styles=styles if i == 0 else None)
+        except Exception as e:
+            if i == 0 and styles:      # if a style is refused, fall back to the default mockup
+                log("  styled mockups failed, using default:", e)
+                urls += printful.mockups(info["product_id"], [int(vid)], cfg["placement"],
+                                         public_url(design["files"][key][vid]), v["w"], v["h"])
+            else:
+                raise
+    seen, photos = set(), []
+    for u in urls:
+        if u not in seen:
+            seen.add(u)
+            photos.append(u)
+    limit = 8 if key in APPAREL else 9   # Etsy allows 10 photos; leave room while swapping
+    images = [http("GET", u).content for u in photos[:limit]]
+    if key in APPAREL:
+        chart = printful.size_chart(info["product_id"])
+        if chart:   # only the sizes this shop sells
+            keep = [i for i, z in enumerate(chart["sizes"]) if any(z.lower() == s.lower() for s in cfg["sizes"])]
+            if keep:
+                chart["sizes"] = [chart["sizes"][i] for i in keep]
+                chart["rows"] = [(lab, [vals[i] for i in keep if i < len(vals)]) for lab, vals in chart["rows"]]
+            images.append(render.size_chart_image(cfg["label"], chart))
+    log(f"  {key}: {len(images)} photos ({len(styles)} mockup styles{', size chart' if key in APPAREL else ''})")
+    return images
 
 
 def shop_setup(etsy, state):
@@ -82,16 +125,7 @@ def publish(design, etsy, state):
             log(f"  {did}: no variants for {key}, skipping")
             continue
 
-        # Mockups: one variant per color
-        by_color = {}
-        for vid, v in variants.items():
-            by_color.setdefault(v["color"], vid)
-        photos = []
-        for color, vid in by_color.items():
-            v = variants[vid]
-            url = public_url(design["files"][key][vid])
-            photos += printful.mockups(info["product_id"], [int(vid)], cfg["placement"], url, v["w"], v["h"])
-        photos = photos[:10]
+        photos = build_photos(design, key, info, cfg, variants)
 
         # Prices: same price for a size across colors
         size_price = {}
@@ -144,8 +178,7 @@ def publish(design, etsy, state):
         if not lid:   # if a previous run died halfway, finish that draft instead of making another
             lid = etsy.create_draft(body)["listing_id"]
             partial[key] = lid
-            for rank, ph in enumerate(photos, start=1):
-                img = http("GET", ph).content
+            for rank, img in enumerate(photos, start=1):
                 etsy.upload_image(lid, img, rank)
         etsy.set_inventory(lid, inventory)
         if settings.PUBLISH_LIVE:
@@ -176,23 +209,17 @@ def refresh_photos(design, keys, etsy, state):
         cfg = settings.PRODUCTS[key]
         info = printful.resolve_product(key, state)
         variants = {vid: info["variants"][vid] for vid in design["files"][key] if vid in info["variants"]}
-        by_color = {}
-        for vid, v in variants.items():
-            by_color.setdefault(v["color"], vid)
-        photos = []
-        for color, vid in by_color.items():
-            v = variants[vid]
-            photos += printful.mockups(info["product_id"], [int(vid)], cfg["placement"],
-                                       public_url(design["files"][key][vid]), v["w"], v["h"])
-        photos = photos[:10]
+        photos = build_photos(design, key, info, cfg, variants)
         if not photos:
             continue
         old = etsy.listing_images(lid)
-        for rank, ph in enumerate(photos, start=1):      # add new photos first so the listing is never empty
-            etsy.upload_image(lid, http("GET", ph).content, rank)
-        for img in old:
+        for img in old[1:]:                              # keep one old photo so the listing is never empty
+            etsy.delete_image(lid, img["listing_image_id"])
+        for rank, img in enumerate(photos, start=1):
+            etsy.upload_image(lid, img, rank)
+        for img in old[:1]:
             etsy.delete_image(lid, img["listing_image_id"])
         done.append(f"{key}: https://www.etsy.com/listing/{lid}")
         log(f"  refreshed photos for {did} {key}")
     if done:
-        telegram.send(f"📐 Updated {did} with the new placement. New photos are up:\n" + "\n".join(done))
+        telegram.send(f"📸 Updated photos for {did} (Printful mockups plus a size chart on apparel):\n" + "\n".join(done))

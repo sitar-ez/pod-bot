@@ -217,3 +217,42 @@ def preview(tee_print, mug_print, garment_color_name, products):
     out = io.BytesIO()
     bg.convert("RGB").save(out, "JPEG", quality=88)
     return out.getvalue()
+
+
+def size_chart_image(product_label, chart):
+    """A clean size-chart photo for the listing, built from Printful's measurements."""
+    sizes, rows = chart["sizes"], chart["rows"]
+    W, H = 2000, 2000
+    img = Image.new("RGB", (W, H), (247, 244, 238))
+    dr = ImageDraw.Draw(img)
+    f_title = ImageFont.truetype(str(FONTS_DIR / "poppins-extrabold.woff"), 110)
+    f_sub = ImageFont.truetype(str(FONTS_DIR / "josefin-sans-bold.woff"), 56)
+    f_head = ImageFont.truetype(str(FONTS_DIR / "poppins-extrabold.woff"), 64)
+    f_cell = ImageFont.truetype(str(FONTS_DIR / "josefin-sans-bold.woff"), 64)
+    ink, soft, line = (40, 44, 52), (110, 110, 110), (210, 205, 196)
+    dr.text((W // 2, 170), "SIZE CHART", font=f_title, fill=ink, anchor="mm")
+    dr.text((W // 2, 290), f"{product_label} · measurements in {chart['unit']}", font=f_sub, fill=soft, anchor="mm")
+    cols = [""] + sizes
+    left, right, top = 120, W - 120, 430
+    label_w = 520
+    col_w = (right - left - label_w) / max(1, len(sizes))
+    row_h = min(190, (H - top - 300) / (len(rows) + 1))
+    top = max(top, (H - row_h * (len(rows) + 1)) / 2 + 40)   # center the table on the photo
+    xs = [left] + [left + label_w + i * col_w for i in range(len(sizes))]
+    for i, c in enumerate(cols):
+        x = xs[i] + (0 if i == 0 else col_w / 2)
+        dr.text((x, top + row_h / 2), c, font=f_head, fill=ink, anchor="lm" if i == 0 else "mm")
+    dr.line([(left, top + row_h), (right, top + row_h)], fill=ink, width=5)
+    for r, (label, vals) in enumerate(rows):
+        y = top + row_h * (r + 1)
+        if r % 2 == 0:
+            dr.rectangle([left, y, right, y + row_h], fill=(239, 235, 227))
+        dr.text((left + 10, y + row_h / 2), label, font=f_cell, fill=ink, anchor="lm")
+        for i, v in enumerate(vals):
+            dr.text((xs[i + 1] + col_w / 2, y + row_h / 2), v, font=f_cell, fill=ink, anchor="mm")
+        dr.line([(left, y + row_h), (right, y + row_h)], fill=line, width=2)
+    note = "Measured flat. Unisex fit; most people order their usual size."
+    dr.text((W // 2, H - 150), note, font=f_sub, fill=soft, anchor="mm")
+    out = io.BytesIO()
+    img.save(out, "JPEG", quality=92)
+    return out.getvalue()

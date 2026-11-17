@@ -87,7 +87,49 @@ def resolve_product(key, state):
     return result
 
 
-def mockups(product_id, variant_ids, placement, image_url, w, h):
+PREFERRED_STYLES = ("lifestyle", "men", "women", "couple", "front", "flat", "wrinkled", "folded",
+                    "on hanger", "default", "product")
+
+
+def mockup_styles(product_id, limit=4):
+    """Printful's mockup style groups for a product (lifestyle, worn, flat...), best first."""
+    try:
+        groups = get(f"/mockup-generator/printfiles/{product_id}").get("option_groups") or []
+    except Exception as e:
+        log("  couldn't read mockup styles:", e)
+        return []
+    rank = lambda g: next((i for i, w in enumerate(PREFERRED_STYLES) if w in g.lower()), 99)
+    return sorted(groups, key=rank)[:limit]
+
+
+def size_chart(product_id):
+    """Printful's measurement table for a product, in inches. Returns (title, rows) or None."""
+    try:
+        res = get(f"/products/{product_id}/sizes", unit="inches")
+    except Exception as e:
+        log("  no size chart:", e)
+        return None
+    tables = res.get("size_tables") or []
+    table = next((t for t in tables if t.get("type") == "product_measure"), tables[0] if tables else None)
+    if not table or not table.get("measurements"):
+        return None
+    sizes, rows = [], []
+    for m in table["measurements"]:
+        vals = m.get("values", [])
+        if not sizes:
+            sizes = [v.get("size") for v in vals]
+        def show(v):
+            if "value" in v:
+                return str(v["value"])
+            if "min_value" in v and "max_value" in v:
+                return f"{v['min_value']}-{v['max_value']}"
+            return ""
+        rows.append((m.get("type_label", ""), [show(v) for v in vals]))
+    return {"unit": table.get("unit", "inches"), "sizes": sizes, "rows": rows,
+            "note": (table.get("description") or "")}
+
+
+def mockups(product_id, variant_ids, placement, image_url, w, h, styles=None):
     """Ask Printful's mockup generator for product photos. Returns image URLs."""
     body = {
         "variant_ids": variant_ids,
@@ -96,6 +138,8 @@ def mockups(product_id, variant_ids, placement, image_url, w, h):
                    "position": {"area_width": w, "area_height": h, "width": w, "height": h,
                                 "top": 0, "left": 0}}],
     }
+    if styles:
+        body["option_groups"] = styles
     task = post(f"/mockup-generator/create-task/{product_id}", body)
     key = task["task_key"]
     for _ in range(40):
