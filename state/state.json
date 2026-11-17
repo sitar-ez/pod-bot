@@ -1083,8 +1083,8 @@
     }
   },
   "counts": {
-    "illustration": 4,
-    "text": 10
+    "illustration": 5,
+    "text": 11
   },
   "designs": {
     "d261116-01": {
@@ -3349,6 +3349,20 @@
           "event": "edit_requested",
           "note": "Too generic, dig deeper. Daniel's direction: research tomatoes and find something insiders love. A strong lead: the Mortgage Lifter heirloom, a 1930s West Virginia beefsteak whose breeder sold the seedlings and paid off his $6,000 house mortgage in six years (WVU Extension). Keep the vintage seed-packet illustration, but make it a Mortgage Lifter packet, with short packet text such as 'Mortgage Lifter \u00b7 heirloom beefsteak \u00b7 pays off the house'. Do not name the breeder (real person). Other good a",
           "via": "Claude chat"
+        },
+        {
+          "at": "2026-11-17T18:21:17.204500+00:00",
+          "by": "Daniel",
+          "event": "edit_requested",
+          "note": "Change the words on the seed packet to exactly 'Tomato Season' (replace 'Garden Tomatoes'). Keep everything else about the vintage seed-packet illustration the same: the tomato, vine, blossom, colors and scalloped packet. Regenerate the image so the new words are printed on it, spelled exactly 'Tomato Season'. Update the titles, tags and description to match 'Tomato Season'.",
+          "via": "Claude chat"
+        },
+        {
+          "at": "2026-11-17T18:22:16.928227+00:00",
+          "by": "Rory (bot)",
+          "event": "replaced",
+          "note": "replaced by d261117-14",
+          "via": "automatic"
         }
       ],
       "id": "d261117-12",
@@ -3364,7 +3378,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "replaced",
       "tags": [
         "gardener gift",
         "tomato shirt",
@@ -3533,12 +3547,426 @@
       },
       "trend_signal": "analog and cozy hobbies trend, sourdough and baking from scratch",
       "why_it_sells": "Jenny has kept a starter going since 2020 and loves the float test ritual, and Katie buys it for the mom or grandma whose kitchen always smells like fresh bread."
+    },
+    "d261117-14": {
+      "concept": {
+        "accent_line": null,
+        "description": "A ripe tomato on a vintage-style seed packet that reads 'Tomato Season', printed in tomato red, sage and butter yellow on a light shirt. A gift for the gardener who puts up tomatoes every August and is proud of every jar.",
+        "garment": "light",
+        "illustration_prompt": "A single centered vintage seed packet in bold, clean screen-print style. A big ripe tomato in tomato red #B5432F with a sage #8A9A78 leafy vine and a small butter yellow #E8C766 blossom fills the center of the packet. A cream #F3EBD8 border frames the packet with a simple scalloped top edge. Deep brown #3B2A20 outlines and hand-lettered serif text 'Tomato Season' across the lower band, spelled exactly T-o-m-a-t-o S-e-a-s-o-n, two words only, no other text. Thick confident strokes, flat solid color shapes, no gradients, no hairlines, no background. Warm, handmade, nostalgic mood.",
+        "ink_dark": "#B5432F",
+        "ink_light": "#F3EBD8",
+        "kind": "illustration",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": null,
+          "top": null,
+          "width": 0.68
+        },
+        "lines": [],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "romantic_serif",
+        "tags": [
+          "gardener gift",
+          "tomato season",
+          "seed packet shirt",
+          "gift for mom",
+          "gift for grandma",
+          "nana gift",
+          "homestead mama",
+          "homesteading",
+          "cottagecore",
+          "farmhouse kitchen",
+          "canning gift",
+          "vintage garden",
+          "garden harvest"
+        ],
+        "titles": {
+          "hoodie": "Tomato Season Vintage Seed Packet Hoodie, Gardener Gift for Grandma, Homesteading Sweatshirt, Cottagecore, Gift for Mom",
+          "mug": "Tomato Season Seed Packet Mug, Gardener Gift for Mom, Nana Gift, Farmhouse Kitchen Coffee Cup, Homesteading, Cottagecore",
+          "sticker": "Tomato Season Seed Packet Sticker, Gardener Gift, Vintage Garden Decal, Homesteading Sticker, Cottagecore, Canning Gift",
+          "tee_bc": "Tomato Season Seed Packet Shirt, Gift for Mom, Gardener Gift, Homestead Mama Tee, Vintage Garden Shirt, Cottagecore, Grandma Gift"
+        },
+        "trend_signal": "backyard botanist hobby trend, garden harvest season",
+        "why_it_sells": "Gardeners and the daughters who buy for them love a vintage seed packet with a big ripe tomato and a 'Tomato Season' label that feels like a keepsake from grandma's garden shed."
+      },
+      "created": "2026-11-17T18:22:15.509248+00:00",
+      "description": "A ripe tomato on a vintage-style seed packet that reads 'Tomato Season', printed in tomato red, sage and butter yellow on a light shirt. A gift for the gardener who puts up tomatoes every August and is proud of every jar.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-14/print_hoodie_139.png",
+          "5523": "designs/d261117-14/print_hoodie_139.png",
+          "5524": "designs/d261117-14/print_hoodie_139.png",
+          "5525": "designs/d261117-14/print_hoodie_139.png",
+          "5526": "designs/d261117-14/print_hoodie_139.png",
+          "5610": "designs/d261117-14/print_hoodie_139.png",
+          "5611": "designs/d261117-14/print_hoodie_139.png",
+          "5612": "designs/d261117-14/print_hoodie_139.png",
+          "5613": "designs/d261117-14/print_hoodie_139.png",
+          "5614": "designs/d261117-14/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-14/print_mug_43.png",
+          "4830": "designs/d261117-14/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-14/print_sticker_183.png",
+          "10164": "designs/d261117-14/print_sticker_184.png",
+          "10165": "designs/d261117-14/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261117-14/print_tee_bc_1.png",
+          "4012": "designs/d261117-14/print_tee_bc_1.png",
+          "4013": "designs/d261117-14/print_tee_bc_1.png",
+          "4014": "designs/d261117-14/print_tee_bc_1.png",
+          "4015": "designs/d261117-14/print_tee_bc_1.png",
+          "6948": "designs/d261117-14/print_tee_bc_1.png",
+          "6949": "designs/d261117-14/print_tee_bc_1.png",
+          "6950": "designs/d261117-14/print_tee_bc_1.png",
+          "6951": "designs/d261117-14/print_tee_bc_1.png",
+          "6952": "designs/d261117-14/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T18:22:16.917431+00:00",
+          "by": "Rory (bot)",
+          "event": "revised",
+          "note": "revision of d261117-12",
+          "via": "automatic"
+        }
+      ],
+      "id": "d261117-14",
+      "illustration_prompt": "A single centered vintage seed packet in bold, clean screen-print style. A big ripe tomato in tomato red #B5432F with a sage #8A9A78 leafy vine and a small butter yellow #E8C766 blossom fills the center of the packet. A cream #F3EBD8 border frames the packet with a simple scalloped top edge. Deep brown #3B2A20 outlines and hand-lettered serif text 'Tomato Season' across the lower band, spelled exactly T-o-m-a-t-o S-e-a-s-o-n, two words only, no other text. Thick confident strokes, flat solid color shapes, no gradients, no hairlines, no background. Warm, handmade, nostalgic mood.",
+      "kind": "illustration",
+      "lines": [],
+      "listings": {},
+      "parent": "d261117-12",
+      "personalize": null,
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "gardener gift",
+        "tomato season",
+        "seed packet shirt",
+        "gift for mom",
+        "gift for grandma",
+        "nana gift",
+        "homestead mama",
+        "homesteading",
+        "cottagecore",
+        "farmhouse kitchen",
+        "canning gift",
+        "vintage garden",
+        "garden harvest"
+      ],
+      "telegram_msg": 61,
+      "titles": {
+        "hoodie": "Tomato Season Vintage Seed Packet Hoodie, Gardener Gift for Grandma, Homesteading Sweatshirt, Cottagecore, Gift for Mom",
+        "mug": "Tomato Season Seed Packet Mug, Gardener Gift for Mom, Nana Gift, Farmhouse Kitchen Coffee Cup, Homesteading, Cottagecore",
+        "sticker": "Tomato Season Seed Packet Sticker, Gardener Gift, Vintage Garden Decal, Homesteading Sticker, Cottagecore, Canning Gift",
+        "tee_bc": "Tomato Season Seed Packet Shirt, Gift for Mom, Gardener Gift, Homestead Mama Tee, Vintage Garden Shirt, Cottagecore, Grandma Gift"
+      },
+      "trend_signal": "backyard botanist hobby trend, garden harvest season",
+      "why_it_sells": "Gardeners and the daughters who buy for them love a vintage seed packet with a big ripe tomato and a 'Tomato Season' label that feels like a keepsake from grandma's garden shed."
+    },
+    "d261117-15": {
+      "concept": {
+        "accent_line": 2,
+        "deepened": false,
+        "description": "For the baker who marks her starter jar with a rubber band and checks it before bed. Soft berry lettering on a light shirt, a small nod to the quiet habit behind every good loaf. A thoughtful gift for the mom or grandma who has been feeding the same starter for years.",
+        "garment": "light",
+        "illustration_prompt": "",
+        "ink_dark": "#7A2E3E",
+        "ink_light": "#F3EBD8",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": null,
+          "top": null,
+          "width": 0.72
+        },
+        "lines": [
+          "A rubber band",
+          "on the jar",
+          "means bread tomorrow"
+        ],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "romantic_serif",
+        "tags": [
+          "sourdough shirt",
+          "sourdough gift",
+          "bread baker gift",
+          "gift for mom",
+          "grandma gift",
+          "homesteading",
+          "farmhouse kitchen",
+          "cottagecore",
+          "sourdough starter",
+          "baker tee",
+          "homestead mama",
+          "from scratch",
+          "kitchen shirt"
+        ],
+        "titles": {
+          "hoodie": "Sourdough Starter Hoodie, Gift for Mom Who Bakes, Homestead Mama Bread Baker Sweatshirt, Cottagecore Farmhouse Kitchen",
+          "mug": "Sourdough Mug, Rubber Band on the Jar, Bread Baker Gift for Mom or Grandma, Homesteading Farmhouse Kitchen Coffee Cup",
+          "sticker": "Sourdough Starter Sticker, Rubber Band on the Jar, Bread Baker Gift, Homesteading Cottagecore Kitchen Decal",
+          "tee_bc": "Sourdough Baker Shirt, Rubber Band on the Jar Tee, Bread Baker Gift for Mom, Homesteading Farmhouse Kitchen Cottagecore, berry print on light tee"
+        },
+        "trend_signal": "analog hobbies and kitchen-witch baking revival",
+        "why_it_sells": "Jenny and every daughter shopping for a mom with a six-year-old starter will recognize the jar with the rubber band marking the rise, an old baker's habit that tells you how high the dough has climbed overnight."
+      },
+      "created": "2026-11-17T18:23:25.465508+00:00",
+      "description": "For the baker who marks her starter jar with a rubber band and checks it before bed. Soft berry lettering on a light shirt, a small nod to the quiet habit behind every good loaf. A thoughtful gift for the mom or grandma who has been feeding the same starter for years.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-15/print_hoodie_139.png",
+          "5523": "designs/d261117-15/print_hoodie_139.png",
+          "5524": "designs/d261117-15/print_hoodie_139.png",
+          "5525": "designs/d261117-15/print_hoodie_139.png",
+          "5526": "designs/d261117-15/print_hoodie_139.png",
+          "5610": "designs/d261117-15/print_hoodie_139.png",
+          "5611": "designs/d261117-15/print_hoodie_139.png",
+          "5612": "designs/d261117-15/print_hoodie_139.png",
+          "5613": "designs/d261117-15/print_hoodie_139.png",
+          "5614": "designs/d261117-15/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-15/print_mug_43.png",
+          "4830": "designs/d261117-15/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-15/print_sticker_183.png",
+          "10164": "designs/d261117-15/print_sticker_184.png",
+          "10165": "designs/d261117-15/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261117-15/print_tee_bc_1.png",
+          "4012": "designs/d261117-15/print_tee_bc_1.png",
+          "4013": "designs/d261117-15/print_tee_bc_1.png",
+          "4014": "designs/d261117-15/print_tee_bc_1.png",
+          "4015": "designs/d261117-15/print_tee_bc_1.png",
+          "6948": "designs/d261117-15/print_tee_bc_1.png",
+          "6949": "designs/d261117-15/print_tee_bc_1.png",
+          "6950": "designs/d261117-15/print_tee_bc_1.png",
+          "6951": "designs/d261117-15/print_tee_bc_1.png",
+          "6952": "designs/d261117-15/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T18:23:26.861455+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "analog hobbies and kitchen-witch baking revival",
+          "via": "automatic"
+        }
+      ],
+      "id": "d261117-15",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "A rubber band",
+        "on the jar",
+        "means bread tomorrow"
+      ],
+      "listings": {},
+      "parent": null,
+      "personalize": null,
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "sourdough shirt",
+        "sourdough gift",
+        "bread baker gift",
+        "gift for mom",
+        "grandma gift",
+        "homesteading",
+        "farmhouse kitchen",
+        "cottagecore",
+        "sourdough starter",
+        "baker tee",
+        "homestead mama",
+        "from scratch",
+        "kitchen shirt"
+      ],
+      "telegram_msg": 62,
+      "titles": {
+        "hoodie": "Sourdough Starter Hoodie, Gift for Mom Who Bakes, Homestead Mama Bread Baker Sweatshirt, Cottagecore Farmhouse Kitchen",
+        "mug": "Sourdough Mug, Rubber Band on the Jar, Bread Baker Gift for Mom or Grandma, Homesteading Farmhouse Kitchen Coffee Cup",
+        "sticker": "Sourdough Starter Sticker, Rubber Band on the Jar, Bread Baker Gift, Homesteading Cottagecore Kitchen Decal",
+        "tee_bc": "Sourdough Baker Shirt, Rubber Band on the Jar Tee, Bread Baker Gift for Mom, Homesteading Farmhouse Kitchen Cottagecore, berry print on light tee"
+      },
+      "trend_signal": "analog hobbies and kitchen-witch baking revival",
+      "why_it_sells": "Jenny and every daughter shopping for a mom with a six-year-old starter will recognize the jar with the rubber band marking the rise, an old baker's habit that tells you how high the dough has climbed overnight."
+    },
+    "d261117-16": {
+      "concept": {
+        "accent_line": null,
+        "deepened": true,
+        "description": "A well-used pickle recipe card and a jar with a grape leaf tucked in the bottom, the old canner's trick for keeping pickles crunchy. A warm gift for the grandma, mom or neighbor whose pickles disappear first at every potluck. Printed in tomato red, butter yellow, sage and brown on a light shirt.",
+        "garment": "light",
+        "illustration_prompt": "A single centered composition in bold clean screen-print style: a slightly tilted vintage index-style recipe card with a thick deep brown #3B2A20 outline, left unfilled so the light shirt shows through as the card color, and a tomato red #B5432F header rule across the top. A few loose hand-scribbled squiggle lines in deep brown stand in for handwriting (no readable words). One corner has a soft butter-yellow #E8C766 grease-spot stain with a darker ring edge. In front of the card stands a tall quart canning jar in thick brown outline, packed with upright pickle spears drawn as sage #8A9A78 shapes. One large sage grape leaf with a simple vein pattern is tucked against the inside of the glass, with its tip peeking over the jar's shoulder. Below the card, hand-lettered in deep brown soft serif script, the words exactly: A grape leaf in every jar. Warm, handmade, flat solid shapes with thick strokes, no gradients, no background, 4 colors maximum (brown, red, sage, butter yellow).",
+        "ink_dark": "#3B2A20",
+        "ink_light": "#F3EBD8",
+        "insider_fact": "Old pickle recipes call for tannin-rich leaves such as grape leaves in the jar or crock, because the tannins slow the enzymes that make cucumbers go soft.",
+        "kind": "illustration",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": null,
+          "top": null,
+          "width": 0.62
+        },
+        "lines": [],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "source": "https://www.healthycanning.com/crisping-pickles/",
+        "style": "retro_script",
+        "tags": [
+          "canning shirt",
+          "pickle shirt",
+          "pickle lover gift",
+          "canning gift",
+          "grape leaf pickles",
+          "gift for grandma",
+          "grandma gift",
+          "homesteading",
+          "farmhouse kitchen",
+          "cottagecore",
+          "canning season",
+          "homestead mama",
+          "recipe card shirt"
+        ],
+        "titles": {
+          "hoodie": "Canning Hoodie, Grape Leaf in Every Jar, Pickle Lover Gift, Gift for Grandma, Homestead Mama Sweatshirt, Cottagecore Kitchen",
+          "mug": "Pickle Canning Mug, A Grape Leaf in Every Jar, Gift for Grandma or Mom, Homestead Canner Coffee Cup, Farmhouse Kitchen",
+          "sticker": "Pickle Canning Sticker, A Grape Leaf in Every Jar, Canner Gift, Homesteading Pantry Decal, Cottagecore Farmhouse Kitchen",
+          "tee_bc": "Pickle Canning Shirt, A Grape Leaf in Every Jar, Gift for Grandma, Homestead Canner Tee, Pickle Recipe Card, Farmhouse Kitchen"
+        },
+        "trend_signal": "canning season revival and handed-down pickle recipe cards",
+        "why_it_sells": "Katie buys it for the mom or grandma whose pickle recipe card is spotted and soft with age. The grape leaf in the bottom of every jar is the old trick that keeps pickles crunchy. Every canner who learned it at her grandmother's elbow smiles, and a stranger just sees a charming card and a jar."
+      },
+      "created": "2026-11-17T18:24:02.889418+00:00",
+      "description": "A well-used pickle recipe card and a jar with a grape leaf tucked in the bottom, the old canner's trick for keeping pickles crunchy. A warm gift for the grandma, mom or neighbor whose pickles disappear first at every potluck. Printed in tomato red, butter yellow, sage and brown on a light shirt.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-16/print_hoodie_139.png",
+          "5523": "designs/d261117-16/print_hoodie_139.png",
+          "5524": "designs/d261117-16/print_hoodie_139.png",
+          "5525": "designs/d261117-16/print_hoodie_139.png",
+          "5526": "designs/d261117-16/print_hoodie_139.png",
+          "5610": "designs/d261117-16/print_hoodie_139.png",
+          "5611": "designs/d261117-16/print_hoodie_139.png",
+          "5612": "designs/d261117-16/print_hoodie_139.png",
+          "5613": "designs/d261117-16/print_hoodie_139.png",
+          "5614": "designs/d261117-16/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-16/print_mug_43.png",
+          "4830": "designs/d261117-16/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-16/print_sticker_183.png",
+          "10164": "designs/d261117-16/print_sticker_184.png",
+          "10165": "designs/d261117-16/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261117-16/print_tee_bc_1.png",
+          "4012": "designs/d261117-16/print_tee_bc_1.png",
+          "4013": "designs/d261117-16/print_tee_bc_1.png",
+          "4014": "designs/d261117-16/print_tee_bc_1.png",
+          "4015": "designs/d261117-16/print_tee_bc_1.png",
+          "6948": "designs/d261117-16/print_tee_bc_1.png",
+          "6949": "designs/d261117-16/print_tee_bc_1.png",
+          "6950": "designs/d261117-16/print_tee_bc_1.png",
+          "6951": "designs/d261117-16/print_tee_bc_1.png",
+          "6952": "designs/d261117-16/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T18:24:04.010479+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "canning season revival and handed-down pickle recipe cards",
+          "via": "automatic"
+        }
+      ],
+      "id": "d261117-16",
+      "illustration_prompt": "A single centered composition in bold clean screen-print style: a slightly tilted vintage index-style recipe card with a thick deep brown #3B2A20 outline, left unfilled so the light shirt shows through as the card color, and a tomato red #B5432F header rule across the top. A few loose hand-scribbled squiggle lines in deep brown stand in for handwriting (no readable words). One corner has a soft butter-yellow #E8C766 grease-spot stain with a darker ring edge. In front of the card stands a tall quart canning jar in thick brown outline, packed with upright pickle spears drawn as sage #8A9A78 shapes. One large sage grape leaf with a simple vein pattern is tucked against the inside of the glass, with its tip peeking over the jar's shoulder. Below the card, hand-lettered in deep brown soft serif script, the words exactly: A grape leaf in every jar. Warm, handmade, flat solid shapes with thick strokes, no gradients, no background, 4 colors maximum (brown, red, sage, butter yellow).",
+      "kind": "illustration",
+      "lines": [],
+      "listings": {},
+      "parent": null,
+      "personalize": null,
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "canning shirt",
+        "pickle shirt",
+        "pickle lover gift",
+        "canning gift",
+        "grape leaf pickles",
+        "gift for grandma",
+        "grandma gift",
+        "homesteading",
+        "farmhouse kitchen",
+        "cottagecore",
+        "canning season",
+        "homestead mama",
+        "recipe card shirt"
+      ],
+      "telegram_msg": 63,
+      "titles": {
+        "hoodie": "Canning Hoodie, Grape Leaf in Every Jar, Pickle Lover Gift, Gift for Grandma, Homestead Mama Sweatshirt, Cottagecore Kitchen",
+        "mug": "Pickle Canning Mug, A Grape Leaf in Every Jar, Gift for Grandma or Mom, Homestead Canner Coffee Cup, Farmhouse Kitchen",
+        "sticker": "Pickle Canning Sticker, A Grape Leaf in Every Jar, Canner Gift, Homesteading Pantry Decal, Cottagecore Farmhouse Kitchen",
+        "tee_bc": "Pickle Canning Shirt, A Grape Leaf in Every Jar, Gift for Grandma, Homestead Canner Tee, Pickle Recipe Card, Farmhouse Kitchen"
+      },
+      "trend_signal": "canning season revival and handed-down pickle recipe cards",
+      "why_it_sells": "Katie buys it for the mom or grandma whose pickle recipe card is spotted and soft with age. The grape leaf in the bottom of every jar is the old trick that keeps pickles crunchy. Every canner who learned it at her grandmother's elbow smiles, and a stranger just sees a charming card and a jar."
     }
   },
   "force_scout": false,
   "last_error_ping": "2026-11-17T14:43:25.737702+00:00",
-  "last_run": "2026-11-17T17:39:13.137917+00:00",
-  "last_scout": "2026-11-17T17:40:28.221986+00:00",
+  "last_run": "2026-11-17T18:21:16.492792+00:00",
+  "last_scout": "2026-11-17T18:23:23.695877+00:00",
   "last_study": "2026-11-17",
   "name_index": 1,
   "orders": {},
@@ -3579,12 +4007,7 @@
       "status": "sent"
     }
   },
-  "queued_edits": [
-    {
-      "id": "d261117-12",
-      "text": "Change the words on the seed packet to exactly 'Tomato Season' (replace 'Garden Tomatoes'). Keep everything else about the vintage seed-packet illustration the same: the tomato, vine, blossom, colors and scalloped packet. Regenerate the image so the new words are printed on it, spelled exactly 'Tomato Season'. Update the titles, tags and description to match 'Tomato Season'."
-    }
-  ],
+  "queued_edits": [],
   "refresh_listings": {},
   "replace_pending": false,
   "study_index": 2,
@@ -3625,5 +4048,5 @@
   ],
   "telegram_chat_id": "147542263",
   "telegram_offset": 333766193,
-  "theme_index": 3
+  "theme_index": 4
 }

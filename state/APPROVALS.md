@@ -4,12 +4,23 @@ Every design Rory proposes waits for Daniel's decision on Telegram. Nothing is l
 
 Photo basis for every listing: Printful mockups of Daniel's original design on a standard base product (Etsy's production-partner stock-mockup exception).
 
+## d261117-16 · pending · 
+- 2026-11-17 18:24 UTC · 💡 Rory proposed (Rory (bot), automatic): canning season revival and handed-down pickle recipe cards
+
+## d261117-15 · pending · A rubber band / on the jar / means bread tomorrow
+- 2026-11-17 18:23 UTC · 💡 Rory proposed (Rory (bot), automatic): analog hobbies and kitchen-witch baking revival
+
+## d261117-14 · pending · 
+- 2026-11-17 18:22 UTC · 🔁 Revised version made (Rory (bot), automatic): revision of d261117-12
+
 ## d261117-13 · pending · Float test passed / time to bake bread
 - 2026-11-17 17:40 UTC · 💡 Rory proposed (Rory (bot), automatic): analog and cozy hobbies trend, sourdough and baking from scratch
 
-## d261117-12 · pending · 
+## d261117-12 · replaced · 
 - 2026-11-17 16:58 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard botanist hobby trend, garden harvest season
 - 2026-11-17 17:39 UTC · ✏️ Daniel asked for changes (Daniel, Claude chat): Too generic, dig deeper. Daniel's direction: research tomatoes and find something insiders love. A strong lead: the Mortgage Lifter heirloom, a 1930s West Virginia beefsteak whose breeder sold the seedlings and paid off his $6,000 house mortgage in six years (WVU Extension). Keep the vintage seed-packet illustration, but make it a Mortgage Lifter packet, with short packet text such as 'Mortgage Lifter · heirloom beefsteak · pays off the house'. Do not name the breeder (real person). Other good a
+- 2026-11-17 18:21 UTC · ✏️ Daniel asked for changes (Daniel, Claude chat): Change the words on the seed packet to exactly 'Tomato Season' (replace 'Garden Tomatoes'). Keep everything else about the vintage seed-packet illustration the same: the tomato, vine, blossom, colors and scalloped packet. Regenerate the image so the new words are printed on it, spelled exactly 'Tomato Season'. Update the titles, tags and description to match 'Tomato Season'.
+- 2026-11-17 18:22 UTC · ↪️ Replaced by a revision (Rory (bot), automatic): replaced by d261117-14
 
 ## d261117-11 · pending · Every hen has a name, / and an opinion
 - 2026-11-17 16:57 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard hens, Pinterest backyard hobby trend, egg prices
