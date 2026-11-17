@@ -4,6 +4,9 @@ Every design Rory proposes waits for Daniel's decision on Telegram. Nothing is l
 
 Photo basis for every listing: Printful mockups of Daniel's original design on a standard base product (Etsy's production-partner stock-mockup exception).
 
+## d261117-17 · pending · Pull them / when they look underdone / cookie season
+- 2026-11-17 19:05 UTC · 💡 Rory proposed (Rory (bot), automatic): Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early
+
 ## d261117-16 · pending · 
 - 2026-11-17 18:24 UTC · 💡 Rory proposed (Rory (bot), automatic): canning season revival and handed-down pickle recipe cards
 

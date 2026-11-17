@@ -1084,7 +1084,7 @@
   },
   "counts": {
     "illustration": 5,
-    "text": 11
+    "text": 12
   },
   "designs": {
     "d261116-01": {
@@ -3961,12 +3961,161 @@
       },
       "trend_signal": "canning season revival and handed-down pickle recipe cards",
       "why_it_sells": "Katie buys it for the mom or grandma whose pickle recipe card is spotted and soft with age. The grape leaf in the bottom of every jar is the old trick that keeps pickles crunchy. Every canner who learned it at her grandmother's elbow smiles, and a stranger just sees a charming card and a jar."
+    },
+    "d261117-17": {
+      "concept": {
+        "accent_line": 0,
+        "deepened": true,
+        "description": "Anyone who bakes a lot of cookies knows the secret: take them out when the edges are set and the middles still look a little underdone, and the hot pan finishes the job. A cheerful, cozy shirt in a friendly script for the baker who never serves a dry cookie. A sweet Christmas gift for the mom or grandma who keeps the whole family fed.",
+        "garment": "light",
+        "illustration_prompt": "",
+        "ink_dark": "#7A2E3E",
+        "ink_light": "#E8C766",
+        "insider_fact": "Cookies keep cooking on the hot pan for a few minutes after leaving the oven (carryover cooking), so bakers pull them when the edges are set but the centers still look slightly underdone.",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": [
+            1.0,
+            0.8,
+            0.6
+          ],
+          "top": null,
+          "width": 0.74
+        },
+        "lines": [
+          "Pull them",
+          "when they look underdone",
+          "cookie season"
+        ],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "source": "https://www.krusteaz.com/tips-and-tricks/guide-to-baking-times-doneness/",
+        "style": "script_pop",
+        "tags": [
+          "christmas baking",
+          "cookie baker gift",
+          "gift for mom",
+          "gift for grandma",
+          "holiday baker",
+          "baking shirt",
+          "homestead mama",
+          "farmhouse kitchen",
+          "cottagecore",
+          "christmas cookies",
+          "cozy kitchen",
+          "grandma gift",
+          "baker gift"
+        ],
+        "titles": {
+          "hoodie": "Pull Them When They Look Underdone Hoodie, Christmas Cookie Baking Sweatshirt, Gift for Mom, Grandma Gift, Farmhouse Kitchen, Homestead Mama",
+          "mug": "Pull Them When They Look Underdone Mug, Christmas Cookie Baker Coffee Cup, Gift for Mom, Gift for Grandma, Holiday Baking, Farmhouse Kitchen",
+          "sticker": "Pull Them When They Look Underdone Sticker, Christmas Cookie Baker Decal, Holiday Baking Gift, Gift for Mom, Grandma Gift, Farmhouse Kitchen",
+          "tee_bc": "Pull Them When They Look Underdone Shirt, Christmas Cookie Baking Tee, Gift for Mom Who Bakes, Gift for Grandma, Farmhouse Kitchen, Cottagecore"
+        },
+        "trend_signal": "Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early",
+        "why_it_sells": "Every seasoned cookie baker has learned to take the pan out while the middles still look raw, because the hot pan finishes the job. Daughters buy it for a mom or grandma who never overbakes, and Jenny buys it for herself in cookie season."
+      },
+      "created": "2026-11-17T19:05:45.479083+00:00",
+      "description": "Anyone who bakes a lot of cookies knows the secret: take them out when the edges are set and the middles still look a little underdone, and the hot pan finishes the job. A cheerful, cozy shirt in a friendly script for the baker who never serves a dry cookie. A sweet Christmas gift for the mom or grandma who keeps the whole family fed.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261117-17/print_hoodie_139.png",
+          "5523": "designs/d261117-17/print_hoodie_139.png",
+          "5524": "designs/d261117-17/print_hoodie_139.png",
+          "5525": "designs/d261117-17/print_hoodie_139.png",
+          "5526": "designs/d261117-17/print_hoodie_139.png",
+          "5610": "designs/d261117-17/print_hoodie_139.png",
+          "5611": "designs/d261117-17/print_hoodie_139.png",
+          "5612": "designs/d261117-17/print_hoodie_139.png",
+          "5613": "designs/d261117-17/print_hoodie_139.png",
+          "5614": "designs/d261117-17/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261117-17/print_mug_43.png",
+          "4830": "designs/d261117-17/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261117-17/print_sticker_183.png",
+          "10164": "designs/d261117-17/print_sticker_184.png",
+          "10165": "designs/d261117-17/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261117-17/print_tee_bc_1.png",
+          "4012": "designs/d261117-17/print_tee_bc_1.png",
+          "4013": "designs/d261117-17/print_tee_bc_1.png",
+          "4014": "designs/d261117-17/print_tee_bc_1.png",
+          "4015": "designs/d261117-17/print_tee_bc_1.png",
+          "6948": "designs/d261117-17/print_tee_bc_1.png",
+          "6949": "designs/d261117-17/print_tee_bc_1.png",
+          "6950": "designs/d261117-17/print_tee_bc_1.png",
+          "6951": "designs/d261117-17/print_tee_bc_1.png",
+          "6952": "designs/d261117-17/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-17T19:05:46.852766+00:00",
+          "by": "Rory (bot)",
+          "event": "proposed",
+          "note": "Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early",
+          "via": "automatic"
+        }
+      ],
+      "id": "d261117-17",
+      "illustration_prompt": "",
+      "kind": "text",
+      "lines": [
+        "Pull them",
+        "when they look underdone",
+        "cookie season"
+      ],
+      "listings": {},
+      "parent": null,
+      "personalize": null,
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "christmas baking",
+        "cookie baker gift",
+        "gift for mom",
+        "gift for grandma",
+        "holiday baker",
+        "baking shirt",
+        "homestead mama",
+        "farmhouse kitchen",
+        "cottagecore",
+        "christmas cookies",
+        "cozy kitchen",
+        "grandma gift",
+        "baker gift"
+      ],
+      "telegram_msg": 65,
+      "titles": {
+        "hoodie": "Pull Them When They Look Underdone Hoodie, Christmas Cookie Baking Sweatshirt, Gift for Mom, Grandma Gift, Farmhouse Kitchen, Homestead Mama",
+        "mug": "Pull Them When They Look Underdone Mug, Christmas Cookie Baker Coffee Cup, Gift for Mom, Gift for Grandma, Holiday Baking, Farmhouse Kitchen",
+        "sticker": "Pull Them When They Look Underdone Sticker, Christmas Cookie Baker Decal, Holiday Baking Gift, Gift for Mom, Grandma Gift, Farmhouse Kitchen",
+        "tee_bc": "Pull Them When They Look Underdone Shirt, Christmas Cookie Baking Tee, Gift for Mom Who Bakes, Gift for Grandma, Farmhouse Kitchen, Cottagecore"
+      },
+      "trend_signal": "Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early",
+      "why_it_sells": "Every seasoned cookie baker has learned to take the pan out while the middles still look raw, because the hot pan finishes the job. Daughters buy it for a mom or grandma who never overbakes, and Jenny buys it for herself in cookie season."
     }
   },
   "force_scout": false,
   "last_error_ping": "2026-11-17T14:43:25.737702+00:00",
-  "last_run": "2026-11-17T18:21:16.492792+00:00",
-  "last_scout": "2026-11-17T18:23:23.695877+00:00",
+  "last_run": "2026-11-17T19:04:45.974730+00:00",
+  "last_scout": "2026-11-17T19:05:43.528174+00:00",
   "last_study": "2026-11-17",
   "name_index": 1,
   "orders": {},
@@ -4048,5 +4197,5 @@
   ],
   "telegram_chat_id": "147542263",
   "telegram_offset": 333766193,
-  "theme_index": 4
+  "theme_index": 5
 }
