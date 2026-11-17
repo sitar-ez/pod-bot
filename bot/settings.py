@@ -44,6 +44,15 @@ IMAGE_SIZE = os.getenv("IMAGE_SIZE", "2048x3072")   # largest size within OpenAI
 # Shop voice. Used in every listing description.
 # ---------------------------------------------------------------------------
 SHOP_NAME = os.getenv("SHOP_NAME", "our studio")
+RETURNS = (
+    "\n\nReturns and exchanges\n"
+    "Every piece is printed just for you, so we can't accept returns or exchanges for size, color "
+    "or a change of mind. Please check the size chart in the photos before ordering.\n"
+    "If your order arrives misprinted, damaged or defective, message us within 30 days of delivery "
+    "with a photo and we'll send a free replacement or a refund. The same goes if your package is "
+    "lost in the mail."
+)
+
 DISCLOSURE = (
     "\n\nAbout this item\n"
     "Designed by {shop} with the help of AI design tools, then reviewed and "

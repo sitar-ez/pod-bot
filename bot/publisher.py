@@ -27,6 +27,24 @@ def clean_tags(tags):
 APPAREL = {"tee", "hoodie"}
 
 
+def listing_description(design, key):
+    cfg = settings.PRODUCTS[key]
+    return (design["description"].strip() + "\n\n" + cfg["details"] +
+            (" See the size chart in the photos." if key in APPAREL else "") +
+            settings.RETURNS + settings.DISCLOSURE.format(shop=settings.SHOP_NAME))
+
+
+def update_live_policies(design, etsy, state):
+    """Bring an already-live design's listings up to date: return policy and description."""
+    shop = shop_setup(etsy, state)
+    for key, lid in design.get("listings", {}).items():
+        body = {"description": listing_description(design, key)}
+        if shop.get("return_policy_id"):
+            body["return_policy_id"] = shop["return_policy_id"]
+        etsy.update_listing(lid, body)
+        log(f"  updated policy and description for {design['id']} {key}")
+
+
 def build_photos(design, key, info, cfg, variants):
     """Listing photos: Printful mockups in several styles for the first color, a plain shot of
     each other color, then a size chart for apparel. Returns a list of JPEG bytes (max 10)."""
@@ -70,7 +88,7 @@ def build_photos(design, key, info, cfg, variants):
 def shop_setup(etsy, state):
     """Find shipping profile, processing profile, production partner and categories once."""
     c = state["cache"].setdefault("etsy", {})
-    if c.get("ready"):
+    if c.get("ready") and "return_policy_id" in c:
         return c
     sp = os.getenv("ETSY_SHIPPING_PROFILE_ID")
     if not sp:
@@ -99,6 +117,17 @@ def shop_setup(etsy, state):
         raise RuntimeError("Etsy shows no production partner yet. Add Printful in Shop Manager > Settings > "
                            "Production partners, and make sure it was saved.")
     c["production_partner_ids"] = pf[:1]
+
+    # Return policy: no returns or exchanges (misprints and damage are handled in the description,
+    # and Printful covers them). Etsy ranks listings without a policy lower.
+    try:
+        pols = etsy.return_policies()
+        pol = next((p for p in pols if not p.get("accepts_returns") and not p.get("accepts_exchanges")), None)
+        if not pol:
+            pol = etsy.create_return_policy({"accepts_returns": False, "accepts_exchanges": False})
+        c["return_policy_id"] = pol["return_policy_id"]
+    except Exception as e:
+        log("  couldn't set up the return policy (listings will still post):", e)
 
     nodes = etsy.taxonomy()
     c["taxonomy"] = {}
@@ -134,8 +163,7 @@ def publish(design, etsy, state):
         base_price = min(size_price.values())
 
         title = (design["titles"].get(key) or f"{' '.join(design['lines'])} {cfg['label']}")[:140]
-        desc = (design["description"].strip() + "\n\n" + cfg["details"] +
-                settings.DISCLOSURE.format(shop=settings.SHOP_NAME))
+        desc = listing_description(design, key)
         body = {
             "quantity": 999, "title": title, "description": desc, "price": base_price,
             "who_made": "i_did", "when_made": "made_to_order", "is_supply": False,
@@ -145,6 +173,8 @@ def publish(design, etsy, state):
             "production_partner_ids": shop["production_partner_ids"],
             "tags": clean_tags(design["tags"]),
         }
+        if shop.get("return_policy_id"):
+            body["return_policy_id"] = shop["return_policy_id"]
 
         products = []
         for vid, v in variants.items():

@@ -187,6 +187,15 @@ def main():
                 publisher.refresh_photos(d, keys, etsy(), state)
                 state["refresh_listings"].pop(did, None)
                 save_state(state)
+    def policies_live():
+        for d in state["designs"].values():
+            if d["status"] == "published" and not d.get("policy_v1"):
+                publisher.update_live_policies(d, etsy(), state)
+                d["policy_v1"] = True
+                save_state(state)
+    if not settings.DRY_RUN:
+        stage("set return policy on live listings", policies_live, state)
+
     if state.get("refresh_listings") and not settings.DRY_RUN:
         stage("update live listing photos", refresh_live, state)
 

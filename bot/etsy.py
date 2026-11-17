@@ -51,6 +51,15 @@ class Etsy:
     def production_partners(self):
         return self.req("GET", f"/shops/{self.shop_id}/production-partners", "production partners")["results"]
 
+    def return_policies(self):
+        return self.req("GET", f"/shops/{self.shop_id}/policies/return", "return policies")["results"]
+
+    def create_return_policy(self, body):
+        return self.req("POST", f"/shops/{self.shop_id}/policies/return", "create return policy", json=body)
+
+    def update_listing(self, listing_id, body):
+        return self.req("PATCH", f"/shops/{self.shop_id}/listings/{listing_id}", "update listing", json=body)
+
     def taxonomy(self):
         return self.req("GET", "/seller-taxonomy/nodes", "categories")["results"]
 
