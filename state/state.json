@@ -3597,6 +3597,7 @@
         "why_it_sells": "Gardeners and the daughters who buy for them love a vintage seed packet with a big ripe tomato and a 'Tomato Season' label that feels like a keepsake from grandma's garden shed."
       },
       "created": "2026-11-17T18:22:15.509248+00:00",
+      "decided": "2026-11-18T13:02:20.000096+00:00",
       "description": "A ripe tomato on a vintage-style seed packet that reads 'Tomato Season', printed in tomato red, sage and butter yellow on a light shirt. A gift for the gardener who puts up tomatoes every August and is proud of every jar.",
       "files": {
         "hoodie": {
@@ -3641,6 +3642,12 @@
           "event": "revised",
           "note": "revision of d261117-12",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-18T13:02:20.000113+00:00",
+          "by": "Daniel",
+          "event": "approved",
+          "via": "Telegram"
         }
       ],
       "id": "d261117-14",
@@ -3656,7 +3663,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "approved",
       "tags": [
         "gardener gift",
         "tomato season",
@@ -4217,6 +4224,6 @@
     }
   ],
   "telegram_chat_id": "147542263",
-  "telegram_offset": 333766207,
+  "telegram_offset": 333766208,
   "theme_index": 5
 }
