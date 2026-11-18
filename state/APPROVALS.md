@@ -4,6 +4,9 @@ Every design Rory proposes waits for Daniel's decision on Telegram. Nothing is l
 
 Photo basis for every listing: Printful mockups of Daniel's original design on a standard base product (Etsy's production-partner stock-mockup exception).
 
+## d261118-01 · pending · Every hen has a name, / and an opinion
+- 2026-11-18 13:04 UTC · 🔁 Revised version made (Rory (bot), automatic): revision of d261117-11
+
 ## d261117-17 · rejected · Pull them / when they look underdone / cookie season
 - 2026-11-17 19:05 UTC · 💡 Rory proposed (Rory (bot), automatic): Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early
 - 2026-11-17 22:07 UTC · ❌ Daniel skipped (Daniel, Telegram)
@@ -30,8 +33,10 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 - 2026-11-17 18:21 UTC · ✏️ Daniel asked for changes (Daniel, Claude chat): Change the words on the seed packet to exactly 'Tomato Season' (replace 'Garden Tomatoes'). Keep everything else about the vintage seed-packet illustration the same: the tomato, vine, blossom, colors and scalloped packet. Regenerate the image so the new words are printed on it, spelled exactly 'Tomato Season'. Update the titles, tags and description to match 'Tomato Season'.
 - 2026-11-17 18:22 UTC · ↪️ Replaced by a revision (Rory (bot), automatic): replaced by d261117-14
 
-## d261117-11 · pending · Every hen has a name, / and an opinion
+## d261117-11 · replaced · Every hen has a name, / and an opinion
 - 2026-11-17 16:57 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard hens, Pinterest backyard hobby trend, egg prices
+- 2026-11-18 13:03 UTC · ✏️ Daniel asked for changes (Daniel, Telegram): For the “every hen” design, create an image with three hens sitting on nests and put the text under it
+- 2026-11-18 13:04 UTC · ↪️ Replaced by a revision (Rory (bot), automatic): replaced by d261118-01
 
 ## d261117-10 · pending · Nana's / Small Batch / jams & preserves
 - 2026-11-17 16:54 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261117-08

@@ -1,0 +1,13 @@
+{
+ "days": {
+  "2026-11-18": {
+   "Claude: Telegram replies": {
+    "calls": 2,
+    "searches": 0,
+    "tokens_in": 9559,
+    "tokens_out": 2590,
+    "usd": 0.04502
+   }
+  }
+ }
+}

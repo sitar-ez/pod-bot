@@ -3205,6 +3205,20 @@
           "event": "proposed",
           "note": "backyard hens, Pinterest backyard hobby trend, egg prices",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-18T13:03:50.207653+00:00",
+          "by": "Daniel",
+          "event": "edit_requested",
+          "note": "For the \u201cevery hen\u201d design, create an image with three hens sitting on nests and put the text under it",
+          "via": "Telegram"
+        },
+        {
+          "at": "2026-11-18T13:04:15.441705+00:00",
+          "by": "Rory (bot)",
+          "event": "replaced",
+          "note": "replaced by d261118-01",
+          "via": "automatic"
         }
       ],
       "id": "d261117-11",
@@ -3223,7 +3237,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "replaced",
       "tags": [
         "chicken lover gift",
         "backyard hens",
@@ -4145,11 +4159,150 @@
       },
       "trend_signal": "Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early",
       "why_it_sells": "Every seasoned cookie baker has learned to take the pan out while the middles still look raw, because the hot pan finishes the job. Daughters buy it for a mom or grandma who never overbakes, and Jenny buys it for herself in cookie season."
+    },
+    "d261118-01": {
+      "concept": {
+        "accent_line": 1,
+        "description": "For the one who knows every hen by name and has a story about each of them. Three hens settle into their nests above a soft, handwritten-style line in deep brown on a light shirt. A thoughtful gift for the family's chicken keeper.",
+        "garment": "light",
+        "illustration_prompt": "Hand-drawn folk-art illustration in the style of a vintage recipe-card vignette: three plump hens, each sitting on her own straw nest, lined up side by side in a row of simple wooden nesting boxes. Give each hen her own personality and breed look: a fluffy golden-buff hen with a puffed-up broody expression, a black-and-white barred hen with a sharp sideways glance, and a speckled brown hen with her head tucked proudly. Show a few tufts of straw spilling over the nest edges and one egg peeking out beside one hen. Warm limited palette: deep brown #3B2A20 linework, muted terracotta, mustard, and soft sage green accents, with a little cream. Gentle gouache and ink texture, slightly imperfect hand-drawn lines, cozy and kind, nothing crowded. Isolated on a plain transparent or plain white background, no border, no frame, no shadows beyond a light ground line. Centered composition, wider than tall, with empty space below for a line of text. Absolutely no text, letters, numbers, logos or signs anywhere in the image.",
+        "ink_dark": "#3B2A20",
+        "ink_light": "#F3EBD8",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": [
+            1.0,
+            0.8
+          ],
+          "top": null,
+          "width": 0.7
+        },
+        "lines": [
+          "Every hen has a name,",
+          "and an opinion"
+        ],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "recipe_card",
+        "tags": [
+          "chicken lover gift",
+          "backyard hens",
+          "gift for mom",
+          "homestead mama",
+          "chicken mom shirt",
+          "hen keeper",
+          "gift for grandma",
+          "homesteading",
+          "cottagecore",
+          "farmhouse kitchen",
+          "coop life",
+          "grandma gift",
+          "chicken mama"
+        ],
+        "titles": {
+          "hoodie": "Backyard Hens Hoodie, Chicken Lover Gift for Mom, Homestead Mama Sweatshirt, Cottagecore Coop Life, Gift for Grandma",
+          "mug": "Chicken Lover Mug, Every Hen Has a Name, Gift for Grandma, Homestead Mama Coffee Cup, Farmhouse Kitchen, Backyard Hens",
+          "sticker": "Backyard Hens Sticker, Chicken Lover Gift, Every Hen Has a Name, Homesteading Decal, Cottagecore Coop Sticker",
+          "tee_bc": "Backyard Chicken Shirt, Chicken Lover Gift, Gift for Mom, Homestead Mama Tee, Hen Keeper, Farmhouse Kitchen Gift, Cottagecore"
+        },
+        "trend_signal": "backyard hens, Pinterest backyard hobby trend, egg prices",
+        "why_it_sells": "Jenny and the daughters who shop for the family's hen keeper see their own coop in three nesting hens with real personalities, paired with a gentle, true-to-life joke about named chickens."
+      },
+      "created": "2026-11-18T13:04:14.300909+00:00",
+      "description": "For the one who knows every hen by name and has a story about each of them. Three hens settle into their nests above a soft, handwritten-style line in deep brown on a light shirt. A thoughtful gift for the family's chicken keeper.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261118-01/print_hoodie_139.png",
+          "5523": "designs/d261118-01/print_hoodie_139.png",
+          "5524": "designs/d261118-01/print_hoodie_139.png",
+          "5525": "designs/d261118-01/print_hoodie_139.png",
+          "5526": "designs/d261118-01/print_hoodie_139.png",
+          "5610": "designs/d261118-01/print_hoodie_139.png",
+          "5611": "designs/d261118-01/print_hoodie_139.png",
+          "5612": "designs/d261118-01/print_hoodie_139.png",
+          "5613": "designs/d261118-01/print_hoodie_139.png",
+          "5614": "designs/d261118-01/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261118-01/print_mug_43.png",
+          "4830": "designs/d261118-01/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261118-01/print_sticker_183.png",
+          "10164": "designs/d261118-01/print_sticker_184.png",
+          "10165": "designs/d261118-01/print_sticker_185.png"
+        },
+        "tee_bc": {
+          "4011": "designs/d261118-01/print_tee_bc_1.png",
+          "4012": "designs/d261118-01/print_tee_bc_1.png",
+          "4013": "designs/d261118-01/print_tee_bc_1.png",
+          "4014": "designs/d261118-01/print_tee_bc_1.png",
+          "4015": "designs/d261118-01/print_tee_bc_1.png",
+          "6948": "designs/d261118-01/print_tee_bc_1.png",
+          "6949": "designs/d261118-01/print_tee_bc_1.png",
+          "6950": "designs/d261118-01/print_tee_bc_1.png",
+          "6951": "designs/d261118-01/print_tee_bc_1.png",
+          "6952": "designs/d261118-01/print_tee_bc_1.png"
+        }
+      },
+      "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-18T13:04:15.439004+00:00",
+          "by": "Rory (bot)",
+          "event": "revised",
+          "note": "revision of d261117-11",
+          "via": "automatic"
+        }
+      ],
+      "id": "d261118-01",
+      "illustration_prompt": "Hand-drawn folk-art illustration in the style of a vintage recipe-card vignette: three plump hens, each sitting on her own straw nest, lined up side by side in a row of simple wooden nesting boxes. Give each hen her own personality and breed look: a fluffy golden-buff hen with a puffed-up broody expression, a black-and-white barred hen with a sharp sideways glance, and a speckled brown hen with her head tucked proudly. Show a few tufts of straw spilling over the nest edges and one egg peeking out beside one hen. Warm limited palette: deep brown #3B2A20 linework, muted terracotta, mustard, and soft sage green accents, with a little cream. Gentle gouache and ink texture, slightly imperfect hand-drawn lines, cozy and kind, nothing crowded. Isolated on a plain transparent or plain white background, no border, no frame, no shadows beyond a light ground line. Centered composition, wider than tall, with empty space below for a line of text. Absolutely no text, letters, numbers, logos or signs anywhere in the image.",
+      "kind": "text",
+      "lines": [
+        "Every hen has a name,",
+        "and an opinion"
+      ],
+      "listings": {},
+      "parent": "d261117-11",
+      "personalize": null,
+      "products": [
+        "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "pending",
+      "tags": [
+        "chicken lover gift",
+        "backyard hens",
+        "gift for mom",
+        "homestead mama",
+        "chicken mom shirt",
+        "hen keeper",
+        "gift for grandma",
+        "homesteading",
+        "cottagecore",
+        "farmhouse kitchen",
+        "coop life",
+        "grandma gift",
+        "chicken mama"
+      ],
+      "telegram_msg": 70,
+      "titles": {
+        "hoodie": "Backyard Hens Hoodie, Chicken Lover Gift for Mom, Homestead Mama Sweatshirt, Cottagecore Coop Life, Gift for Grandma",
+        "mug": "Chicken Lover Mug, Every Hen Has a Name, Gift for Grandma, Homestead Mama Coffee Cup, Farmhouse Kitchen, Backyard Hens",
+        "sticker": "Backyard Hens Sticker, Chicken Lover Gift, Every Hen Has a Name, Homesteading Decal, Cottagecore Coop Sticker",
+        "tee_bc": "Backyard Chicken Shirt, Chicken Lover Gift, Gift for Mom, Homestead Mama Tee, Hen Keeper, Farmhouse Kitchen Gift, Cottagecore"
+      },
+      "trend_signal": "backyard hens, Pinterest backyard hobby trend, egg prices",
+      "why_it_sells": "Jenny and the daughters who shop for the family's hen keeper see their own coop in three nesting hens with real personalities, paired with a gentle, true-to-life joke about named chickens."
     }
-  },
-  "editing": {
-    "at": "2026-11-18T13:02:50.819049+00:00",
-    "id": "d261117-11"
   },
   "force_scout": false,
   "last_error_ping": "2026-11-17T14:43:25.737702+00:00",
@@ -4235,6 +4388,6 @@
     }
   ],
   "telegram_chat_id": "147542263",
-  "telegram_offset": 333766210,
+  "telegram_offset": 333766211,
   "theme_index": 5
 }
