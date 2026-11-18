@@ -2,11 +2,11 @@
  "days": {
   "2026-11-18": {
    "Claude: Telegram replies": {
-    "calls": 2,
+    "calls": 3,
     "searches": 0,
-    "tokens_in": 9559,
-    "tokens_out": 2590,
-    "usd": 0.04502
+    "tokens_in": 12349,
+    "tokens_out": 2877,
+    "usd": 0.05347
    },
    "Claude: research insider facts (weekly)": {
     "calls": 4,
