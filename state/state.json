@@ -4314,6 +4314,7 @@
   "paused": false,
   "product_checks": {
     "crewneck": {
+      "approved": "2026-11-18T13:04:23.971091+00:00",
       "at": "2026-11-17T16:12:33.502325+00:00",
       "files": {
         "16876": "designs/_product_checks/crewneck/print_1_0.png",
@@ -4323,9 +4324,10 @@
         "16876": "Design about 8.1 \u00d7 9.8 in, 2.6 in below the top of the print area.",
         "5514": "Design about 8.1 \u00d7 9.8 in, 2.6 in below the top of the print area."
       },
-      "status": "sent"
+      "status": "approved"
     },
     "tee": {
+      "approved": "2026-11-18T13:04:26.397891+00:00",
       "at": "2026-11-17T16:12:23.510218+00:00",
       "files": {
         "15166": "designs/_product_checks/tee/print_1_0.png",
@@ -4335,9 +4337,10 @@
         "15166": "Design about 7.3 \u00d7 8.8 in, 2.6 in below the top of the print area.",
         "16523": "Design about 7.3 \u00d7 8.8 in, 2.6 in below the top of the print area."
       },
-      "status": "sent"
+      "status": "approved"
     },
     "tote": {
+      "approved": "2026-11-18T13:04:22.735249+00:00",
       "at": "2026-11-17T16:12:36.892544+00:00",
       "files": {
         "10458": "designs/_product_checks/tote/print_5_0.png"
@@ -4345,7 +4348,7 @@
       "notes": {
         "10458": "Design about 5.9 \u00d7 7.2 in, 1.2 in below the top of the print area."
       },
-      "status": "sent"
+      "status": "approved"
     }
   },
   "queued_edits": [],
@@ -4388,6 +4391,6 @@
     }
   ],
   "telegram_chat_id": "147542263",
-  "telegram_offset": 333766211,
+  "telegram_offset": 333766215,
   "theme_index": 5
 }
