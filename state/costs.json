@@ -7,6 +7,20 @@
     "tokens_in": 9559,
     "tokens_out": 2590,
     "usd": 0.04502
+   },
+   "Claude: research insider facts (weekly)": {
+    "calls": 1,
+    "searches": 8,
+    "tokens_in": 77937,
+    "tokens_out": 10739,
+    "usd": 0.34326
+   },
+   "Claude: study design": {
+    "calls": 1,
+    "searches": 4,
+    "tokens_in": 40407,
+    "tokens_out": 1767,
+    "usd": 0.13848
    }
   }
  }

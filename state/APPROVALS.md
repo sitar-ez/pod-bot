@@ -19,9 +19,10 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 - 2026-11-17 18:23 UTC · 💡 Rory proposed (Rory (bot), automatic): analog hobbies and kitchen-witch baking revival
 - 2026-11-18 13:02 UTC · ❌ Daniel skipped (Daniel, Telegram)
 
-## d261117-14 · approved · 
+## d261117-14 · published · 
 - 2026-11-17 18:22 UTC · 🔁 Revised version made (Rory (bot), automatic): revision of d261117-12
 - 2026-11-18 13:02 UTC · ✅ Daniel approved (Daniel, Telegram)
+- 2026-11-18 14:04 UTC · 🛍️ Listed on Etsy (Rory (bot), automatic) · tee_bc etsy.com/listing/4620196232, hoodie etsy.com/listing/4620196892, mug etsy.com/listing/4620197574, sticker etsy.com/listing/4620189913
 
 ## d261117-13 · rejected · Float test passed / time to bake bread
 - 2026-11-17 17:40 UTC · 💡 Rory proposed (Rory (bot), automatic): analog and cozy hobbies trend, sourdough and baking from scratch
