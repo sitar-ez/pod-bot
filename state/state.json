@@ -3736,6 +3736,7 @@
         "why_it_sells": "Jenny and every daughter shopping for a mom with a six-year-old starter will recognize the jar with the rubber band marking the rise, an old baker's habit that tells you how high the dough has climbed overnight."
       },
       "created": "2026-11-17T18:23:25.465508+00:00",
+      "decided": "2026-11-18T13:02:08.732032+00:00",
       "description": "For the baker who marks her starter jar with a rubber band and checks it before bed. Soft berry lettering on a light shirt, a small nod to the quiet habit behind every good loaf. A thoughtful gift for the mom or grandma who has been feeding the same starter for years.",
       "files": {
         "hoodie": {
@@ -3780,6 +3781,12 @@
           "event": "proposed",
           "note": "analog hobbies and kitchen-witch baking revival",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-18T13:02:08.732049+00:00",
+          "by": "Daniel",
+          "event": "skipped",
+          "via": "Telegram"
         }
       ],
       "id": "d261117-15",
@@ -3799,7 +3806,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "rejected",
       "tags": [
         "sourdough shirt",
         "sourdough gift",
@@ -4210,6 +4217,6 @@
     }
   ],
   "telegram_chat_id": "147542263",
-  "telegram_offset": 333766206,
+  "telegram_offset": 333766207,
   "theme_index": 5
 }

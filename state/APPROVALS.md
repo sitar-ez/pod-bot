@@ -12,8 +12,9 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 - 2026-11-17 18:24 UTC · 💡 Rory proposed (Rory (bot), automatic): canning season revival and handed-down pickle recipe cards
 - 2026-11-17 22:07 UTC · ❌ Daniel skipped (Daniel, Telegram)
 
-## d261117-15 · pending · A rubber band / on the jar / means bread tomorrow
+## d261117-15 · rejected · A rubber band / on the jar / means bread tomorrow
 - 2026-11-17 18:23 UTC · 💡 Rory proposed (Rory (bot), automatic): analog hobbies and kitchen-witch baking revival
+- 2026-11-18 13:02 UTC · ❌ Daniel skipped (Daniel, Telegram)
 
 ## d261117-14 · pending · 
 - 2026-11-17 18:22 UTC · 🔁 Revised version made (Rory (bot), automatic): revision of d261117-12
