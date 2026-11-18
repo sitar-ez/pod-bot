@@ -3460,6 +3460,7 @@
         "why_it_sells": "Jenny has kept a starter going since 2020 and loves the float test ritual, and Katie buys it for the mom or grandma whose kitchen always smells like fresh bread."
       },
       "created": "2026-11-17T17:40:30.203710+00:00",
+      "decided": "2026-11-18T13:02:32.485689+00:00",
       "description": "Every sourdough baker knows the float test: a spoonful of bubbly starter that floats in a glass of water is ready to bake. A warm, funny gift for the one who feeds her starter like a family pet and bakes from scratch. Printed in deep berry ink for light garments.",
       "files": {
         "hoodie": {
@@ -3504,6 +3505,12 @@
           "event": "proposed",
           "note": "analog and cozy hobbies trend, sourdough and baking from scratch",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-18T13:02:32.485705+00:00",
+          "by": "Daniel",
+          "event": "skipped",
+          "via": "Telegram"
         }
       ],
       "id": "d261117-13",
@@ -3522,7 +3529,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "rejected",
       "tags": [
         "sourdough shirt",
         "sourdough gift",
@@ -4224,6 +4231,6 @@
     }
   ],
   "telegram_chat_id": "147542263",
-  "telegram_offset": 333766208,
+  "telegram_offset": 333766209,
   "theme_index": 5
 }
