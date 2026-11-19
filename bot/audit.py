@@ -23,6 +23,7 @@ LABELS = {
     "drawn": "🖼️ Rory drew it",
     "approved": "✅ Daniel approved",
     "skipped": "❌ Daniel skipped",
+    "restored": "↩️ Daniel put it back in the queue",
     "published": "🛍️ Listed on Etsy",
     "replaced": "↪️ Replaced by a revision",
 }

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rory · Design queue</title>
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --cream: #f6efe0; --paper: #fffaf0; --ink: #3b2a20; --soft: #7a6a5c; --line: #e4d8c2;
+    --tomato: #b5432f; --sage: #6f8a5e; --butter: #e8c766; --berry: #7a2e3e;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--cream); color: var(--ink);
+         font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line);
+           padding: 12px 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  h1 { font: 600 22px/1 Georgia, "Times New Roman", serif; margin: 0 12px 0 0; }
+  h1 span { color: var(--tomato); }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tab { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 14px;
+         cursor: pointer; font: inherit; color: var(--ink); }
+  .tab.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .meta { margin-left: auto; color: var(--soft); font-size: 13px; text-align: right; }
+  main { padding: 20px; max-width: 1400px; margin: 0 auto; }
+  .note { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px;
+          margin-bottom: 16px; color: var(--soft); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+          display: flex; flex-direction: column; }
+  .card.busy { opacity: .6; }
+  .img { background: #fff; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+         cursor: zoom-in; border-bottom: 1px solid var(--line); }
+  .img img { width: 100%; height: 100%; object-fit: contain; }
+  .idea { padding: 26px; font: italic 17px/1.5 Georgia, serif; color: var(--ink); cursor: default; text-align: center; }
+  .body { padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .id { font: 600 13px ui-monospace, Menlo, monospace; color: var(--soft); }
+  .badge { font-size: 12px; padding: 2px 9px; border-radius: 999px; background: #efe6d3; white-space: nowrap; }
+  .badge.pending { background: #fbe7a8; } .badge.idea { background: #e6efd9; }
+  .badge.published { background: #d6e8d0; } .badge.rejected { background: #f1d9d3; }
+  .badge.approved, .badge.drawing { background: #dfe7f3; }
+  .words { font: 600 17px/1.3 Georgia, serif; }
+  .small { font-size: 13px; color: var(--soft); }
+  .fact { font-size: 13px; background: #f3ead6; border-radius: 8px; padding: 6px 9px; }
+  details summary { cursor: pointer; font-size: 13px; color: var(--soft); }
+  details ul { margin: 6px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--soft); }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 6px; }
+  button.act { border: 0; border-radius: 9px; padding: 8px 14px; font: 600 14px/1 inherit; cursor: pointer; }
+  .approve { background: var(--sage); color: #fff; } .skip { background: #eadfcc; color: var(--ink); }
+  .edit { background: #fff; color: var(--ink); border: 1px solid var(--line) !important; }
+  .draw { background: var(--tomato); color: #fff; }
+  textarea { width: 100%; min-height: 70px; border: 1px solid var(--line); border-radius: 9px; padding: 8px;
+             font: inherit; background: #fff; }
+  .queued { font-size: 13px; color: var(--berry); font-weight: 600; }
+  a { color: var(--berry); }
+  .setup { max-width: 560px; margin: 50px auto; background: var(--paper); border: 1px solid var(--line);
+           border-radius: 14px; padding: 24px; }
+  .setup input { width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 9px; font: inherit; margin: 8px 0 12px; }
+  .setup ol { padding-left: 20px; }
+  .zoom { position: fixed; inset: 0; background: rgba(40,28,20,.85); display: none; align-items: center;
+          justify-content: center; z-index: 10; cursor: zoom-out; }
+  .zoom img { max-width: 95vw; max-height: 95vh; background: #fff; border-radius: 8px; }
+  .empty { padding: 40px; text-align: center; color: var(--soft); }
+  .link { background: none; border: 0; color: var(--soft); text-decoration: underline; cursor: pointer; font: inherit; font-size: 13px; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="zoom" id="zoom" onclick="this.style.display='none'"><img id="zoomimg" alt=""></div>
+<script>
+const REPO = "sitar-ez/pod-bot";
+const API = `https://api.github.com/repos/${REPO}/contents`;
+const RAW = `https://raw.githubusercontent.com/${REPO}/main`;
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} },
+};
+let token = store.get("rory_token");
+let state = null, queued = {}, costs = null, tab = "waiting", editing = null, lastLoad = null, error = "";
+const sentLocal = {};   // actions sent from this page, until Rory applies them
+
+function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function when(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return d.toLocaleString([], {month: "short", day: "numeric", hour: "numeric", minute: "2-digit"});
+}
+
+async function gh(path, opts = {}) {
+  const r = await fetch(`${API}/${path}`, { ...opts, cache: "no-store", headers: {
+    "Authorization": `Bearer ${token}`, "Accept": opts.raw ? "application/vnd.github.raw+json" : "application/vnd.github+json",
+    ...(opts.headers || {}) } });
+  if (r.status === 401 || r.status === 403) throw new Error("GitHub didn't accept the token. Check it has Contents: Read and write on pod-bot.");
+  if (r.status === 404 && opts.allow404) return null;
+  if (!r.ok) throw new Error(`GitHub said ${r.status}`);
+  return opts.raw ? r.text() : r.json();
+}
+
+async function load() {
+  try {
+    const [s, inbox, c] = await Promise.all([
+      gh("state/state.json?ref=main", { raw: true }),
+      gh("inbox?ref=main", { allow404: true }),
+      gh("state/costs.json?ref=main", { raw: true, allow404: true }),
+    ]);
+    state = JSON.parse(s);
+    costs = c ? JSON.parse(c) : null;
+    queued = {};
+    for (const f of (inbox || [])) {
+      const m = f.name.match(/^\d+-(d\d{6}-\d+)-(\w+)\.json$/);
+      if (m) queued[m[1]] = m[2];
+    }
+    for (const id of Object.keys(sentLocal)) {
+      const d = state.designs[id];
+      if (!queued[id] && d && d.status !== sentLocal[id].from) delete sentLocal[id];
+      else if (Date.now() - sentLocal[id].at > 15 * 60e3) delete sentLocal[id];
+    }
+    lastLoad = new Date(); error = "";
+  } catch (e) { error = e.message; }
+  render();
+}
+
+async function send(id, action, text) {
+  const d = state.designs[id];
+  const body = { action, id, text: text || "", at: new Date().toISOString() };
+  const json = JSON.stringify(body, null, 1);
+  const content = btoa(unescape(encodeURIComponent(json)));
+  try {
+    await gh(`inbox/${Date.now()}-${id}-${action}.json`, { method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: `dashboard: ${action} ${id}`, content, branch: "main" }) });
+    sentLocal[id] = { action, at: Date.now(), from: d.status };
+    editing = null;
+  } catch (e) { alert("Couldn't send that to Rory: " + e.message); }
+  render();
+}
+
+function monthCost() {
+  if (!costs) return null;
+  const m = new Date().toISOString().slice(0, 7);
+  let t = 0;
+  for (const [day, rows] of Object.entries(costs.days || {}))
+    if (day.startsWith(m)) for (const r of Object.values(rows)) t += r.usd || 0;
+  return t;
+}
+
+const LABEL = { pending: "waiting", idea: "idea · not drawn", drawing: "drawing…", approved: "approved · publishing",
+                published: "live on Etsy", rejected: "skipped", replaced: "replaced by a revision" };
+const VERB = { approve: "Approve", reject: "Skip", draw: "Draw it", edit: "Edit", unskip: "Put back" };
+
+function card(d) {
+  const id = d.id, c = d.concept || {};
+  const words = (d.lines || []).join(" / ");
+  const summary = c.idea_summary || (d.illustration_prompt || "").slice(0, 260);
+  const pend = queued[id] || (sentLocal[id] && sentLocal[id].action);
+  const img = d.files && Object.keys(d.files).length
+    ? `<div class="img" onclick="zoom('${RAW}/designs/${id}/preview.jpg')"><img loading="lazy" src="${RAW}/designs/${id}/preview.jpg" alt="${esc(words || summary)}"></div>`
+    : `<div class="img idea">💡 ${esc(summary || "Illustration idea")}</div>`;
+  const hist = (d.history || []).map(h => `<li>${when(h.at)} · ${esc(h.event.replace("_", " "))} (${esc(h.by)}${h.via ? ", " + esc(h.via) : ""})${h.note ? ": " + esc(h.note) : ""}</li>`).join("");
+  const links = Object.entries(d.listings || {}).map(([k, v]) => `<a href="https://www.etsy.com/listing/${v}" target="_blank" rel="noopener">${esc(k)}</a>`).join(" · ");
+  let actions = "";
+  if (pend) actions = `<div class="queued">⏳ ${VERB[pend] || pend} sent to Rory. Applying within about a minute…</div>`;
+  else if (d.status === "pending") actions = `
+      <button class="act approve" onclick="send('${id}','approve')">✅ Approve</button>
+      <button class="act edit" onclick="startEdit('${id}')">✏️ Edit</button>
+      <button class="act skip" onclick="send('${id}','reject')">Skip</button>`;
+  else if (d.status === "idea") actions = `
+      <button class="act draw" onclick="send('${id}','draw')">🎨 Make it</button>
+      <button class="act edit" onclick="startEdit('${id}')">✏️ Edit idea</button>
+      <button class="act skip" onclick="send('${id}','reject')">Skip</button>`;
+  else if (d.status === "rejected") actions = `<button class="act edit" onclick="send('${id}','unskip')">↩️ Put back in the queue</button>`;
+  const editBox = editing === id ? `
+      <textarea id="edit-${id}" placeholder="What should change? e.g. make it smaller and lower, use a softer font, change the words to …"></textarea>
+      <div class="actions"><button class="act approve" onclick="send('${id}','edit',document.getElementById('edit-${id}').value)">Send edit</button>
+      <button class="link" onclick="editing=null;render()">cancel</button></div>` : "";
+  return `<div class="card${pend ? " busy" : ""}">
+    ${img}
+    <div class="body">
+      <div class="top"><span class="id">${id}${d.parent ? " · from " + esc(d.parent) : ""}</span><span class="badge ${d.status}">${LABEL[d.status] || d.status}</span></div>
+      ${words ? `<div class="words">${esc(words)}</div>` : `<div class="small">${esc(summary)}</div>`}
+      ${c.insider_fact ? `<div class="fact">🔎 ${esc(c.insider_fact)}</div>` : ""}
+      ${d.trend_signal ? `<div class="small">📈 ${esc(d.trend_signal)}</div>` : ""}
+      ${d.products && d.products.length ? `<div class="small">${esc(d.products.join(", "))} · ${when(d.created)}</div>` : `<div class="small">${when(d.created)}</div>`}
+      ${links ? `<div class="small">Etsy: ${links}</div>` : ""}
+      ${d.files && Object.keys(d.files).length ? `<div class="small"><a href="${RAW}/designs/${id}/master.png" target="_blank" rel="noopener">full artwork</a></div>` : ""}
+      ${hist ? `<details><summary>history</summary><ul>${hist}</ul></details>` : ""}
+      ${editBox || `<div class="actions">${actions}</div>`}
+    </div></div>`;
+}
+
+function startEdit(id) { editing = id; render(); setTimeout(() => { const t = document.getElementById("edit-" + id); t && t.focus(); }, 0); }
+function zoom(src) { document.getElementById("zoomimg").src = src; document.getElementById("zoom").style.display = "flex"; }
+function setTab(t) { tab = t; editing = null; render(); }
+
+function render() {
+  const app = document.getElementById("app");
+  if (!token) {
+    app.innerHTML = `<div class="setup"><h1>Rory's <span>design queue</span></h1>
+      <p>This page talks to GitHub with your own key, which stays in this browser only.</p>
+      <ol><li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → new fine-grained token</a>.</li>
+      <li>Name it "Rory dashboard". Under <b>Repository access</b>, choose <b>Only select repositories → pod-bot</b>.</li>
+      <li>Under <b>Permissions → Repository permissions</b>, set <b>Contents</b> to <b>Read and write</b>.</li>
+      <li>Generate it, copy it and paste it below. Don't paste it anywhere else.</li></ol>
+      <input id="tok" type="password" placeholder="github_pat_…" autocomplete="off">
+      <button class="act approve" onclick="saveToken()">Open the queue</button></div>`;
+    return;
+  }
+  if (!state) { app.innerHTML = `<div class="empty">${error ? esc(error) + ` <button class="link" onclick="logout()">change key</button>` : "Loading Rory's designs…"}</div>`; return; }
+  const all = Object.values(state.designs).sort((a, b) => (b.created || "").localeCompare(a.created || ""));
+  const groups = {
+    waiting: all.filter(d => ["pending", "idea", "drawing"].includes(d.status)).reverse(),
+    live: all.filter(d => ["approved", "published"].includes(d.status)),
+    skipped: all.filter(d => d.status === "rejected"),
+    all: all.filter(d => d.status !== "replaced"),
+  };
+  const names = { waiting: "Waiting on you", live: "Approved & live", skipped: "Skipped", all: "Everything" };
+  const cost = monthCost();
+  const max = 6;
+  const nWait = groups.waiting.length;
+  const tip = tab === "waiting"
+    ? (nWait >= max ? `Rory pauses new designs while ${max} or more are waiting. You have ${nWait}: approve or skip a few and he'll start again on his next run.`
+                    : `Oldest first. Buttons here work just like Telegram; Rory applies them within about a minute.`)
+    : "";
+  app.innerHTML = `<header><h1>Rory's <span>queue</span></h1>
+      <div class="tabs">${Object.keys(groups).map(k => `<button class="tab ${tab === k ? "on" : ""}" onclick="setTab('${k}')">${names[k]} (${groups[k].length})</button>`).join("")}</div>
+      <div class="meta">${cost != null ? `AI this month: $${cost.toFixed(2)}<br>` : ""}${error ? `<span style="color:var(--tomato)">${esc(error)}</span>` : `updated ${lastLoad ? lastLoad.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : ""}`}
+      · <button class="link" onclick="load()">refresh</button> · <button class="link" onclick="logout()">sign out</button></div></header>
+    <main>${tip ? `<div class="note">${tip}</div>` : ""}
+      ${groups[tab].length ? `<div class="grid">${groups[tab].map(card).join("")}</div>` : `<div class="empty">Nothing here.</div>`}</main>`;
+}
+
+function saveToken() { const v = document.getElementById("tok").value.trim(); if (!v) return; token = v; store.set("rory_token", v); state = null; render(); load(); }
+function logout() { store.del("rory_token"); token = null; state = null; render(); }
+
+render();
+if (token) load();
+setInterval(() => { if (token && !editing) load(); }, 30000);
+</script>
+</body>
+</html>

@@ -9,14 +9,14 @@ import sys
 import time
 import traceback
 
-from . import run, telegram
+from . import inbox, run, telegram
 from .common import ROOT, load_state, log, save_state
 
 
 def save_to_github(note):
     def git(*args):
         return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
-    git("add", "state", "designs")
+    git("add", "-A", "state", "designs", "inbox")
     if git("diff", "--cached", "--quiet").returncode == 0:
         return
     git("-c", "user.name=pod-bot", "-c", "user.email=pod-bot@users.noreply.github.com", "commit", "-m", note)
@@ -41,11 +41,15 @@ def main(seconds):
         if left < 5:
             break
         try:
-            ups = telegram.updates(state["telegram_offset"], wait=int(min(50, left)))
+            ups = telegram.updates(state["telegram_offset"], wait=int(min(25, left)))
             if ups:
                 run.handle_telegram(state, ups)
                 save_state(state)
                 save_to_github("bot: telegram replies")
+            inbox.pull()   # dashboard button presses
+            if inbox.process(state):
+                save_state(state)
+                save_to_github("bot: dashboard actions")
         except Exception as e:
             log("  listen error:", e)
             traceback.print_exc()

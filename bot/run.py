@@ -221,6 +221,8 @@ def main():
         handle_telegram(state)
 
     stage("read Telegram", read_telegram, state)
+    from . import inbox
+    stage("apply dashboard actions", lambda: inbox.process(state), state)
 
     def queued_edits():   # edits Daniel asked for in the Claude chat
         for q in list(state.get("queued_edits", [])):
