@@ -67,7 +67,8 @@ def apply(state, a):
         if d["status"] != "pending":
             return f"{did} is {d['status']}, can't move it"
         designer.reposition(did, state, move=float(a.get("move") or 0), center_h=bool(a.get("center_h")),
-                            center_v=a.get("center_v"), reset=bool(a.get("reset")))
+                            center_v=a.get("center_v"), reset=bool(a.get("reset")),
+                            resize=float(a.get("resize") or 1.0))
         return f"{did} repositioned"
     if action == "unskip":
         if d["status"] != "rejected":

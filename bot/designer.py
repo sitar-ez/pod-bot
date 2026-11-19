@@ -80,15 +80,18 @@ def draw_idea(did, state):
     return make_design(concept, state, parent=d.get("parent"), existing=did)
 
 
-def reposition(did, state, move=0.0, center_h=False, center_v=None, reset=False, via="dashboard"):
+def reposition(did, state, move=0.0, center_h=False, center_v=None, reset=False, resize=1.0, via="dashboard"):
     """Move a waiting design on the shirt without changing the artwork: up/down in inches,
     center left-right, center up-down, or back to the automatic spot. Same design id."""
     d = state["designs"][did]
     concept = dict(d.get("concept") or {})
     lay = dict(concept.get("layout") or {})
+    resize = float(resize or 1.0)
     if reset:
-        lay.update(nudge=0.0, vcenter=False, align="center", top=None)
+        lay.update(nudge=0.0, vcenter=False, align="center", top=None, size=1.0)
     else:
+        if resize != 1.0:
+            lay["size"] = round(min(2.0, max(0.4, float(lay.get("size") or 1.0) * resize)), 3)
         lay["nudge"] = float(lay.get("nudge") or 0) + float(move or 0)
         if center_h:
             lay["align"] = "center"
@@ -98,7 +101,8 @@ def reposition(did, state, move=0.0, center_h=False, center_v=None, reset=False,
                 lay["nudge"] = 0.0 if not move else float(move)
     concept["layout"] = lay
     concept["go"] = True
-    note = ("back to the automatic spot" if reset else ", ".join(filter(None, [
+    note = ("back to the automatic size and spot" if reset else ", ".join(filter(None, [
+        (f"{abs(round((resize - 1) * 100))}% {'bigger' if resize > 1 else 'smaller'}" if resize != 1.0 else ""),
         f"moved {abs(move):g} in {'down' if move > 0 else 'up'}" if move else "",
         "centered left-right" if center_h else "",
         ("centered up-and-down" if center_v else "automatic height") if center_v is not None else ""])))
@@ -193,7 +197,8 @@ def make_design(concept, state, parent=None, reuse_master=None, existing=None, q
         record["position"] = {"below_collar_in": round(b[1] / dpi + 2.5, 1), "width_in": round((b[2] - b[0]) / dpi, 1),
                               "height_in": round((b[3] - b[1]) / dpi, 1),
                               "centered_up_down": bool((concept.get("layout") or {}).get("vcenter")),
-                              "moved_in": round(float((concept.get("layout") or {}).get("nudge") or 0), 1)}
+                              "moved_in": round(float((concept.get("layout") or {}).get("nudge") or 0), 1),
+                              "size": round(float((concept.get("layout") or {}).get("size") or 1.0), 2)}
     except Exception:
         pass
     jpg = render.preview(tee_img, firsts.get("mug"), first_color, record["products"])

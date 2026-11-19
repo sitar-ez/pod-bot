@@ -24,7 +24,7 @@ LABELS = {
     "approved": "✅ Daniel approved",
     "skipped": "❌ Daniel skipped",
     "restored": "↩️ Daniel put it back in the queue",
-    "repositioned": "📐 Daniel moved it on the shirt",
+    "repositioned": "📐 Daniel moved or resized it",
     "published": "🛍️ Listed on Etsy",
     "replaced": "↪️ Replaced by a revision",
 }

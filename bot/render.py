@@ -38,7 +38,8 @@ def _font_for_width(path, text, target_w, max_h):
 
 
 DEFAULT_LAYOUT = {"width": 0.78, "top": None, "line_gap": 1.0, "align": "center", "line_scale": None,
-                  "nudge": 0.0, "vcenter": False}
+                  "nudge": 0.0, "vcenter": False, "size": 1.0}
+# size: Daniel's scale from the dashboard (1.0 = Rory's normal size, 1.2 = 20% bigger).
 # nudge: Daniel's move from the dashboard, in inches (+ = lower on the shirt).
 # vcenter: center the design up-and-down in the print area instead of the automatic chest spot.
 # Printful's print area starts about 2.5 in below the collar and is 16 in tall.
@@ -61,6 +62,7 @@ def layout_of(d):
         lay["align"] = "center"
     lay["nudge"] = min(10.0, max(-10.0, float(lay.get("nudge") or 0)))
     lay["vcenter"] = bool(lay.get("vcenter"))
+    lay["size"] = min(2.0, max(0.4, float(lay.get("size") or 1.0)))
     return lay
 
 
@@ -184,7 +186,7 @@ def compose_print_file(master, w, h, fit, layout=None, max_height=0.62, scale=1.
         top = min(max(0.0, top + shift), max(0.0, (h - d.height) / h))   # shift: Daniel's per-product move
         canvas.alpha_composite(d, (x, int(h * top)))
     elif fit == "mug":        # mugs: one copy on each side (Daniel: smaller, more breathing room)
-        d = _fit(master, w * 0.34, h * 0.66)
+        d = _fit(master, min(w * 0.48, w * 0.34 * scale), min(h * 0.92, h * 0.66 * scale))
         for cx in (w * 0.25, w * 0.75):
             canvas.alpha_composite(d, (int(cx - d.width / 2), (h - d.height) // 2))
     elif fit == "tote":       # totes: centered, a little above middle, generous margins

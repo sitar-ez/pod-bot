@@ -80,7 +80,7 @@ const store = {
 };
 let token = store.get("rory_token");
 let state = null, queued = {}, costs = null, tab = "waiting", editing = null, lastLoad = null, error = "";
-let placing = null, plan = { move: 0, center_h: false, center_v: null, reset: false };   // 📐 position panel
+let placing = null, plan = { move: 0, center_h: false, center_v: null, reset: false, resize: 1 };   // 📐 position panel
 const sentLocal = {};   // actions sent from this page, until Rory applies them
 
 function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
@@ -169,7 +169,7 @@ function card(d) {
   else if (d.status === "pending") actions = `
       <button class="act approve" onclick="send('${id}','approve')">✅ Approve</button>
       <button class="act edit" onclick="startEdit('${id}')">✏️ Edit</button>
-      <button class="act edit" onclick="startPlace('${id}')">📐 Position</button>
+      <button class="act edit" onclick="startPlace('${id}')">📐 Size & position</button>
       <button class="act skip" onclick="send('${id}','reject')">Skip</button>`;
   else if (d.status === "idea") actions = `
       <button class="act draw" onclick="send('${id}','draw')">🎨 Make it</button>
@@ -191,7 +191,7 @@ function card(d) {
       ${links ? `<div class="small">Etsy: ${links}</div>` : ""}
       ${d.files && Object.keys(d.files).length ? `<div class="small"><a href="${RAW}/designs/${id}/master.png" target="_blank" rel="noopener">full artwork</a></div>` : ""}
       ${hist ? `<details><summary>history</summary><ul>${hist}</ul></details>` : ""}
-      ${d.position ? `<div class="small">📐 Top edge ${d.position.below_collar_in} in below the collar · ${d.position.width_in} × ${d.position.height_in} in on the tee${d.position.centered_up_down ? " · centered up-and-down" : ""}</div>` : ""}
+      ${d.position ? `<div class="small">📐 Top edge ${d.position.below_collar_in} in below the collar · ${d.position.width_in} × ${d.position.height_in} in on the tee${d.position.centered_up_down ? " · centered up-and-down" : ""}${d.position.size && d.position.size !== 1 ? ` · ${Math.round(d.position.size * 100)}% size` : ""}</div>` : ""}
       ${placing === id ? placeBox(d) : (editBox || `<div class="actions">${actions}</div>`)}
     </div></div>`;
 }
@@ -203,7 +203,13 @@ function placeBox(d) {
   const after = now == null || p.reset || p.center_v ? "" :
     ` → top edge about ${(now + p.move).toFixed(1)} in below the collar`;
   return `<div class="place">
-    <div class="small"><b>Move up or down</b> (whole shirt designs, hoodies and totes)</div>
+    <div class="small"><b>Size</b> (shirts, hoodies, totes and mugs)</div>
+    <div class="actions">
+      <button class="act edit" onclick="resize(0.9)">− 10%</button><button class="act edit" onclick="resize(0.95)">− 5%</button>
+      <button class="act edit" onclick="resize(1.05)">+ 5%</button><button class="act edit" onclick="resize(1.1)">+ 10%</button>
+    </div>
+    <div class="small">${p.reset ? "Back to Rory's normal size" : sizeNote(d)}</div>
+    <div class="small"><b>Move up or down</b> (shirts, hoodies and totes)</div>
     <div class="actions">
       <button class="act edit" onclick="nudge(-1)">↑ 1 in</button><button class="act edit" onclick="nudge(-0.5)">↑ ½</button>
       <button class="act edit" onclick="nudge(0.5)">↓ ½</button><button class="act edit" onclick="nudge(1)">↓ 1 in</button>
@@ -212,25 +218,33 @@ function placeBox(d) {
     <div class="actions">
       <button class="act ${p.center_h ? "approve" : "edit"}" onclick="plan.center_h=!plan.center_h;plan.reset=false;render()">↔ Center left-right</button>
       <button class="act ${p.center_v ? "approve" : "edit"}" onclick="plan.center_v=plan.center_v?null:true;plan.reset=false;render()">↕ Center up-down</button>
-      <button class="act ${p.reset ? "approve" : "edit"}" onclick="plan={move:0,center_h:false,center_v:null,reset:!plan.reset};render()">↺ Automatic</button>
+      <button class="act ${p.reset ? "approve" : "edit"}" onclick="plan={move:0,center_h:false,center_v:null,reset:!plan.reset,resize:1};render()">↺ Automatic</button>
     </div>
     <div class="actions">
       <button class="act approve" onclick="applyPlace('${id}')">Apply</button>
       <button class="link" onclick="placing=null;render()">cancel</button>
     </div>
-    <div class="small">Rory redraws the preview in about a minute. Nothing else about the design changes.</div></div>`;
+    <div class="small">Rory redraws the preview in about a minute. The words and art don't change. Tees can't print wider than about 11.7 in.</div></div>`;
 }
+function sizeNote(d) {
+  const r = plan.resize, pct = Math.round((r - 1) * 100);
+  if (!pct) return "no size change";
+  const pos = d.position;
+  const est = pos ? ` → about ${(pos.width_in * r).toFixed(1)} × ${(pos.height_in * r).toFixed(1)} in on the tee` : "";
+  return `${Math.abs(pct)}% ${pct > 0 ? "bigger" : "smaller"}${est}`;
+}
+function resize(f) { plan.resize = Math.round(plan.resize * f * 1000) / 1000; plan.reset = false; render(); }
 function startPlace(id) {
   placing = id; editing = null;
   const pos = state.designs[id].position || {};
-  plan = { move: 0, center_h: false, center_v: null, reset: false };
+  plan = { move: 0, center_h: false, center_v: null, reset: false, resize: 1 };
   render();
 }
 function nudge(n) { plan.move = Math.round((plan.move + n) * 2) / 2; plan.reset = false; render(); }
 function applyPlace(id) {
   const p = plan;
-  if (!p.reset && !p.move && !p.center_h && p.center_v == null) { placing = null; render(); return; }
-  send(id, "place", "", { move: p.move, center_h: p.center_h, center_v: p.center_v, reset: p.reset });
+  if (!p.reset && !p.move && !p.center_h && p.center_v == null && p.resize === 1) { placing = null; render(); return; }
+  send(id, "place", "", { move: p.move, center_h: p.center_h, center_v: p.center_v, reset: p.reset, resize: p.resize });
 }
 
 function startEdit(id) { editing = id; placing = null; render(); setTimeout(() => { const t = document.getElementById("edit-" + id); t && t.focus(); }, 0); }
