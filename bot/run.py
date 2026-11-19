@@ -17,7 +17,7 @@ from .common import hours_since, http, load_state, log, now_iso, public_url, sav
 
 HELP = ("Talk to me like a colleague. Send a trend to explore, an article link to learn from, "
         "or feedback on my designs, and I'll use it from now on.\n\n"
-        "Commands:\n/status  what's waiting and what's live\n/cost  what the AI has cost today, this week, this month\n/facts  the insider details I build designs on\n/more  extra batch on the next run\n"
+        "Commands:\n/status  what's waiting and what's live\n/cost  what the AI has cost today, this week, this month\n/waiting  show every design still waiting on you\n/facts  the insider details I build designs on\n/more  extra batch on the next run\n"
         "/topics  trends you've asked me to explore\n/lessons  what I've learned from you\n"
         "/forget 3  drop lesson number 3\n/drop 2  drop topic number 2\n"
         "To change a design: tap ✏️ Edit and type the change, or reply to the design.\n"
@@ -107,6 +107,8 @@ def handle_telegram(state, ups=None):
                     f"Live: {count('published')}\nSkipped: {count('rejected')}\n"
                     f"Orders handled: {sum(1 for o in state['orders'].values() if o.get('status') in ('sent', 'shipped'))}\n"
                     f"Dry run: {'ON' if settings.DRY_RUN else 'off'} · Designs paused: {'yes' if state['paused'] else 'no'}")
+            elif text.startswith("/waiting"):
+                designer.resend_waiting(state)
             elif text.startswith("/facts"):
                 if "new" in text:
                     state.setdefault("facts", {})["rebuild"] = True
@@ -327,8 +329,9 @@ def main():
         stage("make new designs", batch, state)
     elif pending >= settings.MAX_PENDING_APPROVALS:
         if hours_since(state.get("last_full_ping")) > 20:
-            telegram.send(f"⏸ {pending} designs are waiting on you, so I'm not making more until you "
-                          "approve or skip some. (This keeps costs down.)")
+            telegram.send(f"⏸ {pending} designs are waiting on you, so I'm not making new ones until "
+                          f"fewer than {settings.MAX_PENDING_APPROVALS} are waiting. (This keeps costs down.)\n\n"
+                          "Send /waiting and I'll show them all again so you can approve or skip.")
             state["last_full_ping"] = now_iso()
         log("  too many designs waiting for approval; not making more")
 

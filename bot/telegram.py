@@ -29,8 +29,12 @@ def chat_id():
 
 def send(text):
     try:
-        http("POST", _url("sendMessage"), data={"chat_id": chat_id(), "text": text[:4000],
-                                                "disable_web_page_preview": "true"})
+        r = http("POST", _url("sendMessage"), data={"chat_id": chat_id(), "text": text[:4000],
+                                                    "disable_web_page_preview": "true"})
+        if r.status_code >= 400:
+            log(f"  telegram send failed ({r.status_code}): {r.text[:300]}")
+        else:
+            log(f"  telegram: sent \"{text[:50]}\"")
     except Exception as e:
         log("  telegram send failed:", e)
 

@@ -47,6 +47,30 @@ def send_idea(concept, state, parent=None):
     return record
 
 
+def resend_waiting(state):
+    """/waiting: send every design still waiting on Daniel again, oldest first, with fresh buttons."""
+    waiting = sorted((k, d) for k, d in state["designs"].items() if d["status"] in ("pending", "idea"))
+    if not waiting:
+        telegram.send("Nothing is waiting on you right now.")
+        return
+    telegram.send(f"Here are the {len(waiting)} designs waiting on you, oldest first. "
+                  "Approve, Edit or Skip each one.")
+    for did, d in waiting:
+        what = " / ".join(d.get("lines") or []) or (d.get("concept") or {}).get("idea_summary") \
+            or (d.get("illustration_prompt") or "")[:200]
+        fact = (d.get("concept") or {}).get("insider_fact")
+        if d["status"] == "idea":
+            d["telegram_msg"] = telegram.send_buttons(
+                f"💡 {did} · illustration idea (resent)\n\n{what}" + (f"\n\n🔎 {fact}" if fact else ""),
+                [("🎨 Make it", f"draw:{did}"), ("✏️ Edit", f"edit:{did}"), ("❌ Skip", f"reject:{did}")])
+            continue
+        jpg = DESIGNS_DIR / did / "preview.jpg"
+        if not jpg.exists():
+            continue
+        d["telegram_msg"] = telegram.send_design(
+            jpg.read_bytes(), f"🔁 {did} · {d['kind']} (resent)\n\n{what}" + (f"\n\n🔎 {fact}" if fact else ""), did)
+
+
 def draw_idea(did, state):
     """Daniel tapped 🎨 Make it: draw the image and send the normal preview for approval."""
     d = state["designs"][did]

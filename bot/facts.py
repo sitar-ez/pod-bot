@@ -32,14 +32,17 @@ Rules:
   companies are fine. No brand names or trademarks. No religion or politics.
 - Skip anything already in this list: {used}
 
-Return JSON only:
-{{"facts": [{{"theme": "short theme name", "fact": "one plain sentence",
-             "angle": "a short idea for how it could become a design (a phrase or picture)",
-             "source": "URL"}}]}}"""
+Answer with one fact per line and nothing else, in exactly this format (5 parts split by " || "):
+FACT || theme || the fact in one plain sentence || a short design idea (a phrase or picture) || source URL
+
+(The line starts with the word FACT. No JSON, no numbering, no extra commentary.)"""
 
 
 def due(state):
     f = state.get("facts") or {}
+    from .common import hours_since
+    if f.get("last_attempt") and hours_since(f["last_attempt"]) < 20:   # at most one try a day
+        return False
     if f.get("rebuild") or not f.get("items"):
         return True
     local = datetime.now(ZoneInfo(settings.WORK_TIMEZONE))
@@ -48,15 +51,28 @@ def due(state):
     return (local.weekday() == 0 and built != local.strftime("%Y-%m-%d")) or len(fresh) < 6
 
 
+def parse(text):
+    items = []
+    for line in text.splitlines():
+        line = line.strip().lstrip("-*• ").strip()
+        if not line.upper().startswith("FACT"):
+            continue
+        parts = [p.strip() for p in line.split("||")]
+        if len(parts) >= 5 and parts[2] and parts[4].startswith("http"):
+            items.append({"theme": parts[1], "fact": parts[2], "angle": parts[3], "source": parts[4].split()[0]})
+    return items
+
+
 def build(state):
-    from .study import search_json
+    from .study import search_text
     f = state.setdefault("facts", {})
+    f["last_attempt"] = now_iso()
     used = [x["fact"][:80] for x in f.get("items", []) if x.get("used")][-60:]
     month = datetime.now(ZoneInfo(settings.WORK_TIMEZONE)).strftime("%B")
-    out = search_json(PROMPT.format(themes="\n".join(f"- {t}" for t in direction.THEMES), n=40,
-                                    season=f"it's {month} now", used="; ".join(used) or "none"),
-                      max_searches=8, max_tokens=10000)
-    items = [x for x in out.get("facts", []) if x.get("fact") and x.get("source")]
+    text = search_text(PROMPT.format(themes="\n".join(f"- {t}" for t in direction.THEMES), n=40,
+                                     season=f"it's {month} now", used="; ".join(used) or "none"),
+                       max_searches=8, max_tokens=10000)
+    items = parse(text)
     if not items:
         raise RuntimeError("the research came back empty; keeping the old bank")
     start = max([x.get("id", 0) for x in f.get("items", [])] + [0]) + 1

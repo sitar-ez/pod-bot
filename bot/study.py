@@ -43,21 +43,28 @@ Rules: never suggest trademarks, brands, real people or politics. Lessons must b
 can actually apply to text layouts, fonts, colors, illustration prompts, titles or tags."""
 
 
-def search_json(prompt, max_searches=5, max_tokens=4000):
-    """Ask Claude with web search on, following pause_turn continuations."""
+def search_text(prompt, max_searches=5, max_tokens=4000):
+    """Ask Claude with web search on, following pause_turn continuations. Returns all the text."""
     client = llm.client()
     tools = [{"type": "web_search_20250305", "name": "web_search", "max_uses": max_searches}]
     messages = [{"role": "user", "content": prompt}]
+    texts = []
     for _ in range(4):
         msg = client.messages.create(model=settings.CLAUDE_MODEL, max_tokens=max_tokens,
                                      system=brief.SYSTEM, messages=messages, tools=tools)
         from . import costs
         costs.claude(msg)
+        texts.append("".join(getattr(b, "text", "") for b in msg.content if getattr(b, "type", "") == "text"))
         if msg.stop_reason != "pause_turn":
             break
         messages = [messages[0], {"role": "assistant", "content": msg.content}]
-    text = "".join(getattr(b, "text", "") for b in msg.content if getattr(b, "type", "") == "text")
-    return llm.parse_json(text)
+    if msg.stop_reason == "max_tokens":
+        log("  research answer was cut off at the length limit; using what came back")
+    return "".join(texts)
+
+
+def search_json(prompt, max_searches=5, max_tokens=4000):
+    return llm.parse_json(search_text(prompt, max_searches, max_tokens))
 
 
 def due(state):
