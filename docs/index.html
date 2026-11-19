@@ -52,6 +52,7 @@
   .draw { background: var(--tomato); color: #fff; }
   textarea { width: 100%; min-height: 70px; border: 1px solid var(--line); border-radius: 9px; padding: 8px;
              font: inherit; background: #fff; }
+  .place { border-top: 1px dashed var(--line); padding-top: 8px; display: flex; flex-direction: column; gap: 6px; }
   .queued { font-size: 13px; color: var(--berry); font-weight: 600; }
   a { color: var(--berry); }
   .setup { max-width: 560px; margin: 50px auto; background: var(--paper); border: 1px solid var(--line);
@@ -79,6 +80,7 @@ const store = {
 };
 let token = store.get("rory_token");
 let state = null, queued = {}, costs = null, tab = "waiting", editing = null, lastLoad = null, error = "";
+let placing = null, plan = { move: 0, center_h: false, center_v: null, reset: false };   // 📐 position panel
 const sentLocal = {};   // actions sent from this page, until Rory applies them
 
 function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
@@ -114,7 +116,8 @@ async function load() {
     }
     for (const id of Object.keys(sentLocal)) {
       const d = state.designs[id];
-      if (!queued[id] && d && d.status !== sentLocal[id].from) delete sentLocal[id];
+      if (!queued[id] && d && (d.status !== sentLocal[id].from ||
+          (sentLocal[id].action === "place" && JSON.stringify(d.position || {}) !== sentLocal[id].stamp))) delete sentLocal[id];
       else if (Date.now() - sentLocal[id].at > 15 * 60e3) delete sentLocal[id];
     }
     lastLoad = new Date(); error = "";
@@ -122,17 +125,17 @@ async function load() {
   render();
 }
 
-async function send(id, action, text) {
+async function send(id, action, text, extra) {
   const d = state.designs[id];
-  const body = { action, id, text: text || "", at: new Date().toISOString() };
+  const body = { action, id, text: text || "", at: new Date().toISOString(), ...(extra || {}) };
   const json = JSON.stringify(body, null, 1);
   const content = btoa(unescape(encodeURIComponent(json)));
   try {
     await gh(`inbox/${Date.now()}-${id}-${action}.json`, { method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: `dashboard: ${action} ${id}`, content, branch: "main" }) });
-    sentLocal[id] = { action, at: Date.now(), from: d.status };
-    editing = null;
+    sentLocal[id] = { action, at: Date.now(), from: d.status, stamp: JSON.stringify(d.position || {}) };
+    editing = null; placing = null;
   } catch (e) { alert("Couldn't send that to Rory: " + e.message); }
   render();
 }
@@ -148,15 +151,16 @@ function monthCost() {
 
 const LABEL = { pending: "waiting", idea: "idea · not drawn", drawing: "drawing…", approved: "approved · publishing",
                 published: "live on Etsy", rejected: "skipped", replaced: "replaced by a revision" };
-const VERB = { approve: "Approve", reject: "Skip", draw: "Draw it", edit: "Edit", unskip: "Put back" };
+const VERB = { approve: "Approve", reject: "Skip", draw: "Draw it", edit: "Edit", unskip: "Put back", place: "New position" };
 
 function card(d) {
   const id = d.id, c = d.concept || {};
   const words = (d.lines || []).join(" / ");
   const summary = c.idea_summary || (d.illustration_prompt || "").slice(0, 260);
   const pend = queued[id] || (sentLocal[id] && sentLocal[id].action);
+  const v = (d.history || []).length;   // new number after a reposition, so the browser fetches the new preview
   const img = d.files && Object.keys(d.files).length
-    ? `<div class="img" onclick="zoom('${RAW}/designs/${id}/preview.jpg')"><img loading="lazy" src="${RAW}/designs/${id}/preview.jpg" alt="${esc(words || summary)}"></div>`
+    ? `<div class="img" onclick="zoom('${RAW}/designs/${id}/preview.jpg?v=${v}')"><img loading="lazy" src="${RAW}/designs/${id}/preview.jpg?v=${v}" alt="${esc(words || summary)}"></div>`
     : `<div class="img idea">💡 ${esc(summary || "Illustration idea")}</div>`;
   const hist = (d.history || []).map(h => `<li>${when(h.at)} · ${esc(h.event.replace("_", " "))} (${esc(h.by)}${h.via ? ", " + esc(h.via) : ""})${h.note ? ": " + esc(h.note) : ""}</li>`).join("");
   const links = Object.entries(d.listings || {}).map(([k, v]) => `<a href="https://www.etsy.com/listing/${v}" target="_blank" rel="noopener">${esc(k)}</a>`).join(" · ");
@@ -165,6 +169,7 @@ function card(d) {
   else if (d.status === "pending") actions = `
       <button class="act approve" onclick="send('${id}','approve')">✅ Approve</button>
       <button class="act edit" onclick="startEdit('${id}')">✏️ Edit</button>
+      <button class="act edit" onclick="startPlace('${id}')">📐 Position</button>
       <button class="act skip" onclick="send('${id}','reject')">Skip</button>`;
   else if (d.status === "idea") actions = `
       <button class="act draw" onclick="send('${id}','draw')">🎨 Make it</button>
@@ -186,11 +191,49 @@ function card(d) {
       ${links ? `<div class="small">Etsy: ${links}</div>` : ""}
       ${d.files && Object.keys(d.files).length ? `<div class="small"><a href="${RAW}/designs/${id}/master.png" target="_blank" rel="noopener">full artwork</a></div>` : ""}
       ${hist ? `<details><summary>history</summary><ul>${hist}</ul></details>` : ""}
-      ${editBox || `<div class="actions">${actions}</div>`}
+      ${d.position ? `<div class="small">📐 Top edge ${d.position.below_collar_in} in below the collar · ${d.position.width_in} × ${d.position.height_in} in on the tee${d.position.centered_up_down ? " · centered up-and-down" : ""}</div>` : ""}
+      ${placing === id ? placeBox(d) : (editBox || `<div class="actions">${actions}</div>`)}
     </div></div>`;
 }
 
-function startEdit(id) { editing = id; render(); setTimeout(() => { const t = document.getElementById("edit-" + id); t && t.focus(); }, 0); }
+function placeBox(d) {
+  const id = d.id, p = plan;
+  const mv = p.move === 0 ? "no move" : `${Math.abs(p.move)} in ${p.move > 0 ? "lower" : "higher"}`;
+  const now = d.position ? d.position.below_collar_in : null;
+  const after = now == null || p.reset || p.center_v ? "" :
+    ` → top edge about ${(now + p.move).toFixed(1)} in below the collar`;
+  return `<div class="place">
+    <div class="small"><b>Move up or down</b> (whole shirt designs, hoodies and totes)</div>
+    <div class="actions">
+      <button class="act edit" onclick="nudge(-1)">↑ 1 in</button><button class="act edit" onclick="nudge(-0.5)">↑ ½</button>
+      <button class="act edit" onclick="nudge(0.5)">↓ ½</button><button class="act edit" onclick="nudge(1)">↓ 1 in</button>
+    </div>
+    <div class="small">${p.reset ? "Back to the automatic spot" : mv + after}</div>
+    <div class="actions">
+      <button class="act ${p.center_h ? "approve" : "edit"}" onclick="plan.center_h=!plan.center_h;plan.reset=false;render()">↔ Center left-right</button>
+      <button class="act ${p.center_v ? "approve" : "edit"}" onclick="plan.center_v=plan.center_v?null:true;plan.reset=false;render()">↕ Center up-down</button>
+      <button class="act ${p.reset ? "approve" : "edit"}" onclick="plan={move:0,center_h:false,center_v:null,reset:!plan.reset};render()">↺ Automatic</button>
+    </div>
+    <div class="actions">
+      <button class="act approve" onclick="applyPlace('${id}')">Apply</button>
+      <button class="link" onclick="placing=null;render()">cancel</button>
+    </div>
+    <div class="small">Rory redraws the preview in about a minute. Nothing else about the design changes.</div></div>`;
+}
+function startPlace(id) {
+  placing = id; editing = null;
+  const pos = state.designs[id].position || {};
+  plan = { move: 0, center_h: false, center_v: null, reset: false };
+  render();
+}
+function nudge(n) { plan.move = Math.round((plan.move + n) * 2) / 2; plan.reset = false; render(); }
+function applyPlace(id) {
+  const p = plan;
+  if (!p.reset && !p.move && !p.center_h && p.center_v == null) { placing = null; render(); return; }
+  send(id, "place", "", { move: p.move, center_h: p.center_h, center_v: p.center_v, reset: p.reset });
+}
+
+function startEdit(id) { editing = id; placing = null; render(); setTimeout(() => { const t = document.getElementById("edit-" + id); t && t.focus(); }, 0); }
 function zoom(src) { document.getElementById("zoomimg").src = src; document.getElementById("zoom").style.display = "flex"; }
 function setTab(t) { tab = t; editing = null; render(); }
 
@@ -236,7 +279,7 @@ function logout() { store.del("rory_token"); token = null; state = null; render(
 
 render();
 if (token) load();
-setInterval(() => { if (token && !editing) load(); }, 30000);
+setInterval(() => { if (token && !editing && !placing) load(); }, 30000);
 </script>
 </body>
 </html>

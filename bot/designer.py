@@ -80,7 +80,44 @@ def draw_idea(did, state):
     return make_design(concept, state, parent=d.get("parent"), existing=did)
 
 
-def make_design(concept, state, parent=None, reuse_master=None, existing=None):
+def reposition(did, state, move=0.0, center_h=False, center_v=None, reset=False, via="dashboard"):
+    """Move a waiting design on the shirt without changing the artwork: up/down in inches,
+    center left-right, center up-down, or back to the automatic spot. Same design id."""
+    d = state["designs"][did]
+    concept = dict(d.get("concept") or {})
+    lay = dict(concept.get("layout") or {})
+    if reset:
+        lay.update(nudge=0.0, vcenter=False, align="center", top=None)
+    else:
+        lay["nudge"] = float(lay.get("nudge") or 0) + float(move or 0)
+        if center_h:
+            lay["align"] = "center"
+        if center_v is not None:
+            lay["vcenter"] = bool(center_v)
+            if center_v:
+                lay["nudge"] = 0.0 if not move else float(move)
+    concept["layout"] = lay
+    concept["go"] = True
+    note = ("back to the automatic spot" if reset else ", ".join(filter(None, [
+        f"moved {abs(move):g} in {'down' if move > 0 else 'up'}" if move else "",
+        "centered left-right" if center_h else "",
+        ("centered up-and-down" if center_v else "automatic height") if center_v is not None else ""])))
+    audit.record(state, did, "repositioned", note=note, via=via)
+    master = DESIGNS_DIR / did / "master.png"
+    old_msg = d.get("telegram_msg")
+    rec = make_design(concept, state, parent=d.get("parent"),
+                      reuse_master=str(master) if d["kind"] == "illustration" else None,
+                      existing=did, quiet=True)
+    if old_msg:
+        try:
+            telegram.mark(old_msg, f"📐 Repositioned on the dashboard ({note}). Approve it there, "
+                                   "or send /waiting for a fresh copy here.")
+        except Exception:
+            pass
+    return rec
+
+
+def make_design(concept, state, parent=None, reuse_master=None, existing=None, quiet=False):
     kind = concept.get("kind", "text")
     if kind == "illustration" and not reuse_master and not concept.get("go") and not existing:
         return send_idea(concept, state, parent)
@@ -149,6 +186,16 @@ def make_design(concept, state, parent=None, reuse_master=None, existing=None):
     first_color = next((v["color"] for v in (tee_info or {}).get("variants", {}).values() if v["group"] == garment),
                        "White")
     tee_img = firsts.get(tee_key) or firsts.get("crewneck") or firsts.get("hoodie") or render.compose_print_file(apparel, 1800, 2400, "top", layout)
+    try:   # where it sits on the shirt, for the dashboard (print area starts ~2.5 in below the collar)
+        dpi = next((v.get("dpi") for v in (tee_info or {}).get("variants", {}).values() if v.get("dpi")), None) \
+            or tee_img.width / 12
+        b = tee_img.getchannel("A").getbbox()
+        record["position"] = {"below_collar_in": round(b[1] / dpi + 2.5, 1), "width_in": round((b[2] - b[0]) / dpi, 1),
+                              "height_in": round((b[3] - b[1]) / dpi, 1),
+                              "centered_up_down": bool((concept.get("layout") or {}).get("vcenter")),
+                              "moved_in": round(float((concept.get("layout") or {}).get("nudge") or 0), 1)}
+    except Exception:
+        pass
     jpg = render.preview(tee_img, firsts.get("mug"), first_color, record["products"])
     (folder / "preview.jpg").write_bytes(jpg)
     what = " / ".join(record["lines"]) if kind == "text" else (record["illustration_prompt"] or "")[:160]
@@ -164,13 +211,14 @@ def make_design(concept, state, parent=None, reuse_master=None, existing=None):
            "(you approve each proof)\n" if record["personalize"] else "") + "\n"
         "Want changes? Tap ✏️ Edit and type what to change, or just reply to this message."
     )
-    record["telegram_msg"] = telegram.send_design(jpg, caption, did)
+    record["telegram_msg"] = None if quiet else telegram.send_design(jpg, caption, did)
     if existing:
         record["created"] = state["designs"][did].get("created", record["created"])
         record["history"] = state["designs"][did].get("history", [])
         state["designs"][did] = record
-        audit.record(state, did, "drawn", via="automatic")
-        log(f"  drew {did}")
+        if not quiet:
+            audit.record(state, did, "drawn", via="automatic")
+            log(f"  drew {did}")
         return record
     state["designs"][did] = record
     if parent:

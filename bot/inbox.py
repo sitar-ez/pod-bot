@@ -63,6 +63,12 @@ def apply(state, a):
             return "empty edit"
         designer.edit_design(did, text, state, via="dashboard")
         return f"{did} edited"
+    if action == "place":
+        if d["status"] != "pending":
+            return f"{did} is {d['status']}, can't move it"
+        designer.reposition(did, state, move=float(a.get("move") or 0), center_h=bool(a.get("center_h")),
+                            center_v=a.get("center_v"), reset=bool(a.get("reset")))
+        return f"{did} repositioned"
     if action == "unskip":
         if d["status"] != "rejected":
             return f"{did} is {d['status']}"

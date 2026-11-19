@@ -58,8 +58,9 @@ def compose(key, src, v, layout, state):
     cfg = settings.PRODUCTS[key]
     sf, down = overrides(key, state)
     dpi = v.get("dpi") or 150
+    nudge = render.layout_of(layout)["nudge"] if cfg["fit"] in ("top", "tote") else 0.0
     return render.compose_print_file(src, v["w"], v["h"], cfg["fit"], layout, cfg.get("max_height", 0.62),
-                                     cfg.get("scale", 1.0) * sf, shift=(down * dpi) / v["h"])
+                                     cfg.get("scale", 1.0) * sf, shift=((down + nudge) * dpi) / v["h"])
 
 
 def group_for(key, garment):

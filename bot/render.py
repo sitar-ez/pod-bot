@@ -37,7 +37,10 @@ def _font_for_width(path, text, target_w, max_h):
     return ImageFont.truetype(str(path), best)
 
 
-DEFAULT_LAYOUT = {"width": 0.78, "top": None, "line_gap": 1.0, "align": "center", "line_scale": None}
+DEFAULT_LAYOUT = {"width": 0.78, "top": None, "line_gap": 1.0, "align": "center", "line_scale": None,
+                  "nudge": 0.0, "vcenter": False}
+# nudge: Daniel's move from the dashboard, in inches (+ = lower on the shirt).
+# vcenter: center the design up-and-down in the print area instead of the automatic chest spot.
 # Printful's print area starts about 2.5 in below the collar and is 16 in tall.
 TOP_FULL = 0.28    # full-size designs: top edge about 7 in below the collar (Daniel, Nov 17: lower)
 TOP_SMALL = 0.40   # small designs: top edge about 9 in below the collar (Daniel's rule)
@@ -56,6 +59,8 @@ def layout_of(d):
     lay["line_scale"] = [min(1.0, max(0.25, float(x))) for x in ls] if isinstance(ls, list) and ls else None
     if lay["align"] not in ("center", "left", "right"):
         lay["align"] = "center"
+    lay["nudge"] = min(10.0, max(-10.0, float(lay.get("nudge") or 0)))
+    lay["vcenter"] = bool(lay.get("vcenter"))
     return lay
 
 
@@ -170,7 +175,9 @@ def compose_print_file(master, w, h, fit, layout=None, max_height=0.62, scale=1.
             d = _fit(master, min(w * 0.98, d.width * scale), min(h * 0.9, d.height * scale))
         x = {"left": int(w * 0.05), "right": int(w * 0.95 - d.width)}.get(lay["align"], (w - d.width) // 2)
         top = lay["top"]
-        if top is None:   # automatic: small designs sit mid-chest, big ones start near the collar
+        if lay["vcenter"]:   # Daniel: centered up-and-down in the print area
+            top = max(0.0, (h - d.height) / 2 / h)
+        elif top is None:   # automatic: small designs sit mid-chest, big ones start near the collar
             small_top = TOP_SMALL if max_height > 0.55 else 0.22   # hoodies: stay above the pocket
             top = small_top if (d.width < w * SMALL_WIDTH and d.height < h * SMALL_HEIGHT) else TOP_FULL
             top = min(top, max(0.0, (h * 0.9 - d.height) / h))
