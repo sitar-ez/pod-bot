@@ -4,6 +4,9 @@ Every design Rory proposes waits for Daniel's decision on Telegram. Nothing is l
 
 Photo basis for every listing: Printful mockups of Daniel's original design on a standard base product (Etsy's production-partner stock-mockup exception).
 
+## d261120-02 · idea · 
+- 2026-11-20 18:08 UTC · 💡 Rory proposed (Rory (bot), automatic): Ikea grandma-hobby jam-making collection; analog hobbies and canning season pantry pride
+
 ## d261120-01 · pending · Every hen has a name, / and an opinion
 - 2026-11-20 16:52 UTC · 🔁 Revised version made (Rory (bot), automatic): revision of d261118-01
 
@@ -59,9 +62,10 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 - 2026-11-17 15:28 UTC · 💡 Rory proposed (Rory (bot), automatic): analog hobbies, going offline, screen-free time
 - 2026-11-20 16:52 UTC · 📐 Daniel moved or resized it (Daniel, dashboard): moved 1 in down
 
-## d261117-06 · approved · Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyar
+## d261117-06 · published · Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyar
 - 2026-11-17 14:44 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard botany and beekeeping as the new offline hobby
 - 2026-11-20 16:51 UTC · ✅ Daniel approved (Daniel, dashboard)
+- 2026-11-20 18:07 UTC · 🛍️ Listed on Etsy (Rory (bot), automatic) · tee_bc etsy.com/listing/4621904682, hoodie etsy.com/listing/4621905432, mug etsy.com/listing/4621898743, sticker etsy.com/listing/4621906296
 
 ## d261117-05 · rejected · FAMILY BEACH TRIP / SAME SPOT EVERY YEAR
 - 2026-11-17 14:43 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261117-02

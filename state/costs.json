@@ -47,6 +47,13 @@
     "tokens_out": 2406,
     "usd": 0.04401
    },
+   "Claude: make new designs": {
+    "calls": 2,
+    "searches": 0,
+    "tokens_in": 19731,
+    "tokens_out": 4309,
+    "usd": 0.08255
+   },
    "Claude: research insider facts (weekly)": {
     "calls": 1,
     "searches": 8,
