@@ -1132,7 +1132,7 @@
     "text": 12
   },
   "dashboard": {
-    "last_applied": "2026-11-20T16:50:25.360576+00:00"
+    "last_applied": "2026-11-20T16:50:56.937434+00:00"
   },
   "designs": {
     "d261116-01": {
@@ -2060,6 +2060,7 @@
         "accent_line": 1,
         "description": "For the person with a closet full of yarn, seeds, paints and half-finished projects. A cheerful way to say that hobbies are a real job, even if they don't pay. A good gift for anyone who is always starting something new.",
         "garment": "light",
+        "go": true,
         "illustration_prompt": "",
         "ink_dark": "#2F5D50",
         "ink_light": "#F2C879",
@@ -2067,7 +2068,11 @@
         "layout": {
           "align": "center",
           "line_gap": 0.95,
+          "line_scale": null,
+          "nudge": 1.5,
+          "size": 1.0,
           "top": null,
+          "vcenter": false,
           "width": 0.74
         },
         "lines": [
@@ -2129,17 +2134,22 @@
           "10164": "designs/d261117-03/print_sticker_184.png",
           "10165": "designs/d261117-03/print_sticker_185.png"
         },
-        "tee_bc": {
-          "4011": "designs/d261117-03/print_tee_1.png",
-          "4012": "designs/d261117-03/print_tee_1.png",
-          "4013": "designs/d261117-03/print_tee_1.png",
-          "4014": "designs/d261117-03/print_tee_1.png",
-          "4015": "designs/d261117-03/print_tee_1.png",
-          "6948": "designs/d261117-03/print_tee_1.png",
-          "6949": "designs/d261117-03/print_tee_1.png",
-          "6950": "designs/d261117-03/print_tee_1.png",
-          "6951": "designs/d261117-03/print_tee_1.png",
-          "6952": "designs/d261117-03/print_tee_1.png"
+        "tee": {
+          "15166": "designs/d261117-03/print_tee_1.png",
+          "15167": "designs/d261117-03/print_tee_1.png",
+          "15168": "designs/d261117-03/print_tee_1.png",
+          "15169": "designs/d261117-03/print_tee_1.png",
+          "15170": "designs/d261117-03/print_tee_1.png",
+          "16523": "designs/d261117-03/print_tee_1.png",
+          "16524": "designs/d261117-03/print_tee_1.png",
+          "16525": "designs/d261117-03/print_tee_1.png",
+          "16526": "designs/d261117-03/print_tee_1.png",
+          "16527": "designs/d261117-03/print_tee_1.png",
+          "21562": "designs/d261117-03/print_tee_1.png",
+          "21563": "designs/d261117-03/print_tee_1.png",
+          "21564": "designs/d261117-03/print_tee_1.png",
+          "21565": "designs/d261117-03/print_tee_1.png",
+          "21566": "designs/d261117-03/print_tee_1.png"
         }
       },
       "garment": "light",
@@ -2150,6 +2160,13 @@
           "event": "proposed",
           "note": "revision of d261116-03",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-20T16:50:52.824196+00:00",
+          "by": "Daniel",
+          "event": "repositioned",
+          "note": "moved 1.5 in down",
+          "via": "dashboard"
         }
       ],
       "id": "d261117-03",
@@ -2161,8 +2178,17 @@
       ],
       "listings": {},
       "parent": "d261116-03",
+      "personalize": null,
+      "position": {
+        "below_collar_in": 8.5,
+        "centered_up_down": false,
+        "height_in": 2.4,
+        "moved_in": 1.5,
+        "size": 1.0,
+        "width_in": 7.9
+      },
       "products": [
-        "tee_bc",
+        "tee",
         "hoodie",
         "mug",
         "sticker"
@@ -2183,13 +2209,12 @@
         "maker gift",
         "hobbyist shirt"
       ],
-      "telegram_msg": 28,
+      "telegram_msg": null,
       "titles": {
         "hoodie": "Professional Hobbyist Hoodie, Cozy Hobby Lover Sweatshirt, Gift for Crafters and Makers",
         "mug": "Professional Hobbyist Mug, Funny Hobby Lover Coffee Cup, Crafter Gift, Cozy Hobbies",
         "sticker": "Professional Hobbyist Sticker, Hobby Lover Gift, Laptop Water Bottle Decal",
-        "tee": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker",
-        "tee_bc": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker"
+        "tee": "Professional Hobbyist Shirt, Funny Hobby Lover Gift, Crafty Cozy Hobbies Tee, Gift for Crafter Gardener Baker"
       },
       "trend_signal": "Hobby-maxxing, cozy 'grandma hobbies' and the offline hobby boom",
       "why_it_sells": "Crafters, gardeners, bird-watchers and bakers buy it as a proud, funny label for their many hobbies, and friends buy it as a gift for the person who always has a new one."
@@ -2384,6 +2409,7 @@
         "why_it_sells": "Families and friend groups buy matching tees for their yearly beach trip, and the retro rounded lettering makes it feel like a keepsake."
       },
       "created": "2026-11-17T14:43:33.809383+00:00",
+      "decided": "2026-11-20T16:50:56.198804+00:00",
       "description": "A matching tee for the family that goes back to the same beach every year. Warm cream retro lettering on deep navy. Wear it on the sand or at home, whenever the trip comes to mind.",
       "files": {
         "hoodie": {
@@ -2428,6 +2454,12 @@
           "event": "proposed",
           "note": "revision of d261117-02",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-20T16:50:56.198814+00:00",
+          "by": "Daniel",
+          "event": "skipped",
+          "via": "dashboard"
         }
       ],
       "id": "d261117-05",
@@ -2445,7 +2477,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "rejected",
       "tags": [
         "family beach trip",
         "matching family tee",
