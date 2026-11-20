@@ -83,6 +83,8 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 
 ## d261116-02 · pending · Cat in Yarn Ball Shirt, Knitting Cat Lover Tee, Crochet Gift
 - 2026-11-16 03:49 UTC · 💡 Rory proposed (Rory (bot), automatic): Cozy grandma hobbies and pets-as-family trends
+- 2026-11-20 16:50 UTC · 📐 Daniel moved or resized it (Daniel, dashboard): 14% smaller
 
-## d261116-01 · pending · PHONE DOWN / hobby on
+## d261116-01 · rejected · PHONE DOWN / hobby on
 - 2026-11-16 03:48 UTC · 💡 Rory proposed (Rory (bot), automatic): Offline hobbies and screen-free self-care trend
+- 2026-11-20 16:50 UTC · ❌ Daniel skipped (Daniel, dashboard)
