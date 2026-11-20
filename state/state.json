@@ -1132,7 +1132,7 @@
     "text": 12
   },
   "dashboard": {
-    "last_applied": "2026-11-20T16:52:43.305292+00:00"
+    "last_applied": "2026-11-20T16:53:14.557202+00:00"
   },
   "designs": {
     "d261116-01": {
@@ -2069,7 +2069,7 @@
           "align": "center",
           "line_gap": 0.95,
           "line_scale": null,
-          "nudge": 1.5,
+          "nudge": 2.5,
           "size": 1.0,
           "top": null,
           "vcenter": false,
@@ -2167,6 +2167,13 @@
           "event": "repositioned",
           "note": "moved 1.5 in down",
           "via": "dashboard"
+        },
+        {
+          "at": "2026-11-20T16:53:11.297614+00:00",
+          "by": "Daniel",
+          "event": "repositioned",
+          "note": "moved 1 in down",
+          "via": "dashboard"
         }
       ],
       "id": "d261117-03",
@@ -2180,10 +2187,10 @@
       "parent": "d261116-03",
       "personalize": null,
       "position": {
-        "below_collar_in": 8.5,
+        "below_collar_in": 9.5,
         "centered_up_down": false,
         "height_in": 2.4,
-        "moved_in": 1.5,
+        "moved_in": 2.5,
         "size": 1.0,
         "width_in": 7.9
       },
@@ -2270,6 +2277,7 @@
         "why_it_sells": "Introverts and homebodies of every age buy it as a gentle, funny statement about the kind of get-togethers they actually enjoy."
       },
       "created": "2026-11-17T14:43:30.863819+00:00",
+      "decided": "2026-11-20T16:53:13.859981+00:00",
       "description": "For anyone who would rather have a quiet dinner with two friends than a crowded party. Bold navy lettering on a soft heather grey tee. A little gift for the homebody in your life, or for yourself.",
       "files": {
         "hoodie": {
@@ -2314,6 +2322,12 @@
           "event": "proposed",
           "note": "revision of d261117-01",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-20T16:53:13.859993+00:00",
+          "by": "Daniel",
+          "event": "skipped",
+          "via": "dashboard"
         }
       ],
       "id": "d261117-04",
@@ -2331,7 +2345,7 @@
         "mug",
         "sticker"
       ],
-      "status": "pending",
+      "status": "rejected",
       "tags": [
         "introvert shirt",
         "homebody gift",

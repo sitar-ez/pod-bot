@@ -67,12 +67,14 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 - 2026-11-17 14:43 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261117-02
 - 2026-11-20 16:50 UTC · ❌ Daniel skipped (Daniel, dashboard)
 
-## d261117-04 · pending · SMALL PLANS / ARE THE BEST PLANS
+## d261117-04 · rejected · SMALL PLANS / ARE THE BEST PLANS
 - 2026-11-17 14:43 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261117-01
+- 2026-11-20 16:53 UTC · ❌ Daniel skipped (Daniel, dashboard)
 
 ## d261117-03 · pending · PROFESSIONAL / hobbyist
 - 2026-11-17 14:43 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261116-03
 - 2026-11-20 16:50 UTC · 📐 Daniel moved or resized it (Daniel, dashboard): moved 1.5 in down
+- 2026-11-20 16:53 UTC · 📐 Daniel moved or resized it (Daniel, dashboard): moved 1 in down
 
 ## d261117-02 · replaced · FAMILY BEACH TRIP / SAME SPOT EVERY YEAR
 - 2026-11-17 14:02 UTC · 💡 Rory proposed (Rory (bot), automatic): Family travel and group trips, nostalgia for retro type
