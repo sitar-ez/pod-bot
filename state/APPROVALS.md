@@ -4,8 +4,13 @@ Every design Rory proposes waits for Daniel's decision on Telegram. Nothing is l
 
 Photo basis for every listing: Printful mockups of Daniel's original design on a standard base product (Etsy's production-partner stock-mockup exception).
 
-## d261118-01 · pending · Every hen has a name, / and an opinion
+## d261120-01 · pending · Every hen has a name, / and an opinion
+- 2026-11-20 16:52 UTC · 🔁 Revised version made (Rory (bot), automatic): revision of d261118-01
+
+## d261118-01 · replaced · Every hen has a name, / and an opinion
 - 2026-11-18 13:04 UTC · 🔁 Revised version made (Rory (bot), automatic): revision of d261117-11
+- 2026-11-20 16:52 UTC · ✏️ Daniel asked for changes (Daniel, dashboard): put three hens in nests in the usual style above this text
+- 2026-11-20 16:52 UTC · ↪️ Replaced by a revision (Rory (bot), automatic): replaced by d261120-01
 
 ## d261117-17 · rejected · Pull them / when they look underdone / cookie season
 - 2026-11-17 19:05 UTC · 💡 Rory proposed (Rory (bot), automatic): Christmas baking and cozy kitchen gifts, the old baker's habit of pulling cookies early
@@ -52,6 +57,7 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 
 ## d261117-07 · pending · GONE OUTSIDE / back by dinner
 - 2026-11-17 15:28 UTC · 💡 Rory proposed (Rory (bot), automatic): analog hobbies, going offline, screen-free time
+- 2026-11-20 16:52 UTC · 📐 Daniel moved or resized it (Daniel, dashboard): moved 1 in down
 
 ## d261117-06 · approved · Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyar
 - 2026-11-17 14:44 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard botany and beekeeping as the new offline hobby

@@ -40,6 +40,13 @@
    }
   },
   "2026-11-20": {
+   "Claude: Telegram replies": {
+    "calls": 2,
+    "searches": 0,
+    "tokens_in": 9971,
+    "tokens_out": 2406,
+    "usd": 0.04401
+   },
    "Claude: research insider facts (weekly)": {
     "calls": 1,
     "searches": 8,

@@ -1132,7 +1132,7 @@
     "text": 12
   },
   "dashboard": {
-    "last_applied": "2026-11-20T16:51:26.818278+00:00"
+    "last_applied": "2026-11-20T16:52:43.305292+00:00"
   },
   "designs": {
     "d261116-01": {
@@ -2649,6 +2649,7 @@
         "accent_line": null,
         "description": "A simple, calm shirt for people who would rather be out in the fresh air. Deep navy serif lettering is made to read clearly on heather grey. Good for hikers, gardeners and anyone who is taking a break from screens.",
         "garment": "light",
+        "go": true,
         "illustration_prompt": "",
         "ink_dark": "#1a2744",
         "ink_light": "#f5f3ed",
@@ -2656,7 +2657,11 @@
         "layout": {
           "align": "center",
           "line_gap": 1.0,
+          "line_scale": null,
+          "nudge": 1.0,
+          "size": 1.0,
           "top": null,
+          "vcenter": false,
           "width": 0.62
         },
         "lines": [
@@ -2718,17 +2723,22 @@
           "10164": "designs/d261117-07/print_sticker_184.png",
           "10165": "designs/d261117-07/print_sticker_185.png"
         },
-        "tee_bc": {
-          "4011": "designs/d261117-07/print_tee_1.png",
-          "4012": "designs/d261117-07/print_tee_1.png",
-          "4013": "designs/d261117-07/print_tee_1.png",
-          "4014": "designs/d261117-07/print_tee_1.png",
-          "4015": "designs/d261117-07/print_tee_1.png",
-          "6948": "designs/d261117-07/print_tee_1.png",
-          "6949": "designs/d261117-07/print_tee_1.png",
-          "6950": "designs/d261117-07/print_tee_1.png",
-          "6951": "designs/d261117-07/print_tee_1.png",
-          "6952": "designs/d261117-07/print_tee_1.png"
+        "tee": {
+          "15166": "designs/d261117-07/print_tee_1.png",
+          "15167": "designs/d261117-07/print_tee_1.png",
+          "15168": "designs/d261117-07/print_tee_1.png",
+          "15169": "designs/d261117-07/print_tee_1.png",
+          "15170": "designs/d261117-07/print_tee_1.png",
+          "16523": "designs/d261117-07/print_tee_1.png",
+          "16524": "designs/d261117-07/print_tee_1.png",
+          "16525": "designs/d261117-07/print_tee_1.png",
+          "16526": "designs/d261117-07/print_tee_1.png",
+          "16527": "designs/d261117-07/print_tee_1.png",
+          "21562": "designs/d261117-07/print_tee_1.png",
+          "21563": "designs/d261117-07/print_tee_1.png",
+          "21564": "designs/d261117-07/print_tee_1.png",
+          "21565": "designs/d261117-07/print_tee_1.png",
+          "21566": "designs/d261117-07/print_tee_1.png"
         }
       },
       "garment": "light",
@@ -2739,6 +2749,13 @@
           "event": "proposed",
           "note": "analog hobbies, going offline, screen-free time",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-20T16:52:40.116430+00:00",
+          "by": "Daniel",
+          "event": "repositioned",
+          "note": "moved 1 in down",
+          "via": "dashboard"
         }
       ],
       "id": "d261117-07",
@@ -2750,8 +2767,17 @@
       ],
       "listings": {},
       "parent": null,
+      "personalize": null,
+      "position": {
+        "below_collar_in": 9.9,
+        "centered_up_down": false,
+        "height_in": 1.9,
+        "moved_in": 1.0,
+        "size": 1.0,
+        "width_in": 6.7
+      },
       "products": [
-        "tee_bc",
+        "tee",
         "hoodie",
         "mug",
         "sticker"
@@ -2772,13 +2798,12 @@
         "fresh air shirt",
         "navy on grey tee"
       ],
-      "telegram_msg": 37,
+      "telegram_msg": null,
       "titles": {
         "hoodie": "Gone Outside Hoodie, Back By Dinner Sweatshirt, Nature Lover Gift, Hiker Hoodie, Minimalist Outdoors Pullover",
         "mug": "Gone Outside Mug, Back By Dinner Coffee Cup, Nature Lover Gift, Hiker Mug, Outdoorsy Gift",
         "sticker": "Gone Outside Sticker, Back By Dinner Decal, Nature Lover Sticker, Hiking Water Bottle Sticker, Outdoors Laptop Sticker",
-        "tee": "Gone Outside Shirt, Back By Dinner Tee, Nature Lover Gift, Hiking Shirt, Minimalist Outdoors Tee, Screen Free Gift, Navy on Heather Grey",
-        "tee_bc": "Gone Outside Shirt, Back By Dinner Tee, Nature Lover Gift, Hiking Shirt, Minimalist Outdoors Tee, Screen Free Gift, Navy on Heather Grey"
+        "tee": "Gone Outside Shirt, Back By Dinner Tee, Nature Lover Gift, Hiking Shirt, Minimalist Outdoors Tee, Screen Free Gift, Navy on Heather Grey"
       },
       "trend_signal": "analog hobbies, going offline, screen-free time",
       "why_it_sells": "Hikers, gardeners and anyone trying to spend less time on their phone buy it as a quiet, minimal statement shirt."
@@ -4400,6 +4425,20 @@
           "event": "revised",
           "note": "revision of d261117-11",
           "via": "automatic"
+        },
+        {
+          "at": "2026-11-20T16:52:20.022687+00:00",
+          "by": "Daniel",
+          "event": "edit_requested",
+          "note": "put three hens in nests in the usual style above this text",
+          "via": "dashboard"
+        },
+        {
+          "at": "2026-11-20T16:52:40.113488+00:00",
+          "by": "Rory (bot)",
+          "event": "replaced",
+          "note": "replaced by d261120-01",
+          "via": "automatic"
         }
       ],
       "id": "d261118-01",
@@ -4414,6 +4453,147 @@
       "personalize": null,
       "products": [
         "tee_bc",
+        "hoodie",
+        "mug",
+        "sticker"
+      ],
+      "status": "replaced",
+      "tags": [
+        "chicken lover gift",
+        "backyard hens",
+        "gift for mom",
+        "homestead mama",
+        "chicken mom shirt",
+        "hen keeper",
+        "gift for grandma",
+        "homesteading",
+        "cottagecore",
+        "farmhouse kitchen",
+        "coop life",
+        "grandma gift",
+        "chicken mama"
+      ],
+      "telegram_msg": 70,
+      "titles": {
+        "hoodie": "Backyard Hens Hoodie, Chicken Lover Gift for Mom, Homestead Mama Sweatshirt, Cottagecore Coop Life, Gift for Grandma",
+        "mug": "Chicken Lover Mug, Every Hen Has a Name, Gift for Grandma, Homestead Mama Coffee Cup, Farmhouse Kitchen, Backyard Hens",
+        "sticker": "Backyard Hens Sticker, Chicken Lover Gift, Every Hen Has a Name, Homesteading Decal, Cottagecore Coop Sticker",
+        "tee_bc": "Backyard Chicken Shirt, Chicken Lover Gift, Gift for Mom, Homestead Mama Tee, Hen Keeper, Farmhouse Kitchen Gift, Cottagecore"
+      },
+      "trend_signal": "backyard hens, Pinterest backyard hobby trend, egg prices",
+      "why_it_sells": "Jenny and the daughters who shop for the family's hen keeper see their own coop in three nesting hens with real personalities, paired with a gentle, true-to-life joke about named chickens."
+    },
+    "d261120-01": {
+      "concept": {
+        "accent_line": 1,
+        "description": "For the one who knows every hen by name and has a story about each of them. Three hens settle into their nests, a broody buff Orpington, a sharp-eyed barred Plymouth Rock and a proud speckled Sussex, above a soft, handwritten-style line in deep brown on a light shirt. A thoughtful gift for the family's chicken keeper.",
+        "garment": "light",
+        "illustration_prompt": "Hand-drawn folk-art illustration in the style of a vintage recipe-card vignette: three plump hens, each sitting on her own straw nest, side by side in a row of simple wooden nesting boxes, the whole scene clearly sitting in the upper part of the image. Give each hen her own personality and true breed look: a fluffy golden-buff Orpington with a puffed-up broody expression, a black-and-white barred Plymouth Rock with a sharp sideways glance, and a speckled Sussex with her head tucked proudly. Show a few tufts of straw spilling over the nest edges and one egg peeking out beside one hen. Warm limited palette: deep brown #3B2A20 linework, muted terracotta, mustard, and soft sage green accents, with a little cream. Gentle gouache and ink texture, slightly imperfect hand-drawn lines, cozy and kind, nothing crowded. Isolated on a plain transparent or plain white background, no border, no frame, no shadows beyond a light ground line. Centered composition, wider than tall, with a clear band of empty space below the nesting boxes for a line of text. Absolutely no text, letters, numbers, logos or signs anywhere in the image.",
+        "ink_dark": "#3B2A20",
+        "ink_light": "#F3EBD8",
+        "kind": "text",
+        "layout": {
+          "align": "center",
+          "line_gap": 1.0,
+          "line_scale": [
+            1.0,
+            0.8
+          ],
+          "nudge": 0.0,
+          "size": 1.0,
+          "top": null,
+          "vcenter": false,
+          "width": 0.7
+        },
+        "lines": [
+          "Every hen has a name,",
+          "and an opinion"
+        ],
+        "products": [
+          "tee_bc",
+          "hoodie",
+          "mug",
+          "sticker"
+        ],
+        "style": "recipe_card",
+        "tags": [
+          "chicken lover gift",
+          "backyard hens",
+          "gift for mom",
+          "homestead mama",
+          "chicken mom shirt",
+          "hen keeper",
+          "gift for grandma",
+          "homesteading",
+          "cottagecore",
+          "farmhouse kitchen",
+          "coop life",
+          "grandma gift",
+          "chicken mama"
+        ],
+        "titles": {
+          "hoodie": "Backyard Hens Hoodie, Chicken Lover Gift for Mom, Homestead Mama Sweatshirt, Cottagecore Coop Life, Gift for Grandma",
+          "mug": "Chicken Lover Mug, Every Hen Has a Name, Gift for Grandma, Homestead Mama Coffee Cup, Farmhouse Kitchen, Backyard Hens",
+          "sticker": "Backyard Hens Sticker, Chicken Lover Gift, Every Hen Has a Name, Homesteading Decal, Cottagecore Coop Sticker",
+          "tee_bc": "Backyard Chicken Shirt, Chicken Lover Gift, Gift for Mom, Homestead Mama Tee, Hen Keeper, Farmhouse Kitchen Gift, Cottagecore"
+        },
+        "trend_signal": "backyard hens, Pinterest backyard hobby trend, egg prices",
+        "why_it_sells": "Jenny and the daughters who shop for the family's hen keeper see their own coop in three nesting hens with real personalities, paired with a gentle, true-to-life joke about named chickens."
+      },
+      "created": "2026-11-20T16:52:38.653981+00:00",
+      "description": "For the one who knows every hen by name and has a story about each of them. Three hens settle into their nests, a broody buff Orpington, a sharp-eyed barred Plymouth Rock and a proud speckled Sussex, above a soft, handwritten-style line in deep brown on a light shirt. A thoughtful gift for the family's chicken keeper.",
+      "files": {
+        "hoodie": {
+          "5522": "designs/d261120-01/print_hoodie_139.png",
+          "5523": "designs/d261120-01/print_hoodie_139.png",
+          "5524": "designs/d261120-01/print_hoodie_139.png",
+          "5525": "designs/d261120-01/print_hoodie_139.png",
+          "5526": "designs/d261120-01/print_hoodie_139.png",
+          "5610": "designs/d261120-01/print_hoodie_139.png",
+          "5611": "designs/d261120-01/print_hoodie_139.png",
+          "5612": "designs/d261120-01/print_hoodie_139.png",
+          "5613": "designs/d261120-01/print_hoodie_139.png",
+          "5614": "designs/d261120-01/print_hoodie_139.png"
+        },
+        "mug": {
+          "1320": "designs/d261120-01/print_mug_43.png",
+          "4830": "designs/d261120-01/print_mug_44.png"
+        },
+        "sticker": {
+          "10163": "designs/d261120-01/print_sticker_183.png",
+          "10164": "designs/d261120-01/print_sticker_184.png",
+          "10165": "designs/d261120-01/print_sticker_185.png"
+        }
+      },
+      "garment": "light",
+      "history": [
+        {
+          "at": "2026-11-20T16:52:40.113412+00:00",
+          "by": "Rory (bot)",
+          "event": "revised",
+          "note": "revision of d261118-01",
+          "via": "automatic"
+        }
+      ],
+      "id": "d261120-01",
+      "illustration_prompt": "Hand-drawn folk-art illustration in the style of a vintage recipe-card vignette: three plump hens, each sitting on her own straw nest, side by side in a row of simple wooden nesting boxes, the whole scene clearly sitting in the upper part of the image. Give each hen her own personality and true breed look: a fluffy golden-buff Orpington with a puffed-up broody expression, a black-and-white barred Plymouth Rock with a sharp sideways glance, and a speckled Sussex with her head tucked proudly. Show a few tufts of straw spilling over the nest edges and one egg peeking out beside one hen. Warm limited palette: deep brown #3B2A20 linework, muted terracotta, mustard, and soft sage green accents, with a little cream. Gentle gouache and ink texture, slightly imperfect hand-drawn lines, cozy and kind, nothing crowded. Isolated on a plain transparent or plain white background, no border, no frame, no shadows beyond a light ground line. Centered composition, wider than tall, with a clear band of empty space below the nesting boxes for a line of text. Absolutely no text, letters, numbers, logos or signs anywhere in the image.",
+      "kind": "text",
+      "lines": [
+        "Every hen has a name,",
+        "and an opinion"
+      ],
+      "listings": {},
+      "parent": "d261118-01",
+      "personalize": null,
+      "position": {
+        "below_collar_in": 5.9,
+        "centered_up_down": false,
+        "height_in": 2.1,
+        "moved_in": 0.0,
+        "size": 1.0,
+        "width_in": 9.2
+      },
+      "products": [
         "hoodie",
         "mug",
         "sticker"
@@ -4434,7 +4614,7 @@
         "grandma gift",
         "chicken mama"
       ],
-      "telegram_msg": 70,
+      "telegram_msg": 96,
       "titles": {
         "hoodie": "Backyard Hens Hoodie, Chicken Lover Gift for Mom, Homestead Mama Sweatshirt, Cottagecore Coop Life, Gift for Grandma",
         "mug": "Chicken Lover Mug, Every Hen Has a Name, Gift for Grandma, Homestead Mama Coffee Cup, Farmhouse Kitchen, Backyard Hens",
