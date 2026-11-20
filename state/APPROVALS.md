@@ -39,11 +39,13 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 - 2026-11-18 13:03 UTC · ✏️ Daniel asked for changes (Daniel, Telegram): For the “every hen” design, create an image with three hens sitting on nests and put the text under it
 - 2026-11-18 13:04 UTC · ↪️ Replaced by a revision (Rory (bot), automatic): replaced by d261118-01
 
-## d261117-10 · pending · Nana's / Small Batch / jams & preserves
+## d261117-10 · approved · Nana's / Small Batch / jams & preserves
 - 2026-11-17 16:54 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261117-08
+- 2026-11-20 16:51 UTC · ✅ Daniel approved (Daniel, dashboard)
 
-## d261117-09 · pending · EGG MONEY / goes back to the hens
+## d261117-09 · rejected · EGG MONEY / goes back to the hens
 - 2026-11-17 16:13 UTC · 💡 Rory proposed (Rory (bot), automatic): Egg money and backyard chicken keeping; minimal bold text on heather grey
+- 2026-11-20 16:51 UTC · ❌ Daniel skipped (Daniel, dashboard)
 
 ## d261117-08 · replaced · NANA'S / SMALL BATCH / jams & preserves
 - 2026-11-17 16:13 UTC · 💡 Rory proposed (Rory (bot), automatic): Grandma hobbies and jam-making revival, canning season
@@ -51,8 +53,9 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 ## d261117-07 · pending · GONE OUTSIDE / back by dinner
 - 2026-11-17 15:28 UTC · 💡 Rory proposed (Rory (bot), automatic): analog hobbies, going offline, screen-free time
 
-## d261117-06 · pending · Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyar
+## d261117-06 · approved · Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyar
 - 2026-11-17 14:44 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard botany and beekeeping as the new offline hobby
+- 2026-11-20 16:51 UTC · ✅ Daniel approved (Daniel, dashboard)
 
 ## d261117-05 · rejected · FAMILY BEACH TRIP / SAME SPOT EVERY YEAR
 - 2026-11-17 14:43 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261117-02
