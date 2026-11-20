@@ -47,9 +47,10 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 - 2026-11-18 13:03 UTC · ✏️ Daniel asked for changes (Daniel, Telegram): For the “every hen” design, create an image with three hens sitting on nests and put the text under it
 - 2026-11-18 13:04 UTC · ↪️ Replaced by a revision (Rory (bot), automatic): replaced by d261118-01
 
-## d261117-10 · approved · Nana's / Small Batch / jams & preserves
+## d261117-10 · published · Nana's / Small Batch / jams & preserves
 - 2026-11-17 16:54 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261117-08
 - 2026-11-20 16:51 UTC · ✅ Daniel approved (Daniel, dashboard)
+- 2026-11-20 20:11 UTC · 🛍️ Listed on Etsy (Rory (bot), automatic) · tee_bc etsy.com/listing/4621989046, hoodie etsy.com/listing/4621989756, mug etsy.com/listing/4621983599, sticker etsy.com/listing/4621983769
 
 ## d261117-09 · rejected · EGG MONEY / goes back to the hens
 - 2026-11-17 16:13 UTC · 💡 Rory proposed (Rory (bot), automatic): Egg money and backyard chicken keeping; minimal bold text on heather grey
@@ -65,7 +66,7 @@ Photo basis for every listing: Printful mockups of Daniel's original design on a
 ## d261117-06 · published · Beekeeper Shirt, Bee Hive Tee, Honey Bee Lover Gift, Backyar
 - 2026-11-17 14:44 UTC · 💡 Rory proposed (Rory (bot), automatic): backyard botany and beekeeping as the new offline hobby
 - 2026-11-20 16:51 UTC · ✅ Daniel approved (Daniel, dashboard)
-- 2026-11-20 18:07 UTC · 🛍️ Listed on Etsy (Rory (bot), automatic) · tee_bc etsy.com/listing/4621904682, hoodie etsy.com/listing/4621905432, mug etsy.com/listing/4621898743, sticker etsy.com/listing/4621906296
+- 2026-11-20 18:07 UTC · 🛍️ Listed on Etsy (Rory (bot), automatic) · hoodie etsy.com/listing/4621905432, mug etsy.com/listing/4621898743, sticker etsy.com/listing/4621906296, tee_bc etsy.com/listing/4621904682
 
 ## d261117-05 · rejected · FAMILY BEACH TRIP / SAME SPOT EVERY YEAR
 - 2026-11-17 14:43 UTC · 💡 Rory proposed (Rory (bot), automatic): revision of d261117-02
