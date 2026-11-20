@@ -35,7 +35,12 @@
       "\ud83d\udcd6 Make two color versions of every design. For dark shirts such as pepper or espresso, use cream, off-white, light sage or mustard. For light shirts such as ivory, sage or heather, use deep brown, deep green or charcoal.",
       "\ud83d\udcd6 Keep soft pastels like dusty rose and lavender out of thin lines on dark garments, because they wash out. Use them as filled shapes, or switch to a light shirt. Keep line weight bold enough to survive printing.",
       "\ud83d\udcd6 Write illustration prompts with 'flat colors, limited palette, hand-drawn ink texture, slightly imperfect, transparent background, no gradients, no text'. Save the soft watercolor look for stickers and mugs, since gradients band on tees. Add the lettering separately in a hand-drawn style serif or script.",
-      "\ud83d\udcd6 For farmhouse mugs and tees, use a warm white or cream base, one dark anchor (brown or charcoal) and one muted accent (sage or terracotta). Put the palette words in titles and tags, such as sage green, terracotta, cottagecore and farmhouse kitchen."
+      "\ud83d\udcd6 For farmhouse mugs and tees, use a warm white or cream base, one dark anchor (brown or charcoal) and one muted accent (sage or terracotta). Put the palette words in titles and tags, such as sage green, terracotta, cottagecore and farmhouse kitchen.",
+      "\ud83d\udcd6 Write the joke around one specific in-group habit, not a broad label. 'Backyard chicken math', 'sourdough starter babysitter' and 'mostly zucchini' land better than 'gardening shirt'.",
+      "\ud83d\udcd6 Keep slogans to 2 to 4 short stacked lines, about 25 characters or fewer per line, with the punchline on its own line in the biggest size.",
+      "\ud83d\udcd6 Use a rounded, hand-lettered display font for the joke (Patrick Hand or Permanent Marker style). Pair it with one plain sans for small support text, and never use more than two fonts.",
+      "\ud83d\udcd6 Print one warm ink color on a muted shirt color: cream, warm brown, moss green or charcoal. Add a simple one-color illustration prompt, like 'bold line-art hen, thick outline, no fine detail, flat vintage print look'.",
+      "\ud83d\udcd6 Start titles and tags with the joke phrase itself, then the product, then who it's for. Example: 'Chicken Math Shirt, Backyard Chicken Mom Gift, Funny Homestead Tee'. Tags should mix the hobby words (chickens, sourdough, zucchini, homestead, garden) with 'gift for' phrases."
     ],
     "topics": [
       {
@@ -77,6 +82,16 @@
         "added": "2026-11-19T14:01:42.544328+00:00",
         "batches_left": 4,
         "text": "Cottage-farmhouse kitchen mugs and stickers: herbs, pitchers, egg baskets and bread in warm white, sage and clay"
+      },
+      {
+        "added": "2026-11-20T14:01:42.615349+00:00",
+        "batches_left": 4,
+        "text": "Backyard chicken math and coop-keeper humor (counting flocks, 'just one more hen')"
+      },
+      {
+        "added": "2026-11-20T14:01:42.615362+00:00",
+        "batches_left": 4,
+        "text": "Garden glut and kitchen-pantry jokes (too much zucchini, mason jars, starter care)"
       }
     ]
   },
@@ -4361,14 +4376,207 @@
     }
   },
   "facts": {
-    "last_attempt": "2026-11-19T16:03:52.428511+00:00"
+    "built": "2026-11-20T14:03:10.422894+00:00",
+    "items": [
+      {
+        "angle": "Giant pink tomato wearing a little house on its shoulders, \"Paid off one tomato at a time\"",
+        "fact": "Legend says a Depression-era radiator repairman sold his new tomato seedlings for a dollar each and paid off a $6,000 mortgage in six years, so the tomato became Mortgage Lifter.",
+        "id": 1,
+        "source": "https://tried-and-true.com/edibles_variety/tomato-mortgage-lifter-heirloom/",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Tomato plant with a tiny ear syringe, \"Hand-pollinated with patience\"",
+        "fact": "The Mortgage Lifter's breeder planted three tomato varieties in a circle around a fourth and hand-pollinated it with a baby's ear syringe.",
+        "id": 2,
+        "source": "https://www.gardeningknowhow.com/edible/vegetables/tomato/growing-mortgage-lifter-tomatoes.htm",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Two tomatoes side by side, \"Same name, different story\"",
+        "fact": "Two different West Virginia tomatoes carry the Mortgage Lifter name, and the family-kept original got its name from an offhand remark by a nursery worker.",
+        "id": 3,
+        "source": "https://wvpublic.org/a-family-cultivates-tradition-with-a-nearly-forgotten-tomato/",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Fat green hornworm with rice-grain cocoons, \"Do not disturb, the wasps are working\"",
+        "fact": "If you spot a hornworm covered in white cocoons, leave it alone, because the wasps that emerge will go on to parasitize other hornworms.",
+        "id": 4,
+        "source": "https://extension.rutgers.edu/fs1389",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Hornworm in a tiny crowd of cocoons, \"Garden security team\"",
+        "fact": "One tobacco hornworm in Texas ended up carrying 154 braconid wasp cocoons.",
+        "id": 5,
+        "source": "https://txmg.org/galveston/beneficials-in-the-garden-and-landscape/braconid-wasp-on-hornworms/",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Sphinx moth with five dots, \"Count the spots\"",
+        "fact": "Tobacco hornworm moths have six orange spots on the abdomen, while tomato hornworm moths have five.",
+        "id": 6,
+        "source": "https://content.ces.ncsu.edu/tobacco-hornworms",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Zucchini in a shopping basket, \"Locals don't buy zucchini\"",
+        "fact": "An old Vermont joke says you can spot an out-of-towner by the person buying zucchini in the produce aisle.",
+        "id": 7,
+        "source": "https://www.thekitchn.com/zucchini-oversupply-investigation-23395605",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Locked car with a zucchini peeking over the window, \"Lock your car, it's August\"",
+        "fact": "The riddle behind zucchini porch day asks why small-town people start locking their cars in August, and the answer is so neighbors won't fill them with zucchini.",
+        "id": 8,
+        "source": "https://patch.com/us/across-america/zucchini-pocalypse-sneak-it-neighbor-s-porch-recipes-more",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Zucchini tiptoeing up a porch step, \"August 8, you know what to do\"",
+        "fact": "Sneak Some Zucchini Onto Your Neighbors' Porch Day falls on 8 August each year, timed to the peak of zucchini season.",
+        "id": 9,
+        "source": "https://www.awarenessdays.com/awareness-days-calendar/national-sneak-some-zucchini-onto-your-neighbors-porch-day/",
+        "theme": "Garden harvest"
+      },
+      {
+        "angle": "Row of cooling jars with a \"Do not touch\" tea towel, \"Patience is a seal\"",
+        "fact": "Canning guidance says to wait 12 to 24 hours before testing whether jars have sealed.",
+        "id": 10,
+        "source": "https://extension.psu.edu/ensuring-a-good-seal-on-canned-goods",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "One jar with a lid askew, \"The one that didn't ping\"",
+        "fact": "A jar that did not seal within 24 hours can be reprocessed with a new lid for the full original processing time.",
+        "id": 11,
+        "source": "https://extension.psu.edu/ensuring-a-good-seal-on-canned-goods",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "Steaming canner with a kitchen timer, \"Five minutes of waiting\"",
+        "fact": "After processing, you turn off the heat, remove the canner lid, and let jars rest in the canner for 5 minutes before lifting them out.",
+        "id": 12,
+        "source": "https://extension.psu.edu/ensuring-a-good-seal-on-canned-goods",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "Jar with a hand turning the band, \"Fingertip tight\"",
+        "fact": "Screw bands that are too tight can make lids buckle, and bands that are too loose can cause seals to fail.",
+        "id": 13,
+        "source": "https://extension.psu.edu/ensuring-a-good-seal-on-canned-goods",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "Jar with musical notes rising from the lid, \"Hear that? That's success\"",
+        "fact": "A correctly sealed jar makes a ringing, high-pitched sound.",
+        "id": 14,
+        "source": "https://nchfp.uga.edu/how/can/general-information/cooling-jars-and-testing-jar-seals",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "Hand reaching for a jar, crossed out, \"Hands off the hot jars\"",
+        "fact": "You should not retighten lids on hot jars, because it can cut through the gasket and cause seal failures.",
+        "id": 15,
+        "source": "https://nchfp.uga.edu/how/can/general-information/cooling-jars-and-testing-jar-seals",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "Finger tracing a jar rim, \"Check every rim\"",
+        "fact": "Even a tiny nick in a jar rim can prevent a seal, so canners run a fingertip around every rim before filling.",
+        "id": 16,
+        "source": "https://thehomehearthco.com/why-your-canning-lid-didnt-seal-and-what-to-do-about-it/",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "Fresh lids lined up like soldiers, \"New lid, every time\"",
+        "fact": "Flat lids are single-use because the sealing compound gets compressed the first time and won't form a reliable second seal.",
+        "id": 17,
+        "source": "https://thehomehearthco.com/why-your-canning-lid-didnt-seal-and-what-to-do-about-it/",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "Pantry shelf of bare-lidded jars, \"Nothing to hide\"",
+        "fact": "Many canners store jars without the screw bands, so a failing seal shows itself instead of being hidden by a band holding the lid down.",
+        "id": 18,
+        "source": "https://ourcountrylife.com/why-did-my-canning-jars-not-seal/",
+        "theme": "Small Batch"
+      },
+      {
+        "angle": "Hen checking a wristwatch, \"Running 25 hours behind\"",
+        "fact": "It takes a hen's body about 25 to 26 hours to turn a yolk into a fully formed, laid egg.",
+        "id": 19,
+        "source": "https://poultry.extension.org/articles/poultry-anatomy/avian-reproductive-female/",
+        "theme": "Backyard Hens"
+      },
+      {
+        "angle": "Hen with a skeleton-key shaped egg, \"Made from her own bones and your oyster shells\"",
+        "fact": "Bone calcium supplies 47 percent of the calcium needed to make a shell, and the hen's diet provides the rest.",
+        "id": 20,
+        "source": "https://poultry.extension.org/articles/poultry-anatomy/avian-reproductive-female/",
+        "theme": "Backyard Hens"
+      },
+      {
+        "angle": "Egg wearing a tiny raincoat, \"Bloom: nature's packaging\"",
+        "fact": "Just before laying, a hen coats the egg in a fast-drying bloom that seals the tiny pores between the shell's calcium crystals.",
+        "id": 21,
+        "source": "https://www.cacklehatchery.com/how-a-hen-makes-an-egg-how-you-can-influence-the-quality/",
+        "theme": "Backyard Hens"
+      },
+      {
+        "angle": "Calendar with a hen and a missing egg, \"She's not slacking, she's cycling\"",
+        "fact": "Many hens lay a little later each day until they skip a day and start a new cycle.",
+        "id": 22,
+        "source": "https://starmilling.com/how-eggs-are-formed/",
+        "theme": "Backyard Hens"
+      },
+      {
+        "angle": "Hen with a small heart-shaped \"left side only\" tag, \"Left side does all the work\"",
+        "fact": "Only the left ovary fully matures to release eggs in a hen.",
+        "id": 23,
+        "source": "https://starmilling.com/how-eggs-are-formed/",
+        "theme": "Backyard Hens"
+      },
+      {
+        "angle": "Hen with a lifetime name tag and an egg, \"True to her color\"",
+        "fact": "A hen will lay only one color of egg her entire life, so a hen that starts with blue eggs will always lay blue.",
+        "id": 24,
+        "source": "https://www.farmprogress.com/poultry-news/predicting-egg-color-secret-lies-in-hen-s-earlobe",
+        "theme": "Backyard Hens"
+      },
+      {
+        "angle": "Hen showing off her earlobes, \"Check the earlobes\"",
+        "fact": "A Texas A&M extension poultry specialist says a hen with white earlobes lays white eggs, and one with darker earlobes lays colored eggs.",
+        "id": 25,
+        "source": "https://www.agdaily.com/livestock/poultry/egg-splaining-the-color-of-chicken-eggs-inside-and-out/",
+        "theme": "Backyard Hens"
+      },
+      {
+        "angle": "Hen with red earlobes holding a blue egg, \"Rules were made to be broken\"",
+        "fact": "Araucanas and Ameraucanas have red earlobes but lay blue-shelled eggs, which breaks the earlobe rule of thumb.",
+        "id": 26,
+        "source": "https://poultrykeeper.com/keeping-chickens/chicken-eggshell-colours/",
+        "theme": "Backyard Hens"
+      },
+      {
+        "angle": "Blue egg with a double helix, \"Blue egg science\"",
+        "fact": "Blue eggshells exist because a harmless retrovirus inserted itself into chicken DNA long ago, allowing an existing blue-shell gene to be expressed.",
+        "id": 27,
+        "source": "https://poultrykeeper.com/keeping-chickens/chicken-eggshell-colours/",
+        "theme": "Backyard Hens"
+      }
+    ],
+    "last_attempt": "2026-11-20T14:01:43.290290+00:00",
+    "rebuild": false
   },
   "force_scout": false,
   "last_error_ping": "2026-11-19T14:03:03.282708+00:00",
-  "last_full_ping": "2026-11-19T14:03:03.863195+00:00",
-  "last_run": "2026-11-19T20:06:53.454759+00:00",
+  "last_full_ping": "2026-11-20T14:03:10.985166+00:00",
+  "last_run": "2026-11-20T14:01:26.757706+00:00",
   "last_scout": "2026-11-17T19:05:43.528174+00:00",
-  "last_study": "2026-11-19",
+  "last_study": "2026-11-20",
   "name_index": 1,
   "orders": {},
   "paused": false,
@@ -4414,7 +4622,7 @@
   "queued_edits": [],
   "refresh_listings": {},
   "replace_pending": false,
-  "study_index": 4,
+  "study_index": 5,
   "study_log": [
     {
       "date": "2026-11-16T23:05:06.622663+00:00",
@@ -4482,6 +4690,23 @@
         "https://www.printful.com/blog/t-shirt-design-tips"
       ],
       "topic": "Cottagecore and farmhouse color palettes that print well on apparel and mugs"
+    },
+    {
+      "date": "2026-11-20T14:01:42.615384+00:00",
+      "lessons": [
+        "\ud83d\udcd6 Write the joke around one specific in-group habit, not a broad label. 'Backyard chicken math', 'sourdough starter babysitter' and 'mostly zucchini' land better than 'gardening shirt'.",
+        "\ud83d\udcd6 Keep slogans to 2 to 4 short stacked lines, about 25 characters or fewer per line, with the punchline on its own line in the biggest size.",
+        "\ud83d\udcd6 Use a rounded, hand-lettered display font for the joke (Patrick Hand or Permanent Marker style). Pair it with one plain sans for small support text, and never use more than two fonts.",
+        "\ud83d\udcd6 Print one warm ink color on a muted shirt color: cream, warm brown, moss green or charcoal. Add a simple one-color illustration prompt, like 'bold line-art hen, thick outline, no fine detail, flat vintage print look'.",
+        "\ud83d\udcd6 Start titles and tags with the joke phrase itself, then the product, then who it's for. Example: 'Chicken Math Shirt, Backyard Chicken Mom Gift, Funny Homestead Tee'. Tags should mix the hobby words (chickens, sourdough, zucchini, homestead, garden) with 'gift for' phrases."
+      ],
+      "sources": [
+        "https://www.printful.com/blog/print-on-demand-niches",
+        "https://printify.com/blog/best-fonts-for-t-shirts/",
+        "https://merchtitans.com/blog/typography-t-shirt-design-guide",
+        "https://www.etsy.com/market/funny_homestead"
+      ],
+      "topic": "Writing warm, funny homestead slogans: what the community jokes about (chickens, zucchini, sourdough)"
     }
   ],
   "telegram_chat_id": "147542263",
